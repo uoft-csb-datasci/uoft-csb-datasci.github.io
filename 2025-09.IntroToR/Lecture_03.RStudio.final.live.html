@@ -724,21 +724,12 @@ and remind ourselves about the original structure.</p>
 <pre class="r"><code># Always check where you are first!
 getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2025.09_Intro_to_R/lecture_03_tidy_data&quot;</code></pre>
-<pre class="r"><code>list.files(&quot;...&quot;)</code></pre>
-<pre><code>##  [1] &quot;cagef_slides&quot;                                      
-##  [2] &quot;data&quot;                                              
-##  [3] &quot;Lecture_03.JupyterHub.final.withOutput.answers.Rmd&quot;
-##  [4] &quot;Lecture_03.JupyterHub.final.withOutput.pdf&quot;        
-##  [5] &quot;Lecture_03.RStudio.draft.nb.html&quot;                  
-##  [6] &quot;Lecture_03.RStudio.draft.Rmd&quot;                      
-##  [7] &quot;Lecture_03.RStudio.final.html&quot;                     
-##  [8] &quot;Lecture_03.RStudio.final.live.nb.html&quot;             
-##  [9] &quot;Lecture_03.RStudio.final.live.Rmd&quot;                 
-## [10] &quot;Lecture_03.RStudio.final.nb.html&quot;                  
-## [11] &quot;Lecture_03.RStudio.final.Rmd&quot;                      
-## [12] &quot;Lecture_03.RStudio.skeleton.nb.html&quot;               
-## [13] &quot;Lecture_03.RStudio.skeleton.old.Rmd&quot;               
-## [14] &quot;Lecture_03.RStudio.skeleton.Rmd&quot;</code></pre>
+<pre class="r"><code>list.files(&quot;data/&quot;)</code></pre>
+<pre><code>## [1] &quot;data_old&quot;                    &quot;embryo_data_long_merged.csv&quot;
+## [3] &quot;embryo_data_wide.csv&quot;        &quot;embryo_data_wide_remade.csv&quot;
+## [5] &quot;gapminder_long.csv&quot;          &quot;gapminder_wide.csv&quot;         
+## [7] &quot;infection_meta.csv&quot;          &quot;spore_dose_info.csv&quot;        
+## [9] &quot;spore_info.txt&quot;</code></pre>
 <pre class="r"><code># Read in our file. 
 # Remember we&#39;re using the tidyverse to import our data!
 embryos.df &lt;- read_csv(&quot;data/embryo_data_wide.csv&quot;)</code></pre>
@@ -864,11 +855,41 @@ using his own package, <code>ggplot2</code>.</p>
 observations on this unfamiliar data.</p>
 <pre class="r"><code># Let&#39;s review our data again
 # From the top
-head(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+head(embryos.df)</code></pre>
+<pre><code>## [90m# A tibble: 6 x 301[39m
+##   worm.number `200707_N2_LUAm1_0M_72hpi` `200707_N2_LUAm1_10M_72hpi`
+##         [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                      [3m[90m&lt;chr&gt;[39m[23m                      
+## [90m1[39m           1 0_0_18                     0_1_7                      
+## [90m2[39m           2 0_0_18                     0_1_3                      
+## [90m3[39m           3 0_0_9                      0_1_10                     
+## [90m4[39m           4 0_0_15                     0_1_8                      
+## [90m5[39m           5 0_0_15                     0_1_14                     
+## [90m6[39m           6 0_0_12                     0_1_9                      
+## [90m# i 298 more variables: `200707_JU1400_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_JU1400_LUAm1_10M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052A_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052A_LUAm1_10M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052B_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052B_LUAm1_10M_72hpi` &lt;chr&gt;, `200707_MY1_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_MY1_LUAm1_10M_72hpi` &lt;chr&gt;, `200707_N2_MAM1_4M_72hpi` &lt;chr&gt;, ...[39m</code></pre>
 <pre class="r"><code># And from the bottom
-tail(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+tail(embryos.df)</code></pre>
+<pre><code>## [90m# A tibble: 6 x 301[39m
+##   worm.number `200707_N2_LUAm1_0M_72hpi` `200707_N2_LUAm1_10M_72hpi`
+##         [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                      [3m[90m&lt;chr&gt;[39m[23m                      
+## [90m1[39m         149 [31mNA[39m                         [31mNA[39m                         
+## [90m2[39m         150 [31mNA[39m                         [31mNA[39m                         
+## [90m3[39m         151 [31mNA[39m                         [31mNA[39m                         
+## [90m4[39m         152 [31mNA[39m                         [31mNA[39m                         
+## [90m5[39m         153 [31mNA[39m                         [31mNA[39m                         
+## [90m6[39m         154 [31mNA[39m                         [31mNA[39m                         
+## [90m# i 298 more variables: `200707_JU1400_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_JU1400_LUAm1_10M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052A_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052A_LUAm1_10M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052B_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_ED3052B_LUAm1_10M_72hpi` &lt;chr&gt;, `200707_MY1_LUAm1_0M_72hpi` &lt;chr&gt;,[39m
+## [90m#   `200707_MY1_LUAm1_10M_72hpi` &lt;chr&gt;, `200707_N2_MAM1_4M_72hpi` &lt;chr&gt;, ...[39m</code></pre>
 <hr />
 </div>
 <div id="assessing-our-data-frame" class="section level2">
@@ -996,13 +1017,21 @@ embryos.df %&gt;%
 
   # Use the pivot_longer command 
   pivot_longer(data = .,                                      # Recall what the &quot;.&quot; represents?
-               cols = ...,                                  # The first column is worm.number and we don&#39;t need to pivot that
-               names_to = &quot;...&quot;,                       # The variable where we&#39;ll store columns names
-               values_to = &quot;...&quot;) %&gt;%      # The variable where we&#39;ll store column values
+               cols = 2:301,                                  # The first column is worm.number and we don&#39;t need to pivot that
+               names_to = &quot;experiment&quot;,                       # The variable where we&#39;ll store columns names
+               values_to = &quot;spores_meronts_embryos&quot;) %&gt;%      # The variable where we&#39;ll store column values
   
   # Take a peek at the result
   head()</code></pre>
-<pre><code>## Error in head(.): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [90m# A tibble: 6 x 3[39m
+##   worm.number experiment                     spores_meronts_embryos
+##         [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                          [3m[90m&lt;chr&gt;[39m[23m                 
+## [90m1[39m           1 200707_N2_LUAm1_0M_72hpi       0_0_18                
+## [90m2[39m           1 200707_N2_LUAm1_10M_72hpi      0_1_7                 
+## [90m3[39m           1 200707_JU1400_LUAm1_0M_72hpi   0_0_10                
+## [90m4[39m           1 200707_JU1400_LUAm1_10M_72hpi  0_1_0                 
+## [90m5[39m           1 200707_ED3052A_LUAm1_0M_72hpi  0_0_12                
+## [90m6[39m           1 200707_ED3052A_LUAm1_10M_72hpi 0_1_0</code></pre>
 <hr />
 </div>
 <div id="tidy-select-provides-many-ways-to-specify-cols-in-pivot_longer" class="section level3">
@@ -2018,9 +2047,9 @@ long format.</p></li>
 </ul>
 <table>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="37%" />
+<col width="37%" />
+<col width="25%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2366,9 +2395,9 @@ a bit so that they make more sense for us. Afterwards we’ll join our
 data on 3 common variables:</p>
 <table>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="37%" />
+<col width="37%" />
+<col width="25%" />
 </colgroup>
 <thead>
 <tr class="header">
