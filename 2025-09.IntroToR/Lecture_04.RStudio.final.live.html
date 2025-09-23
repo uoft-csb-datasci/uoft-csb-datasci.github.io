@@ -631,8 +631,8 @@ kernel</strong> via the menu at
 <strong><code>Session &gt; Restart R</code></strong> or using
 <code>Ctrl + Shift + F10</code>.</p>
 <pre class="r"><code># Step 2: after restarting the kernel...
-# No need to install ggplot2 if you didn&#39;t uninstall it
 library(remotes)
+# Say no to updating any additional packages while installing ggplot2 and ComplexUpset
 install_version(&quot;ggplot2&quot;, version = &quot;3.5.2&quot;, repos = &#39;http://cran.us.r-project.org&#39;)</code></pre>
 <pre><code>## Downloading package from url: http://cran.us.r-project.org/src/contrib/Archive/ggplot2/ggplot2_3.5.2.tar.gz</code></pre>
 <pre><code>## rlang    (1.1.5 -&gt; 1.1.6) [CRAN]
