@@ -3063,85 +3063,28 @@ something like the following:</p>
   pull(1) %&gt;%              # Retrieve just a single column (vs select) as a vector
   
    # Use the power of regex and greedy matching to create 4 capture groups
-  str_match_all(r&quot;(...)&quot;)     
+  str_match_all(r&quot;(^(\w+\.\d+)\s(.+)\s(\w+)\s(\w+))&quot;)     
 
 # Take a look at the last few rows of our result
 tail(fasta_header, 3)</code></pre>
 <pre><code>## [[1]]
-##       [,1] 
-##  [1,] &quot;XP_&quot;
-##  [2,] &quot;007&quot;
-##  [3,] &quot;980&quot;
-##  [4,] &quot;836&quot;
-##  [5,] &quot;.1 &quot;
-##  [6,] &quot;PRE&quot;
-##  [7,] &quot;DIC&quot;
-##  [8,] &quot;TED&quot;
-##  [9,] &quot;: f&quot;
-## [10,] &quot;ork&quot;
-## [11,] &quot;hea&quot;
-## [12,] &quot;d b&quot;
-## [13,] &quot;ox &quot;
-## [14,] &quot;pro&quot;
-## [15,] &quot;tei&quot;
-## [16,] &quot;n P&quot;
-## [17,] &quot;2 i&quot;
-## [18,] &quot;sof&quot;
-## [19,] &quot;orm&quot;
-## [20,] &quot; X2&quot;
-## [21,] &quot; Ch&quot;
-## [22,] &quot;lor&quot;
-## [23,] &quot;oce&quot;
-## [24,] &quot;bus&quot;
-## [25,] &quot; sa&quot;
-## [26,] &quot;bae&quot;
+##      [,1]                                                                              
+## [1,] &quot;XP_007980836.1 PREDICTED: forkhead box protein P2 isoform X2 Chlorocebus sabaeus&quot;
+##      [,2]             [,3]                                           
+## [1,] &quot;XP_007980836.1&quot; &quot;PREDICTED: forkhead box protein P2 isoform X2&quot;
+##      [,4]          [,5]     
+## [1,] &quot;Chlorocebus&quot; &quot;sabaeus&quot;
 ## 
 ## [[2]]
-##       [,1] 
-##  [1,] &quot;XP_&quot;
-##  [2,] &quot;007&quot;
-##  [3,] &quot;980&quot;
-##  [4,] &quot;835&quot;
-##  [5,] &quot;.1 &quot;
-##  [6,] &quot;PRE&quot;
-##  [7,] &quot;DIC&quot;
-##  [8,] &quot;TED&quot;
-##  [9,] &quot;: f&quot;
-## [10,] &quot;ork&quot;
-## [11,] &quot;hea&quot;
-## [12,] &quot;d b&quot;
-## [13,] &quot;ox &quot;
-## [14,] &quot;pro&quot;
-## [15,] &quot;tei&quot;
-## [16,] &quot;n P&quot;
-## [17,] &quot;2 i&quot;
-## [18,] &quot;sof&quot;
-## [19,] &quot;orm&quot;
-## [20,] &quot; X1&quot;
-## [21,] &quot; Ch&quot;
-## [22,] &quot;lor&quot;
-## [23,] &quot;oce&quot;
-## [24,] &quot;bus&quot;
-## [25,] &quot; sa&quot;
-## [26,] &quot;bae&quot;
+##      [,1]                                                                              
+## [1,] &quot;XP_007980835.1 PREDICTED: forkhead box protein P2 isoform X1 Chlorocebus sabaeus&quot;
+##      [,2]             [,3]                                           
+## [1,] &quot;XP_007980835.1&quot; &quot;PREDICTED: forkhead box protein P2 isoform X1&quot;
+##      [,4]          [,5]     
+## [1,] &quot;Chlorocebus&quot; &quot;sabaeus&quot;
 ## 
 ## [[3]]
-##       [,1] 
-##  [1,] &quot;Ext&quot;
-##  [2,] &quot;ern&quot;
-##  [3,] &quot;al &quot;
-##  [4,] &quot;lin&quot;
-##  [5,] &quot;k. &quot;
-##  [6,] &quot;Ple&quot;
-##  [7,] &quot;ase&quot;
-##  [8,] &quot; re&quot;
-##  [9,] &quot;vie&quot;
-## [10,] &quot;w o&quot;
-## [11,] &quot;ur &quot;
-## [12,] &quot;pri&quot;
-## [13,] &quot;vac&quot;
-## [14,] &quot;y p&quot;
-## [15,] &quot;oli&quot;</code></pre>
+##      [,1] [,2] [,3] [,4] [,5]</code></pre>
 <hr />
 </div>
 <div id="reformat-our-header-information-into-a-data-frame" class="section level3">
@@ -3153,35 +3096,21 @@ information from each entry of the list itself? Currently
 matrix. Let’s convince ourselves in the following code cell.</p>
 <pre class="r"><code># Look at the first entry of fasta_header
 fasta_header[[1]]</code></pre>
-<pre><code>##       [,1] 
-##  [1,] &quot;NP_&quot;
-##  [2,] &quot;683&quot;
-##  [3,] &quot;696&quot;
-##  [4,] &quot;.2 &quot;
-##  [5,] &quot;for&quot;
-##  [6,] &quot;khe&quot;
-##  [7,] &quot;ad &quot;
-##  [8,] &quot;box&quot;
-##  [9,] &quot; pr&quot;
-## [10,] &quot;ote&quot;
-## [11,] &quot;in &quot;
-## [12,] &quot;P2 &quot;
-## [13,] &quot;iso&quot;
-## [14,] &quot;for&quot;
-## [15,] &quot;m I&quot;
-## [16,] &quot;I H&quot;
-## [17,] &quot;omo&quot;
-## [18,] &quot; sa&quot;
-## [19,] &quot;pie&quot;</code></pre>
+<pre><code>##      [,1]                                                         
+## [1,] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot;
+##      [,2]          [,3]                                 [,4]   [,5]     
+## [1,] &quot;NP_683696.2&quot; &quot;forkhead box protein P2 isoform II&quot; &quot;Homo&quot; &quot;sapiens&quot;</code></pre>
 <pre class="r"><code># Two ways to drop the first column
 print(&quot;Select our columns specifically...&quot;)</code></pre>
 <pre><code>## [1] &quot;Select our columns specifically...&quot;</code></pre>
-<pre class="r"><code>fasta_header[[1]][...]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>fasta_header[[1]][,2:5]</code></pre>
+<pre><code>## [1] &quot;NP_683696.2&quot;                        &quot;forkhead box protein P2 isoform II&quot;
+## [3] &quot;Homo&quot;                               &quot;sapiens&quot;</code></pre>
 <pre class="r"><code>print(&quot;Leave a column behind&quot;)</code></pre>
 <pre><code>## [1] &quot;Leave a column behind&quot;</code></pre>
-<pre class="r"><code>fasta_header[[1]][...]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>fasta_header[[1]][,-1]</code></pre>
+<pre><code>## [1] &quot;NP_683696.2&quot;                        &quot;forkhead box protein P2 isoform II&quot;
+## [3] &quot;Homo&quot;                               &quot;sapiens&quot;</code></pre>
 <hr />
 <p>How do we approach converting this to something like a data frame?
 There are a number of ways to do this and we’ll show you a couple.</p>
@@ -3191,15 +3120,20 @@ There are a number of ways to do this and we’ll show you a couple.</p>
 columns</li>
 </ol>
 <pre class="r"><code># Convert the results of str_match_all into a data frame
-...(fasta_header[[1]][,2:5])</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, 2:5]): could not find function &quot;...&quot;</code></pre>
+data.frame(fasta_header[[1]][,2:5])</code></pre>
+<pre><code>##             fasta_header..1.....2.5.
+## 1                        NP_683696.2
+## 2 forkhead box protein P2 isoform II
+## 3                               Homo
+## 4                            sapiens</code></pre>
 <p>Not quite what we expected from our conversion. The vector was
 coerced into a series of <strong><em>rows</em></strong> rather than
 <strong><em>columns</em></strong>. In order to get what we want, we’ll
 have to transpose for proper coercion.</p>
 <pre class="r"><code># You need to transpose the trimmed data for proper coercion
-data.frame(...(fasta_header[[1]][, 2:5]))</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, 2:5]): could not find function &quot;...&quot;</code></pre>
+data.frame(t(fasta_header[[1]][, 2:5]))</code></pre>
+<pre><code>##            X1                                 X2   X3      X4
+## 1 NP_683696.2 forkhead box protein P2 isoform II Homo sapiens</code></pre>
 <hr />
 </div>
 <div id="a-note-about-working-with-data-frames-and-rbind" class="section level3">
@@ -3229,21 +3163,31 @@ etc. In our case, we will explicitly call on
 <pre class="r"><code>str(fasta_header, 
     list.len = 5) # Limit the number of elements in the list output</code></pre>
 <pre><code>## List of 68
-##  $ : chr [1:19, 1] &quot;NP_&quot; &quot;683&quot; &quot;696&quot; &quot;.2 &quot; ...
-##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;683&quot; &quot;697&quot; &quot;.2 &quot; ...
-##  $ : chr [1:19, 1] &quot;NP_&quot; &quot;683&quot; &quot;698&quot; &quot;.2 &quot; ...
-##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;001&quot; &quot;166&quot; &quot;238&quot; ...
-##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;001&quot; &quot;166&quot; &quot;237&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot; &quot;NP_683696.2&quot; &quot;forkhead box protein P2 isoform II&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens&quot; &quot;NP_683697.2&quot; &quot;forkhead box protein P2 isoform III&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens&quot; &quot;NP_683698.2&quot; &quot;forkhead box protein P2 isoform IV&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_001166238.1 forkhead box protein P2 isoform VI Homo sapiens&quot; &quot;NP_001166238.1&quot; &quot;forkhead box protein P2 isoform VI&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_001166237.1 forkhead box protein P2 isoform V Homo sapiens&quot; &quot;NP_001166237.1&quot; &quot;forkhead box protein P2 isoform V&quot; &quot;Homo&quot; ...
 ##   [list output truncated]</code></pre>
 <hr />
 <p>Let’s compare what happens when we allow the R interpreter to choose
 which version of <code>rbind()</code> it will use versus specifying.</p>
 <pre class="r"><code># What happens if we call rbind?
-...(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, -1], fasta_header[[2]][, -1]): could not find function &quot;...&quot;</code></pre>
+rbind(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
+<pre><code>##      [,1]          [,2]                                  [,3]   [,4]     
+## [1,] &quot;NP_683696.2&quot; &quot;forkhead box protein P2 isoform II&quot;  &quot;Homo&quot; &quot;sapiens&quot;
+## [2,] &quot;NP_683697.2&quot; &quot;forkhead box protein P2 isoform III&quot; &quot;Homo&quot; &quot;sapiens&quot;</code></pre>
 <pre class="r"><code># What about rbind.data.frame?
-...(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, -1], fasta_header[[2]][, -1]): could not find function &quot;...&quot;</code></pre>
+rbind.data.frame(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
+<pre><code>##   c..NP_683696.2....NP_683697.2..
+## 1                     NP_683696.2
+## 2                     NP_683697.2
+##   c..forkhead.box.protein.P2.isoform.II....forkhead.box.protein.P2.isoform.III.
+## 1                                            forkhead box protein P2 isoform II
+## 2                                           forkhead box protein P2 isoform III
+##   c..Homo....Homo.. c..sapiens....sapiens..
+## 1              Homo                 sapiens
+## 2              Homo                 sapiens</code></pre>
 <hr />
 </div>
 <div id="use-a-loop-to-build-your-data-frame-one-row-at-a-time" class="section level3">
@@ -3258,16 +3202,26 @@ header.df &lt;- rbind.data.frame(fasta_header[[1]][,-1])
 
 rm(i) ## remove any previous instances of i</code></pre>
 <pre><code>## Warning in rm(i): object &#39;i&#39; not found</code></pre>
-<pre class="r"><code>for (i in ...){
+<pre class="r"><code>for (i in 2:length(fasta_header)-1){
   # Drop the last potential list in fasta_header since it was blank!
 
-  header.df &lt;- rbind.data.frame(header.df, fasta_header[[...]][, -1])
-}</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+  header.df &lt;- rbind.data.frame(header.df, fasta_header[[i]][, -1])
+}
+
+head(header.df)</code></pre>
+<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
+## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens
+## 2    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens
+## 3    NP_683697.2   forkhead box protein P2 isoform III    Homo    sapiens
+## 4    NP_683698.2    forkhead box protein P2 isoform IV    Homo    sapiens
+## 5 NP_001166238.1    forkhead box protein P2 isoform VI    Homo    sapiens
+## 6 NP_001166237.1     forkhead box protein P2 isoform V    Homo    sapiens</code></pre>
 <pre class="r"><code>str(header.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    0 obs. of  0 variables</code></pre>
+<pre><code>## &#39;data.frame&#39;:    68 obs. of  4 variables:
+##  $ X.NP_683696.2.                       : chr  &quot;NP_683696.2&quot; &quot;NP_683696.2&quot; &quot;NP_683697.2&quot; &quot;NP_683698.2&quot; ...
+##  $ X.forkhead.box.protein.P2.isoform.II.: chr  &quot;forkhead box protein P2 isoform II&quot; &quot;forkhead box protein P2 isoform II&quot; &quot;forkhead box protein P2 isoform III&quot; &quot;forkhead box protein P2 isoform IV&quot; ...
+##  $ X.Homo.                              : chr  &quot;Homo&quot; &quot;Homo&quot; &quot;Homo&quot; &quot;Homo&quot; ...
+##  $ X.sapiens.                           : chr  &quot;sapiens&quot; &quot;sapiens&quot; &quot;sapiens&quot; &quot;sapiens&quot; ...</code></pre>
 <hr />
 </div>
 <div id="do.call-to-save-youself-some-trouble" class="section level3">
@@ -3300,25 +3254,24 @@ vecNum1 = c(1:10)
 vecNum2 = c(11:21)
 
 # Put these vectors into a list
-listNum = list(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Take the sum of each vector
-...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+listNum = list(vecNum1, vecNum2)
+
+# Take the sum of each vector
+sum(vecNum1) + sum(vecNum2)</code></pre>
+<pre><code>## [1] 231</code></pre>
 <hr />
 <p>Now suppose we had a <code>list</code> of vectors that we wanted to
 add up? We could constantly sum them all. We could use a
 <code>for</code> loop like we saw above or maybe we can just add the
 vectors and take the sum?</p>
 <pre class="r"><code># Can we just take the sum of the two vectors added together?
-sum(vecNum1 ... vecNum2)
-
-# Or do we provide each vector as an argument?
-sum(vecNum1 ... vecNum2)</code></pre>
-<pre><code>## Error: &lt;text&gt;:2:13: unexpected symbol
-## 1: # Can we just take the sum of the two vectors added together?
-## 2: sum(vecNum1 ...
-##                ^</code></pre>
+sum(vecNum1 + vecNum2)</code></pre>
+<pre><code>## Warning in vecNum1 + vecNum2: longer object length is not a multiple of shorter
+## object length</code></pre>
+<pre><code>## [1] 232</code></pre>
+<pre class="r"><code># Or do we provide each vector as an argument?
+sum(vecNum1, vecNum2)</code></pre>
+<pre><code>## [1] 231</code></pre>
 <hr />
 <p>Looks like if we try to add the vectors and then sum we are getting
 an incorrect answer? Long story short - <strong><em>vector
@@ -3338,11 +3291,11 @@ perform a <code>sum()</code> function across our <code>listNum</code>
 object.</p>
 <pre class="r"><code># Can we simply sum the elements of the list?
 sum(listNum)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;listNum&#39; not found</code></pre>
+<pre><code>## Error in sum(listNum): invalid &#39;type&#39; (list) of argument</code></pre>
 <pre class="r"><code># If we use do.call, it breaks the elements out of the list before passing them all at once to sum()
 # Note that we are providing the function name, &quot;sum&quot;, not calling on the function using &quot;sum()&quot;
-...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+do.call(sum, listNum)</code></pre>
+<pre><code>## [1] 231</code></pre>
 <hr />
 <p>Now that we’ve really dug into understanding the
 <code>do.call()</code> function, let’s get back to our dilemma. We have
@@ -3356,18 +3309,26 @@ individual dataframes and not a single one. It’s time for
 <code>do.call()</code> to shine!</p>
 <pre class="r"><code># Now use do.call
 header.df &lt;- 
-  do.call(...) %&gt;% 
-  select(-1) # remember you need to get rid of the first column</code></pre>
-<pre><code>## Error in select(., -1): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+  do.call(rbind.data.frame, fasta_header) %&gt;% 
+  select(-1) # remember you need to get rid of the first column
+
+head(header.df)</code></pre>
+<pre><code>##               V2                                  V3   V4      V5
+## 1    NP_683696.2  forkhead box protein P2 isoform II Homo sapiens
+## 2    NP_683697.2 forkhead box protein P2 isoform III Homo sapiens
+## 3    NP_683698.2  forkhead box protein P2 isoform IV Homo sapiens
+## 4 NP_001166238.1  forkhead box protein P2 isoform VI Homo sapiens
+## 5 NP_001166237.1   forkhead box protein P2 isoform V Homo sapiens
+## 6    NP_055306.1   forkhead box protein P2 isoform I Homo sapiens</code></pre>
 <hr />
 <p>Don’t forget to rename your columns!</p>
 <pre class="r"><code># rename the columns &quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, and &quot;Species&quot;
-...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, &quot;Species&quot;)</code></pre>
-<pre><code>## Error in ...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, : could not find function &quot;...&lt;-&quot;</code></pre>
-<pre class="r"><code>head(header.df,2)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+colnames(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, &quot;Species&quot;)
+
+head(header.df,2)</code></pre>
+<pre><code>##   Accession_number                        Protein_info Genus Species
+## 1      NP_683696.2  forkhead box protein P2 isoform II  Homo sapiens
+## 2      NP_683697.2 forkhead box protein P2 isoform III  Homo sapiens</code></pre>
 <hr />
 <p>Looks like we are halfway through our problem. We’ve split the header
 into new columns and we now need to cleanup the sequence entries which
@@ -3403,10 +3364,43 @@ header_seq_subset %&gt;%
   # Break off the 2nd column
   pull(2) %&gt;% 
   # Split the strings
-  str_split(...) %&gt;% 
+  str_split(r&quot;(\r\n)&quot;) %&gt;% 
   # Take a look at the results of the split
   head(3)</code></pre>
-<pre><code>## Error in head(., 3): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT&quot;
+##  [2] &quot;SGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSP&quot;
+##  [3] &quot;QQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ&quot;
+##  [4] &quot;QQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQS&quot;
+##  [5] &quot;LPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLS&quot;
+##  [6] &quot;ARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQL&quot;
+##  [7] &quot;SKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVIT&quot;
+##  [8] &quot;PASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFT&quot;
+##  [9] &quot;RTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYG&quot;
+## [10] &quot;AALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKE&quot;
+## [11] &quot;EPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE&quot;                              
+## 
+## [[2]]
+## [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT&quot;
+## [2] &quot;SGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYK&quot;
+## [3] &quot;KQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQL&quot;
+## [4] &quot;AAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSME&quot;
+## [5] &quot;DNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKW&quot;
+## [6] &quot;PGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSP&quot;
+## [7] &quot;KPVSAYCFINSK&quot;                                                          
+## 
+## [[3]]
+##  [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT&quot;
+##  [2] &quot;SGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLE&quot;
+##  [3] &quot;NFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHP&quot;
+##  [4] &quot;GKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSP&quot;
+##  [5] &quot;AEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSH&quot;
+##  [6] &quot;EETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQ&quot;
+##  [7] &quot;AMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVG&quot;
+##  [8] &quot;AIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRR&quot;
+##  [9] &quot;NAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQ&quot;
+## [10] &quot;AALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDE&quot;
+## [11] &quot;DCPMSLVTTANHSPELEDDREIEEEPLSEDLE&quot;</code></pre>
 <hr />
 </div>
 <div id="is-it-lapply-or-do.call" class="section level3">
@@ -3429,14 +3423,18 @@ header_seq_subset %&gt;%
   # Split the strings
   str_split(r&quot;(\r\n)&quot;) %&gt;% 
   ### 4.2.7.1 Now you&#39;ll have a list of split sequences that you&#39;ll need to re-unite
-  ... %&gt;% 
+  lapply(., str_flatten) %&gt;% 
   # Turn this result back into a vector
   unlist()  %&gt;% 
   # drop the last element because it&#39;s not helpful
   head(-1) %&gt;% 
   # Let&#39;s just look at the last few entries
   tail(5)</code></pre>
-<pre><code>## Error in ...(.): could not find function &quot;...&quot;</code></pre>
+<pre><code>## [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNSKWFIQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;                         
+## [2] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;                       
+## [3] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQSKWFIQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;                 
+## [4] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;      
+## [5] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNSKWFIQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;</code></pre>
 <hr />
 </div>
 <div id="work-smarter-not-harder-by-picking-the-right-functions" class="section level3">
@@ -3455,13 +3453,17 @@ seq_united &lt;-
   # Break off the 2nd column
   pull(2) %&gt;% 
   ### 4.2.7.2 Remove all of the line breaks from each individual vector element
-  ...(r&quot;(\r\n)&quot;) %&gt;% 
+  str_remove_all(r&quot;(\r\n)&quot;) %&gt;% 
   # Now you&#39;ll have just have a vector that you need to trim
-  head(-1)</code></pre>
-<pre><code>## Error in ...(., &quot;\\r\\n&quot;): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># Take a peek at the result
+  head(-1)
+
+# Take a peek at the result
 print(tail(seq_united, 5))</code></pre>
-<pre><code>## Error in tail(seq_united, 5): object &#39;seq_united&#39; not found</code></pre>
+<pre><code>## [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNSKWFIQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;                         
+## [2] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;                       
+## [3] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQSKWFIQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;                 
+## [4] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;      
+## [5] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNSKWFIQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSTTSKASPPITHHSIVNGQSSVLNARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEEDREIEEEPLSEDLE&quot;</code></pre>
 <hr />
 </div>
 <div id="adding-columns-to-your-data-frame---a-tool-for-each-purpose" class="section level3">
@@ -3481,14 +3483,39 @@ new column named “Sequence”</p>
 <p>Let’s try some of them!</p>
 <pre class="r"><code># we can combine the columns, but will we get the column names we want?
 # Remember we already have the sequences in header.df
-cbind(...) %&gt;% head()</code></pre>
-<pre><code>## Error in head(.): &#39;...&#39; used in an incorrect context</code></pre>
+cbind(header.df, seq_united) %&gt;% head()</code></pre>
+<pre><code>##   Accession_number                        Protein_info Genus Species
+## 1      NP_683696.2  forkhead box protein P2 isoform II  Homo sapiens
+## 2      NP_683697.2 forkhead box protein P2 isoform III  Homo sapiens
+## 3      NP_683698.2  forkhead box protein P2 isoform IV  Homo sapiens
+## 4   NP_001166238.1  forkhead box protein P2 isoform VI  Homo sapiens
+## 5   NP_001166237.1   forkhead box protein P2 isoform V  Homo sapiens
+## 6      NP_055306.1   forkhead box protein P2 isoform I  Homo sapiens
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             seq_united
+## 1 MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE
+## 2                                                                                                                                                                                                                                                                                                                     MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPVSAYCFINSK
+## 3         MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE
+## 4                                                                                                                                                                                                                                                                                            MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPVSAYCFINSK
+## 5                           MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE
+## 6                          MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE</code></pre>
 <pre class="r"><code># Note that cbind will permanently alter seq_united</code></pre>
 <pre class="r"><code># Replace the sequence column of our header.df but this is a PERMANENT CHANGE!
-header.df$... &lt;- seq_united</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;seq_united&#39; not found</code></pre>
-<pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+header.df$Sequence &lt;- seq_united
+head(header.df)</code></pre>
+<pre><code>##   Accession_number                        Protein_info Genus Species
+## 1      NP_683696.2  forkhead box protein P2 isoform II  Homo sapiens
+## 2      NP_683697.2 forkhead box protein P2 isoform III  Homo sapiens
+## 3      NP_683698.2  forkhead box protein P2 isoform IV  Homo sapiens
+## 4   NP_001166238.1  forkhead box protein P2 isoform VI  Homo sapiens
+## 5   NP_001166237.1   forkhead box protein P2 isoform V  Homo sapiens
+## 6      NP_055306.1   forkhead box protein P2 isoform I  Homo sapiens
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Sequence
+## 1 MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE
+## 2                                                                                                                                                                                                                                                                                                                     MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPVSAYCFINSK
+## 3         MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLENFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE
+## 4                                                                                                                                                                                                                                                                                            MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPVSAYCFINSK
+## 5                           MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE
+## 6                          MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQTSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE</code></pre>
 <hr />
 <p>We’re done! Just like we wanted it:</p>
 <table>
@@ -3545,13 +3572,46 @@ column names that were much harder to deal with in our code.</p>
 those variable names. We’ll save the file in a variable called
 <code>infection.df</code>.</p>
 <pre class="r"><code># Import the infection_meta.csv file
-infection.df &lt;- read_csv(&quot;...&quot;) </code></pre>
-<pre><code>## Warning in file(con, &quot;rb&quot;): cannot open file
-## &#39;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2025.09_Intro_to_R/lecture_05_regex&#39;:
-## Permission denied</code></pre>
-<pre><code>## Error in file(con, &quot;rb&quot;): cannot open the connection</code></pre>
+infection.df &lt;- read_csv(&quot;data/infection_meta.csv&quot;) </code></pre>
+<pre><code>## [1mRows: [22m[34m276[39m [1mColumns: [22m[34m29[39m
+## [36m--[39m [1mColumn specification[22m [36m------------------------------------------------------------------------------------------------[39m
+## [1mDelimiter:[22m &quot;,&quot;
+## [31mchr[39m (10): experiment, experimenter, description, Worm_strain, Spore Strain, ...
+## [32mdbl[39m (19): Infection Date, Plate Number, Total Worms, Lot concentration, Tota...
+## 
+## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
+## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>str(infection.df, give.attr = FALSE)</code></pre>
-<pre><code>## Error in str(infection.df, give.attr = FALSE): object &#39;infection.df&#39; not found</code></pre>
+<pre><code>## spc_tbl_ [276 x 29] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ experiment       : chr [1:276] &quot;190426_VC20019_LUAm1_0M_72hpi&quot; &quot;190426_VC20019_LUAm1_10M_72hpi&quot; &quot;190426_VC20019_LUAm1_20M_72hpi&quot; &quot;190426_N2_LUAm1_0M_72hpi&quot; ...
+##  $ experimenter     : chr [1:276] &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; ...
+##  $ description      : chr [1:276] &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; ...
+##  $ Infection Date   : num [1:276] 190423 190423 190423 190423 190423 ...
+##  $ Plate Number     : num [1:276] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Worm_strain      : chr [1:276] &quot;VC20019&quot; &quot;VC20019&quot; &quot;VC20019&quot; &quot;N2&quot; ...
+##  $ Total Worms      : num [1:276] 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ...
+##  $ Spore Strain     : chr [1:276] &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; ...
+##  $ Spore Lot        : chr [1:276] &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; ...
+##  $ Lot concentration: num [1:276] 176000 176000 176000 176000 176000 176000 176000 176000 176000 176000 ...
+##  $ Total Spores (M) : num [1:276] 0 10 20 0 10 20 0 10 20 0 ...
+##  $ Total ul spore   : num [1:276] 0 56.8 113.6 0 56.8 ...
+##  $ Infection Round  : num [1:276] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ 40X OP50 (mL)    : num [1:276] 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 ...
+##  $ Plate Size       : num [1:276] 6 6 6 6 6 6 6 6 6 6 ...
+##  $ Spores(M)/cm2    : num [1:276] 0 0.354 0.708 0 0.354 ...
+##  $ Time plated      : num [1:276] 1300 1300 1300 1300 1300 1300 1300 1300 1300 1300 ...
+##  $ Time Incubated   : num [1:276] 1600 1600 1600 1600 1600 1600 1600 1600 1600 1600 ...
+##  $ Temp             : num [1:276] 21 21 21 21 21 21 21 21 21 21 ...
+##  $ timepoint        : chr [1:276] &quot;72&quot; &quot;72&quot; &quot;72&quot; &quot;72&quot; ...
+##  $ infection.type   : chr [1:276] &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; ...
+##  $ Fixing Date      : num [1:276] 190426 190426 190426 190426 190426 ...
+##  $ Location         : chr [1:276] &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; ...
+##  $ Staining Date    : num [1:276] 190513 190513 190513 190430 190513 ...
+##  $ Stain type       : chr [1:276] &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;DY96&quot; ...
+##  $ Slide date       : num [1:276] 190515 190515 190515 190501 190515 ...
+##  $ Slide number     : num [1:276] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Slide Box        : num [1:276] 2 2 2 2 2 2 2 2 2 2 ...
+##  $ Imaging Date     : num [1:276] 190516 190516 190516 190502 190516 ...</code></pre>
 <hr />
 <div id="using-rename-and-rename_with-to-fix-column-names" class="section level2">
 <h2>5.1.0 Using <code>rename()</code> and <code>rename_with()</code> to
@@ -3590,12 +3650,21 @@ variables:</p>
 separate words in each variable name.</p>
 <pre class="r"><code>infection.df %&gt;% 
   ### 5.1.0 Let&#39;s make sure all words in our names are separated with a space
-  rename_with(., .fn = ~ str_replace_all(string = ..., 
-                                         pattern = ..., 
-                                         replacement = ...)) %&gt;% 
+  rename_with(., .fn = ~ str_replace_all(string = .x, 
+                                         pattern = r&quot;(\.|_)&quot;, 
+                                         replacement = &quot; &quot;)) %&gt;% 
   # Look at the column names
   colnames()</code></pre>
-<pre><code>## Error in rename_with(., .fn = ~str_replace_all(string = ..., pattern = ..., : object &#39;infection.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;experiment&quot;        &quot;experimenter&quot;      &quot;description&quot;      
+##  [4] &quot;Infection Date&quot;    &quot;Plate Number&quot;      &quot;Worm strain&quot;      
+##  [7] &quot;Total Worms&quot;       &quot;Spore Strain&quot;      &quot;Spore Lot&quot;        
+## [10] &quot;Lot concentration&quot; &quot;Total Spores (M)&quot;  &quot;Total ul spore&quot;   
+## [13] &quot;Infection Round&quot;   &quot;40X OP50 (mL)&quot;     &quot;Plate Size&quot;       
+## [16] &quot;Spores(M)/cm2&quot;     &quot;Time plated&quot;       &quot;Time Incubated&quot;   
+## [19] &quot;Temp&quot;              &quot;timepoint&quot;         &quot;infection type&quot;   
+## [22] &quot;Fixing Date&quot;       &quot;Location&quot;          &quot;Staining Date&quot;    
+## [25] &quot;Stain type&quot;        &quot;Slide date&quot;        &quot;Slide number&quot;     
+## [28] &quot;Slide Box&quot;         &quot;Imaging Date&quot;</code></pre>
 <hr />
 </div>
 <div id="the-str_to_-functions-quickly-update-the-string-case" class="section level2">
@@ -3652,12 +3721,19 @@ the space between our words with a <code>str_remove_all()</code>.</p>
   # Let&#39;s make sure all words in our names are separated with a space
   rename_with(., .fn = ~ str_replace_all(string = .x, pattern = r&quot;(\.|_)&quot;, replacement = &quot; &quot;)) %&gt;% 
   ### 5.2.0 Make sure all of the words begin with a capital letter
-  rename_with(., .fn = ...) %&gt;% 
+  rename_with(., .fn = ~ str_to_title(.x)) %&gt;% 
   ### 5.2.0 now bring all of the words together
-  rename_with(., .fn = ~ ...(.x, pattern = r&quot;(\s)&quot;)) %&gt;% 
+  rename_with(., .fn = ~ str_remove_all(.x, pattern = r&quot;(\s)&quot;)) %&gt;% 
   # Look at the column names
   colnames()</code></pre>
-<pre><code>## Error in rename_with(., .fn = ~...(.x, pattern = &quot;\\s&quot;)): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>##  [1] &quot;Experiment&quot;       &quot;Experimenter&quot;     &quot;Description&quot;      &quot;InfectionDate&quot;   
+##  [5] &quot;PlateNumber&quot;      &quot;WormStrain&quot;       &quot;TotalWorms&quot;       &quot;SporeStrain&quot;     
+##  [9] &quot;SporeLot&quot;         &quot;LotConcentration&quot; &quot;TotalSpores(M)&quot;   &quot;TotalUlSpore&quot;    
+## [13] &quot;InfectionRound&quot;   &quot;40xOp50(Ml)&quot;      &quot;PlateSize&quot;        &quot;Spores(M)/Cm2&quot;   
+## [17] &quot;TimePlated&quot;       &quot;TimeIncubated&quot;    &quot;Temp&quot;             &quot;Timepoint&quot;       
+## [21] &quot;InfectionType&quot;    &quot;FixingDate&quot;       &quot;Location&quot;         &quot;StainingDate&quot;    
+## [25] &quot;StainType&quot;        &quot;SlideDate&quot;        &quot;SlideNumber&quot;      &quot;SlideBox&quot;        
+## [29] &quot;ImagingDate&quot;</code></pre>
 <hr />
 </div>
 <div id="use-a-function-within-the-str_replace-function" class="section level2">
@@ -3684,13 +3760,20 @@ with the empty character.</p>
   ### 5.3.0 Make all titles begin with lower case
   rename_with(., .fn = ~ str_replace(string = .x, 
                                      pattern = r&quot;(^.)&quot;, 
-                                     replacement = ...)) %&gt;% 
+                                     replacement = str_to_lower)) %&gt;% 
   
   ### 5.3.0 now get rid of the parentheses
-  rename_with(., .fn = ~ ...(.x, pattern = r&quot;(\(|\)|/)&quot;, replacement = &quot;&quot;)) %&gt;% 
+  rename_with(., .fn = ~ str_replace_all(.x, pattern = r&quot;(\(|\)|/)&quot;, replacement = &quot;&quot;)) %&gt;% 
   # Look at the column names
   colnames()</code></pre>
-<pre><code>## Error in rename_with(., .fn = ~str_replace_all(string = .x, pattern = &quot;\\.|_&quot;, : object &#39;infection.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;experiment&quot;       &quot;experimenter&quot;     &quot;description&quot;      &quot;infectionDate&quot;   
+##  [5] &quot;plateNumber&quot;      &quot;wormStrain&quot;       &quot;totalWorms&quot;       &quot;sporeStrain&quot;     
+##  [9] &quot;sporeLot&quot;         &quot;lotConcentration&quot; &quot;totalSporesM&quot;     &quot;totalUlSpore&quot;    
+## [13] &quot;infectionRound&quot;   &quot;40xOp50Ml&quot;        &quot;plateSize&quot;        &quot;sporesMCm2&quot;      
+## [17] &quot;timePlated&quot;       &quot;timeIncubated&quot;    &quot;temp&quot;             &quot;timepoint&quot;       
+## [21] &quot;infectionType&quot;    &quot;fixingDate&quot;       &quot;location&quot;         &quot;stainingDate&quot;    
+## [25] &quot;stainType&quot;        &quot;slideDate&quot;        &quot;slideNumber&quot;      &quot;slideBox&quot;        
+## [29] &quot;imagingDate&quot;</code></pre>
 <hr />
 <p>We did it! And in a few “simple” steps, we’ve made our variable names
 much more manageable!</p>
