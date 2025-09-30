@@ -728,8 +728,8 @@ characters denoted with a <code>\</code> or using the <code>[ ]</code>
 notation within a regular expression.</p>
 <table>
 <colgroup>
-<col width="42%" />
-<col width="57%" />
+<col width="43%" />
+<col width="56%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -740,7 +740,7 @@ notation within a regular expression.</p>
 <tbody>
 <tr class="odd">
 <td align="center">\w, [A-z, 0-9], [[:alnum:]]</td>
-<td align="left">word characters (letters + digits)</td>
+<td align="left">word characters (letters, digits, and underscore)</td>
 </tr>
 <tr class="even">
 <td align="center">\d, [0-9], [[:digit:]]</td>
@@ -846,8 +846,8 @@ characters to look for within our patterns. Overall, the operators can
 be thought of as helper actions to match your characters.</p>
 <table>
 <colgroup>
-<col width="11%" />
-<col width="88%" />
+<col width="19%" />
+<col width="80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -862,7 +862,7 @@ be thought of as helper actions to match your characters.</p>
 </tr>
 <tr class="even">
 <td align="center">.</td>
-<td align="left">matches any single character</td>
+<td align="left">matches any single character except line breaks</td>
 </tr>
 <tr class="odd">
 <td align="center">[…]</td>
@@ -890,8 +890,8 @@ square brackets <code>[ ]</code> with a special meaning. Here are some
 helpful examples of sets you can use to understand the concept.</p>
 <table>
 <colgroup>
-<col width="8%" />
-<col width="91%" />
+<col width="18%" />
+<col width="81%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -996,11 +996,13 @@ a slash first by R! Instead we must use <code>\\$100</code>: one
 backslash (escape character) per character, so at the end we end up with
 a RegEx that looks like <code>\\$</code>. To the RegEx function,
 however, we’ve only provided <code>\$</code>.</p>
+<p>Below is another table describing the various escaped metacharacters
+- some of which you have already seen in the previous tables.</p>
 <table>
 <colgroup>
-<col width="5%" />
-<col width="70%" />
-<col width="23%" />
+<col width="19%" />
+<col width="61%" />
+<col width="19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2208,14 +2210,15 @@ package</a></p>
 getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2025.09_Intro_to_R/lecture_05_regex&quot;</code></pre>
 <pre class="r"><code>list.files(&quot;data/&quot;)</code></pre>
-<pre><code>## [1] &quot;FoxP2_primate.fasta&quot;                       
-## [2] &quot;infection_meta.csv&quot;                        
-## [3] &quot;infection_meta_fixed.csv&quot;                  
-## [4] &quot;Readme_file.docx&quot;                          
-## [5] &quot;regex_word.docx&quot;                           
-## [6] &quot;ScallionCakes.docx&quot;                        
-## [7] &quot;University returns_for_figshare_FINAL.xlsx&quot;
-## [8] &quot;Wellcome_APCspend_2013.zip&quot;</code></pre>
+<pre><code>## [1] &quot;~$allionCakes.docx&quot;                        
+## [2] &quot;FoxP2_primate.fasta&quot;                       
+## [3] &quot;infection_meta.csv&quot;                        
+## [4] &quot;infection_meta_fixed.csv&quot;                  
+## [5] &quot;Readme_file.docx&quot;                          
+## [6] &quot;regex_word.docx&quot;                           
+## [7] &quot;ScallionCakes.docx&quot;                        
+## [8] &quot;University returns_for_figshare_FINAL.xlsx&quot;
+## [9] &quot;Wellcome_APCspend_2013.zip&quot;</code></pre>
 <pre class="r"><code># read file as a single string
 fasta &lt;- read_file(&quot;data/FoxP2_primate.fasta&quot;)
 
