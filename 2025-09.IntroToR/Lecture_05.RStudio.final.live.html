@@ -2875,12 +2875,8 @@ with the workings of that data structure.</p>
 <pre class="r"><code># Convert the object to a tibble and overwrite it to the original header_seq_fasta
 header_seq_fasta &lt;-
   header_seq_fasta %&gt;% 
-  as_tibble()     </code></pre>
-<pre><code>## Warning: [1m[22mThe `x` argument of `as_tibble.matrix()` must have unique column names if `.name_repair` is omitted as of tibble 2.0.0.
-## [36mi[39m Using compatibility `.name_repair`.
-## [90mThis warning is displayed once every 8 hours.[39m
-## [90mCall `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.[39m</code></pre>
-<pre class="r"><code>  # Notice that this casting doesn&#39;t use the same &quot;as.object()&quot; format but rather as_object()
+  as_tibble()     
+  # Notice that this casting doesn&#39;t use the same &quot;as.object()&quot; format but rather as_object()
 
 # double check that the conversion worked
 head(header_seq_fasta)</code></pre>
