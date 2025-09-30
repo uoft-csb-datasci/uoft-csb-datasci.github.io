@@ -1361,9 +1361,9 @@ Remember, we are really just converting the header string into a simple
 description - what are the base components of the header and what
 pattern do they follow?</p>
 <p>The header is everything in between <code>&gt;</code> and the number
-<code>1200</code> followed by a (space). The operator <code>.</code>
-captures any single character and the quantifier <code>*</code> matches
-it any number of times (including zero).</p>
+<code>1200</code> followed by a newline character. The operator
+<code>.</code> captures any single character and the quantifier
+<code>*</code> matches it any number of times (including zero).</p>
 <pre class="r"><code># What can we remove without using the quantifier?
 str_remove(string = dino, pattern = &quot;...&quot;) %&gt;% cat()</code></pre>
 <pre><code>## noDNA from Crichton JURASSIC PARK  p. 103 nt 1-1200
