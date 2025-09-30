@@ -2116,63 +2116,45 @@ incorporate an extra step before then.</p>
 <pre class="r"><code># Remove all the line breaks in our data
 mrna &lt;- 
     mrna %&gt;% 
-    ...(., r&quot;(\s)&quot;) </code></pre>
-<pre><code>## Error in ...(., &quot;\\s&quot;): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># Check the output now
+    str_remove_all(., r&quot;(\s)&quot;) 
+
+# Check the output now
 cat(mrna)</code></pre>
-<pre><code>## AUGGUCCGCAAAGGGGGACCUUCGAGGGAGC
-## ACAAGGCUGGGACGGCGAAUGGCCUAUGGACAGGCGGAAAGAGGGAAGCCCUUCGCACCG
-## ACGAGUGCGACAUGGAUAGAGUCAAGCCACAUCCAGCAAGCGAGGUUCGACCCGACACAC
-## GGCAAGUCGGGCUGGCGACGCGGAAUAGGCCAUUGAUAGCAGAACUCAGGUUGGGCCAUU
-## UCAUCCUGUCCACGGCCGUCGCGAGACCCAGUAAAAGCCGCUCCUGGCGAAAGCGACCUC
-## UAGCCGGACAGCGAACGCCAUAAGCCUUAGAACGUGCGGGAGCGAGUUCGGAAGCAGUGA
-## GGUUUGCAAAGCCGCUCUUCGUCCGGUAAUAGCGGCCGUACCGCCGGCUGCGCGACCCGA
-## CCGCAAGCGCUGCGCUCCGACCUACCGGAAGGGGUAAUACUAAGAAGAGCGAAGGCCGCC
-## GGGCGCAACGUCCGGUACGACAGGUCCGUCCAUCUACUGCUGGUAGUCCCUGUCGAAGUU
-## GCCGAGAAUGGUCGGAUUGAAGCUAGUGACCUGGCGACUAGCAGUGCCGCUAAAUACGGC
-## GUGUACCUGCGCAACGACCGCAAAAAGGUAUCCGAGGCGGGGGGACUGCUCGUAGUGUUU
-## GUUCAGUCUCCACCGCUUUGGGCUGUCCUGAUAUUUCUAUGGUCCGCAAAGGGGGACCUU
-## CGCGAGAGGACAAGGCUGGGACGGCGAAUGGCCUAUGGACAGGCGGAAAGAGGGAAGCCC
-## GAAAGAGUUACGAGUGCGACAUCCAUAGAGUCAAGCCACAUCCAGCAAGCGAGGUUCGAC
-## UGCUUGGGGGGCAAGUCGGGCUGGCGACGCGGAAUAGGCCAUUGAUAGCAGAACUCAGGU
-## UGUGCUGAAUUGCCCAACCGUACCUAACAUCCGCGGCGGGAUAUGGAACAGACGGAGGGG
-## CGCCACGUACCUCGGCCCGGUGGAGCUGGACUUACCUUCGGCCGCCGUGGAGCGAUUGCC
-## GGUUCUUAACCUCGGUUAGUUAAGAACGCCUCUUGACACUUACGCGUUUGGUUGGGAACC
-## GGUAGCGCAGGCGGUAGAGGUCGUCGGCGUGCGCCGCGUAGAGCCCGUCGCAACCCAGGA</code></pre>
+<pre><code>## AUGGUCCGCAAAGGGGGACCUUCGAGGGAGCACAAGGCUGGGACGGCGAAUGGCCUAUGGACAGGCGGAAAGAGGGAAGCCCUUCGCACCGACGAGUGCGACAUGGAUAGAGUCAAGCCACAUCCAGCAAGCGAGGUUCGACCCGACACACGGCAAGUCGGGCUGGCGACGCGGAAUAGGCCAUUGAUAGCAGAACUCAGGUUGGGCCAUUUCAUCCUGUCCACGGCCGUCGCGAGACCCAGUAAAAGCCGCUCCUGGCGAAAGCGACCUCUAGCCGGACAGCGAACGCCAUAAGCCUUAGAACGUGCGGGAGCGAGUUCGGAAGCAGUGAGGUUUGCAAAGCCGCUCUUCGUCCGGUAAUAGCGGCCGUACCGCCGGCUGCGCGACCCGACCGCAAGCGCUGCGCUCCGACCUACCGGAAGGGGUAAUACUAAGAAGAGCGAAGGCCGCCGGGCGCAACGUCCGGUACGACAGGUCCGUCCAUCUACUGCUGGUAGUCCCUGUCGAAGUUGCCGAGAAUGGUCGGAUUGAAGCUAGUGACCUGGCGACUAGCAGUGCCGCUAAAUACGGCGUGUACCUGCGCAACGACCGCAAAAAGGUAUCCGAGGCGGGGGGACUGCUCGUAGUGUUUGUUCAGUCUCCACCGCUUUGGGCUGUCCUGAUAUUUCUAUGGUCCGCAAAGGGGGACCUUCGCGAGAGGACAAGGCUGGGACGGCGAAUGGCCUAUGGACAGGCGGAAAGAGGGAAGCCCGAAAGAGUUACGAGUGCGACAUCCAUAGAGUCAAGCCACAUCCAGCAAGCGAGGUUCGACUGCUUGGGGGGCAAGUCGGGCUGGCGACGCGGAAUAGGCCAUUGAUAGCAGAACUCAGGUUGUGCUGAAUUGCCCAACCGUACCUAACAUCCGCGGCGGGAUAUGGAACAGACGGAGGGGCGCCACGUACCUCGGCCCGGUGGAGCUGGACUUACCUUCGGCCGCCGUGGAGCGAUUGCCGGUUCUUAACCUCGGUUAGUUAAGAACGCCUCUUGACACUUACGCGUUUGGUUGGGAACCGGUAGCGCAGGCGGUAGAGGUCGUCGGCGUGCGCCGCGUAGAGCCCGUCGCAACCCAGGA</code></pre>
 <pre class="r"><code># think of these dots as wildcards to pick any character triplets
 str_extract_all(mrna, &quot;...&quot;) </code></pre>
 <pre><code>## [[1]]
-##   [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;ACA&quot; &quot;AGG&quot;
-##  [13] &quot;CUG&quot; &quot;GGA&quot; &quot;CGG&quot; &quot;CGA&quot; &quot;AUG&quot; &quot;GCC&quot; &quot;UAU&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;GCG&quot; &quot;GAA&quot; &quot;AGA&quot;
-##  [25] &quot;GGG&quot; &quot;AAG&quot; &quot;CCC&quot; &quot;UUC&quot; &quot;GCA&quot; &quot;CCG&quot; &quot;ACG&quot; &quot;AGU&quot; &quot;GCG&quot; &quot;ACA&quot; &quot;UGG&quot; &quot;AUA&quot;
-##  [37] &quot;GAG&quot; &quot;UCA&quot; &quot;AGC&quot; &quot;CAC&quot; &quot;AUC&quot; &quot;CAG&quot; &quot;CAA&quot; &quot;GCG&quot; &quot;AGG&quot; &quot;UUC&quot; &quot;GAC&quot; &quot;CCG&quot;
-##  [49] &quot;ACA&quot; &quot;CAC&quot; &quot;GGC&quot; &quot;AAG&quot; &quot;UCG&quot; &quot;GGC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;CGC&quot; &quot;GGA&quot; &quot;AUA&quot; &quot;GGC&quot;
-##  [61] &quot;CAU&quot; &quot;UGA&quot; &quot;UAG&quot; &quot;CAG&quot; &quot;AAC&quot; &quot;UCA&quot; &quot;GGU&quot; &quot;UGG&quot; &quot;GCC&quot; &quot;AUU&quot; &quot;UCA&quot; &quot;UCC&quot;
-##  [73] &quot;UGU&quot; &quot;CCA&quot; &quot;CGG&quot; &quot;CCG&quot; &quot;UCG&quot; &quot;CGA&quot; &quot;GAC&quot; &quot;CCA&quot; &quot;GUA&quot; &quot;AAA&quot; &quot;GCC&quot; &quot;GCU&quot;
-##  [85] &quot;CCU&quot; &quot;GGC&quot; &quot;GAA&quot; &quot;AGC&quot; &quot;GAC&quot; &quot;CUC&quot; &quot;UAG&quot; &quot;CCG&quot; &quot;GAC&quot; &quot;AGC&quot; &quot;GAA&quot; &quot;CGC&quot;
-##  [97] &quot;CAU&quot; &quot;AAG&quot; &quot;CCU&quot; &quot;UAG&quot; &quot;AAC&quot; &quot;GUG&quot; &quot;CGG&quot; &quot;GAG&quot; &quot;CGA&quot; &quot;GUU&quot; &quot;CGG&quot; &quot;AAG&quot;
-## [109] &quot;CAG&quot; &quot;UGA&quot; &quot;GGU&quot; &quot;UUG&quot; &quot;CAA&quot; &quot;AGC&quot; &quot;CGC&quot; &quot;UCU&quot; &quot;UCG&quot; &quot;UCC&quot; &quot;GGU&quot; &quot;AAU&quot;
-## [121] &quot;AGC&quot; &quot;GGC&quot; &quot;CGU&quot; &quot;ACC&quot; &quot;GCC&quot; &quot;GGC&quot; &quot;UGC&quot; &quot;GCG&quot; &quot;ACC&quot; &quot;CGA&quot; &quot;CCG&quot; &quot;CAA&quot;
-## [133] &quot;GCG&quot; &quot;CUG&quot; &quot;CGC&quot; &quot;UCC&quot; &quot;GAC&quot; &quot;CUA&quot; &quot;CCG&quot; &quot;GAA&quot; &quot;GGG&quot; &quot;GUA&quot; &quot;AUA&quot; &quot;CUA&quot;
-## [145] &quot;AGA&quot; &quot;AGA&quot; &quot;GCG&quot; &quot;AAG&quot; &quot;GCC&quot; &quot;GCC&quot; &quot;GGG&quot; &quot;CGC&quot; &quot;AAC&quot; &quot;GUC&quot; &quot;CGG&quot; &quot;UAC&quot;
-## [157] &quot;GAC&quot; &quot;AGG&quot; &quot;UCC&quot; &quot;GUC&quot; &quot;CAU&quot; &quot;CUA&quot; &quot;CUG&quot; &quot;CUG&quot; &quot;GUA&quot; &quot;GUC&quot; &quot;CCU&quot; &quot;GUC&quot;
-## [169] &quot;GAA&quot; &quot;GUU&quot; &quot;GCC&quot; &quot;GAG&quot; &quot;AAU&quot; &quot;GGU&quot; &quot;CGG&quot; &quot;AUU&quot; &quot;GAA&quot; &quot;GCU&quot; &quot;AGU&quot; &quot;GAC&quot;
-## [181] &quot;CUG&quot; &quot;GCG&quot; &quot;ACU&quot; &quot;AGC&quot; &quot;AGU&quot; &quot;GCC&quot; &quot;GCU&quot; &quot;AAA&quot; &quot;UAC&quot; &quot;GGC&quot; &quot;GUG&quot; &quot;UAC&quot;
-## [193] &quot;CUG&quot; &quot;CGC&quot; &quot;AAC&quot; &quot;GAC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;AAG&quot; &quot;GUA&quot; &quot;UCC&quot; &quot;GAG&quot; &quot;GCG&quot; &quot;GGG&quot;
-## [205] &quot;GGA&quot; &quot;CUG&quot; &quot;CUC&quot; &quot;GUA&quot; &quot;GUG&quot; &quot;UUU&quot; &quot;GUU&quot; &quot;CAG&quot; &quot;UCU&quot; &quot;CCA&quot; &quot;CCG&quot; &quot;CUU&quot;
-## [217] &quot;UGG&quot; &quot;GCU&quot; &quot;GUC&quot; &quot;CUG&quot; &quot;AUA&quot; &quot;UUU&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;UCC&quot; &quot;GCA&quot; &quot;AAG&quot; &quot;GGG&quot;
-## [229] &quot;GAC&quot; &quot;CUU&quot; &quot;CGC&quot; &quot;GAG&quot; &quot;AGG&quot; &quot;ACA&quot; &quot;AGG&quot; &quot;CUG&quot; &quot;GGA&quot; &quot;CGG&quot; &quot;CGA&quot; &quot;AUG&quot;
-## [241] &quot;GCC&quot; &quot;UAU&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;GCG&quot; &quot;GAA&quot; &quot;AGA&quot; &quot;GGG&quot; &quot;AAG&quot; &quot;CCC&quot; &quot;GAA&quot; &quot;AGA&quot;
-## [253] &quot;GUU&quot; &quot;ACG&quot; &quot;AGU&quot; &quot;GCG&quot; &quot;ACA&quot; &quot;UCC&quot; &quot;AUA&quot; &quot;GAG&quot; &quot;UCA&quot; &quot;AGC&quot; &quot;CAC&quot; &quot;AUC&quot;
-## [265] &quot;CAG&quot; &quot;CAA&quot; &quot;GCG&quot; &quot;AGG&quot; &quot;UUC&quot; &quot;GAC&quot; &quot;UGC&quot; &quot;UUG&quot; &quot;GGG&quot; &quot;GGC&quot; &quot;AAG&quot; &quot;UCG&quot;
-## [277] &quot;GGC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;CGC&quot; &quot;GGA&quot; &quot;AUA&quot; &quot;GGC&quot; &quot;CAU&quot; &quot;UGA&quot; &quot;UAG&quot; &quot;CAG&quot; &quot;AAC&quot;
-## [289] &quot;UCA&quot; &quot;GGU&quot; &quot;UGU&quot; &quot;GCU&quot; &quot;GAA&quot; &quot;UUG&quot; &quot;CCC&quot; &quot;AAC&quot; &quot;CGU&quot; &quot;ACC&quot; &quot;UAA&quot; &quot;CAU&quot;
-## [301] &quot;CCG&quot; &quot;CGG&quot; &quot;CGG&quot; &quot;GAU&quot; &quot;AUG&quot; &quot;GAA&quot; &quot;CAG&quot; &quot;ACG&quot; &quot;GAG&quot; &quot;GGG&quot; &quot;CGC&quot; &quot;CAC&quot;
-## [313] &quot;GUA&quot; &quot;CCU&quot; &quot;CGG&quot; &quot;CCC&quot; &quot;GGU&quot; &quot;GGA&quot; &quot;GCU&quot; &quot;GGA&quot; &quot;CUU&quot; &quot;ACC&quot; &quot;UUC&quot; &quot;GGC&quot;
-## [325] &quot;CGC&quot; &quot;CGU&quot; &quot;GGA&quot; &quot;GCG&quot; &quot;AUU&quot; &quot;GCC&quot; &quot;GGU&quot; &quot;UCU&quot; &quot;UAA&quot; &quot;CCU&quot; &quot;CGG&quot; &quot;UUA&quot;
-## [337] &quot;GUU&quot; &quot;AAG&quot; &quot;AAC&quot; &quot;GCC&quot; &quot;UCU&quot; &quot;UGA&quot; &quot;CAC&quot; &quot;UUA&quot; &quot;CGC&quot; &quot;GUU&quot; &quot;UGG&quot; &quot;UUG&quot;
-## [349] &quot;GGA&quot; &quot;ACC&quot; &quot;GGU&quot; &quot;AGC&quot; &quot;GCA&quot; &quot;GGC&quot; &quot;GGU&quot; &quot;AGA&quot; &quot;GGU&quot; &quot;CGU&quot; &quot;CGG&quot; &quot;CGU&quot;
-## [361] &quot;GCG&quot; &quot;CCG&quot; &quot;CGU&quot; &quot;AGA&quot; &quot;GCC&quot; &quot;CGU&quot; &quot;CGC&quot; &quot;AAC&quot; &quot;CCA&quot; &quot;GGA&quot;</code></pre>
+##   [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;CAC&quot; &quot;AAG&quot;
+##  [13] &quot;GCU&quot; &quot;GGG&quot; &quot;ACG&quot; &quot;GCG&quot; &quot;AAU&quot; &quot;GGC&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;ACA&quot; &quot;GGC&quot; &quot;GGA&quot; &quot;AAG&quot;
+##  [25] &quot;AGG&quot; &quot;GAA&quot; &quot;GCC&quot; &quot;CUU&quot; &quot;CGC&quot; &quot;ACC&quot; &quot;GAC&quot; &quot;GAG&quot; &quot;UGC&quot; &quot;GAC&quot; &quot;AUG&quot; &quot;GAU&quot;
+##  [37] &quot;AGA&quot; &quot;GUC&quot; &quot;AAG&quot; &quot;CCA&quot; &quot;CAU&quot; &quot;CCA&quot; &quot;GCA&quot; &quot;AGC&quot; &quot;GAG&quot; &quot;GUU&quot; &quot;CGA&quot; &quot;CCC&quot;
+##  [49] &quot;GAC&quot; &quot;ACA&quot; &quot;CGG&quot; &quot;CAA&quot; &quot;GUC&quot; &quot;GGG&quot; &quot;CUG&quot; &quot;GCG&quot; &quot;ACG&quot; &quot;CGG&quot; &quot;AAU&quot; &quot;AGG&quot;
+##  [61] &quot;CCA&quot; &quot;UUG&quot; &quot;AUA&quot; &quot;GCA&quot; &quot;GAA&quot; &quot;CUC&quot; &quot;AGG&quot; &quot;UUG&quot; &quot;GGC&quot; &quot;CAU&quot; &quot;UUC&quot; &quot;AUC&quot;
+##  [73] &quot;CUG&quot; &quot;UCC&quot; &quot;ACG&quot; &quot;GCC&quot; &quot;GUC&quot; &quot;GCG&quot; &quot;AGA&quot; &quot;CCC&quot; &quot;AGU&quot; &quot;AAA&quot; &quot;AGC&quot; &quot;CGC&quot;
+##  [85] &quot;UCC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;AAG&quot; &quot;CGA&quot; &quot;CCU&quot; &quot;CUA&quot; &quot;GCC&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;CGA&quot; &quot;ACG&quot;
+##  [97] &quot;CCA&quot; &quot;UAA&quot; &quot;GCC&quot; &quot;UUA&quot; &quot;GAA&quot; &quot;CGU&quot; &quot;GCG&quot; &quot;GGA&quot; &quot;GCG&quot; &quot;AGU&quot; &quot;UCG&quot; &quot;GAA&quot;
+## [109] &quot;GCA&quot; &quot;GUG&quot; &quot;AGG&quot; &quot;UUU&quot; &quot;GCA&quot; &quot;AAG&quot; &quot;CCG&quot; &quot;CUC&quot; &quot;UUC&quot; &quot;GUC&quot; &quot;CGG&quot; &quot;UAA&quot;
+## [121] &quot;UAG&quot; &quot;CGG&quot; &quot;CCG&quot; &quot;UAC&quot; &quot;CGC&quot; &quot;CGG&quot; &quot;CUG&quot; &quot;CGC&quot; &quot;GAC&quot; &quot;CCG&quot; &quot;ACC&quot; &quot;GCA&quot;
+## [133] &quot;AGC&quot; &quot;GCU&quot; &quot;GCG&quot; &quot;CUC&quot; &quot;CGA&quot; &quot;CCU&quot; &quot;ACC&quot; &quot;GGA&quot; &quot;AGG&quot; &quot;GGU&quot; &quot;AAU&quot; &quot;ACU&quot;
+## [145] &quot;AAG&quot; &quot;AAG&quot; &quot;AGC&quot; &quot;GAA&quot; &quot;GGC&quot; &quot;CGC&quot; &quot;CGG&quot; &quot;GCG&quot; &quot;CAA&quot; &quot;CGU&quot; &quot;CCG&quot; &quot;GUA&quot;
+## [157] &quot;CGA&quot; &quot;CAG&quot; &quot;GUC&quot; &quot;CGU&quot; &quot;CCA&quot; &quot;UCU&quot; &quot;ACU&quot; &quot;GCU&quot; &quot;GGU&quot; &quot;AGU&quot; &quot;CCC&quot; &quot;UGU&quot;
+## [169] &quot;CGA&quot; &quot;AGU&quot; &quot;UGC&quot; &quot;CGA&quot; &quot;GAA&quot; &quot;UGG&quot; &quot;UCG&quot; &quot;GAU&quot; &quot;UGA&quot; &quot;AGC&quot; &quot;UAG&quot; &quot;UGA&quot;
+## [181] &quot;CCU&quot; &quot;GGC&quot; &quot;GAC&quot; &quot;UAG&quot; &quot;CAG&quot; &quot;UGC&quot; &quot;CGC&quot; &quot;UAA&quot; &quot;AUA&quot; &quot;CGG&quot; &quot;CGU&quot; &quot;GUA&quot;
+## [193] &quot;CCU&quot; &quot;GCG&quot; &quot;CAA&quot; &quot;CGA&quot; &quot;CCG&quot; &quot;CAA&quot; &quot;AAA&quot; &quot;GGU&quot; &quot;AUC&quot; &quot;CGA&quot; &quot;GGC&quot; &quot;GGG&quot;
+## [205] &quot;GGG&quot; &quot;ACU&quot; &quot;GCU&quot; &quot;CGU&quot; &quot;AGU&quot; &quot;GUU&quot; &quot;UGU&quot; &quot;UCA&quot; &quot;GUC&quot; &quot;UCC&quot; &quot;ACC&quot; &quot;GCU&quot;
+## [217] &quot;UUG&quot; &quot;GGC&quot; &quot;UGU&quot; &quot;CCU&quot; &quot;GAU&quot; &quot;AUU&quot; &quot;UCU&quot; &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot;
+## [229] &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;CGA&quot; &quot;GAG&quot; &quot;GAC&quot; &quot;AAG&quot; &quot;GCU&quot; &quot;GGG&quot; &quot;ACG&quot; &quot;GCG&quot; &quot;AAU&quot;
+## [241] &quot;GGC&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;ACA&quot; &quot;GGC&quot; &quot;GGA&quot; &quot;AAG&quot; &quot;AGG&quot; &quot;GAA&quot; &quot;GCC&quot; &quot;CGA&quot; &quot;AAG&quot;
+## [253] &quot;AGU&quot; &quot;UAC&quot; &quot;GAG&quot; &quot;UGC&quot; &quot;GAC&quot; &quot;AUC&quot; &quot;CAU&quot; &quot;AGA&quot; &quot;GUC&quot; &quot;AAG&quot; &quot;CCA&quot; &quot;CAU&quot;
+## [265] &quot;CCA&quot; &quot;GCA&quot; &quot;AGC&quot; &quot;GAG&quot; &quot;GUU&quot; &quot;CGA&quot; &quot;CUG&quot; &quot;CUU&quot; &quot;GGG&quot; &quot;GGG&quot; &quot;CAA&quot; &quot;GUC&quot;
+## [277] &quot;GGG&quot; &quot;CUG&quot; &quot;GCG&quot; &quot;ACG&quot; &quot;CGG&quot; &quot;AAU&quot; &quot;AGG&quot; &quot;CCA&quot; &quot;UUG&quot; &quot;AUA&quot; &quot;GCA&quot; &quot;GAA&quot;
+## [289] &quot;CUC&quot; &quot;AGG&quot; &quot;UUG&quot; &quot;UGC&quot; &quot;UGA&quot; &quot;AUU&quot; &quot;GCC&quot; &quot;CAA&quot; &quot;CCG&quot; &quot;UAC&quot; &quot;CUA&quot; &quot;ACA&quot;
+## [301] &quot;UCC&quot; &quot;GCG&quot; &quot;GCG&quot; &quot;GGA&quot; &quot;UAU&quot; &quot;GGA&quot; &quot;ACA&quot; &quot;GAC&quot; &quot;GGA&quot; &quot;GGG&quot; &quot;GCG&quot; &quot;CCA&quot;
+## [313] &quot;CGU&quot; &quot;ACC&quot; &quot;UCG&quot; &quot;GCC&quot; &quot;CGG&quot; &quot;UGG&quot; &quot;AGC&quot; &quot;UGG&quot; &quot;ACU&quot; &quot;UAC&quot; &quot;CUU&quot; &quot;CGG&quot;
+## [325] &quot;CCG&quot; &quot;CCG&quot; &quot;UGG&quot; &quot;AGC&quot; &quot;GAU&quot; &quot;UGC&quot; &quot;CGG&quot; &quot;UUC&quot; &quot;UUA&quot; &quot;ACC&quot; &quot;UCG&quot; &quot;GUU&quot;
+## [337] &quot;AGU&quot; &quot;UAA&quot; &quot;GAA&quot; &quot;CGC&quot; &quot;CUC&quot; &quot;UUG&quot; &quot;ACA&quot; &quot;CUU&quot; &quot;ACG&quot; &quot;CGU&quot; &quot;UUG&quot; &quot;GUU&quot;
+## [349] &quot;GGG&quot; &quot;AAC&quot; &quot;CGG&quot; &quot;UAG&quot; &quot;CGC&quot; &quot;AGG&quot; &quot;CGG&quot; &quot;UAG&quot; &quot;AGG&quot; &quot;UCG&quot; &quot;UCG&quot; &quot;GCG&quot;
+## [361] &quot;UGC&quot; &quot;GCC&quot; &quot;GCG&quot; &quot;UAG&quot; &quot;AGC&quot; &quot;CCG&quot; &quot;UCG&quot; &quot;CAA&quot; &quot;CCC&quot; &quot;AGG&quot;</code></pre>
 <pre class="r"><code># how many codons did we retrieve?
 length(str_extract_all(mrna, &quot;...&quot;))</code></pre>
 <pre><code>## [1] 1</code></pre>
@@ -2194,37 +2176,37 @@ codons &lt;-
 
 # Take a look at the resulting
 codons</code></pre>
-<pre><code>##   [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;ACA&quot; &quot;AGG&quot;
-##  [13] &quot;CUG&quot; &quot;GGA&quot; &quot;CGG&quot; &quot;CGA&quot; &quot;AUG&quot; &quot;GCC&quot; &quot;UAU&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;GCG&quot; &quot;GAA&quot; &quot;AGA&quot;
-##  [25] &quot;GGG&quot; &quot;AAG&quot; &quot;CCC&quot; &quot;UUC&quot; &quot;GCA&quot; &quot;CCG&quot; &quot;ACG&quot; &quot;AGU&quot; &quot;GCG&quot; &quot;ACA&quot; &quot;UGG&quot; &quot;AUA&quot;
-##  [37] &quot;GAG&quot; &quot;UCA&quot; &quot;AGC&quot; &quot;CAC&quot; &quot;AUC&quot; &quot;CAG&quot; &quot;CAA&quot; &quot;GCG&quot; &quot;AGG&quot; &quot;UUC&quot; &quot;GAC&quot; &quot;CCG&quot;
-##  [49] &quot;ACA&quot; &quot;CAC&quot; &quot;GGC&quot; &quot;AAG&quot; &quot;UCG&quot; &quot;GGC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;CGC&quot; &quot;GGA&quot; &quot;AUA&quot; &quot;GGC&quot;
-##  [61] &quot;CAU&quot; &quot;UGA&quot; &quot;UAG&quot; &quot;CAG&quot; &quot;AAC&quot; &quot;UCA&quot; &quot;GGU&quot; &quot;UGG&quot; &quot;GCC&quot; &quot;AUU&quot; &quot;UCA&quot; &quot;UCC&quot;
-##  [73] &quot;UGU&quot; &quot;CCA&quot; &quot;CGG&quot; &quot;CCG&quot; &quot;UCG&quot; &quot;CGA&quot; &quot;GAC&quot; &quot;CCA&quot; &quot;GUA&quot; &quot;AAA&quot; &quot;GCC&quot; &quot;GCU&quot;
-##  [85] &quot;CCU&quot; &quot;GGC&quot; &quot;GAA&quot; &quot;AGC&quot; &quot;GAC&quot; &quot;CUC&quot; &quot;UAG&quot; &quot;CCG&quot; &quot;GAC&quot; &quot;AGC&quot; &quot;GAA&quot; &quot;CGC&quot;
-##  [97] &quot;CAU&quot; &quot;AAG&quot; &quot;CCU&quot; &quot;UAG&quot; &quot;AAC&quot; &quot;GUG&quot; &quot;CGG&quot; &quot;GAG&quot; &quot;CGA&quot; &quot;GUU&quot; &quot;CGG&quot; &quot;AAG&quot;
-## [109] &quot;CAG&quot; &quot;UGA&quot; &quot;GGU&quot; &quot;UUG&quot; &quot;CAA&quot; &quot;AGC&quot; &quot;CGC&quot; &quot;UCU&quot; &quot;UCG&quot; &quot;UCC&quot; &quot;GGU&quot; &quot;AAU&quot;
-## [121] &quot;AGC&quot; &quot;GGC&quot; &quot;CGU&quot; &quot;ACC&quot; &quot;GCC&quot; &quot;GGC&quot; &quot;UGC&quot; &quot;GCG&quot; &quot;ACC&quot; &quot;CGA&quot; &quot;CCG&quot; &quot;CAA&quot;
-## [133] &quot;GCG&quot; &quot;CUG&quot; &quot;CGC&quot; &quot;UCC&quot; &quot;GAC&quot; &quot;CUA&quot; &quot;CCG&quot; &quot;GAA&quot; &quot;GGG&quot; &quot;GUA&quot; &quot;AUA&quot; &quot;CUA&quot;
-## [145] &quot;AGA&quot; &quot;AGA&quot; &quot;GCG&quot; &quot;AAG&quot; &quot;GCC&quot; &quot;GCC&quot; &quot;GGG&quot; &quot;CGC&quot; &quot;AAC&quot; &quot;GUC&quot; &quot;CGG&quot; &quot;UAC&quot;
-## [157] &quot;GAC&quot; &quot;AGG&quot; &quot;UCC&quot; &quot;GUC&quot; &quot;CAU&quot; &quot;CUA&quot; &quot;CUG&quot; &quot;CUG&quot; &quot;GUA&quot; &quot;GUC&quot; &quot;CCU&quot; &quot;GUC&quot;
-## [169] &quot;GAA&quot; &quot;GUU&quot; &quot;GCC&quot; &quot;GAG&quot; &quot;AAU&quot; &quot;GGU&quot; &quot;CGG&quot; &quot;AUU&quot; &quot;GAA&quot; &quot;GCU&quot; &quot;AGU&quot; &quot;GAC&quot;
-## [181] &quot;CUG&quot; &quot;GCG&quot; &quot;ACU&quot; &quot;AGC&quot; &quot;AGU&quot; &quot;GCC&quot; &quot;GCU&quot; &quot;AAA&quot; &quot;UAC&quot; &quot;GGC&quot; &quot;GUG&quot; &quot;UAC&quot;
-## [193] &quot;CUG&quot; &quot;CGC&quot; &quot;AAC&quot; &quot;GAC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;AAG&quot; &quot;GUA&quot; &quot;UCC&quot; &quot;GAG&quot; &quot;GCG&quot; &quot;GGG&quot;
-## [205] &quot;GGA&quot; &quot;CUG&quot; &quot;CUC&quot; &quot;GUA&quot; &quot;GUG&quot; &quot;UUU&quot; &quot;GUU&quot; &quot;CAG&quot; &quot;UCU&quot; &quot;CCA&quot; &quot;CCG&quot; &quot;CUU&quot;
-## [217] &quot;UGG&quot; &quot;GCU&quot; &quot;GUC&quot; &quot;CUG&quot; &quot;AUA&quot; &quot;UUU&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;UCC&quot; &quot;GCA&quot; &quot;AAG&quot; &quot;GGG&quot;
-## [229] &quot;GAC&quot; &quot;CUU&quot; &quot;CGC&quot; &quot;GAG&quot; &quot;AGG&quot; &quot;ACA&quot; &quot;AGG&quot; &quot;CUG&quot; &quot;GGA&quot; &quot;CGG&quot; &quot;CGA&quot; &quot;AUG&quot;
-## [241] &quot;GCC&quot; &quot;UAU&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;GCG&quot; &quot;GAA&quot; &quot;AGA&quot; &quot;GGG&quot; &quot;AAG&quot; &quot;CCC&quot; &quot;GAA&quot; &quot;AGA&quot;
-## [253] &quot;GUU&quot; &quot;ACG&quot; &quot;AGU&quot; &quot;GCG&quot; &quot;ACA&quot; &quot;UCC&quot; &quot;AUA&quot; &quot;GAG&quot; &quot;UCA&quot; &quot;AGC&quot; &quot;CAC&quot; &quot;AUC&quot;
-## [265] &quot;CAG&quot; &quot;CAA&quot; &quot;GCG&quot; &quot;AGG&quot; &quot;UUC&quot; &quot;GAC&quot; &quot;UGC&quot; &quot;UUG&quot; &quot;GGG&quot; &quot;GGC&quot; &quot;AAG&quot; &quot;UCG&quot;
-## [277] &quot;GGC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;CGC&quot; &quot;GGA&quot; &quot;AUA&quot; &quot;GGC&quot; &quot;CAU&quot; &quot;UGA&quot; &quot;UAG&quot; &quot;CAG&quot; &quot;AAC&quot;
-## [289] &quot;UCA&quot; &quot;GGU&quot; &quot;UGU&quot; &quot;GCU&quot; &quot;GAA&quot; &quot;UUG&quot; &quot;CCC&quot; &quot;AAC&quot; &quot;CGU&quot; &quot;ACC&quot; &quot;UAA&quot; &quot;CAU&quot;
-## [301] &quot;CCG&quot; &quot;CGG&quot; &quot;CGG&quot; &quot;GAU&quot; &quot;AUG&quot; &quot;GAA&quot; &quot;CAG&quot; &quot;ACG&quot; &quot;GAG&quot; &quot;GGG&quot; &quot;CGC&quot; &quot;CAC&quot;
-## [313] &quot;GUA&quot; &quot;CCU&quot; &quot;CGG&quot; &quot;CCC&quot; &quot;GGU&quot; &quot;GGA&quot; &quot;GCU&quot; &quot;GGA&quot; &quot;CUU&quot; &quot;ACC&quot; &quot;UUC&quot; &quot;GGC&quot;
-## [325] &quot;CGC&quot; &quot;CGU&quot; &quot;GGA&quot; &quot;GCG&quot; &quot;AUU&quot; &quot;GCC&quot; &quot;GGU&quot; &quot;UCU&quot; &quot;UAA&quot; &quot;CCU&quot; &quot;CGG&quot; &quot;UUA&quot;
-## [337] &quot;GUU&quot; &quot;AAG&quot; &quot;AAC&quot; &quot;GCC&quot; &quot;UCU&quot; &quot;UGA&quot; &quot;CAC&quot; &quot;UUA&quot; &quot;CGC&quot; &quot;GUU&quot; &quot;UGG&quot; &quot;UUG&quot;
-## [349] &quot;GGA&quot; &quot;ACC&quot; &quot;GGU&quot; &quot;AGC&quot; &quot;GCA&quot; &quot;GGC&quot; &quot;GGU&quot; &quot;AGA&quot; &quot;GGU&quot; &quot;CGU&quot; &quot;CGG&quot; &quot;CGU&quot;
-## [361] &quot;GCG&quot; &quot;CCG&quot; &quot;CGU&quot; &quot;AGA&quot; &quot;GCC&quot; &quot;CGU&quot; &quot;CGC&quot; &quot;AAC&quot; &quot;CCA&quot; &quot;GGA&quot;</code></pre>
+<pre><code>##   [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;CAC&quot; &quot;AAG&quot;
+##  [13] &quot;GCU&quot; &quot;GGG&quot; &quot;ACG&quot; &quot;GCG&quot; &quot;AAU&quot; &quot;GGC&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;ACA&quot; &quot;GGC&quot; &quot;GGA&quot; &quot;AAG&quot;
+##  [25] &quot;AGG&quot; &quot;GAA&quot; &quot;GCC&quot; &quot;CUU&quot; &quot;CGC&quot; &quot;ACC&quot; &quot;GAC&quot; &quot;GAG&quot; &quot;UGC&quot; &quot;GAC&quot; &quot;AUG&quot; &quot;GAU&quot;
+##  [37] &quot;AGA&quot; &quot;GUC&quot; &quot;AAG&quot; &quot;CCA&quot; &quot;CAU&quot; &quot;CCA&quot; &quot;GCA&quot; &quot;AGC&quot; &quot;GAG&quot; &quot;GUU&quot; &quot;CGA&quot; &quot;CCC&quot;
+##  [49] &quot;GAC&quot; &quot;ACA&quot; &quot;CGG&quot; &quot;CAA&quot; &quot;GUC&quot; &quot;GGG&quot; &quot;CUG&quot; &quot;GCG&quot; &quot;ACG&quot; &quot;CGG&quot; &quot;AAU&quot; &quot;AGG&quot;
+##  [61] &quot;CCA&quot; &quot;UUG&quot; &quot;AUA&quot; &quot;GCA&quot; &quot;GAA&quot; &quot;CUC&quot; &quot;AGG&quot; &quot;UUG&quot; &quot;GGC&quot; &quot;CAU&quot; &quot;UUC&quot; &quot;AUC&quot;
+##  [73] &quot;CUG&quot; &quot;UCC&quot; &quot;ACG&quot; &quot;GCC&quot; &quot;GUC&quot; &quot;GCG&quot; &quot;AGA&quot; &quot;CCC&quot; &quot;AGU&quot; &quot;AAA&quot; &quot;AGC&quot; &quot;CGC&quot;
+##  [85] &quot;UCC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;AAG&quot; &quot;CGA&quot; &quot;CCU&quot; &quot;CUA&quot; &quot;GCC&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;CGA&quot; &quot;ACG&quot;
+##  [97] &quot;CCA&quot; &quot;UAA&quot; &quot;GCC&quot; &quot;UUA&quot; &quot;GAA&quot; &quot;CGU&quot; &quot;GCG&quot; &quot;GGA&quot; &quot;GCG&quot; &quot;AGU&quot; &quot;UCG&quot; &quot;GAA&quot;
+## [109] &quot;GCA&quot; &quot;GUG&quot; &quot;AGG&quot; &quot;UUU&quot; &quot;GCA&quot; &quot;AAG&quot; &quot;CCG&quot; &quot;CUC&quot; &quot;UUC&quot; &quot;GUC&quot; &quot;CGG&quot; &quot;UAA&quot;
+## [121] &quot;UAG&quot; &quot;CGG&quot; &quot;CCG&quot; &quot;UAC&quot; &quot;CGC&quot; &quot;CGG&quot; &quot;CUG&quot; &quot;CGC&quot; &quot;GAC&quot; &quot;CCG&quot; &quot;ACC&quot; &quot;GCA&quot;
+## [133] &quot;AGC&quot; &quot;GCU&quot; &quot;GCG&quot; &quot;CUC&quot; &quot;CGA&quot; &quot;CCU&quot; &quot;ACC&quot; &quot;GGA&quot; &quot;AGG&quot; &quot;GGU&quot; &quot;AAU&quot; &quot;ACU&quot;
+## [145] &quot;AAG&quot; &quot;AAG&quot; &quot;AGC&quot; &quot;GAA&quot; &quot;GGC&quot; &quot;CGC&quot; &quot;CGG&quot; &quot;GCG&quot; &quot;CAA&quot; &quot;CGU&quot; &quot;CCG&quot; &quot;GUA&quot;
+## [157] &quot;CGA&quot; &quot;CAG&quot; &quot;GUC&quot; &quot;CGU&quot; &quot;CCA&quot; &quot;UCU&quot; &quot;ACU&quot; &quot;GCU&quot; &quot;GGU&quot; &quot;AGU&quot; &quot;CCC&quot; &quot;UGU&quot;
+## [169] &quot;CGA&quot; &quot;AGU&quot; &quot;UGC&quot; &quot;CGA&quot; &quot;GAA&quot; &quot;UGG&quot; &quot;UCG&quot; &quot;GAU&quot; &quot;UGA&quot; &quot;AGC&quot; &quot;UAG&quot; &quot;UGA&quot;
+## [181] &quot;CCU&quot; &quot;GGC&quot; &quot;GAC&quot; &quot;UAG&quot; &quot;CAG&quot; &quot;UGC&quot; &quot;CGC&quot; &quot;UAA&quot; &quot;AUA&quot; &quot;CGG&quot; &quot;CGU&quot; &quot;GUA&quot;
+## [193] &quot;CCU&quot; &quot;GCG&quot; &quot;CAA&quot; &quot;CGA&quot; &quot;CCG&quot; &quot;CAA&quot; &quot;AAA&quot; &quot;GGU&quot; &quot;AUC&quot; &quot;CGA&quot; &quot;GGC&quot; &quot;GGG&quot;
+## [205] &quot;GGG&quot; &quot;ACU&quot; &quot;GCU&quot; &quot;CGU&quot; &quot;AGU&quot; &quot;GUU&quot; &quot;UGU&quot; &quot;UCA&quot; &quot;GUC&quot; &quot;UCC&quot; &quot;ACC&quot; &quot;GCU&quot;
+## [217] &quot;UUG&quot; &quot;GGC&quot; &quot;UGU&quot; &quot;CCU&quot; &quot;GAU&quot; &quot;AUU&quot; &quot;UCU&quot; &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot;
+## [229] &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;CGA&quot; &quot;GAG&quot; &quot;GAC&quot; &quot;AAG&quot; &quot;GCU&quot; &quot;GGG&quot; &quot;ACG&quot; &quot;GCG&quot; &quot;AAU&quot;
+## [241] &quot;GGC&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;ACA&quot; &quot;GGC&quot; &quot;GGA&quot; &quot;AAG&quot; &quot;AGG&quot; &quot;GAA&quot; &quot;GCC&quot; &quot;CGA&quot; &quot;AAG&quot;
+## [253] &quot;AGU&quot; &quot;UAC&quot; &quot;GAG&quot; &quot;UGC&quot; &quot;GAC&quot; &quot;AUC&quot; &quot;CAU&quot; &quot;AGA&quot; &quot;GUC&quot; &quot;AAG&quot; &quot;CCA&quot; &quot;CAU&quot;
+## [265] &quot;CCA&quot; &quot;GCA&quot; &quot;AGC&quot; &quot;GAG&quot; &quot;GUU&quot; &quot;CGA&quot; &quot;CUG&quot; &quot;CUU&quot; &quot;GGG&quot; &quot;GGG&quot; &quot;CAA&quot; &quot;GUC&quot;
+## [277] &quot;GGG&quot; &quot;CUG&quot; &quot;GCG&quot; &quot;ACG&quot; &quot;CGG&quot; &quot;AAU&quot; &quot;AGG&quot; &quot;CCA&quot; &quot;UUG&quot; &quot;AUA&quot; &quot;GCA&quot; &quot;GAA&quot;
+## [289] &quot;CUC&quot; &quot;AGG&quot; &quot;UUG&quot; &quot;UGC&quot; &quot;UGA&quot; &quot;AUU&quot; &quot;GCC&quot; &quot;CAA&quot; &quot;CCG&quot; &quot;UAC&quot; &quot;CUA&quot; &quot;ACA&quot;
+## [301] &quot;UCC&quot; &quot;GCG&quot; &quot;GCG&quot; &quot;GGA&quot; &quot;UAU&quot; &quot;GGA&quot; &quot;ACA&quot; &quot;GAC&quot; &quot;GGA&quot; &quot;GGG&quot; &quot;GCG&quot; &quot;CCA&quot;
+## [313] &quot;CGU&quot; &quot;ACC&quot; &quot;UCG&quot; &quot;GCC&quot; &quot;CGG&quot; &quot;UGG&quot; &quot;AGC&quot; &quot;UGG&quot; &quot;ACU&quot; &quot;UAC&quot; &quot;CUU&quot; &quot;CGG&quot;
+## [325] &quot;CCG&quot; &quot;CCG&quot; &quot;UGG&quot; &quot;AGC&quot; &quot;GAU&quot; &quot;UGC&quot; &quot;CGG&quot; &quot;UUC&quot; &quot;UUA&quot; &quot;ACC&quot; &quot;UCG&quot; &quot;GUU&quot;
+## [337] &quot;AGU&quot; &quot;UAA&quot; &quot;GAA&quot; &quot;CGC&quot; &quot;CUC&quot; &quot;UUG&quot; &quot;ACA&quot; &quot;CUU&quot; &quot;ACG&quot; &quot;CGU&quot; &quot;UUG&quot; &quot;GUU&quot;
+## [349] &quot;GGG&quot; &quot;AAC&quot; &quot;CGG&quot; &quot;UAG&quot; &quot;CGC&quot; &quot;AGG&quot; &quot;CGG&quot; &quot;UAG&quot; &quot;AGG&quot; &quot;UCG&quot; &quot;UCG&quot; &quot;GCG&quot;
+## [361] &quot;UGC&quot; &quot;GCC&quot; &quot;GCG&quot; &quot;UAG&quot; &quot;AGC&quot; &quot;CCG&quot; &quot;UCG&quot; &quot;CAA&quot; &quot;CCC&quot; &quot;AGG&quot;</code></pre>
 <pre class="r"><code>length(codons)</code></pre>
 <pre><code>## [1] 370</code></pre>
 <hr />
@@ -2242,23 +2224,23 @@ separately group the different stop codons. We’ll use the <code>|</code>
 codon sequences.</p>
 <p>Notice how in this case we are supplying our character vector
 <code>codons</code>?</p>
-<pre class="r"><code>str_detect(codons, &quot;(UAG)|(UGA)...&quot;)</code></pre>
+<pre class="r"><code>str_detect(codons, &quot;(UAG)|(UGA)|(UAA)&quot;)</code></pre>
 <pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [61] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [85] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
-##  [97] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [121] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [97] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+## [121]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [157] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [169] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [181] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [169] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+## [181] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
 ## [193] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [205] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [217] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
@@ -2266,14 +2248,14 @@ codon sequences.</p>
 ## [241] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [253] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [265] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [277] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
-## [289] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [277] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [289] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [301] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [313] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [325] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [337] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [349] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [361] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+## [337] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [349] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+## [361] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <hr />
 </div>
 <div id="identify-specific-occurrences-in-a-vector-with-str_which" class="section level3">
@@ -2305,50 +2287,37 @@ works similarly to <code>str_detect()</code>, requiring just a character
 or character vector and a pattern. You can also negate the result with
 the <code>negate = TRUE</code> parameter.</p>
 <pre class="r"><code># Which returns a numerical vector of indices 
-...(codons, &quot;UAG|UGA|UAA&quot;) </code></pre>
-<pre><code>## Error in ...(codons, &quot;UAG|UGA|UAA&quot;): could not find function &quot;...&quot;</code></pre>
+str_which(codons, &quot;UAG|UGA|UAA&quot;) </code></pre>
+<pre><code>##  [1]  98 120 121 177 179 180 184 188 293 338 352 356 364</code></pre>
 <pre class="r"><code># Note that this is equivalent
-which(str_detect(codons, &quot;...&quot;)) </code></pre>
-<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
-##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
-##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
-##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
-##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
-##  [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
-## [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
-## [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
-## [145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
-## [163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
-## [181] 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198
-## [199] 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216
-## [217] 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234
-## [235] 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252
-## [253] 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270
-## [271] 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288
-## [289] 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306
-## [307] 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324
-## [325] 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342
-## [343] 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360
-## [361] 361 362 363 364 365 366 367 368 369 370</code></pre>
+which(str_detect(codons, &quot;UAG|UGA|UAA&quot;)) </code></pre>
+<pre><code>##  [1]  98 120 121 177 179 180 184 188 293 338 352 356 364</code></pre>
 <p>Let’s subset <code>codons</code> to end at the first stop codon.</p>
 <pre class="r"><code># Simply grab codons by index position
 codons[1:98]</code></pre>
-<pre><code>##  [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;ACA&quot; &quot;AGG&quot;
-## [13] &quot;CUG&quot; &quot;GGA&quot; &quot;CGG&quot; &quot;CGA&quot; &quot;AUG&quot; &quot;GCC&quot; &quot;UAU&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;GCG&quot; &quot;GAA&quot; &quot;AGA&quot;
-## [25] &quot;GGG&quot; &quot;AAG&quot; &quot;CCC&quot; &quot;UUC&quot; &quot;GCA&quot; &quot;CCG&quot; &quot;ACG&quot; &quot;AGU&quot; &quot;GCG&quot; &quot;ACA&quot; &quot;UGG&quot; &quot;AUA&quot;
-## [37] &quot;GAG&quot; &quot;UCA&quot; &quot;AGC&quot; &quot;CAC&quot; &quot;AUC&quot; &quot;CAG&quot; &quot;CAA&quot; &quot;GCG&quot; &quot;AGG&quot; &quot;UUC&quot; &quot;GAC&quot; &quot;CCG&quot;
-## [49] &quot;ACA&quot; &quot;CAC&quot; &quot;GGC&quot; &quot;AAG&quot; &quot;UCG&quot; &quot;GGC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;CGC&quot; &quot;GGA&quot; &quot;AUA&quot; &quot;GGC&quot;
-## [61] &quot;CAU&quot; &quot;UGA&quot; &quot;UAG&quot; &quot;CAG&quot; &quot;AAC&quot; &quot;UCA&quot; &quot;GGU&quot; &quot;UGG&quot; &quot;GCC&quot; &quot;AUU&quot; &quot;UCA&quot; &quot;UCC&quot;
-## [73] &quot;UGU&quot; &quot;CCA&quot; &quot;CGG&quot; &quot;CCG&quot; &quot;UCG&quot; &quot;CGA&quot; &quot;GAC&quot; &quot;CCA&quot; &quot;GUA&quot; &quot;AAA&quot; &quot;GCC&quot; &quot;GCU&quot;
-## [85] &quot;CCU&quot; &quot;GGC&quot; &quot;GAA&quot; &quot;AGC&quot; &quot;GAC&quot; &quot;CUC&quot; &quot;UAG&quot; &quot;CCG&quot; &quot;GAC&quot; &quot;AGC&quot; &quot;GAA&quot; &quot;CGC&quot;
-## [97] &quot;CAU&quot; &quot;AAG&quot;</code></pre>
+<pre><code>##  [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;CAC&quot; &quot;AAG&quot;
+## [13] &quot;GCU&quot; &quot;GGG&quot; &quot;ACG&quot; &quot;GCG&quot; &quot;AAU&quot; &quot;GGC&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;ACA&quot; &quot;GGC&quot; &quot;GGA&quot; &quot;AAG&quot;
+## [25] &quot;AGG&quot; &quot;GAA&quot; &quot;GCC&quot; &quot;CUU&quot; &quot;CGC&quot; &quot;ACC&quot; &quot;GAC&quot; &quot;GAG&quot; &quot;UGC&quot; &quot;GAC&quot; &quot;AUG&quot; &quot;GAU&quot;
+## [37] &quot;AGA&quot; &quot;GUC&quot; &quot;AAG&quot; &quot;CCA&quot; &quot;CAU&quot; &quot;CCA&quot; &quot;GCA&quot; &quot;AGC&quot; &quot;GAG&quot; &quot;GUU&quot; &quot;CGA&quot; &quot;CCC&quot;
+## [49] &quot;GAC&quot; &quot;ACA&quot; &quot;CGG&quot; &quot;CAA&quot; &quot;GUC&quot; &quot;GGG&quot; &quot;CUG&quot; &quot;GCG&quot; &quot;ACG&quot; &quot;CGG&quot; &quot;AAU&quot; &quot;AGG&quot;
+## [61] &quot;CCA&quot; &quot;UUG&quot; &quot;AUA&quot; &quot;GCA&quot; &quot;GAA&quot; &quot;CUC&quot; &quot;AGG&quot; &quot;UUG&quot; &quot;GGC&quot; &quot;CAU&quot; &quot;UUC&quot; &quot;AUC&quot;
+## [73] &quot;CUG&quot; &quot;UCC&quot; &quot;ACG&quot; &quot;GCC&quot; &quot;GUC&quot; &quot;GCG&quot; &quot;AGA&quot; &quot;CCC&quot; &quot;AGU&quot; &quot;AAA&quot; &quot;AGC&quot; &quot;CGC&quot;
+## [85] &quot;UCC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;AAG&quot; &quot;CGA&quot; &quot;CCU&quot; &quot;CUA&quot; &quot;GCC&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;CGA&quot; &quot;ACG&quot;
+## [97] &quot;CCA&quot; &quot;UAA&quot;</code></pre>
 <pre class="r"><code>#equivalent to 
-translation &lt;- codons[...] </code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># The search will be stopped at the first detection of either of the stop codons listed
+translation &lt;- codons[1:str_which(codons, &quot;UAG|UGA|UAA&quot;)[1]] 
+# The search will be stopped at the first detection of either of the stop codons listed
 
 translation</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;translation&#39; not found</code></pre>
+<pre><code>##  [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;CAC&quot; &quot;AAG&quot;
+## [13] &quot;GCU&quot; &quot;GGG&quot; &quot;ACG&quot; &quot;GCG&quot; &quot;AAU&quot; &quot;GGC&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;ACA&quot; &quot;GGC&quot; &quot;GGA&quot; &quot;AAG&quot;
+## [25] &quot;AGG&quot; &quot;GAA&quot; &quot;GCC&quot; &quot;CUU&quot; &quot;CGC&quot; &quot;ACC&quot; &quot;GAC&quot; &quot;GAG&quot; &quot;UGC&quot; &quot;GAC&quot; &quot;AUG&quot; &quot;GAU&quot;
+## [37] &quot;AGA&quot; &quot;GUC&quot; &quot;AAG&quot; &quot;CCA&quot; &quot;CAU&quot; &quot;CCA&quot; &quot;GCA&quot; &quot;AGC&quot; &quot;GAG&quot; &quot;GUU&quot; &quot;CGA&quot; &quot;CCC&quot;
+## [49] &quot;GAC&quot; &quot;ACA&quot; &quot;CGG&quot; &quot;CAA&quot; &quot;GUC&quot; &quot;GGG&quot; &quot;CUG&quot; &quot;GCG&quot; &quot;ACG&quot; &quot;CGG&quot; &quot;AAU&quot; &quot;AGG&quot;
+## [61] &quot;CCA&quot; &quot;UUG&quot; &quot;AUA&quot; &quot;GCA&quot; &quot;GAA&quot; &quot;CUC&quot; &quot;AGG&quot; &quot;UUG&quot; &quot;GGC&quot; &quot;CAU&quot; &quot;UUC&quot; &quot;AUC&quot;
+## [73] &quot;CUG&quot; &quot;UCC&quot; &quot;ACG&quot; &quot;GCC&quot; &quot;GUC&quot; &quot;GCG&quot; &quot;AGA&quot; &quot;CCC&quot; &quot;AGU&quot; &quot;AAA&quot; &quot;AGC&quot; &quot;CGC&quot;
+## [85] &quot;UCC&quot; &quot;UGG&quot; &quot;CGA&quot; &quot;AAG&quot; &quot;CGA&quot; &quot;CCU&quot; &quot;CUA&quot; &quot;GCC&quot; &quot;GGA&quot; &quot;CAG&quot; &quot;CGA&quot; &quot;ACG&quot;
+## [97] &quot;CCA&quot; &quot;UAA&quot;</code></pre>
 <hr />
 </div>
 <div id="replace-your-codons-with-amino-acids" class="section level3">
@@ -2357,7 +2326,10 @@ translation</code></pre>
 respective proteins by using <code>str_replace_all</code> using multiple
 patterns and replacements as before.</p>
 <pre class="r"><code>unique(translation)</code></pre>
-<pre><code>## Error in unique(translation): object &#39;translation&#39; not found</code></pre>
+<pre><code>##  [1] &quot;AUG&quot; &quot;GUC&quot; &quot;CGC&quot; &quot;AAA&quot; &quot;GGG&quot; &quot;GGA&quot; &quot;CCU&quot; &quot;UCG&quot; &quot;AGG&quot; &quot;GAG&quot; &quot;CAC&quot; &quot;AAG&quot;
+## [13] &quot;GCU&quot; &quot;ACG&quot; &quot;GCG&quot; &quot;AAU&quot; &quot;GGC&quot; &quot;CUA&quot; &quot;UGG&quot; &quot;ACA&quot; &quot;GAA&quot; &quot;GCC&quot; &quot;CUU&quot; &quot;ACC&quot;
+## [25] &quot;GAC&quot; &quot;UGC&quot; &quot;GAU&quot; &quot;AGA&quot; &quot;CCA&quot; &quot;CAU&quot; &quot;GCA&quot; &quot;AGC&quot; &quot;GUU&quot; &quot;CGA&quot; &quot;CCC&quot; &quot;CGG&quot;
+## [37] &quot;CAA&quot; &quot;CUG&quot; &quot;UUG&quot; &quot;AUA&quot; &quot;CUC&quot; &quot;UUC&quot; &quot;AUC&quot; &quot;UCC&quot; &quot;AGU&quot; &quot;CAG&quot; &quot;UAA&quot;</code></pre>
 <pre class="r"><code># It&#39;s a custom-made codon table!
 codon_translation = c(&quot;UUU&quot; = &quot;F&quot;, &quot;UCU&quot; = &quot;S&quot;, &quot;UAU&quot; = &quot;Y&quot;, &quot;UGU&quot; = &quot;C&quot;, 
                       &quot;UUC&quot; = &quot;F&quot;, &quot;UCC&quot; = &quot;S&quot;, &quot;UAC&quot; = &quot;Y&quot;, &quot;UGC&quot; = &quot;C&quot;, 
@@ -2377,11 +2349,16 @@ codon_translation = c(&quot;UUU&quot; = &quot;F&quot;, &quot;UCU&quot; = &quot;S
                       &quot;GUG&quot; = &quot;V&quot;, &quot;GCG&quot; = &quot;A&quot;, &quot;GAG&quot; = &quot;E&quot;, &quot;GGG&quot; = &quot;G&quot;)
 
 # Replace all of our codons with amino acid codes
-translation &lt;- str_replace_all(translation, codon_translation)</code></pre>
-<pre><code>## Error in stri_replace_all_regex(string, pattern, fix_replacement(replacement), : object &#39;translation&#39; not found</code></pre>
-<pre class="r"><code># View the translated version
+translation &lt;- str_replace_all(translation, codon_translation)
+
+# View the translated version
 translation</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;translation&#39; not found</code></pre>
+<pre><code>##  [1] &quot;M&quot; &quot;V&quot; &quot;R&quot; &quot;K&quot; &quot;G&quot; &quot;G&quot; &quot;P&quot; &quot;S&quot; &quot;R&quot; &quot;E&quot; &quot;H&quot; &quot;K&quot; &quot;A&quot; &quot;G&quot; &quot;T&quot; &quot;A&quot; &quot;N&quot; &quot;G&quot; &quot;L&quot;
+## [20] &quot;W&quot; &quot;T&quot; &quot;G&quot; &quot;G&quot; &quot;K&quot; &quot;R&quot; &quot;E&quot; &quot;A&quot; &quot;L&quot; &quot;R&quot; &quot;T&quot; &quot;D&quot; &quot;E&quot; &quot;C&quot; &quot;D&quot; &quot;M&quot; &quot;D&quot; &quot;R&quot; &quot;V&quot;
+## [39] &quot;K&quot; &quot;P&quot; &quot;H&quot; &quot;P&quot; &quot;A&quot; &quot;S&quot; &quot;E&quot; &quot;V&quot; &quot;R&quot; &quot;P&quot; &quot;D&quot; &quot;T&quot; &quot;R&quot; &quot;Q&quot; &quot;V&quot; &quot;G&quot; &quot;L&quot; &quot;A&quot; &quot;T&quot;
+## [58] &quot;R&quot; &quot;N&quot; &quot;R&quot; &quot;P&quot; &quot;L&quot; &quot;I&quot; &quot;A&quot; &quot;E&quot; &quot;L&quot; &quot;R&quot; &quot;L&quot; &quot;G&quot; &quot;H&quot; &quot;F&quot; &quot;I&quot; &quot;L&quot; &quot;S&quot; &quot;T&quot; &quot;A&quot;
+## [77] &quot;V&quot; &quot;A&quot; &quot;R&quot; &quot;P&quot; &quot;S&quot; &quot;K&quot; &quot;S&quot; &quot;R&quot; &quot;S&quot; &quot;W&quot; &quot;R&quot; &quot;K&quot; &quot;R&quot; &quot;P&quot; &quot;L&quot; &quot;A&quot; &quot;G&quot; &quot;Q&quot; &quot;R&quot;
+## [96] &quot;T&quot; &quot;P&quot; &quot;*&quot;</code></pre>
 <hr />
 </div>
 <div id="collapsing-your-results-into-a-single-string-with-str_flatten" class="section level3">
@@ -2392,16 +2369,16 @@ us to collapse our individual protein strings (or any character vector)
 into one long string.</p>
 <pre class="r"><code># Flatten or collapse the vector into a single atomic character
 str_flatten(translation)</code></pre>
-<pre><code>## Error in str_flatten(translation): object &#39;translation&#39; not found</code></pre>
+<pre><code>## [1] &quot;MVRKGGPSREHKAGTANGLWTGGKREALRTDECDMDRVKPHPASEVRPDTRQVGLATRNRPLIAELRLGHFILSTAVARPSKSRSWRKRPLAGQRTP*&quot;</code></pre>
 <pre class="r"><code># Equivalent call using the paste function
 paste(translation, collapse=&quot;&quot;)</code></pre>
-<pre><code>## Error in paste(translation, collapse = &quot;&quot;): object &#39;translation&#39; not found</code></pre>
+<pre><code>## [1] &quot;MVRKGGPSREHKAGTANGLWTGGKREALRTDECDMDRVKPHPASEVRPDTRQVGLATRNRPLIAELRLGHFILSTAVARPSKSRSWRKRPLAGQRTP*&quot;</code></pre>
 <pre class="r"><code># Save the flattened version 
-translation &lt;- str_flatten(translation)</code></pre>
-<pre><code>## Error in str_flatten(translation): object &#39;translation&#39; not found</code></pre>
-<pre class="r"><code># Double-check it looks correct!
+translation &lt;- str_flatten(translation)
+
+# Double-check it looks correct!
 translation</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;translation&#39; not found</code></pre>
+<pre><code>## [1] &quot;MVRKGGPSREHKAGTANGLWTGGKREALRTDECDMDRVKPHPASEVRPDTRQVGLATRNRPLIAELRLGHFILSTAVARPSKSRSWRKRPLAGQRTP*&quot;</code></pre>
 <hr />
 </div>
 <div id="recombining-strings-with-str_c" class="section level3">
@@ -2413,8 +2390,8 @@ similar to the <code>paste()</code> function! There are, however, some
 differences in how these functions <a href="https://jrnold.github.io/r4ds-exercise-solutions/strings.html#exercise-14.2.1">handle
 NA values</a>.</p>
 <pre class="r"><code># recombine header with our translation and separate with a space
-str_c(header, translation, sep = ...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+str_c(header, translation, sep = &quot; &quot;)</code></pre>
+<pre><code>## [1] &quot;&gt;DinoDNA from Crichton JURASSIC PARK  p. 103 nt 1-1200 MVRKGGPSREHKAGTANGLWTGGKREALRTDECDMDRVKPHPASEVRPDTRQVGLATRNRPLIAELRLGHFILSTAVARPSKSRSWRKRPLAGQRTP*&quot;</code></pre>
 <hr />
 <div class="alert alert-block alert-danger">
 <p><strong>Comprehension Question 3.0.0:</strong> Suppose we wanted to
