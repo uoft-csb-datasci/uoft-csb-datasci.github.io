@@ -2781,8 +2781,11 @@ subfasta  %&gt;%
                   replacement = &quot;&quot;) %&gt;%   # Remove square brackets
   
   ### 4.2.2 Use str_split to break up the line breaks. On unix you can use \\n\\n
-  str_split(...)          </code></pre>
-<pre><code>## Error in subfasta %&gt;% str_replace_all(pattern = &quot;\\[|\\]&quot;, replacement = &quot;&quot;) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+  str_split(r&quot;(\r\n\r\n)&quot;)          </code></pre>
+<pre><code>## [[1]]
+## [1] &quot;&gt;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSP\r\nQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ\r\nQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQS\r\nLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLS\r\nARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQL\r\nSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVIT\r\nPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFT\r\nRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYG\r\nAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKE\r\nEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE&quot;
+## [2] &quot;&gt;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYK\r\nKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQL\r\nAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSME\r\nDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKW\r\nPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSP\r\nKPVSAYCFINSK&quot;                                                                                                                                                                                                                                                                                                                                   
+## [3] &quot;&gt;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLE\r\nNFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHP\r\nGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSP\r\nAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSH\r\nEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQ\r\nAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVG\r\nAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRR\r\nNAATWKNAVRHNLSLHKCF&quot;</code></pre>
 <hr />
 <p><code>str_split()</code> returns a list but we want to work with a
 vector! Let’s quickly fix that with the <code>unlist()</code> function
@@ -2795,8 +2798,10 @@ subfasta  %&gt;%
   # Use str_split to break up the line breaks. On unix you can use \\n\\n
   str_split(r&quot;(\r\n\r\n)&quot;) %&gt;%             
   
-  ...                                 ### 4.2.2-b Convert our list to a character vector</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+  unlist()                                 ### 4.2.2-b Convert our list to a character vector</code></pre>
+<pre><code>## [1] &quot;&gt;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSP\r\nQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ\r\nQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQS\r\nLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLS\r\nARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQL\r\nSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVIT\r\nPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFT\r\nRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYG\r\nAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKE\r\nEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE&quot;
+## [2] &quot;&gt;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYK\r\nKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQL\r\nAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSME\r\nDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKW\r\nPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSP\r\nKPVSAYCFINSK&quot;                                                                                                                                                                                                                                                                                                                                   
+## [3] &quot;&gt;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLE\r\nNFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHP\r\nGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSP\r\nAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSH\r\nEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQ\r\nAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVG\r\nAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRR\r\nNAATWKNAVRHNLSLHKCF&quot;</code></pre>
 <hr />
 </div>
 <div id="remove-the-from-the-start-of-each-entry" class="section level3">
@@ -2815,11 +2820,11 @@ subfasta  %&gt;%
   
   unlist() %&gt;%                             # Convert our list to a character vector
   
-  str_replace_all(pattern = &quot;...&quot;, 
+  str_replace_all(pattern = &quot;^&gt;&quot;, 
                   replacement = &quot;&quot;)        ### 4.2.3 remove the &quot;&gt;&quot; from the start of each entry</code></pre>
-<pre><code>## [1] &quot;\r\nT\r\nP\r\nQ\r\nS\r\nS\r\nL\r\nT\r\nT\r\nG\r\nE\r\nE&quot;
-## [2] &quot;s\r\nT\r\nK\r\nL\r\nE\r\nW\r\nP\r\n&quot;                    
-## [3] &quot;\r\nT\r\nE\r\nP\r\nP\r\nH\r\nQ\r\nG\r\nR\r\nF&quot;</code></pre>
+<pre><code>## [1] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSP\r\nQQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ\r\nQQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQS\r\nLPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLS\r\nARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQL\r\nSKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVIT\r\nPASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFT\r\nRTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYG\r\nAALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKE\r\nEPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE&quot;
+## [2] &quot;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYK\r\nKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQL\r\nAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSME\r\nDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKW\r\nPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSP\r\nKPVSAYCFINSK&quot;                                                                                                                                                                                                                                                                                                                                   
+## [3] &quot;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens\r\nMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLE\r\nNFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHP\r\nGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSP\r\nAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSH\r\nEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQ\r\nAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVG\r\nAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRR\r\nNAATWKNAVRHNLSLHKCF&quot;</code></pre>
 <hr />
 </div>
 <div id="split-your-entries-into-a-header-and-sequence-with-str_split_fixed" class="section level3">
@@ -2858,11 +2863,11 @@ fasta %&gt;%
                   replacement = &quot;&quot;) %&gt;%    # remove the &quot;&gt;&quot; from the start of each entry
   
   ### 4.2.4 Split the string by the first occurrence of our pattern
-  str_split_fixed(pattern = ..., 
-                  n = ...)                   </code></pre>
-<pre><code>## Error in fasta %&gt;% str_replace_all(pattern = &quot;\\[|\\]&quot;, replacement = &quot;&quot;) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>class(header_seq_fasta)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;header_seq_fasta&#39; not found</code></pre>
+  str_split_fixed(pattern = r&quot;(\r\n)&quot;, 
+                  n = 2)                   
+
+class(header_seq_fasta)</code></pre>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
 <hr />
 <p>While it is still possible to work with this matrix of characters,
 we’ll convert it to a <code>tibble</code> since we are more familiar
@@ -2871,12 +2876,23 @@ with the workings of that data structure.</p>
 header_seq_fasta &lt;-
   header_seq_fasta %&gt;% 
   as_tibble()     </code></pre>
-<pre><code>## Error in as_tibble(.): object &#39;header_seq_fasta&#39; not found</code></pre>
+<pre><code>## Warning: [1m[22mThe `x` argument of `as_tibble.matrix()` must have unique column names if `.name_repair` is omitted as of tibble 2.0.0.
+## [36mi[39m Using compatibility `.name_repair`.
+## [90mThis warning is displayed once every 8 hours.[39m
+## [90mCall `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.[39m</code></pre>
 <pre class="r"><code>  # Notice that this casting doesn&#39;t use the same &quot;as.object()&quot; format but rather as_object()
 
 # double check that the conversion worked
 head(header_seq_fasta)</code></pre>
-<pre><code>## Error in head(header_seq_fasta): object &#39;header_seq_fasta&#39; not found</code></pre>
+<pre><code>## [90m# A tibble: 6 x 2[39m
+##   V1                                                             V2             
+##   [3m[90m&lt;chr&gt;[39m[23m                                                          [3m[90m&lt;chr&gt;[39m[23m          
+## [90m1[39m NP_683696.2 forkhead box protein P2 isoform II Homo sapiens    [90m&quot;[39mMMQESATETISNS~
+## [90m2[39m NP_683697.2 forkhead box protein P2 isoform III Homo sapiens   [90m&quot;[39mMMQESATETISNS~
+## [90m3[39m NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens    [90m&quot;[39mMMQESATETISNS~
+## [90m4[39m NP_001166238.1 forkhead box protein P2 isoform VI Homo sapiens [90m&quot;[39mMMQESATETISNS~
+## [90m5[39m NP_001166237.1 forkhead box protein P2 isoform V Homo sapiens  [90m&quot;[39mMMQESATETISNS~
+## [90m6[39m NP_055306.1 forkhead box protein P2 isoform I Homo sapiens     [90m&quot;[39mMMQESATETISNS~</code></pre>
 <hr />
 </div>
 <div id="remove-duplicated-entries-with-the-help-of-which" class="section level3">
@@ -2890,14 +2906,19 @@ duplicated. Let’s cull them from the set for now.</p>
 <strong>duplicated</strong> sequences already present in
 <code>fasta</code>?</p>
 <pre class="r"><code># Which entries within our dataset are duplicated by sequence?
-which(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+which(duplicated(header_seq_fasta[,2]))</code></pre>
+<pre><code>##  [1]   9  11  13  17  22  25  26  28  29  30  32  36  37  38  39  40  43  52  54
+## [20]  55  56  59  63  64  65  66  68  69  70  71  72  73  74  75  76  77  78  79
+## [39]  80  83  87  99 100 101 102 103 105 106 109 110 111 113 115 118 122 123 124
+## [58] 125 126 127 128 129</code></pre>
 <pre class="r"><code># Use which to filter out duplicated copies
-header_seq_subset &lt;- header_seq_fasta[...]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;header_seq_fasta&#39; not found</code></pre>
-<pre class="r"><code># Take a look at the resulting subset
+header_seq_subset &lt;- header_seq_fasta[-which(duplicated(header_seq_fasta[,2])),]
+
+# Take a look at the resulting subset
 str(header_seq_subset)</code></pre>
-<pre><code>## Error in str(header_seq_subset): object &#39;header_seq_subset&#39; not found</code></pre>
+<pre><code>## tibble [68 x 2] (S3: tbl_df/tbl/data.frame)
+##  $ V1: chr [1:68] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot; &quot;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens&quot; &quot;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens&quot; &quot;NP_001166238.1 forkhead box protein P2 isoform VI Homo sapiens&quot; ...
+##  $ V2: chr [1:68] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ ...</code></pre>
 <hr />
 <p>Wow, almost half of our sequence entries are duplicated!</p>
 </div>
@@ -2920,10 +2941,12 @@ treat it just like whatever the object represents.</p>
 <pre class="r"><code># Use filter to remove duplicated entries
 header_seq_subset &lt;- 
     header_seq_fasta %&gt;%           # Pass the header/seq data to filter
-    filter(...)     # identify the duplicated entries and filter on the negated result</code></pre>
-<pre><code>## Error in header_seq_fasta %&gt;% filter(...): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>str(header_seq_subset)</code></pre>
-<pre><code>## Error in str(header_seq_subset): object &#39;header_seq_subset&#39; not found</code></pre>
+    filter(!duplicated(.[,2]))     # identify the duplicated entries and filter on the negated result
+
+str(header_seq_subset)</code></pre>
+<pre><code>## tibble [68 x 2] (S3: tbl_df/tbl/data.frame)
+##  $ V1: chr [1:68] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot; &quot;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens&quot; &quot;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens&quot; &quot;NP_001166238.1 forkhead box protein P2 isoform VI Homo sapiens&quot; ...
+##  $ V2: chr [1:68] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ ...</code></pre>
 <hr />
 </div>
 <div id="break-up-the-header-column-into-the-components-that-we-want" class="section level3">
@@ -3006,7 +3029,9 @@ tibble! Instead, to get a vector back we can use the
 </div>
 <pre class="r"><code># Check the structure of our data
 str(header_seq_subset)</code></pre>
-<pre><code>## Error in str(header_seq_subset): object &#39;header_seq_subset&#39; not found</code></pre>
+<pre><code>## tibble [68 x 2] (S3: tbl_df/tbl/data.frame)
+##  $ V1: chr [1:68] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot; &quot;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens&quot; &quot;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens&quot; &quot;NP_001166238.1 forkhead box protein P2 isoform VI Homo sapiens&quot; ...
+##  $ V2: chr [1:68] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ ...</code></pre>
 <hr />
 <p>If everything goes as planned, we expect to see a matrix structured
 something like the following:</p>
@@ -3042,11 +3067,85 @@ something like the following:</p>
   pull(1) %&gt;%              # Retrieve just a single column (vs select) as a vector
   
    # Use the power of regex and greedy matching to create 4 capture groups
-  str_match_all(r&quot;(...)&quot;)     </code></pre>
-<pre><code>## Error in pull(., 1): object &#39;header_seq_subset&#39; not found</code></pre>
-<pre class="r"><code># Take a look at the last few rows of our result
+  str_match_all(r&quot;(...)&quot;)     
+
+# Take a look at the last few rows of our result
 tail(fasta_header, 3)</code></pre>
-<pre><code>## Error in tail(fasta_header, 3): object &#39;fasta_header&#39; not found</code></pre>
+<pre><code>## [[1]]
+##       [,1] 
+##  [1,] &quot;XP_&quot;
+##  [2,] &quot;007&quot;
+##  [3,] &quot;980&quot;
+##  [4,] &quot;836&quot;
+##  [5,] &quot;.1 &quot;
+##  [6,] &quot;PRE&quot;
+##  [7,] &quot;DIC&quot;
+##  [8,] &quot;TED&quot;
+##  [9,] &quot;: f&quot;
+## [10,] &quot;ork&quot;
+## [11,] &quot;hea&quot;
+## [12,] &quot;d b&quot;
+## [13,] &quot;ox &quot;
+## [14,] &quot;pro&quot;
+## [15,] &quot;tei&quot;
+## [16,] &quot;n P&quot;
+## [17,] &quot;2 i&quot;
+## [18,] &quot;sof&quot;
+## [19,] &quot;orm&quot;
+## [20,] &quot; X2&quot;
+## [21,] &quot; Ch&quot;
+## [22,] &quot;lor&quot;
+## [23,] &quot;oce&quot;
+## [24,] &quot;bus&quot;
+## [25,] &quot; sa&quot;
+## [26,] &quot;bae&quot;
+## 
+## [[2]]
+##       [,1] 
+##  [1,] &quot;XP_&quot;
+##  [2,] &quot;007&quot;
+##  [3,] &quot;980&quot;
+##  [4,] &quot;835&quot;
+##  [5,] &quot;.1 &quot;
+##  [6,] &quot;PRE&quot;
+##  [7,] &quot;DIC&quot;
+##  [8,] &quot;TED&quot;
+##  [9,] &quot;: f&quot;
+## [10,] &quot;ork&quot;
+## [11,] &quot;hea&quot;
+## [12,] &quot;d b&quot;
+## [13,] &quot;ox &quot;
+## [14,] &quot;pro&quot;
+## [15,] &quot;tei&quot;
+## [16,] &quot;n P&quot;
+## [17,] &quot;2 i&quot;
+## [18,] &quot;sof&quot;
+## [19,] &quot;orm&quot;
+## [20,] &quot; X1&quot;
+## [21,] &quot; Ch&quot;
+## [22,] &quot;lor&quot;
+## [23,] &quot;oce&quot;
+## [24,] &quot;bus&quot;
+## [25,] &quot; sa&quot;
+## [26,] &quot;bae&quot;
+## 
+## [[3]]
+##       [,1] 
+##  [1,] &quot;Ext&quot;
+##  [2,] &quot;ern&quot;
+##  [3,] &quot;al &quot;
+##  [4,] &quot;lin&quot;
+##  [5,] &quot;k. &quot;
+##  [6,] &quot;Ple&quot;
+##  [7,] &quot;ase&quot;
+##  [8,] &quot; re&quot;
+##  [9,] &quot;vie&quot;
+## [10,] &quot;w o&quot;
+## [11,] &quot;ur &quot;
+## [12,] &quot;pri&quot;
+## [13,] &quot;vac&quot;
+## [14,] &quot;y p&quot;
+## [15,] &quot;oli&quot;</code></pre>
 <hr />
 </div>
 <div id="reformat-our-header-information-into-a-data-frame" class="section level3">
@@ -3058,16 +3157,35 @@ information from each entry of the list itself? Currently
 matrix. Let’s convince ourselves in the following code cell.</p>
 <pre class="r"><code># Look at the first entry of fasta_header
 fasta_header[[1]]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;fasta_header&#39; not found</code></pre>
+<pre><code>##       [,1] 
+##  [1,] &quot;NP_&quot;
+##  [2,] &quot;683&quot;
+##  [3,] &quot;696&quot;
+##  [4,] &quot;.2 &quot;
+##  [5,] &quot;for&quot;
+##  [6,] &quot;khe&quot;
+##  [7,] &quot;ad &quot;
+##  [8,] &quot;box&quot;
+##  [9,] &quot; pr&quot;
+## [10,] &quot;ote&quot;
+## [11,] &quot;in &quot;
+## [12,] &quot;P2 &quot;
+## [13,] &quot;iso&quot;
+## [14,] &quot;for&quot;
+## [15,] &quot;m I&quot;
+## [16,] &quot;I H&quot;
+## [17,] &quot;omo&quot;
+## [18,] &quot; sa&quot;
+## [19,] &quot;pie&quot;</code></pre>
 <pre class="r"><code># Two ways to drop the first column
 print(&quot;Select our columns specifically...&quot;)</code></pre>
 <pre><code>## [1] &quot;Select our columns specifically...&quot;</code></pre>
 <pre class="r"><code>fasta_header[[1]][...]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;fasta_header&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>print(&quot;Leave a column behind&quot;)</code></pre>
 <pre><code>## [1] &quot;Leave a column behind&quot;</code></pre>
 <pre class="r"><code>fasta_header[[1]][...]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;fasta_header&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 <p>How do we approach converting this to something like a data frame?
 There are a number of ways to do this and we’ll show you a couple.</p>
@@ -3114,7 +3232,13 @@ etc. In our case, we will explicitly call on
 <code>data.frame</code> as a result.</p>
 <pre class="r"><code>str(fasta_header, 
     list.len = 5) # Limit the number of elements in the list output</code></pre>
-<pre><code>## Error in str(fasta_header, list.len = 5): object &#39;fasta_header&#39; not found</code></pre>
+<pre><code>## List of 68
+##  $ : chr [1:19, 1] &quot;NP_&quot; &quot;683&quot; &quot;696&quot; &quot;.2 &quot; ...
+##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;683&quot; &quot;697&quot; &quot;.2 &quot; ...
+##  $ : chr [1:19, 1] &quot;NP_&quot; &quot;683&quot; &quot;698&quot; &quot;.2 &quot; ...
+##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;001&quot; &quot;166&quot; &quot;238&quot; ...
+##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;001&quot; &quot;166&quot; &quot;237&quot; ...
+##   [list output truncated]</code></pre>
 <hr />
 <p>Let’s compare what happens when we allow the R interpreter to choose
 which version of <code>rbind()</code> it will use versus specifying.</p>
@@ -3134,9 +3258,9 @@ will delve into these control structures in <strong>lecture 07</strong>.
 Here, however, we want to quickly use it to accomplish a repetitive
 action. Remember our rules for adding rows to a data frame!</p>
 <pre class="r"><code># Create a data frame and place-hold the column names to match with what we have in fasta6
-header.df &lt;- rbind.data.frame(fasta_header[[1]][,-1])</code></pre>
-<pre><code>## Error in rbind.data.frame(fasta_header[[1]][, -1]): object &#39;fasta_header&#39; not found</code></pre>
-<pre class="r"><code>rm(i) ## remove any previous instances of i</code></pre>
+header.df &lt;- rbind.data.frame(fasta_header[[1]][,-1])
+
+rm(i) ## remove any previous instances of i</code></pre>
 <pre><code>## Warning in rm(i): object &#39;i&#39; not found</code></pre>
 <pre class="r"><code>for (i in ...){
   # Drop the last potential list in fasta_header since it was blank!
@@ -3145,9 +3269,9 @@ header.df &lt;- rbind.data.frame(fasta_header[[1]][,-1])</code></pre>
 }</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## Error in head(header.df): object &#39;header.df&#39; not found</code></pre>
+<pre><code>## data frame with 0 columns and 0 rows</code></pre>
 <pre class="r"><code>str(header.df)</code></pre>
-<pre><code>## Error in str(header.df): object &#39;header.df&#39; not found</code></pre>
+<pre><code>## &#39;data.frame&#39;:    0 obs. of  0 variables</code></pre>
 <hr />
 </div>
 <div id="do.call-to-save-youself-some-trouble" class="section level3">
@@ -3240,14 +3364,14 @@ header.df &lt;-
   select(-1) # remember you need to get rid of the first column</code></pre>
 <pre><code>## Error in select(., -1): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## Error in head(header.df): object &#39;header.df&#39; not found</code></pre>
+<pre><code>## data frame with 0 columns and 0 rows</code></pre>
 <hr />
 <p>Don’t forget to rename your columns!</p>
 <pre class="r"><code># rename the columns &quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, and &quot;Species&quot;
 ...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, &quot;Species&quot;)</code></pre>
-<pre><code>## Error in ...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, : object &#39;header.df&#39; not found</code></pre>
+<pre><code>## Error in ...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, : could not find function &quot;...&lt;-&quot;</code></pre>
 <pre class="r"><code>head(header.df,2)</code></pre>
-<pre><code>## Error in head(header.df, 2): object &#39;header.df&#39; not found</code></pre>
+<pre><code>## data frame with 0 columns and 0 rows</code></pre>
 <hr />
 <p>Looks like we are halfway through our problem. We’ve split the header
 into new columns and we now need to cleanup the sequence entries which
@@ -3269,10 +3393,15 @@ vector into a single character object.</p></li>
 </ol>
 <pre class="r"><code># Take a closer look at our tibble
 str(header_seq_subset)</code></pre>
-<pre><code>## Error in str(header_seq_subset): object &#39;header_seq_subset&#39; not found</code></pre>
+<pre><code>## tibble [68 x 2] (S3: tbl_df/tbl/data.frame)
+##  $ V1: chr [1:68] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot; &quot;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens&quot; &quot;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens&quot; &quot;NP_001166238.1 forkhead box protein P2 isoform VI Homo sapiens&quot; ...
+##  $ V2: chr [1:68] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQI&quot;| __truncated__ &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPH&quot;| __truncated__ ...</code></pre>
 <pre class="r"><code># Confirm what our sequence data looks like for a single entry
 print(header_seq_subset[1,2])</code></pre>
-<pre><code>## Error in print(header_seq_subset[1, 2]): object &#39;header_seq_subset&#39; not found</code></pre>
+<pre><code>## [90m# A tibble: 1 x 1[39m
+##   V2                                                                            
+##   [3m[90m&lt;chr&gt;[39m[23m                                                                         
+## [90m1[39m [90m&quot;[39mMMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT\r\nSG~</code></pre>
 <pre class="r"><code># Let&#39;s split off all of the extra line breaks
 header_seq_subset %&gt;% 
   # Break off the 2nd column
@@ -3363,7 +3492,7 @@ cbind(...) %&gt;% head()</code></pre>
 header.df$... &lt;- seq_united</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;seq_united&#39; not found</code></pre>
 <pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## Error in head(header.df): object &#39;header.df&#39; not found</code></pre>
+<pre><code>## data frame with 0 columns and 0 rows</code></pre>
 <hr />
 <p>We’re done! Just like we wanted it:</p>
 <table>
