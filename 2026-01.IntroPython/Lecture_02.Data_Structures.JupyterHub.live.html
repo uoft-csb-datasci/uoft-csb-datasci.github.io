@@ -10729,21 +10729,39 @@ get(self, key, default=None, /)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get the values from our dictionary AND cast it to a list at the same time</span>
-<span class="n">list_values_only</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">aminoacids_dict</span><span class="o">...</span><span class="p">)</span>
+<span class="n">list_values_only</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">aminoacids_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
 <span class="n">list_values_only</span>
 
 <span class="n">list_values_only</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[65]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>[{'D', 'Asp', 'GAC GAT'}, {'Glu', 'GAA GAG', 'E'}, {'Phe', 'TTC TTT', 'F'}, {'G', 'GGA GGC GGG GGT', 'Gly'}, {'His', 'H', 'CAC CAT'}, {'Ile', 'I', 'ATA ATC ATT'}, {'Lys', 'K', 'AAA AAG'}, {'Leu', 'TTA TTG CTA CTC CTG CTT', 'L'}, {'Met', 'MATG'}, {'AAC AAT', 'Asn', 'N'}, {'Pro', 'CCA CCC CCG CCT', 'P'}, {'Gln', 'CAA CAG', 'Q'}, {'AGA AGG CGA CGC CGG CGT', 'R', 'Arg'}, {'Ser', 'S', 'AGC AGT TCA TCC TCG TCT'}, {'T', 'ACA ACC ACG ACU', 'Thr'}, {'V', 'GTA GTC GTG GTT', 'Val'}, {'TGG', 'W', 'Trp'}, {'Tyr', 'Y,TAC TAT'}]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[65]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>{'D', 'Asp', 'GAC GAT'}</pre>
 </div>
 </div>
 </div>
