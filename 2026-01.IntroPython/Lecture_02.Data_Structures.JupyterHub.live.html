@@ -14313,17 +14313,64 @@ Name: Aminoacid, dtype: object</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [120]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Subset multiple rows and columns in a single index call</span>
-<span class="n">aminoacids_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">"Ala"</span><span class="p">,</span> <span class="s2">"Asn"</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">aminoacids_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">"Ala"</span><span class="p">,</span> <span class="s2">"Asn"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Aminoacid"</span><span class="p">,</span> <span class="s2">"DNA codons"</span><span class="p">]]</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[120]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Aminoacid</th>
+<th>DNA codons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Ala</th>
+<td>Alanine</td>
+<td>GCT GCC GCA GCG</td>
+</tr>
+<tr>
+<th>Asn</th>
+<td>Asparagine</td>
+<td>AAT AAC</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
