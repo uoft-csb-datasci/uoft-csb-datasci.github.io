@@ -9412,7 +9412,7 @@ gene_sequence after modification:  ['C', 'R', 'R', 'G', 'A', 'C', 'A', 'C', 'G',
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Original list: "</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>    <span class="c1"># before</span>
 
 <span class="c1"># Remove the first element of list_1</span>
-<span class="n">pop_item</span> <span class="o">=</span> <span class="n">list_1</span><span class="o">...</span>     <span class="c1"># pop (dropped element) is stored as a separate object in case we need it</span>
+<span class="n">pop_item</span> <span class="o">=</span> <span class="n">list_1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>     <span class="c1"># pop (dropped element) is stored as a separate object in case we need it</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Popped element: "</span><span class="p">,</span> <span class="n">pop_item</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Updated list: "</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>    <span class="c1"># after</span>
