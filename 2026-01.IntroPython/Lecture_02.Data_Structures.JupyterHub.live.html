@@ -12376,19 +12376,19 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[78], line 2</span>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the median of column 2</span>
-<span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">array_iris</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">array_iris</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Calculate the Pearson correlation coefficient between sepal length (column 1) and sepal width (column 2)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">array_iris</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span> 
+<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">array_iris</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">array_iris</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> 
 
 <span class="c1"># What is the standard deviation of column 1?</span>
 <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">array_iris</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -12396,6 +12396,37 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[78], line 2</span>
 <span class="c1"># What is the sum of column 4?</span>
 <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">array_iris</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[95]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>3.025</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[95]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>array([[ 1.        , -0.19952392],
+       [-0.19952392,  1.        ]])</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[95]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>0.1946687400877371</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[95]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>2.65</pre>
 </div>
 </div>
 </div>
@@ -12413,12 +12444,12 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[78], line 2</span>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [96]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Look at the array again</span>
@@ -12430,12 +12461,43 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[78], line 2</span>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[96]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>array([[ 4.98,  3.08,  1.54,  0.53],
+       [ 5.15,  2.11,  1.29,  0.02],
+       [ 4.71,  3.53,  1.12, -0.09],
+       [ 4.87,  3.02,  1.05,  0.46],
+       [ 4.98,  2.92,  1.31,  0.39],
+       [ 5.43,  2.84,  1.11,  0.34],
+       [ 5.28,  3.79,  1.45,  0.01],
+       [ 4.96,  2.91,  1.36,  0.36],
+       [ 5.15,  2.91,  1.24,  0.13],
+       [ 5.04,  3.36,  1.17, -0.13],
+       [ 4.79,  3.  ,  1.29,  0.02],
+       [ 4.83,  3.39,  1.42, -0.1 ],
+       [ 4.79,  3.04,  1.47,  0.33],
+       [ 4.98,  3.03,  1.06,  0.38]])</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[96]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(14, 4)</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Transpose the array</span>
@@ -12443,6 +12505,31 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[78], line 2</span>
 
 <span class="n">array_iris</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[97]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>array([[ 4.98,  5.15,  4.71,  4.87,  4.98,  5.43,  5.28,  4.96,  5.15,
+         5.04,  4.79,  4.83,  4.79,  4.98],
+       [ 3.08,  2.11,  3.53,  3.02,  2.92,  2.84,  3.79,  2.91,  2.91,
+         3.36,  3.  ,  3.39,  3.04,  3.03],
+       [ 1.54,  1.29,  1.12,  1.05,  1.31,  1.11,  1.45,  1.36,  1.24,
+         1.17,  1.29,  1.42,  1.47,  1.06],
+       [ 0.53,  0.02, -0.09,  0.46,  0.39,  0.34,  0.01,  0.36,  0.13,
+        -0.13,  0.02, -0.1 ,  0.33,  0.38]])</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[97]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(4, 14)</pre>
 </div>
 </div>
 </div>
