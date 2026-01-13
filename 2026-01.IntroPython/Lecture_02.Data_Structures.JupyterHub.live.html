@@ -13456,34 +13456,145 @@ We just made an object of type: &lt;class 'pandas.core.frame.DataFrame'&gt;
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [108]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get the tail end of our data.</span>
 <span class="c1"># "n = 7" overwrites the default value of 5 rows</span>
 
-<span class="n">aminoacids_df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span>
+<span class="n">aminoacids_df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[108]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Aminoacid</th>
+<th>single letter symbol</th>
+<th>DNA codons</th>
+<th>Compressed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Ser</th>
+<td>Serine</td>
+<td>S</td>
+<td>TCT TCC TCA TCG AGT AGC</td>
+<td>TCN AGY</td>
+</tr>
+<tr>
+<th>Thr</th>
+<td>Threonine</td>
+<td>T</td>
+<td>ACT ACC ACA ACG ACN</td>
+<td>ACN</td>
+</tr>
+<tr>
+<th>Trp</th>
+<td>Tryptophan</td>
+<td>W</td>
+<td>TGG</td>
+<td>TGG</td>
+</tr>
+<tr>
+<th>Tyr</th>
+<td>Tyrosine</td>
+<td>Y</td>
+<td>TAT TAC</td>
+<td>TAY</td>
+</tr>
+<tr>
+<th>Val</th>
+<td>Valine</td>
+<td>V</td>
+<td>GTT GTC GTA GTG</td>
+<td>GTN</td>
+</tr>
+<tr>
+<th>START</th>
+<td>START</td>
+<td>START</td>
+<td>ATG</td>
+<td>ATG</td>
+</tr>
+<tr>
+<th>STOP</th>
+<td>STOP</td>
+<td>STOP</td>
+<td>TAA TGA TAG</td>
+<td>TRA TAG</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [109]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Retrieve the information about our data frame</span>
 <span class="n">aminoacids_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Index: 23 entries, Ala to STOP
+Data columns (total 4 columns):
+ #   Column                Non-Null Count  Dtype 
+---  ------                --------------  ----- 
+ 0   Aminoacid             23 non-null     object
+ 1   single letter symbol  23 non-null     object
+ 2   DNA codons            23 non-null     object
+ 3   Compressed            23 non-null     object
+dtypes: object(4)
+memory usage: 920.0+ bytes
+</pre>
 </div>
 </div>
 </div>
