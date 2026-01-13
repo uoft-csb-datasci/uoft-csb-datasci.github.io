@@ -9868,12 +9868,12 @@ Updated list:  [20, 30.5, True, 'biology', 1, 100, 10, 25]
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">list_alanine</span>
@@ -9886,8 +9886,34 @@ Updated list:  [20, 30.5, True, 'biology', 1, 100, 10, 25]
 <span class="nb">print</span><span class="p">(</span><span class="s2">"The codon GCC is present "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">list_alanine</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"GCC"</span><span class="p">))</span> <span class="o">+</span> <span class="s2">" time(s) in list_alanine"</span><span class="p">)</span>
 
 <span class="c1"># Locate GCC in list_alanine with .index()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"The codon GCC can first be found at index "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="o">...</span><span class="p">(</span><span class="s2">"GCC"</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The codon GCC can first be found at index "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">list_alanine</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"GCC"</span><span class="p">)))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>['GCA', 'GCC', 'GCG', 'GCU', 'GCC']</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>True</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>The codon GCC is present 2 time(s) in list_alanine
+The codon GCC can first be found at index 1
+</pre>
 </div>
 </div>
 </div>
