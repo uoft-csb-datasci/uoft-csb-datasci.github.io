@@ -13146,12 +13146,12 @@ We just made an object of type: &lt;class 'pandas.core.frame.DataFrame'&gt;
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [105]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Retrieve the indices of our data frame</span>
@@ -13168,17 +13168,238 @@ We just made an object of type: &lt;class 'pandas.core.frame.DataFrame'&gt;
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[105]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>RangeIndex(start=0, stop=23, step=1)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[105]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Aminoacid</th>
+<th>single letter symbol</th>
+<th>DNA codons</th>
+<th>Compressed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Ala</th>
+<td>Alanine</td>
+<td>A</td>
+<td>GCT GCC GCA GCG</td>
+<td>GCN</td>
+</tr>
+<tr>
+<th>Arg</th>
+<td>Arginine</td>
+<td>R</td>
+<td>CGT CGC CGA CGG AGA AGG</td>
+<td>CGN AGR MGN CGY</td>
+</tr>
+<tr>
+<th>Asn</th>
+<td>Asparagine</td>
+<td>N</td>
+<td>AAT AAC</td>
+<td>AAY</td>
+</tr>
+<tr>
+<th>Asp</th>
+<td>Aspartic acid</td>
+<td>D</td>
+<td>GAT GAC</td>
+<td>GAY</td>
+</tr>
+<tr>
+<th>Cys</th>
+<td>Cysteine</td>
+<td>C</td>
+<td>TGT TGC</td>
+<td>TGY</td>
+</tr>
+<tr>
+<th>Gln</th>
+<td>Glutamine</td>
+<td>Q</td>
+<td>CAA CAG CAR</td>
+<td>CAR</td>
+</tr>
+<tr>
+<th>Glu</th>
+<td>Glutamic acid</td>
+<td>E</td>
+<td>GAA GAG</td>
+<td>GAR</td>
+</tr>
+<tr>
+<th>Gly</th>
+<td>Glycine</td>
+<td>G</td>
+<td>GGT GGC GGA GGG</td>
+<td>GGN</td>
+</tr>
+<tr>
+<th>His</th>
+<td>Histidine</td>
+<td>H</td>
+<td>CAT CAC</td>
+<td>CAY</td>
+</tr>
+<tr>
+<th>Ile</th>
+<td>Isoleucine</td>
+<td>I</td>
+<td>ATT ATC ATA</td>
+<td>ATH</td>
+</tr>
+<tr>
+<th>Leu</th>
+<td>Leucine</td>
+<td>L</td>
+<td>TTA TTG CTT CTC CTA CTG</td>
+<td>YTR CTY CTN TTR</td>
+</tr>
+<tr>
+<th>Lys</th>
+<td>Lysine</td>
+<td>K</td>
+<td>AAA AAG</td>
+<td>AAR</td>
+</tr>
+<tr>
+<th>Met</th>
+<td>Methionine</td>
+<td>M</td>
+<td>ATG</td>
+<td>ATG</td>
+</tr>
+<tr>
+<th>Phe</th>
+<td>Phenylalanine</td>
+<td>F</td>
+<td>TTT TTC</td>
+<td>TTY</td>
+</tr>
+<tr>
+<th>Pro</th>
+<td>Proline</td>
+<td>P</td>
+<td>CCT CCC CCA CCG</td>
+<td>CCN</td>
+</tr>
+<tr>
+<th>Pyl</th>
+<td>Pyrrolysine</td>
+<td>O</td>
+<td>TAG</td>
+<td>TAG</td>
+</tr>
+<tr>
+<th>Ser</th>
+<td>Serine</td>
+<td>S</td>
+<td>TCT TCC TCA TCG AGT AGC</td>
+<td>TCN AGY</td>
+</tr>
+<tr>
+<th>Thr</th>
+<td>Threonine</td>
+<td>T</td>
+<td>ACT ACC ACA ACG ACN</td>
+<td>ACN</td>
+</tr>
+<tr>
+<th>Trp</th>
+<td>Tryptophan</td>
+<td>W</td>
+<td>TGG</td>
+<td>TGG</td>
+</tr>
+<tr>
+<th>Tyr</th>
+<td>Tyrosine</td>
+<td>Y</td>
+<td>TAT TAC</td>
+<td>TAY</td>
+</tr>
+<tr>
+<th>Val</th>
+<td>Valine</td>
+<td>V</td>
+<td>GTT GTC GTA GTG</td>
+<td>GTN</td>
+</tr>
+<tr>
+<th>START</th>
+<td>START</td>
+<td>START</td>
+<td>ATG</td>
+<td>ATG</td>
+</tr>
+<tr>
+<th>STOP</th>
+<td>STOP</td>
+<td>STOP</td>
+<td>TAA TGA TAG</td>
+<td>TRA TAG</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [106]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># What will the index look like now?</span>
 <span class="n">aminoacids_df</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[106]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['Ala', 'Arg', 'Asn', 'Asp', 'Cys', 'Gln', 'Glu', 'Gly', 'His', 'Ile',
+       'Leu', 'Lys', 'Met', 'Phe', 'Pro', 'Pyl', 'Ser', 'Thr', 'Trp', 'Tyr',
+       'Val', 'START', 'STOP'],
+      dtype='object')</pre>
 </div>
 </div>
 </div>
@@ -13196,17 +13417,29 @@ We just made an object of type: &lt;class 'pandas.core.frame.DataFrame'&gt;
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [107]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Retrieve the column information for our data frame</span>
-<span class="n">aminoacids_df</span><span class="o">...</span>
+<span class="n">aminoacids_df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[107]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['Aminoacid', 'single letter symbol', 'DNA codons', 'Compressed'], dtype='object')</pre>
 </div>
 </div>
 </div>
@@ -13234,7 +13467,7 @@ We just made an object of type: &lt;class 'pandas.core.frame.DataFrame'&gt;
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get the tail end of our data.</span>
 <span class="c1"># "n = 7" overwrites the default value of 5 rows</span>
 
-<span class="n">aminoacids_df</span><span class="o">...</span>
+<span class="n">aminoacids_df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span>
 </pre></div>
 </div>
 </div>
