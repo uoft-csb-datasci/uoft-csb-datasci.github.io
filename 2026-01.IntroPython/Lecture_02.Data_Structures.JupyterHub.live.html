@@ -12988,23 +12988,105 @@ Based on the above description we should note there are a couple of rules regard
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [103]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Convert our dictionary to DataFrame</span>
-<span class="n">aminoacids_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="n">aminoacids_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">aminoacids_dict</span><span class="p">)</span>
 
 <span class="c1"># Take a peek at the first 5 rows of our DataFrame with the head() method</span>
-<span class="n">aminoacids_df</span><span class="o">...</span>
+<span class="n">aminoacids_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
 <span class="c1"># We'll just insert an extra line here for ease of readabilty</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">We just made an object of type:"</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">aminoacids_df</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[103]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Aminoacid</th>
+<th>single letter symbol</th>
+<th>DNA codons</th>
+<th>Compressed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Alanine</td>
+<td>A</td>
+<td>GCT GCC GCA GCG</td>
+<td>GCN</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Arginine</td>
+<td>R</td>
+<td>CGT CGC CGA CGG AGA AGG</td>
+<td>CGN AGR MGN CGY</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Asparagine</td>
+<td>N</td>
+<td>AAT AAC</td>
+<td>AAY</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Aspartic acid</td>
+<td>D</td>
+<td>GAT GAC</td>
+<td>GAY</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Cysteine</td>
+<td>C</td>
+<td>TGT TGC</td>
+<td>TGY</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+We just made an object of type: &lt;class 'pandas.core.frame.DataFrame'&gt;
+</pre>
 </div>
 </div>
 </div>
