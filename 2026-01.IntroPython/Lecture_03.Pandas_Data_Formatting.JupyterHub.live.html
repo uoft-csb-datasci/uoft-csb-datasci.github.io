@@ -11421,16 +11421,16 @@ dtype: bool</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import embryo_data_wide.csv</span>
-<span class="n">embryo_wide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">")</span>
+<span class="n">embryo_wide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"embryo_data_wide.csv"</span><span class="p">)</span>
 
 <span class="n">embryo_wide</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="n">embryo_wide</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -11439,6 +11439,371 @@ dtype: bool</pre>
 <span class="c1"># How many columns with NaN values?</span>
 <span class="n">embryo_wide</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>worm.number</th>
+<th>200707_N2_LUAm1_0M_72hpi_sporesPresent</th>
+<th>200707_N2_LUAm1_0M_72hpi_merontsPresent</th>
+<th>200707_N2_LUAm1_0M_72hpi_numEmbryos</th>
+<th>200707_N2_LUAm1_10M_72hpi_sporesPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_merontsPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_numEmbryos</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_sporesPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_merontsPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_numEmbryos</th>
+<th>...</th>
+<th>220302_JU1400_ERTm5-96H_1.75M_96hpi_numEmbryos</th>
+<th>220205_JU1400_ERTm5-96H_3.5M_96hpi_sporesPresent</th>
+<th>220205_JU1400_ERTm5-96H_3.5M_96hpi_merontsPresent</th>
+<th>220205_JU1400_ERTm5-96H_3.5M_96hpi_numEmbryos</th>
+<th>220219_JU1400_ERTm5-96H_3.5M_96hpi_sporesPresent</th>
+<th>220219_JU1400_ERTm5-96H_3.5M_96hpi_merontsPresent</th>
+<th>220219_JU1400_ERTm5-96H_3.5M_96hpi_numEmbryos</th>
+<th>220302_JU1400_ERTm5-96H_3.5M_96hpi_sporesPresent</th>
+<th>220302_JU1400_ERTm5-96H_3.5M_96hpi_merontsPresent</th>
+<th>220302_JU1400_ERTm5-96H_3.5M_96hpi_numEmbryos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>18.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>7.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+<td>...</td>
+<td>8.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>17.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>3.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>18.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>9.0</td>
+<td>...</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>39.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>9.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>10.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>13.0</td>
+<td>...</td>
+<td>4.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>28.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>15.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+<td>...</td>
+<td>6.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>15.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>15.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>14.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>11.0</td>
+<td>...</td>
+<td>7.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>26.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>4.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>8.0</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 901 columns</p>
+</div>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>worm.number</th>
+<th>200707_N2_LUAm1_0M_72hpi_sporesPresent</th>
+<th>200707_N2_LUAm1_0M_72hpi_merontsPresent</th>
+<th>200707_N2_LUAm1_0M_72hpi_numEmbryos</th>
+<th>200707_N2_LUAm1_10M_72hpi_sporesPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_merontsPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_numEmbryos</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_sporesPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_merontsPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_numEmbryos</th>
+<th>...</th>
+<th>220302_JU1400_ERTm5-96H_1.75M_96hpi_numEmbryos</th>
+<th>220205_JU1400_ERTm5-96H_3.5M_96hpi_sporesPresent</th>
+<th>220205_JU1400_ERTm5-96H_3.5M_96hpi_merontsPresent</th>
+<th>220205_JU1400_ERTm5-96H_3.5M_96hpi_numEmbryos</th>
+<th>220219_JU1400_ERTm5-96H_3.5M_96hpi_sporesPresent</th>
+<th>220219_JU1400_ERTm5-96H_3.5M_96hpi_merontsPresent</th>
+<th>220219_JU1400_ERTm5-96H_3.5M_96hpi_numEmbryos</th>
+<th>220302_JU1400_ERTm5-96H_3.5M_96hpi_sporesPresent</th>
+<th>220302_JU1400_ERTm5-96H_3.5M_96hpi_merontsPresent</th>
+<th>220302_JU1400_ERTm5-96H_3.5M_96hpi_numEmbryos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>149</th>
+<td>150</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>150</th>
+<td>151</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>151</th>
+<td>152</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>152</th>
+<td>153</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>153</th>
+<td>154</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 901 columns</p>
+</div>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 154 entries, 0 to 153
+Columns: 901 entries, worm.number to 220302_JU1400_ERTm5-96H_3.5M_96hpi_numEmbryos
+dtypes: float64(897), int64(4)
+memory usage: 1.1 MB
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>np.int64(897)</pre>
 </div>
 </div>
 </div>
@@ -11496,20 +11861,209 @@ So we have a few things to address:</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Grab the first 100 rows of data and 10 columns</span>
-<span class="n">embryo_wide_subset</span> <span class="o">=</span> <span class="n">embryo_wide</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="n">embryo_wide_subset</span> <span class="o">=</span> <span class="n">embryo_wide</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="c1"># View our subset</span>
 <span class="n">embryo_wide_subset</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>worm.number</th>
+<th>200707_N2_LUAm1_0M_72hpi_sporesPresent</th>
+<th>200707_N2_LUAm1_0M_72hpi_merontsPresent</th>
+<th>200707_N2_LUAm1_0M_72hpi_numEmbryos</th>
+<th>200707_N2_LUAm1_10M_72hpi_sporesPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_merontsPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_numEmbryos</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_sporesPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_merontsPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_numEmbryos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>18.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>7.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>18.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>9.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>9.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>10.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>13.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>15.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>15.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>14.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>95</th>
+<td>96</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>96</th>
+<td>97</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>97</th>
+<td>98</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>98</th>
+<td>99</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>99</th>
+<td>100</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<p>100 rows × 10 columns</p>
+</div>
 </div>
 </div>
 </div>
