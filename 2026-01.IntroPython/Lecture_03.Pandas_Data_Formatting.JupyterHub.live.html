@@ -15332,23 +15332,181 @@ embryo_wide_subset.sample<span class="o">?</span>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [68]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">embryo_long_subset_joined</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
     <span class="c1"># Set the index using column names we want to keep (0,2,3,4,5,6)</span>
     <span class="n">index</span> <span class="o">=</span> <span class="n">embryo_long_subset_joined</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">))],</span>
     <span class="c1"># We want the column names to come from measurementType</span>
-    <span class="n">columns</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="s2">"measurementType"</span><span class="p">,</span>
     <span class="c1"># The values to populate these columns will come from the measurements column</span>
-    <span class="n">values</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="s2">"measurements"</span>
     <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[68]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>measurementType</th>
+<th>merontsPresent</th>
+<th>numEmbryos</th>
+<th>sporesPresent</th>
+</tr>
+<tr>
+<th>worm.number</th>
+<th>date</th>
+<th>wormStrain</th>
+<th>pathogenStrain</th>
+<th>pathogenDose</th>
+<th>timepoint</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">1</th>
+<th rowspan="3" valign="top">200707</th>
+<th>JU1400</th>
+<th>LUAm1</th>
+<th>0M</th>
+<th>72hpi</th>
+<td>0.0</td>
+<td>10.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th rowspan="2" valign="top">N2</th>
+<th rowspan="2" valign="top">LUAm1</th>
+<th>0M</th>
+<th>72hpi</th>
+<td>0.0</td>
+<td>18.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>10M</th>
+<th>72hpi</th>
+<td>1.0</td>
+<td>7.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th rowspan="2" valign="top">2</th>
+<th rowspan="2" valign="top">200707</th>
+<th>JU1400</th>
+<th>LUAm1</th>
+<th>0M</th>
+<th>72hpi</th>
+<td>0.0</td>
+<td>9.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>N2</th>
+<th>LUAm1</th>
+<th>0M</th>
+<th>72hpi</th>
+<td>0.0</td>
+<td>18.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>...</th>
+<th>...</th>
+<th>...</th>
+<th>...</th>
+<th>...</th>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th rowspan="2" valign="top">49</th>
+<th rowspan="2" valign="top">200707</th>
+<th rowspan="2" valign="top">N2</th>
+<th rowspan="2" valign="top">LUAm1</th>
+<th>0M</th>
+<th>72hpi</th>
+<td>0.0</td>
+<td>21.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>10M</th>
+<th>72hpi</th>
+<td>1.0</td>
+<td>11.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th rowspan="3" valign="top">50</th>
+<th rowspan="3" valign="top">200707</th>
+<th>JU1400</th>
+<th>LUAm1</th>
+<th>0M</th>
+<th>72hpi</th>
+<td>0.0</td>
+<td>11.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th rowspan="2" valign="top">N2</th>
+<th rowspan="2" valign="top">LUAm1</th>
+<th>0M</th>
+<th>72hpi</th>
+<td>0.0</td>
+<td>15.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>10M</th>
+<th>72hpi</th>
+<td>1.0</td>
+<td>6.0</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<p>150 rows × 3 columns</p>
+</div>
 </div>
 </div>
 </div>
