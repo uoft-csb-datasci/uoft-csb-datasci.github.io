@@ -13403,7 +13403,7 @@ embryo_wide_subset.sample<span class="o">?</span>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Drop a column by its index</span>
@@ -13424,7 +13424,151 @@ embryo_wide_subset.sample<span class="o">?</span>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>200707_N2_LUAm1_0M_72hpi_numEmbryos</th>
+<th>200707_N2_LUAm1_10M_72hpi_sporesPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_merontsPresent</th>
+<th>200707_N2_LUAm1_10M_72hpi_numEmbryos</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_sporesPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_merontsPresent</th>
+<th>200707_JU1400_LUAm1_0M_72hpi_numEmbryos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>18.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>7.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>18.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>9.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>9.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>10.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>13.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>15.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>15.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>14.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>11.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<hr/>
+<div class="alert alert-block alert-warning">
+<b>Removing by index can be dangerous!</b> Even though the above code does its job as expected, <i>it can be very dangerous</i>. Since it uses index number/position to locate the column we wish to remove, once the current column 0 is removed, all other columns will be shifted one position to the left. As a consequence you will now have another column at index 0, and if you run this piece of code again, it will continue removing whatever column is present at index 0. You can end up removing many more columns than you intended, by mistake, with potential serious negative implications for your analyses. 
+
+<p>Thus, it is <i>safer</i> to use a syntax that explicitly looks for the column of interest, like using the full column name or by partial matching (more on that in <b>Lecture 6</b>) or by setting the label value to a variable first before using the <strong>drop()</strong> method.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Restore our subset since we've already altered it</span>
+<span class="n">embryo_wide_subset</span> <span class="o">=</span> <span class="n">embryo_wide_copy</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove a column by its name/label</span>
+<span class="n">embryo_wide_subset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">"worm.number"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># labels are indices names for either columns or rows. </span>
+<span class="c1"># 'inplace=True' overwrites dataframe instead of us explicitly re-assigning the variable</span>
+
+<span class="c1"># del my_dataframe['column_name'] # This is another way to remove the column by its name</span>
+
+<span class="c1"># Look at the resulting dataframe</span>
+<span class="n">embryo_wide_subset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -13531,72 +13675,81 @@ embryo_wide_subset.sample<span class="o">?</span>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
-<div class="alert alert-block alert-warning">
-<b>Removing by index can be dangerous!</b> Even though the above code does its job as expected, <i>it can be very dangerous</i>. Since it uses index number/position to locate the column we wish to remove, once the current column 0 is removed, all other columns will be shifted one position to the left. As a consequence you will now have another column at index 0, and if you run this piece of code again, it will continue removing whatever column is present at index 0. You can end up removing many more columns than you intended, by mistake, with potential serious negative implications for your analyses. 
-
-<p>Thus, it is <i>safer</i> to use a syntax that explicitly looks for the column of interest, like using the full column name or by partial matching (more on that in <b>Lecture 6</b>) or by setting the label value to a variable first before using the <strong>drop()</strong> method.</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Restore our subset since we've already altered it</span>
-<span class="n">embryo_wide_subset</span> <span class="o">=</span> <span class="n">embryo_wide_copy</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove a column by its name/label</span>
-<span class="n">embryo_wide_subset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># labels are indices names for either columns or rows. </span>
-<span class="c1"># 'inplace=True' overwrites dataframe instead of us explicitly re-assigning the variable</span>
-
-<span class="c1"># del my_dataframe['column_name'] # This is another way to remove the column by its name</span>
-
-<span class="c1"># Look at the resulting dataframe</span>
-<span class="n">embryo_wide_subset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
 <p>If we try to run this same code again, we get a KeyError because there is no column called "worm.number" anymore.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">embryo_wide_subset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">'worm.number'</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[55]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">embryo_wide_subset</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">drop</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-fg ansi-yellow-bg">worm.number</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\core\frame.py:5603</span>, in <span class="ansi-cyan-fg">DataFrame.drop</span><span class="ansi-blue-fg">(self, labels, axis, index, columns, level, inplace, errors)</span>
+<span class="ansi-green-fg">   5455</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">drop</span>(
+<span class="ansi-green-fg">   5456</span>     <span style="color: rgb(0,135,0)">self</span>,
+<span class="ansi-green-fg">   5457</span>     labels: IndexLabel | <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> = <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
+<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">   5464</span>     errors: IgnoreRaise = <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">raise</span><span class="ansi-yellow-fg">"</span>,
+<span class="ansi-green-fg">   5465</span> ) -&gt; DataFrame | <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">   5466</span> <span style="color: rgb(188,188,188)">    </span><span class="ansi-yellow-fg">"""</span>
+<span class="ansi-green-fg">   5467</span> <span class="ansi-yellow-fg">    Drop specified labels from rows or columns.</span>
+<span class="ansi-green-fg">   5468</span> 
+<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">   5601</span> <span class="ansi-yellow-fg">            weight  1.0     0.8</span>
+<span class="ansi-green-fg">   5602</span> <span class="ansi-yellow-fg">    """</span>
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">5603</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">super</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">drop</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">   5604</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">labels</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">labels</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   5605</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">axis</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">axis</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   5606</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   5607</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   5608</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">level</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">level</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   5609</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">inplace</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">inplace</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   5610</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   5611</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\core\generic.py:4810</span>, in <span class="ansi-cyan-fg">NDFrame.drop</span><span class="ansi-blue-fg">(self, labels, axis, index, columns, level, inplace, errors)</span>
+<span class="ansi-green-fg">   4808</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> axis, labels <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> axes.items():
+<span class="ansi-green-fg">   4809</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> labels <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">4810</span>         obj = <span class="ansi-yellow-bg">obj</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_drop_axis</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">labels</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">axis</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">level</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">level</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   4812</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> inplace:
+<span class="ansi-green-fg">   4813</span>     <span style="color: rgb(0,135,0)">self</span>._update_inplace(obj)
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\core\generic.py:4852</span>, in <span class="ansi-cyan-fg">NDFrame._drop_axis</span><span class="ansi-blue-fg">(self, labels, axis, level, errors, only_slice)</span>
+<span class="ansi-green-fg">   4850</span>         new_axis = axis.drop(labels, level=level, errors=errors)
+<span class="ansi-green-fg">   4851</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">4852</span>         new_axis = <span class="ansi-yellow-bg">axis</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">drop</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">labels</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   4853</span>     indexer = axis.get_indexer(new_axis)
+<span class="ansi-green-fg">   4855</span> <span style="color: rgb(95,135,135)"># Case for non-unique axis</span>
+<span class="ansi-green-fg">   4856</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\core\indexes\base.py:7136</span>, in <span class="ansi-cyan-fg">Index.drop</span><span class="ansi-blue-fg">(self, labels, errors)</span>
+<span class="ansi-green-fg">   7134</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> mask.any():
+<span class="ansi-green-fg">   7135</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> errors != <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">ignore</span><span class="ansi-yellow-fg">"</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">7136</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">KeyError</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">"</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>labels[mask].tolist()<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg"> not found in axis</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">   7137</span>     indexer = indexer[~mask]
+<span class="ansi-green-fg">   7138</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span>.delete(indexer)
+
+<span class="ansi-red-fg">KeyError</span>: "['worm.number'] not found in axis"</pre>
 </div>
 </div>
 </div>
