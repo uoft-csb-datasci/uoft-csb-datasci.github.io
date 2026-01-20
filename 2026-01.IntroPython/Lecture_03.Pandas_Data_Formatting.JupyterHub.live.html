@@ -8545,17 +8545,338 @@ Requirement already satisfied: xlsxwriter in c:\users\mokca\anaconda3\envs\csbju
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read a specific sheet in based on sheet name</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"infection_data_all.xlsx"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">"..."</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"infection_data_all.xlsx"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">"infection_metadata"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>experiment</th>
+<th>experimenter</th>
+<th>description</th>
+<th>Infection Date</th>
+<th>Plate Number</th>
+<th>Worm_strain</th>
+<th>Total Worms</th>
+<th>Spore Strain</th>
+<th>Spore Lot</th>
+<th>Lot concentration</th>
+<th>...</th>
+<th>timepoint</th>
+<th>infection.type</th>
+<th>Fixing Date</th>
+<th>Location</th>
+<th>Staining Date</th>
+<th>Stain type</th>
+<th>Slide date</th>
+<th>Slide number</th>
+<th>Slide Box</th>
+<th>Imaging Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>190426_VC20019_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>1</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>1</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>1</th>
+<td>190426_VC20019_LUAm1_10M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>2</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>2</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>2</th>
+<td>190426_VC20019_LUAm1_20M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>3</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>3</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>3</th>
+<td>190426_N2_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>4</td>
+<td>N2</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190430</td>
+<td>DY96</td>
+<td>190501</td>
+<td>4</td>
+<td>2</td>
+<td>190502</td>
+</tr>
+<tr>
+<th>4</th>
+<td>190426_N2_LUAm1_10M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>5</td>
+<td>N2</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>5</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>271</th>
+<td>200918_JU1400_ERTm5_3.5M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>4</td>
+<td>JU1400</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>4</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>272</th>
+<td>200918_AWR144_ERTm5_0M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>5</td>
+<td>AWR144</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>5</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>273</th>
+<td>200918_AWR144_ERTm5_3.5M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>6</td>
+<td>AWR144</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>6</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>274</th>
+<td>200918_AWR145_ERTm5_0M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>7</td>
+<td>AWR145</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>7</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>275</th>
+<td>200918_AWR145_ERTm5_3.5M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>8</td>
+<td>AWR145</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>8</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+</tbody>
+</table>
+<p>276 rows × 29 columns</p>
+</div>
 </div>
 </div>
 </div>
