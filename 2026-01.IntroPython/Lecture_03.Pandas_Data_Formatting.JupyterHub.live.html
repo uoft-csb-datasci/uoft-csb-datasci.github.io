@@ -12081,18 +12081,126 @@ So we have a few things to address:</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># import numpy as np</span>
 
 np.random.choice<span class="o">?</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre><span class="ansi-red-fg">Signature:</span> np.random.choice(a, size=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, replace=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, p=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-red-fg">Docstring:</span>
+choice(a, size=None, replace=True, p=None)
+
+Generates a random sample from a given 1-D array
+
+.. note::
+    New code should use the `~numpy.random.Generator.choice`
+    method of a `~numpy.random.Generator` instance instead;
+    please see the :ref:`random-quick-start`.
+
+.. warning::
+    This function uses the C-long dtype, which is 32bit on windows
+    and otherwise 64bit on 64bit platforms (and 32bit on 32bit ones).
+    Since NumPy 2.0, NumPy's default integer is 32bit on 32bit platforms
+    and 64bit on 64bit platforms.
+
+
+Parameters
+----------
+a : 1-D array-like or int
+    If an ndarray, a random sample is generated from its elements.
+    If an int, the random sample is generated as if it were ``np.arange(a)``
+size : int or tuple of ints, optional
+    Output shape.  If the given shape is, e.g., ``(m, n, k)``, then
+    ``m * n * k`` samples are drawn.  Default is None, in which case a
+    single value is returned.
+replace : boolean, optional
+    Whether the sample is with or without replacement. Default is True,
+    meaning that a value of ``a`` can be selected multiple times.
+p : 1-D array-like, optional
+    The probabilities associated with each entry in a.
+    If not given, the sample assumes a uniform distribution over all
+    entries in ``a``.
+
+Returns
+-------
+samples : single item or ndarray
+    The generated random samples
+
+Raises
+------
+ValueError
+    If a is an int and less than zero, if a or p are not 1-dimensional,
+    if a is an array-like of size 0, if p is not a vector of
+    probabilities, if a and p have different lengths, or if
+    replace=False and the sample size is greater than the population
+    size
+
+See Also
+--------
+randint, shuffle, permutation
+random.Generator.choice: which should be used in new code
+
+Notes
+-----
+Setting user-specified probabilities through ``p`` uses a more general but less
+efficient sampler than the default. The general sampler produces a different sample
+than the optimized sampler even if each element of ``p`` is 1 / len(a).
+
+Sampling random rows from a 2-D array is not possible with this function,
+but is possible with `Generator.choice` through its ``axis`` keyword.
+
+Examples
+--------
+Generate a uniform random sample from np.arange(5) of size 3:
+
+&gt;&gt;&gt; np.random.choice(5, 3)
+array([0, 3, 4]) # random
+&gt;&gt;&gt; #This is equivalent to np.random.randint(0,5,3)
+
+Generate a non-uniform random sample from np.arange(5) of size 3:
+
+&gt;&gt;&gt; np.random.choice(5, 3, p=[0.1, 0, 0.3, 0.6, 0])
+array([3, 3, 0]) # random
+
+Generate a uniform random sample from np.arange(5) of size 3 without
+replacement:
+
+&gt;&gt;&gt; np.random.choice(5, 3, replace=False)
+array([3,1,0]) # random
+&gt;&gt;&gt; #This is equivalent to np.random.permutation(np.arange(5))[:3]
+
+Generate a non-uniform random sample from np.arange(5) of size
+3 without replacement:
+
+&gt;&gt;&gt; np.random.choice(5, 3, replace=False, p=[0.1, 0, 0.3, 0.6, 0])
+array([2, 3, 0]) # random
+
+Any of the above can be repeated with an arbitrary array-like
+instead of just integers. For instance:
+
+&gt;&gt;&gt; aa_milne_arr = ['pooh', 'rabbit', 'piglet', 'Christopher']
+&gt;&gt;&gt; np.random.choice(aa_milne_arr, 5, p=[0.5, 0.1, 0.1, 0.3])
+array(['pooh', 'pooh', 'pooh', 'Christopher', 'piglet'], # random
+      dtype='&lt;U11')
+<span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
 </div>
