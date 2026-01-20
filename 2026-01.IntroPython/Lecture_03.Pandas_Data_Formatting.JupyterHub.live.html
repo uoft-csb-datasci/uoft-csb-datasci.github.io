@@ -17521,7 +17521,7 @@ memory usage: 2.4+ MB
 <span class="c1"># We'll use a small dataset to write to files</span>
 
 <span class="c1"># Write an actual csv file</span>
-<span class="o">...</span><span class="n">to_csv</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">embryo_merged</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'embryo_long_merged.csv'</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">","</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># \t for tab-separated value. Notice that the function name is still to_csv</span>
 <span class="c1"># Setting index=True will create an extra column (without a header) on the left-hand side of your file</span>
