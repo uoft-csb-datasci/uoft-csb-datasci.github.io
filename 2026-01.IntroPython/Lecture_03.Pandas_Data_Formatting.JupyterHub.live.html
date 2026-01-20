@@ -15281,20 +15281,40 @@ embryo_wide_subset.sample<span class="o">?</span>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># What are the values in measurementType?</span>
-<span class="n">embryo_long_subset_joined</span><span class="p">[</span><span class="s2">"measurementType"</span><span class="p">]</span><span class="o">...</span>
+<span class="n">embryo_long_subset_joined</span><span class="p">[</span><span class="s2">"measurementType"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
 <span class="c1"># What are the current column names</span>
 <span class="n">embryo_long_subset_joined</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>array(['sporesPresent', 'merontsPresent', 'numEmbryos'], dtype=object)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['worm.number', 'measurements', 'date', 'wormStrain', 'pathogenStrain',
+       'pathogenDose', 'timepoint', 'measurementType'],
+      dtype='object')</pre>
 </div>
 </div>
 </div>
