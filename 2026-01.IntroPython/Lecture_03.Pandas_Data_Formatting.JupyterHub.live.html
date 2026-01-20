@@ -11096,21 +11096,33 @@ dtype: bool</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># %pprint</span>
 <span class="c1"># Use the tolist() method</span>
-<span class="n">embryo_metadata</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">embryo_metadata</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span><span class="o">...</span>
+<span class="n">embryo_metadata</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">embryo_metadata</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
 <span class="c1"># Cast the information to a simple list</span>
 <span class="c1"># list(embryo_data.columns[embryo_data.isna().any()])</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>['Time plated', 'Time Incubated', 'Location']</pre>
 </div>
 </div>
 </div>
@@ -11128,17 +11140,122 @@ dtype: bool</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use `.loc` to retrieve a slice of our DataFrame with columns containing NaN values</span>
-<span class="n">embryo_metadata</span><span class="o">...</span><span class="p">[:,</span> <span class="n">embryo_metadata</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
+<span class="n">embryo_metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">embryo_metadata</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Time plated</th>
+<th>Time Incubated</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1300.0</td>
+<td>1600.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1300.0</td>
+<td>1600.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1300.0</td>
+<td>1600.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1300.0</td>
+<td>1600.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1300.0</td>
+<td>1600.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>271</th>
+<td>NaN</td>
+<td>72.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>272</th>
+<td>NaN</td>
+<td>72.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>273</th>
+<td>NaN</td>
+<td>72.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>274</th>
+<td>NaN</td>
+<td>72.0</td>
+<td>Sample exhausted</td>
+</tr>
+<tr>
+<th>275</th>
+<td>NaN</td>
+<td>72.0</td>
+<td>Sample exhausted</td>
+</tr>
+</tbody>
+</table>
+<p>276 rows × 3 columns</p>
+</div>
 </div>
 </div>
 </div>
