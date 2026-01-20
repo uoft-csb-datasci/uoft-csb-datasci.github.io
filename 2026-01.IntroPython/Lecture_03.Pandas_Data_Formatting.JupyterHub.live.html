@@ -7698,7 +7698,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ----- Always run this at the beginning of class so we can get multi-command output ----- #</span>
@@ -7710,7 +7710,7 @@ a.anchor-link {
 <span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">"all"</span>
 
 <span class="c1"># ----- Packages we want to install for class ----- #</span>
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl<span class="w">     </span>#<span class="w"> </span>This<span class="w"> </span>should<span class="w"> </span>already<span class="w"> </span>be<span class="w"> </span>installed
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl<span class="w">     </span>
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>xlsxwriter
 <span class="c1"># !pip install pandas</span>
 
@@ -7729,17 +7729,21 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>ERROR: Invalid requirement: '#': Expected package name at the start of dependency specifier
-    #
-    ^
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Requirement already satisfied: xlsxwriter in c:\users\mokca\anaconda3\envs\csbjupyter\lib\site-packages (3.2.9)
+<pre>Collecting openpyxl
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting et-xmlfile (from openpyxl)
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Installing collected packages: et-xmlfile, openpyxl
+
+   -------------------- ------------------- 1/2 [openpyxl]
+   -------------------- ------------------- 1/2 [openpyxl]
+   ---------------------------------------- 2/2 [openpyxl]
+
+Successfully installed et-xmlfile-2.0.0 openpyxl-3.1.5
+Requirement already satisfied: xlsxwriter in c:\users\mokca\anaconda3\envs\csbjupyter\lib\site-packages (3.2.9)
 </pre>
 </div>
 </div>
@@ -8208,7 +8212,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read the file in from the data folder to a DataFrame with the first sheet as default</span>
@@ -8224,98 +8228,319 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\compat\_optional.py:135</span>, in <span class="ansi-cyan-fg">import_optional_dependency</span><span class="ansi-blue-fg">(name, extra, errors, min_version)</span>
-<span class="ansi-green-fg">    134</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">135</span>     module = <span class="ansi-yellow-bg">importlib</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">import_module</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ImportError</span>:
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\importlib\__init__.py:88</span>, in <span class="ansi-cyan-fg">import_module</span><span class="ansi-blue-fg">(name, package)</span>
-<span class="ansi-green-fg">     87</span>         level += <span class="ansi-green-fg">1</span>
-<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">88</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_bootstrap</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_gcd_import</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">level</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">package</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">level</span><span class="ansi-yellow-bg">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">&lt;frozen importlib._bootstrap&gt;:1398</span>, in <span class="ansi-cyan-fg">_gcd_import</span><span class="ansi-blue-fg">(name, package, level)</span>
-<span class="ansi-green-fg">   1397</span>     name = _resolve_name(name, package, level)
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1398</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_find_and_load</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">_gcd_import</span><span class="ansi-yellow-bg">)</span>
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">&lt;frozen importlib._bootstrap&gt;:1371</span>, in <span class="ansi-cyan-fg">_find_and_load</span><span class="ansi-blue-fg">(name, import_)</span>
-<span class="ansi-green-fg">   1370</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> module <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> _NEEDS_LOADING:
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1371</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_find_and_load_unlocked</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">import_</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">   1373</span> <span style="color: rgb(95,135,135)"># Optimization: only call _bootstrap._lock_unlock_module() if</span>
-<span class="ansi-green-fg">   1374</span> <span style="color: rgb(95,135,135)"># module.__spec__._initializing is True.</span>
-<span class="ansi-green-fg">   1375</span> <span style="color: rgb(95,135,135)"># NOTE: because of this, initializing must be set *before*</span>
-<span class="ansi-green-fg">   1376</span> <span style="color: rgb(95,135,135)"># putting the new module in sys.modules.</span>
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">&lt;frozen importlib._bootstrap&gt;:1335</span>, in <span class="ansi-cyan-fg">_find_and_load_unlocked</span><span class="ansi-blue-fg">(name, import_)</span>
-<span class="ansi-green-fg">   1334</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> spec <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1335</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ModuleNotFoundError</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">'</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>_ERR_MSG_PREFIX<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>name<span class="ansi-bold" style="color: rgb(175,95,135)">!r}</span><span class="ansi-yellow-fg">'</span>, name=name)
-<span class="ansi-green-fg">   1336</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'openpyxl'
-
-During handling of the above exception, another exception occurred:
-
-<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 2</span>
-<span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># Read the file in from the data folder to a DataFrame with the first sheet as default</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-yellow-bg">pd</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">read_excel</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-fg ansi-yellow-bg">infection_data_all.xlsx</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">      4</span> <span style="color: rgb(95,135,135)"># By default, Jupyter Notebooks will only show us a truncated version of a DataFrame</span>
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\io\excel\_base.py:495</span>, in <span class="ansi-cyan-fg">read_excel</span><span class="ansi-blue-fg">(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)</span>
-<span class="ansi-green-fg">    493</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">isinstance</span>(io, ExcelFile):
-<span class="ansi-green-fg">    494</span>     should_close = <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">495</span>     io = <span class="ansi-yellow-bg">ExcelFile</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">    496</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">io</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    497</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    498</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    499</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">engine_kwargs</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">engine_kwargs</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">    500</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    501</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> engine <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> engine != io.engine:
-<span class="ansi-green-fg">    502</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
-<span class="ansi-green-fg">    503</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Engine should not be specified when passing </span><span class="ansi-yellow-fg">"</span>
-<span class="ansi-green-fg">    504</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">an ExcelFile - ExcelFile already has the engine set</span><span class="ansi-yellow-fg">"</span>
-<span class="ansi-green-fg">    505</span>     )
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\io\excel\_base.py:1567</span>, in <span class="ansi-cyan-fg">ExcelFile.__init__</span><span class="ansi-blue-fg">(self, path_or_buffer, engine, storage_options, engine_kwargs)</span>
-<span class="ansi-green-fg">   1564</span> <span style="color: rgb(0,135,0)">self</span>.engine = engine
-<span class="ansi-green-fg">   1565</span> <span style="color: rgb(0,135,0)">self</span>.storage_options = storage_options
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1567</span> <span style="color: rgb(0,135,0)">self</span>._reader = <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_engines</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">   1568</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_io</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   1569</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   1570</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">engine_kwargs</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">engine_kwargs</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   1571</span> <span class="ansi-yellow-bg">)</span>
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\io\excel\_openpyxl.py:552</span>, in <span class="ansi-cyan-fg">OpenpyxlReader.__init__</span><span class="ansi-blue-fg">(self, filepath_or_buffer, storage_options, engine_kwargs)</span>
-<span class="ansi-green-fg">    534</span> <span style="color: rgb(175,0,255)">@doc</span>(storage_options=_shared_docs[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">storage_options</span><span class="ansi-yellow-fg">"</span>])
-<span class="ansi-green-fg">    535</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">__init__</span>(
-<span class="ansi-green-fg">    536</span>     <span style="color: rgb(0,135,0)">self</span>,
-<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">    539</span>     engine_kwargs: <span style="color: rgb(0,135,0)">dict</span> | <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> = <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
-<span class="ansi-green-fg">    540</span> ) -&gt; <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-fg">    541</span> <span style="color: rgb(188,188,188)">    </span><span class="ansi-yellow-fg">"""</span>
-<span class="ansi-green-fg">    542</span> <span class="ansi-yellow-fg">    Reader using openpyxl engine.</span>
-<span class="ansi-green-fg">    543</span> 
-<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">    550</span> <span class="ansi-yellow-fg">        Arbitrary keyword arguments passed to excel engine.</span>
-<span class="ansi-green-fg">    551</span> <span class="ansi-yellow-fg">    """</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">552</span>     <span class="ansi-yellow-bg">import_optional_dependency</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-fg ansi-yellow-bg">openpyxl</span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    553</span>     <span style="color: rgb(0,135,0)">super</span>().<span class="ansi-blue-fg">__init__</span>(
-<span class="ansi-green-fg">    554</span>         filepath_or_buffer,
-<span class="ansi-green-fg">    555</span>         storage_options=storage_options,
-<span class="ansi-green-fg">    556</span>         engine_kwargs=engine_kwargs,
-<span class="ansi-green-fg">    557</span>     )
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~\anaconda3\envs\CSBJupyter\Lib\site-packages\pandas\compat\_optional.py:138</span>, in <span class="ansi-cyan-fg">import_optional_dependency</span><span class="ansi-blue-fg">(name, extra, errors, min_version)</span>
-<span class="ansi-green-fg">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ImportError</span>:
-<span class="ansi-green-fg">    137</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> errors == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">raise</span><span class="ansi-yellow-fg">"</span>:
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">138</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ImportError</span>(msg)
-<span class="ansi-green-fg">    139</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
-<span class="ansi-green-fg">    141</span> <span style="color: rgb(95,135,135)"># Handle submodules: if we have submodule, grab parent module from sys.modules</span>
-
-<span class="ansi-red-fg">ImportError</span>: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.</pre>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>experiment</th>
+<th>experimenter</th>
+<th>description</th>
+<th>Infection Date</th>
+<th>Plate Number</th>
+<th>Worm_strain</th>
+<th>Total Worms</th>
+<th>Spore Strain</th>
+<th>Spore Lot</th>
+<th>Lot concentration</th>
+<th>...</th>
+<th>timepoint</th>
+<th>infection.type</th>
+<th>Fixing Date</th>
+<th>Location</th>
+<th>Staining Date</th>
+<th>Stain type</th>
+<th>Slide date</th>
+<th>Slide number</th>
+<th>Slide Box</th>
+<th>Imaging Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>190426_VC20019_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>1</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>1</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>1</th>
+<td>190426_VC20019_LUAm1_10M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>2</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>2</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>2</th>
+<td>190426_VC20019_LUAm1_20M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>3</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>3</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>3</th>
+<td>190426_N2_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>4</td>
+<td>N2</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190430</td>
+<td>DY96</td>
+<td>190501</td>
+<td>4</td>
+<td>2</td>
+<td>190502</td>
+</tr>
+<tr>
+<th>4</th>
+<td>190426_N2_LUAm1_10M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>5</td>
+<td>N2</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>5</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>271</th>
+<td>200918_JU1400_ERTm5_3.5M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>4</td>
+<td>JU1400</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>4</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>272</th>
+<td>200918_AWR144_ERTm5_0M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>5</td>
+<td>AWR144</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>5</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>273</th>
+<td>200918_AWR144_ERTm5_3.5M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>6</td>
+<td>AWR144</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>6</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>274</th>
+<td>200918_AWR145_ERTm5_0M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>7</td>
+<td>AWR145</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>7</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+<tr>
+<th>275</th>
+<td>200918_AWR145_ERTm5_3.5M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>8</td>
+<td>AWR145</td>
+<td>1000</td>
+<td>ERTm5</td>
+<td>2</td>
+<td>427000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>200918</td>
+<td>Sample exhausted</td>
+<td>200921</td>
+<td>microB FISH + DY96</td>
+<td>200921</td>
+<td>8</td>
+<td>6</td>
+<td>201006</td>
+</tr>
+</tbody>
+</table>
+<p>276 rows × 29 columns</p>
+</div>
 </div>
 </div>
 </div>
