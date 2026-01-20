@@ -16692,12 +16692,12 @@ Name: pathogenStrain, dtype: object</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import our data again (just in case)</span>
@@ -16709,6 +16709,225 @@ Name: pathogenStrain, dtype: object</pre>
 <span class="c1"># Get a general sense of the column information</span>
 <span class="n">embryo_metadata</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[83]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>experiment</th>
+<th>experimenter</th>
+<th>description</th>
+<th>Infection Date</th>
+<th>Plate Number</th>
+<th>Worm_strain</th>
+<th>Total Worms</th>
+<th>Spore Strain</th>
+<th>Spore Lot</th>
+<th>Lot concentration</th>
+<th>...</th>
+<th>timepoint</th>
+<th>infection.type</th>
+<th>Fixing Date</th>
+<th>Location</th>
+<th>Staining Date</th>
+<th>Stain type</th>
+<th>Slide date</th>
+<th>Slide number</th>
+<th>Slide Box</th>
+<th>Imaging Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>190426_VC20019_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>1</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>1</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>1</th>
+<td>190426_VC20019_LUAm1_10M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>2</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>2</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>2</th>
+<td>190426_VC20019_LUAm1_20M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>3</td>
+<td>VC20019</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>3</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+<tr>
+<th>3</th>
+<td>190426_N2_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>4</td>
+<td>N2</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190430</td>
+<td>DY96</td>
+<td>190501</td>
+<td>4</td>
+<td>2</td>
+<td>190502</td>
+</tr>
+<tr>
+<th>4</th>
+<td>190426_N2_LUAm1_10M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>5</td>
+<td>N2</td>
+<td>1000</td>
+<td>LUAm1</td>
+<td>2A</td>
+<td>176000</td>
+<td>...</td>
+<td>72hpi</td>
+<td>continuous</td>
+<td>190426</td>
+<td>Sample exhausted</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>5</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 276 entries, 0 to 275
+Data columns (total 29 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   experiment         276 non-null    object 
+ 1   experimenter       276 non-null    object 
+ 2   description        276 non-null    object 
+ 3   Infection Date     276 non-null    int64  
+ 4   Plate Number       276 non-null    int64  
+ 5   Worm_strain        276 non-null    object 
+ 6   Total Worms        276 non-null    int64  
+ 7   Spore Strain       276 non-null    object 
+ 8   Spore Lot          276 non-null    object 
+ 9   Lot concentration  276 non-null    int64  
+ 10  Total Spores (M)   276 non-null    object 
+ 11  Total ul spore     276 non-null    float64
+ 12  Infection Round    276 non-null    int64  
+ 13  40X OP50 (mL)      276 non-null    float64
+ 14  Plate Size         276 non-null    int64  
+ 15  Spores/cm2         276 non-null    float64
+ 16  Time plated        63 non-null     float64
+ 17  Time Incubated     228 non-null    float64
+ 18  Temp               276 non-null    int64  
+ 19  timepoint          276 non-null    object 
+ 20  infection.type     276 non-null    object 
+ 21  Fixing Date        276 non-null    int64  
+ 22  Location           249 non-null    object 
+ 23  Staining Date      276 non-null    int64  
+ 24  Stain type         276 non-null    object 
+ 25  Slide date         276 non-null    int64  
+ 26  Slide number       276 non-null    int64  
+ 27  Slide Box          276 non-null    int64  
+ 28  Imaging Date       276 non-null    int64  
+dtypes: float64(5), int64(13), object(11)
+memory usage: 62.7+ KB
+</pre>
 </div>
 </div>
 </div>
