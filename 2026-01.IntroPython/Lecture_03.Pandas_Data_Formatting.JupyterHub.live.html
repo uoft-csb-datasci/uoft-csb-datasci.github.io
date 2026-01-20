@@ -14019,7 +14019,7 @@ embryo_wide_subset.sample<span class="o">?</span>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Call on the melt function</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">frame</span> <span class="o">=</span> <span class="n">embryo_wide_subset</span><span class="p">,</span>
-        <span class="n">id_vars</span><span class="o">=</span> <span class="o">...</span><span class="p">,</span>  <span class="c1"># We set our unique identifier to the worm.number</span>
+        <span class="n">id_vars</span><span class="o">=</span> <span class="n">embryo_wide_subset</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># We set our unique identifier to the worm.number</span>
         <span class="n">var_name</span><span class="o">=...</span><span class="p">,</span>                   <span class="c1"># All other column names go here</span>
         <span class="n">value_name</span><span class="o">=...</span><span class="p">)</span>               <span class="c1"># Values from the columns melted go here</span>
 </pre></div>
