@@ -14683,7 +14683,7 @@ embryo_wide_subset.sample<span class="o">?</span>
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Save all these steps into a variable</span>
 <span class="n">experiment_Info</span> <span class="o">=</span> <span class="p">(</span><span class="n">embryo_long_subset_trimmed</span>                   
                    <span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'experiment'</span><span class="p">)</span> <span class="c1"># Recall that pop() removes and returns what was taken out (a series in this case)</span>
-                   <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">pat</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">expand</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span> <span class="c1"># We want a DataFrame as our result</span>
+                   <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">pat</span> <span class="o">=</span> <span class="s2">"_"</span><span class="p">,</span> <span class="n">expand</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># We want a DataFrame as our result</span>
 <span class="p">)</span>
 
 <span class="c1"># Check out the resulting DataFrame</span>
