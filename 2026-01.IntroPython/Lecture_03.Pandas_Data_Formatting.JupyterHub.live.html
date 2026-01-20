@@ -17377,9 +17377,9 @@ memory usage: 10.9+ KB
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Merge the datasets based on matching the correct columns between each</span>
 <span class="c1"># Perform an 'inner' merge so only intersecting data remains.</span>
 
-<span class="n">embryo_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
-                         <span class="n">how</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
-                         <span class="n">on</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">embryo_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span> <span class="o">=</span> <span class="n">embryo_long_final</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">embryo_metadata</span><span class="p">,</span>
+                         <span class="n">how</span> <span class="o">=</span> <span class="s1">'inner'</span><span class="p">,</span>
+                         <span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'wormStrain'</span><span class="p">,</span> <span class="s1">'pathogenStrain'</span><span class="p">,</span> <span class="p">]</span>
                         <span class="p">)</span>
 
 <span class="n">embryo_merged</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
