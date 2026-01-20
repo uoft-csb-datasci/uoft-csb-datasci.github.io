@@ -16975,19 +16975,64 @@ memory usage: 62.7+ KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove the 3 columns and check the information. Make the change inplace to save on syntax</span>
-<span class="n">embryo_metadata</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Time plated'</span><span class="p">,</span> <span class="s1">'Time Incubated'</span><span class="p">,</span> <span class="s1">'Location'</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">embryo_metadata</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Time plated'</span><span class="p">,</span> <span class="s1">'Time Incubated'</span><span class="p">,</span> <span class="s1">'Location'</span><span class="p">],</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="n">embryo_metadata</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 276 entries, 0 to 275
+Data columns (total 26 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   experiment         276 non-null    object 
+ 1   experimenter       276 non-null    object 
+ 2   description        276 non-null    object 
+ 3   Infection Date     276 non-null    int64  
+ 4   Plate Number       276 non-null    int64  
+ 5   Worm_strain        276 non-null    object 
+ 6   Total Worms        276 non-null    int64  
+ 7   Spore Strain       276 non-null    object 
+ 8   Spore Lot          276 non-null    object 
+ 9   Lot concentration  276 non-null    int64  
+ 10  Total Spores (M)   276 non-null    object 
+ 11  Total ul spore     276 non-null    float64
+ 12  Infection Round    276 non-null    int64  
+ 13  40X OP50 (mL)      276 non-null    float64
+ 14  Plate Size         276 non-null    int64  
+ 15  Spores/cm2         276 non-null    float64
+ 16  Temp               276 non-null    int64  
+ 17  timepoint          276 non-null    object 
+ 18  infection.type     276 non-null    object 
+ 19  Fixing Date        276 non-null    int64  
+ 20  Staining Date      276 non-null    int64  
+ 21  Stain type         276 non-null    object 
+ 22  Slide date         276 non-null    int64  
+ 23  Slide number       276 non-null    int64  
+ 24  Slide Box          276 non-null    int64  
+ 25  Imaging Date       276 non-null    int64  
+dtypes: float64(3), int64(13), object(10)
+memory usage: 56.2+ KB
+</pre>
 </div>
 </div>
 </div>
