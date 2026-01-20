@@ -15774,7 +15774,7 @@ embryo_wide_subset.sample<span class="o">?</span>
                       <span class="p">)</span>
 
 <span class="c1"># Save your initial joined DataFrame</span>
-<span class="n">embryo_long_final</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span>
+<span class="n">embryo_long_final</span> <span class="o">=</span> <span class="p">(</span><span class="n">embryo_long_trimmed</span>
                      <span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="c1"># Join what follows to the trimmed data</span>
                          <span class="c1"># pop() the experiment column</span>
                          <span class="n">embryo_long_trimmed</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"experiment"</span><span class="p">)</span>  
@@ -15789,7 +15789,7 @@ embryo_wide_subset.sample<span class="o">?</span>
                     <span class="p">)</span>
                      
 <span class="c1"># Pivot out the measurementType and measurements columns</span>
-<span class="n">embryo_long_final</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">(</span>
+<span class="n">embryo_long_final</span> <span class="o">=</span> <span class="p">(</span><span class="n">embryo_long_final</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
     <span class="n">index</span> <span class="o">=</span> <span class="n">embryo_long_final</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">))],</span>
     <span class="c1"># We want the column names to come from measurementType</span>
     <span class="n">columns</span> <span class="o">=</span> <span class="s2">"measurementType"</span><span class="p">,</span>
