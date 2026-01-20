@@ -15757,12 +15757,12 @@ embryo_wide_subset.sample<span class="o">?</span>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [71]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Step 1: convert our data to long format and remove NA values</span>
@@ -15800,7 +15800,7 @@ embryo_wide_subset.sample<span class="o">?</span>
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
                      
     <span class="c1"># Remove the "measurementType" the column axis label</span>
-    <span class="o">...</span><span class="p">(</span><span class="n">mapper</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="s2">"columns"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">mapper</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="s2">"columns"</span><span class="p">)</span>
 <span class="p">)</span>
                      
 <span class="c1"># Take a look at the final result!</span>
@@ -15810,12 +15810,116 @@ embryo_wide_subset.sample<span class="o">?</span>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[71]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>worm.number</th>
+<th>date</th>
+<th>wormStrain</th>
+<th>pathogenStrain</th>
+<th>pathogenDose</th>
+<th>timepoint</th>
+<th>merontsPresent</th>
+<th>numEmbryos</th>
+<th>sporesPresent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>190426</td>
+<td>AB1</td>
+<td>LUAm1</td>
+<td>0M</td>
+<td>72hpi</td>
+<td>0.0</td>
+<td>10.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>190426</td>
+<td>AB1</td>
+<td>LUAm1</td>
+<td>10M</td>
+<td>72hpi</td>
+<td>1.0</td>
+<td>6.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>190426</td>
+<td>AB1</td>
+<td>LUAm1</td>
+<td>20M</td>
+<td>72hpi</td>
+<td>1.0</td>
+<td>4.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1</td>
+<td>190426</td>
+<td>CB4856</td>
+<td>ERTm5</td>
+<td>0M</td>
+<td>72hpi</td>
+<td>1.0</td>
+<td>19.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1</td>
+<td>190426</td>
+<td>CB4856</td>
+<td>ERTm5</td>
+<td>1.75M</td>
+<td>72hpi</td>
+<td>1.0</td>
+<td>13.0</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># What can we find out about the final result?</span>
@@ -15823,6 +15927,40 @@ embryo_wide_subset.sample<span class="o">?</span>
 
 <span class="n">embryo_long_final</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 15128 entries, 0 to 15127
+Data columns (total 9 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   worm.number     15128 non-null  int64  
+ 1   date            15128 non-null  object 
+ 2   wormStrain      15128 non-null  object 
+ 3   pathogenStrain  15128 non-null  object 
+ 4   pathogenDose    15128 non-null  object 
+ 5   timepoint       15128 non-null  object 
+ 6   merontsPresent  15128 non-null  float64
+ 7   numEmbryos      15128 non-null  float64
+ 8   sporesPresent   15128 non-null  float64
+dtypes: float64(3), int64(1), object(5)
+memory usage: 1.0+ MB
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[72]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(15128, 9)</pre>
 </div>
 </div>
 </div>
