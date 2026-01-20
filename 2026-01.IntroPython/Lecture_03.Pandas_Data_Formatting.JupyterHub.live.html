@@ -16344,20 +16344,112 @@ dtype: object</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Provide a single column</span>
-<span class="n">embryo_long_final</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># We get a count of how many non-na values are in the column</span>
+<span class="n">embryo_long_final</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># We get a count of how many non-na values are in the column</span>
 
 <span class="c1"># Provide multiple columns</span>
-<span class="n">embryo_long_final</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>   
+<span class="n">embryo_long_final</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>   
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[78]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>count     15128
+unique       11
+top       LUAm1
+freq       7123
+Name: pathogenStrain, dtype: object</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[78]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>date</th>
+<th>wormStrain</th>
+<th>pathogenStrain</th>
+<th>pathogenDose</th>
+<th>timepoint</th>
+<th>merontsPresent</th>
+<th>sporesPresent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>count</th>
+<td>15128</td>
+<td>15128</td>
+<td>15128</td>
+<td>15128</td>
+<td>15128</td>
+<td>15128</td>
+<td>15128</td>
+</tr>
+<tr>
+<th>unique</th>
+<td>19</td>
+<td>26</td>
+<td>11</td>
+<td>15</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<th>top</th>
+<td>190426</td>
+<td>N2</td>
+<td>LUAm1</td>
+<td>0M</td>
+<td>72hpi</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr>
+<th>freq</th>
+<td>3811</td>
+<td>3830</td>
+<td>7123</td>
+<td>4908</td>
+<td>13870</td>
+<td>9389</td>
+<td>12760</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
