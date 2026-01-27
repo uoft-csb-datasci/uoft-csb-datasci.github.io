@@ -13184,12 +13184,12 @@ We are going to use boxplots to see the distribution of embryos per worm strain 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># filter by doseLevel as either Mock or Medium infections</span>
@@ -13206,12 +13206,141 @@ We are going to use boxplots to see the distribution of embryos per worm strain 
                     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
                     <span class="c1"># Set our wormStrain and doseLevel variables as categories!</span>
-                    <span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">'wormStrain'</span><span class="p">:</span><span class="s1">'category'</span><span class="p">,</span> <span class="o">...</span><span class="p">})</span>
+                    <span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">'wormStrain'</span><span class="p">:</span><span class="s1">'category'</span><span class="p">,</span> <span class="s1">'doseLevel'</span><span class="p">:</span><span class="s1">'category'</span><span class="p">})</span>
 <span class="p">)</span>
 
 <span class="c1"># Check out our summarized data</span>
 <span class="n">mean_embryo_data</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>date</th>
+<th>wormStrain</th>
+<th>pathogenStrain</th>
+<th>doseLevel</th>
+<th>numEmbryos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>190426</td>
+<td>AB1</td>
+<td>LUAm1</td>
+<td>Medium</td>
+<td>8.583333</td>
+</tr>
+<tr>
+<th>1</th>
+<td>190426</td>
+<td>AB1</td>
+<td>LUAm1</td>
+<td>Mock</td>
+<td>10.903226</td>
+</tr>
+<tr>
+<th>2</th>
+<td>190426</td>
+<td>CB4856</td>
+<td>ERTm5</td>
+<td>Medium</td>
+<td>17.484375</td>
+</tr>
+<tr>
+<th>3</th>
+<td>190426</td>
+<td>CB4856</td>
+<td>ERTm5</td>
+<td>Mock</td>
+<td>20.750000</td>
+</tr>
+<tr>
+<th>4</th>
+<td>190426</td>
+<td>ED3042</td>
+<td>LUAm1</td>
+<td>Medium</td>
+<td>2.352941</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>138</th>
+<td>200916</td>
+<td>N2</td>
+<td>ERTm5-96H</td>
+<td>Mock</td>
+<td>20.140000</td>
+</tr>
+<tr>
+<th>139</th>
+<td>200918</td>
+<td>AWR144</td>
+<td>ERTm5</td>
+<td>Mock</td>
+<td>20.060000</td>
+</tr>
+<tr>
+<th>140</th>
+<td>200918</td>
+<td>AWR145</td>
+<td>ERTm5</td>
+<td>Mock</td>
+<td>21.760000</td>
+</tr>
+<tr>
+<th>141</th>
+<td>200918</td>
+<td>JU1400</td>
+<td>ERTm5</td>
+<td>Mock</td>
+<td>14.140000</td>
+</tr>
+<tr>
+<th>142</th>
+<td>200918</td>
+<td>N2</td>
+<td>ERTm5</td>
+<td>Mock</td>
+<td>21.360000</td>
+</tr>
+</tbody>
+</table>
+<p>143 rows × 5 columns</p>
+</div>
 </div>
 </div>
 </div>
