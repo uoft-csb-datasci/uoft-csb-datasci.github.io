@@ -11179,7 +11179,7 @@ Name: pathogenStrain, dtype: int64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Query for only infected data</span>
-<span class="p">(</span><span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="p">(</span><span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'wormStrain in ["N2", "JU1400"] &amp;'</span><span class="p">)</span>
  
  <span class="c1"># Group our data by worm strain</span>
  <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'wormStrain'</span><span class="p">)</span>
