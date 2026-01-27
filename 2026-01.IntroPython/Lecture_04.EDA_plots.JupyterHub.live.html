@@ -10033,7 +10033,7 @@ Name: numEmbryos, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Query for only infected data</span>
@@ -10046,7 +10046,7 @@ Name: numEmbryos, dtype: float64</pre>
  <span class="p">[</span><span class="s1">'pathogenStrain'</span><span class="p">]</span>
  
  <span class="c1"># Determine the unique values in each</span>
- <span class="o">...</span>
+ <span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -10058,9 +10058,28 @@ Name: numEmbryos, dtype: float64</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;pandas.core.groupby.generic.SeriesGroupBy object at 0x0000024B69B9D4F0&gt;</pre>
+<pre>wormStrain
+AB1                                                  [LUAm1]
+AWR144                                        [LUAm1, ERTm5]
+AWR145                                        [LUAm1, ERTm5]
+CB4856                                               [ERTm5]
+ED3042                                               [LUAm1]
+ED3052A                                              [LUAm1]
+ED3052B                                              [LUAm1]
+JU1400     [ERTm5, LUAm1, AWRm78, LUAm3, MAM1, LUAm1-HK, ...
+JU300                                                [ERTm5]
+JU360                                         [ERTm2, LUAm1]
+JU397                                                [LUAm1]
+JU642                                                [LUAm1]
+MY1                                           [LUAm1, ERTm5]
+MY2                                           [ERTm2, ERTm5]
+MY6                                                  [LUAm1]
+N2         [ERTm2, ERTm5, LUAm1, AWRm78, LUAm3, MAM1, LUA...
+VC20019                                [ERTm2, ERTm5, LUAm1]
+VC40171                                              [LUAm1]
+Name: pathogenStrain, dtype: object</pre>
 </div>
 </div>
 </div>
