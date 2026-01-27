@@ -9743,7 +9743,7 @@ Name: numEmbryos, dtype: float64</pre>
  <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
  
  <span class="c1"># Group the series of means again by wormStrain</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'wormStrain'</span><span class="p">])</span>
  
  <span class="c1"># Summarize each group of numEmbryo means</span>
  <span class="o">.</span><span class="n">describe</span><span class="p">()</span>
