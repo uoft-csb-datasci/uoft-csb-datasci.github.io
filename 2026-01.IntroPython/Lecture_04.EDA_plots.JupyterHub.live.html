@@ -9720,12 +9720,12 @@ Name: numEmbryos, dtype: float64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Determine the standard deviation of the mean embryo counts across each strain</span>
@@ -9752,6 +9752,258 @@ Name: numEmbryos, dtype: float64</pre>
  <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>count</th>
+<th>mean</th>
+<th>std</th>
+<th>min</th>
+<th>25%</th>
+<th>50%</th>
+<th>75%</th>
+<th>max</th>
+</tr>
+<tr>
+<th>wormStrain</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>MY2</th>
+<td>2.0</td>
+<td>21.892460</td>
+<td>0.364216</td>
+<td>21.634921</td>
+<td>21.763690</td>
+<td>21.892460</td>
+<td>22.021230</td>
+<td>22.150000</td>
+</tr>
+<tr>
+<th>CB4856</th>
+<td>1.0</td>
+<td>20.750000</td>
+<td>NaN</td>
+<td>20.750000</td>
+<td>20.750000</td>
+<td>20.750000</td>
+<td>20.750000</td>
+<td>20.750000</td>
+</tr>
+<tr>
+<th>AWR145</th>
+<td>5.0</td>
+<td>20.656000</td>
+<td>2.160435</td>
+<td>17.180000</td>
+<td>20.520000</td>
+<td>20.860000</td>
+<td>21.760000</td>
+<td>22.960000</td>
+</tr>
+<tr>
+<th>AWR144</th>
+<td>5.0</td>
+<td>19.228000</td>
+<td>1.990407</td>
+<td>16.940000</td>
+<td>17.400000</td>
+<td>20.060000</td>
+<td>20.100000</td>
+<td>21.640000</td>
+</tr>
+<tr>
+<th>N2</th>
+<td>13.0</td>
+<td>18.795973</td>
+<td>2.816125</td>
+<td>15.240000</td>
+<td>16.300000</td>
+<td>19.358209</td>
+<td>20.880000</td>
+<td>24.541667</td>
+</tr>
+<tr>
+<th>MY6</th>
+<td>1.0</td>
+<td>18.360656</td>
+<td>NaN</td>
+<td>18.360656</td>
+<td>18.360656</td>
+<td>18.360656</td>
+<td>18.360656</td>
+<td>18.360656</td>
+</tr>
+<tr>
+<th>JU360</th>
+<td>2.0</td>
+<td>16.799841</td>
+<td>1.952303</td>
+<td>15.419355</td>
+<td>16.109598</td>
+<td>16.799841</td>
+<td>17.490085</td>
+<td>18.180328</td>
+</tr>
+<tr>
+<th>JU300</th>
+<td>1.0</td>
+<td>15.622951</td>
+<td>NaN</td>
+<td>15.622951</td>
+<td>15.622951</td>
+<td>15.622951</td>
+<td>15.622951</td>
+<td>15.622951</td>
+</tr>
+<tr>
+<th>VC20019</th>
+<td>3.0</td>
+<td>15.181159</td>
+<td>0.616995</td>
+<td>14.468750</td>
+<td>15.000000</td>
+<td>15.531250</td>
+<td>15.537364</td>
+<td>15.543478</td>
+</tr>
+<tr>
+<th>JU642</th>
+<td>1.0</td>
+<td>14.733333</td>
+<td>NaN</td>
+<td>14.733333</td>
+<td>14.733333</td>
+<td>14.733333</td>
+<td>14.733333</td>
+<td>14.733333</td>
+</tr>
+<tr>
+<th>ED3042</th>
+<td>1.0</td>
+<td>13.147541</td>
+<td>NaN</td>
+<td>13.147541</td>
+<td>13.147541</td>
+<td>13.147541</td>
+<td>13.147541</td>
+<td>13.147541</td>
+</tr>
+<tr>
+<th>ED3052B</th>
+<td>3.0</td>
+<td>12.020833</td>
+<td>2.987960</td>
+<td>10.062500</td>
+<td>10.301250</td>
+<td>10.540000</td>
+<td>13.000000</td>
+<td>15.460000</td>
+</tr>
+<tr>
+<th>MY1</th>
+<td>4.0</td>
+<td>11.611538</td>
+<td>1.578067</td>
+<td>9.520000</td>
+<td>10.960000</td>
+<td>11.840000</td>
+<td>12.491538</td>
+<td>13.246154</td>
+</tr>
+<tr>
+<th>JU397</th>
+<td>1.0</td>
+<td>11.457143</td>
+<td>NaN</td>
+<td>11.457143</td>
+<td>11.457143</td>
+<td>11.457143</td>
+<td>11.457143</td>
+<td>11.457143</td>
+</tr>
+<tr>
+<th>JU1400</th>
+<td>12.0</td>
+<td>11.217214</td>
+<td>3.025072</td>
+<td>5.724638</td>
+<td>9.470000</td>
+<td>11.720000</td>
+<td>13.585000</td>
+<td>14.660000</td>
+</tr>
+<tr>
+<th>AB1</th>
+<td>1.0</td>
+<td>10.903226</td>
+<td>NaN</td>
+<td>10.903226</td>
+<td>10.903226</td>
+<td>10.903226</td>
+<td>10.903226</td>
+<td>10.903226</td>
+</tr>
+<tr>
+<th>ED3052A</th>
+<td>3.0</td>
+<td>10.526667</td>
+<td>0.761665</td>
+<td>9.700000</td>
+<td>10.190000</td>
+<td>10.680000</td>
+<td>10.940000</td>
+<td>11.200000</td>
+</tr>
+<tr>
+<th>VC40171</th>
+<td>3.0</td>
+<td>4.586667</td>
+<td>1.571284</td>
+<td>2.980000</td>
+<td>3.820000</td>
+<td>4.660000</td>
+<td>5.390000</td>
+<td>6.120000</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
