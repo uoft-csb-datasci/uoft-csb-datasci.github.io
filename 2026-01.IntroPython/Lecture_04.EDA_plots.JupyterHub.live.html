@@ -10961,8 +10961,8 @@ Name: pathogenStrain, dtype: int64</pre>
  <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'wormStrain'</span><span class="p">)</span>
  
  <span class="c1"># Determine the total number of values in each group, the number of unique, and what they are</span>
- <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'worm.number'</span><span class="p">:</span><span class="o">...</span><span class="p">,</span> 
-       <span class="s1">'numEmbryos'</span><span class="p">:</span><span class="o">...</span><span class="p">})</span>
+ <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'worm.number'</span><span class="p">:[</span><span class="s1">'count'</span><span class="p">],</span> 
+       <span class="s1">'numEmbryos'</span><span class="p">:[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">]})</span>
 <span class="p">)</span>
 </pre></div>
 </div>
