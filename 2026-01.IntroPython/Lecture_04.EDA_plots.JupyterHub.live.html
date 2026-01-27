@@ -9080,17 +9080,313 @@ Name: wormStrain, dtype: object</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Group our subset data by the 'date' column and view 1 row from each group</span>
 <span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'date'</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>worm.number</th>
+<th>date</th>
+<th>wormStrain</th>
+<th>pathogenStrain</th>
+<th>pathogenDose</th>
+<th>doseLevel</th>
+<th>timepoint</th>
+<th>merontsPresent</th>
+<th>sporesPresent</th>
+<th>numEmbryos</th>
+<th>experiment</th>
+<th>experimenter</th>
+<th>description</th>
+<th>Infection Date</th>
+<th>Plate Number</th>
+<th>Total Worms</th>
+<th>Spore Lot</th>
+<th>Lot concentration</th>
+<th>Total ul spore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>190426</td>
+<td>AB1</td>
+<td>LUAm1</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>10</td>
+<td>190426_AB1_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Wild isolate phenoMIP retest</td>
+<td>190423</td>
+<td>7</td>
+<td>1000</td>
+<td>2A</td>
+<td>176000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>60</th>
+<td>1</td>
+<td>200707</td>
+<td>ED3052A</td>
+<td>LUAm1</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>12</td>
+<td>200707_ED3052A_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Lua1 continuous Infection test JU1400 and ED30...</td>
+<td>200704</td>
+<td>5</td>
+<td>1000</td>
+<td>2A</td>
+<td>176000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>82</th>
+<td>1</td>
+<td>200714</td>
+<td>ED3052A</td>
+<td>LUAm1</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>8</td>
+<td>200714_ED3052A_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Lua1 continuous Infection test JU1400 and ED3052</td>
+<td>200711</td>
+<td>5</td>
+<td>1000</td>
+<td>2A</td>
+<td>176000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>110</th>
+<td>1</td>
+<td>200721</td>
+<td>ED3052A</td>
+<td>LUAm1</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>12</td>
+<td>200721_ED3052A_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Lua1 continuous Infection test JU1400 and ED3052</td>
+<td>200718</td>
+<td>5</td>
+<td>1000</td>
+<td>2A</td>
+<td>176000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>134</th>
+<td>1</td>
+<td>200821</td>
+<td>AWR144</td>
+<td>LUAm1</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>23</td>
+<td>200821_AWR144_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Lua1 continuous Infection test 6X NIL, VC40171...</td>
+<td>200818</td>
+<td>7</td>
+<td>1000</td>
+<td>2A</td>
+<td>176000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>150</th>
+<td>1</td>
+<td>200825</td>
+<td>AWR144</td>
+<td>LUAm1</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>14</td>
+<td>200825_AWR144_LUAm1_0M_72hpi</td>
+<td>CM</td>
+<td>Lua1 continuous Infection test 6X NIL, VC40171...</td>
+<td>200822</td>
+<td>7</td>
+<td>1000</td>
+<td>2A</td>
+<td>176000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>160</th>
+<td>1</td>
+<td>200904</td>
+<td>AWR144</td>
+<td>ERTm5</td>
+<td>3.5</td>
+<td>High</td>
+<td>72hpi</td>
+<td>True</td>
+<td>True</td>
+<td>4</td>
+<td>200904_AWR144_ERTm5_3.5M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for Lua1 and ERTM5, low dose ERTM5 t...</td>
+<td>200901</td>
+<td>13</td>
+<td>1000</td>
+<td>2</td>
+<td>427000</td>
+<td>8.196721</td>
+</tr>
+<tr>
+<th>180</th>
+<td>1</td>
+<td>200905</td>
+<td>JU1400</td>
+<td>ERTm5-96H</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>96hpi</td>
+<td>False</td>
+<td>False</td>
+<td>9</td>
+<td>200905_JU1400_ERTm5-96H_0M_96hpi</td>
+<td>CM</td>
+<td>NIL tests for Lua1 and ERTM5, low dose ERTM5 t...</td>
+<td>200901</td>
+<td>26</td>
+<td>1000</td>
+<td>2</td>
+<td>427000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>186</th>
+<td>1</td>
+<td>200915</td>
+<td>AWR144</td>
+<td>ERTm5</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>19</td>
+<td>200915_AWR144_ERTm5_0M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200912</td>
+<td>5</td>
+<td>1000</td>
+<td>2</td>
+<td>427000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>194</th>
+<td>1</td>
+<td>200916</td>
+<td>JU1400</td>
+<td>ERTm5-96H</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>96hpi</td>
+<td>False</td>
+<td>False</td>
+<td>15</td>
+<td>200916_JU1400_ERTm5-96H_0M_96hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200912</td>
+<td>12</td>
+<td>500</td>
+<td>2</td>
+<td>427000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>200</th>
+<td>1</td>
+<td>200918</td>
+<td>AWR144</td>
+<td>ERTm5</td>
+<td>0.0</td>
+<td>Mock</td>
+<td>72hpi</td>
+<td>False</td>
+<td>False</td>
+<td>26</td>
+<td>200918_AWR144_ERTm5_0M_72hpi</td>
+<td>CM</td>
+<td>NIL tests for ERTM5</td>
+<td>200915</td>
+<td>5</td>
+<td>1000</td>
+<td>2</td>
+<td>427000</td>
+<td>0.000000</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
