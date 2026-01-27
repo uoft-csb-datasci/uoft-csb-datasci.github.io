@@ -10946,12 +10946,12 @@ Name: pathogenStrain, dtype: int64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Query for only infected data</span>
@@ -10965,6 +10965,187 @@ Name: pathogenStrain, dtype: int64</pre>
        <span class="s1">'numEmbryos'</span><span class="p">:[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">]})</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr>
+<th></th>
+<th>worm.number</th>
+<th colspan="3" halign="left">numEmbryos</th>
+</tr>
+<tr>
+<th></th>
+<th>count</th>
+<th>sum</th>
+<th>mean</th>
+<th>std</th>
+</tr>
+<tr>
+<th>wormStrain</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>AB1</th>
+<td>120</td>
+<td>772</td>
+<td>6.433333</td>
+<td>4.154037</td>
+</tr>
+<tr>
+<th>AWR144</th>
+<td>300</td>
+<td>2323</td>
+<td>7.743333</td>
+<td>4.980644</td>
+</tr>
+<tr>
+<th>AWR145</th>
+<td>300</td>
+<td>659</td>
+<td>2.196667</td>
+<td>3.098925</td>
+</tr>
+<tr>
+<th>CB4856</th>
+<td>125</td>
+<td>1832</td>
+<td>14.656000</td>
+<td>6.054995</td>
+</tr>
+<tr>
+<th>ED3042</th>
+<td>107</td>
+<td>171</td>
+<td>1.598131</td>
+<td>2.794401</td>
+</tr>
+<tr>
+<th>ED3052A</th>
+<td>183</td>
+<td>470</td>
+<td>2.568306</td>
+<td>3.124607</td>
+</tr>
+<tr>
+<th>ED3052B</th>
+<td>200</td>
+<td>456</td>
+<td>2.280000</td>
+<td>2.695912</td>
+</tr>
+<tr>
+<th>JU1400</th>
+<td>2109</td>
+<td>8553</td>
+<td>4.055477</td>
+<td>4.829862</td>
+</tr>
+<tr>
+<th>JU300</th>
+<td>132</td>
+<td>878</td>
+<td>6.651515</td>
+<td>3.021513</td>
+</tr>
+<tr>
+<th>JU360</th>
+<td>251</td>
+<td>984</td>
+<td>3.920319</td>
+<td>5.707681</td>
+</tr>
+<tr>
+<th>JU397</th>
+<td>113</td>
+<td>1060</td>
+<td>9.380531</td>
+<td>3.480349</td>
+</tr>
+<tr>
+<th>JU642</th>
+<td>121</td>
+<td>901</td>
+<td>7.446281</td>
+<td>4.151205</td>
+</tr>
+<tr>
+<th>MY1</th>
+<td>613</td>
+<td>3304</td>
+<td>5.389886</td>
+<td>6.395696</td>
+</tr>
+<tr>
+<th>MY2</th>
+<td>250</td>
+<td>2259</td>
+<td>9.036000</td>
+<td>8.560833</td>
+</tr>
+<tr>
+<th>MY6</th>
+<td>112</td>
+<td>1041</td>
+<td>9.294643</td>
+<td>5.625935</td>
+</tr>
+<tr>
+<th>N2</th>
+<td>2221</td>
+<td>23040</td>
+<td>10.373706</td>
+<td>6.531484</td>
+</tr>
+<tr>
+<th>VC20019</th>
+<td>323</td>
+<td>1670</td>
+<td>5.170279</td>
+<td>5.222870</td>
+</tr>
+<tr>
+<th>VC40171</th>
+<td>150</td>
+<td>4</td>
+<td>0.026667</td>
+<td>0.230164</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
