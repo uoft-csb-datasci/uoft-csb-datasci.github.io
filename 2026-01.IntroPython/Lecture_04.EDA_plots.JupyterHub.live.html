@@ -9515,12 +9515,12 @@ Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Identify the mean embryo value of uninfected strains</span>
@@ -9529,12 +9529,43 @@ Name: count, dtype: int64</pre>
 <span class="p">(</span><span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'pathogenDose == 0'</span><span class="p">)</span>
  
                      <span class="c1"># Group by wormStrain and take the numEmbryos columns</span>
-                     <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'wormStrain'</span><span class="p">])[</span><span class="o">...</span><span class="p">]</span>
+                     <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'wormStrain'</span><span class="p">])[</span><span class="s1">'numEmbryos'</span><span class="p">]</span>
                      
                      <span class="c1"># Calculate the mean numEmbryos for each group</span>
-                     <span class="o">...</span>
+                     <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>wormStrain
+AB1        10.903226
+AWR144     19.228000
+AWR145     20.656000
+CB4856     20.750000
+ED3042     13.147541
+ED3052A    10.526667
+ED3052B    12.047297
+JU1400     10.957211
+JU300      15.622951
+JU360      16.788618
+JU397      11.457143
+JU642      14.733333
+MY1        11.725581
+MY2        21.886179
+MY6        18.360656
+N2         18.765672
+VC20019    15.143678
+VC40171     4.586667
+Name: numEmbryos, dtype: float64</pre>
 </div>
 </div>
 </div>
