@@ -8570,7 +8570,7 @@ Name: pathogenDose, Length: 11049, dtype: bool</pre>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Supply the result of the conditional query as a filtering criteria</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Filtered pathogenStrain summary"</span><span class="p">)</span>
-<span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="c1"># remember we're filtering by rows!</span>
+<span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'pathogenDose'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># remember we're filtering by rows!</span>
                          <span class="c1"># We only need the pathogenStrain column to summarize</span>
                          <span class="s1">'pathogenStrain'</span>   <span class="c1"># No list notation means we'll get a Series back </span>
                         <span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
