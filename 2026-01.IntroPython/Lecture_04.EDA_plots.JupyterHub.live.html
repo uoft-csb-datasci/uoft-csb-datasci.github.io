@@ -12220,17 +12220,43 @@ memory usage: 50.0+ KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># What are the unique values in each column?</span>
-<span class="n">infectionSig_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">infectionSig_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>exp.name            [N2-LUAm1-1.8, JU1400-LUAm1-1.8, AWR144-LUAm1-...
+strain                                   [N2, JU1400, AWR144, AWR145]
+spore.strain                                                  [LUAm1]
+spore.species                                         [N.ferruginous]
+dose                                                      [pulse-72H]
+spores                                                          [1.8]
+fixing.date                                        [rep1, rep2, rep3]
+slide                                                             [1]
+file                [N2.LUAm1.rep1, JU1400.LUAm1.rep1, AWR144.LUAm...
+worm.number         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14...
+area                [49838.02, 50425.04, 45532.67, 46458.55, 49214...
+percent.infected    [18.53, 0.0, 31.16, 3.88, 23.54, 1.65, 8.6, 18...
+area.infected       [9234.985106, 0.0, 14187.97997, 1802.59174, 93...
+timepoint                                                     [72hpi]
+dtype: object</pre>
 </div>
 </div>
 </div>
