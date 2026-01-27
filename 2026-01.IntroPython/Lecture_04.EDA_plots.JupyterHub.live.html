@@ -8653,7 +8653,7 @@ Name: pathogenStrain, dtype: object</pre>
                          <span class="s1">'pathogenStrain'</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 
 <span class="c1"># Of the LUAm1 infections, which worm strain reigns supreme?</span>
-<span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">embryo_merged_subset</span><span class="p">[</span><span class="s2">"pathogenStrain"</span><span class="p">]</span> <span class="o">==</span> <span class="o">...</span><span class="p">),</span> <span class="c1"># Filter rows by the "top" pathogenStrain </span>
+<span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">embryo_merged_subset</span><span class="p">[</span><span class="s2">"pathogenStrain"</span><span class="p">]</span> <span class="o">==</span> <span class="n">pathogen_Summary</span><span class="o">.</span><span class="n">top</span><span class="p">),</span> <span class="c1"># Filter rows by the "top" pathogenStrain </span>
                          <span class="s1">'wormStrain'</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>                                          <span class="c1"># Keep the wormStrain column to summarize it</span>
 </pre></div>
 </div>
