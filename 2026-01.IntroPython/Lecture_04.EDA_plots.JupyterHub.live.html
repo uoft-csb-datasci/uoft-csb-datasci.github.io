@@ -8639,12 +8639,12 @@ Name: pathogenStrain, dtype: object</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Filter for experiments with actual pathogen exposure</span>
@@ -8656,6 +8656,22 @@ Name: pathogenStrain, dtype: object</pre>
 <span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">embryo_merged_subset</span><span class="p">[</span><span class="s2">"pathogenStrain"</span><span class="p">]</span> <span class="o">==</span> <span class="n">pathogen_Summary</span><span class="o">.</span><span class="n">top</span><span class="p">),</span> <span class="c1"># Filter rows by the "top" pathogenStrain </span>
                          <span class="s1">'wormStrain'</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>                                          <span class="c1"># Keep the wormStrain column to summarize it</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>count     4930
+unique      15
+top         N2
+freq       814
+Name: wormStrain, dtype: object</pre>
 </div>
 </div>
 </div>
