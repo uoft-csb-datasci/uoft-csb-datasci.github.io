@@ -13632,17 +13632,17 @@ We are going to use boxplots to see the distribution of embryos per worm strain 
                       <span class="n">height</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">aspect</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
                       <span class="n">width</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span>               <span class="c1"># Put some more distance between categories by decreasing width</span>
                       <span class="n">col</span> <span class="o">=</span> <span class="s2">"wormStrain"</span><span class="p">,</span>        <span class="c1">## 3.4.5 Set our facets based on wormStrain </span>
-                      <span class="o">...</span>               <span class="c1">## 3.4.5 Only use 5 facets per row</span>
+                      <span class="n">col_wrap</span> <span class="o">=</span> <span class="mi">5</span>               <span class="c1">## 3.4.5 Only use 5 facets per row</span>
                      <span class="p">)</span>
 
 <span class="c1">## 3.4.5 Alter the xtick attributes</span>
-<span class="n">snsPlot</span><span class="o">...</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Mock"</span><span class="p">,</span> <span class="s2">"Medium"</span><span class="p">])</span>                    
+<span class="n">snsPlot</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Mock"</span><span class="p">,</span> <span class="s2">"Medium"</span><span class="p">])</span>                    
                
 <span class="c1">## 3.4.5 Change our y-axis label</span>
 <span class="n">snsPlot</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">"dose level"</span><span class="p">,</span> <span class="s2">"mean embryos per replicate"</span><span class="p">)</span>
 
 <span class="c1">## 3.4.5 set the title</span>
-<span class="n">snsPlot</span><span class="o">...</span><span class="p">(</span><span class="s2">"</span><span class="si">{col_name}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">snsPlot</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">"</span><span class="si">{col_name}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Show the plot (avoid extra object information)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
