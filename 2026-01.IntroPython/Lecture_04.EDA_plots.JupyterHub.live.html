@@ -9413,7 +9413,7 @@ Name: wormStrain, dtype: object</pre>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Group our subset data by the 'date' and 'wormStrain' columns and grab the first row from each</span>
 <span class="c1"># How big is the result?</span>
-<span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'wormStrain'</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'wormStrain'</span><span class="p">,</span> <span class="s1">'pathogenStrain'</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
