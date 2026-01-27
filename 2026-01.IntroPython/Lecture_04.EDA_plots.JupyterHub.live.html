@@ -8443,7 +8443,7 @@ memory usage: 1.5+ MB
                             
                             <span class="c1"># To calculate the value, we'll pop from the subset (which removes the chosen column!)</span>
                             <span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
-                                <span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+                                <span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'pathogenDose'</span><span class="p">)</span>
                                     
                                     <span class="c1"># Break up the float from the "M" which will make 2 columns</span>
                                     <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">pat</span> <span class="o">=</span> <span class="s2">"M"</span><span class="p">,</span> <span class="n">expand</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
