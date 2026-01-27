@@ -11170,16 +11170,16 @@ Name: pathogenStrain, dtype: int64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Query for only infected data</span>
-<span class="p">(</span><span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'wormStrain in ["N2", "JU1400"] &amp;'</span><span class="p">)</span>
+<span class="p">(</span><span class="n">embryo_merged_subset</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'wormStrain in ["N2", "JU1400"] &amp; pathogenDose == 0'</span><span class="p">)</span>
  
  <span class="c1"># Group our data by worm strain</span>
  <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'wormStrain'</span><span class="p">)</span>
@@ -11189,6 +11189,71 @@ Name: pathogenStrain, dtype: int64</pre>
        <span class="s1">'numEmbryos'</span><span class="p">:[</span><span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'std'</span><span class="p">]})</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr>
+<th></th>
+<th>worm.number</th>
+<th colspan="2" halign="left">numEmbryos</th>
+</tr>
+<tr>
+<th></th>
+<th>count</th>
+<th>mean</th>
+<th>std</th>
+</tr>
+<tr>
+<th>wormStrain</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>JU1400</th>
+<td>631</td>
+<td>10.957211</td>
+<td>4.458957</td>
+</tr>
+<tr>
+<th>N2</th>
+<td>670</td>
+<td>18.765672</td>
+<td>5.111933</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -11333,12 +11398,12 @@ Name: pathogenStrain, dtype: int64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We'll reset the code cells to only show the last code call. This will de-clutter the plotting process for us</span>
@@ -11364,6 +11429,118 @@ Name: pathogenStrain, dtype: int64</pre>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>numEmbryos</th>
+</tr>
+<tr>
+<th>wormStrain</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>MY2</th>
+<td>21.886179</td>
+</tr>
+<tr>
+<th>CB4856</th>
+<td>20.750000</td>
+</tr>
+<tr>
+<th>AWR145</th>
+<td>20.656000</td>
+</tr>
+<tr>
+<th>AWR144</th>
+<td>19.228000</td>
+</tr>
+<tr>
+<th>N2</th>
+<td>18.765672</td>
+</tr>
+<tr>
+<th>MY6</th>
+<td>18.360656</td>
+</tr>
+<tr>
+<th>JU360</th>
+<td>16.788618</td>
+</tr>
+<tr>
+<th>JU300</th>
+<td>15.622951</td>
+</tr>
+<tr>
+<th>VC20019</th>
+<td>15.143678</td>
+</tr>
+<tr>
+<th>JU642</th>
+<td>14.733333</td>
+</tr>
+<tr>
+<th>ED3042</th>
+<td>13.147541</td>
+</tr>
+<tr>
+<th>ED3052B</th>
+<td>12.047297</td>
+</tr>
+<tr>
+<th>MY1</th>
+<td>11.725581</td>
+</tr>
+<tr>
+<th>JU397</th>
+<td>11.457143</td>
+</tr>
+<tr>
+<th>JU1400</th>
+<td>10.957211</td>
+</tr>
+<tr>
+<th>AB1</th>
+<td>10.903226</td>
+</tr>
+<tr>
+<th>ED3052A</th>
+<td>10.526667</td>
+</tr>
+<tr>
+<th>VC40171</th>
+<td>4.586667</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -11374,7 +11551,7 @@ Name: pathogenStrain, dtype: int64</pre>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Build our barplot by giving the index as the x-label, and values as the height</span>
 <span class="c1"># We'll need to supply the data directly to each parameter</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">wormStrain_mean_embryos</span><span class="o">.</span><span class="n">ind</span><span class="p">,</span> 
         <span class="n">height</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span>
 
 <span class="c1"># Show our plot</span>
