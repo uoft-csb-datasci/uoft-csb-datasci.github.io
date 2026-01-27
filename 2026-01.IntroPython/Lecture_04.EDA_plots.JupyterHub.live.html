@@ -12010,7 +12010,7 @@ color or other plot-specific attributes. Let's update the fill and line colours 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We'll reset the code cells to only show FINAL code output.</span>
@@ -12020,16 +12020,16 @@ color or other plot-specific attributes. Let's update the fill and line colours 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read the pitlatrine data in from file</span>
-<span class="n">infectionSig_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/infection_signal.tsv"</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">infectionSig_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/infection_signal.tsv"</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Look at the first 5 rows of data</span>
 <span class="n">infectionSig_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -12038,17 +12038,184 @@ color or other plot-specific attributes. Let's update the fill and line colours 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>exp.name</th>
+<th>strain</th>
+<th>spore.strain</th>
+<th>spore.species</th>
+<th>dose</th>
+<th>spores</th>
+<th>fixing.date</th>
+<th>slide</th>
+<th>file</th>
+<th>worm.number</th>
+<th>area</th>
+<th>percent.infected</th>
+<th>area.infected</th>
+<th>timepoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>N2-LUAm1-1.8</td>
+<td>N2</td>
+<td>LUAm1</td>
+<td>N.ferruginous</td>
+<td>pulse-72H</td>
+<td>1.8</td>
+<td>rep1</td>
+<td>1</td>
+<td>N2.LUAm1.rep1</td>
+<td>1</td>
+<td>49838.02</td>
+<td>18.53</td>
+<td>9234.985106</td>
+<td>72hpi</td>
+</tr>
+<tr>
+<th>1</th>
+<td>N2-LUAm1-1.8</td>
+<td>N2</td>
+<td>LUAm1</td>
+<td>N.ferruginous</td>
+<td>pulse-72H</td>
+<td>1.8</td>
+<td>rep1</td>
+<td>1</td>
+<td>N2.LUAm1.rep1</td>
+<td>2</td>
+<td>50425.04</td>
+<td>0.00</td>
+<td>0.000000</td>
+<td>72hpi</td>
+</tr>
+<tr>
+<th>2</th>
+<td>N2-LUAm1-1.8</td>
+<td>N2</td>
+<td>LUAm1</td>
+<td>N.ferruginous</td>
+<td>pulse-72H</td>
+<td>1.8</td>
+<td>rep1</td>
+<td>1</td>
+<td>N2.LUAm1.rep1</td>
+<td>3</td>
+<td>45532.67</td>
+<td>31.16</td>
+<td>14187.979970</td>
+<td>72hpi</td>
+</tr>
+<tr>
+<th>3</th>
+<td>N2-LUAm1-1.8</td>
+<td>N2</td>
+<td>LUAm1</td>
+<td>N.ferruginous</td>
+<td>pulse-72H</td>
+<td>1.8</td>
+<td>rep1</td>
+<td>1</td>
+<td>N2.LUAm1.rep1</td>
+<td>4</td>
+<td>46458.55</td>
+<td>3.88</td>
+<td>1802.591740</td>
+<td>72hpi</td>
+</tr>
+<tr>
+<th>4</th>
+<td>N2-LUAm1-1.8</td>
+<td>N2</td>
+<td>LUAm1</td>
+<td>N.ferruginous</td>
+<td>pulse-72H</td>
+<td>1.8</td>
+<td>rep1</td>
+<td>1</td>
+<td>N2.LUAm1.rep1</td>
+<td>5</td>
+<td>49214.73</td>
+<td>0.00</td>
+<td>0.000000</td>
+<td>72hpi</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># How big is this dataframe?</span>
 <span class="n">infectionSig_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 456 entries, 0 to 455
+Data columns (total 14 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   exp.name          456 non-null    object 
+ 1   strain            456 non-null    object 
+ 2   spore.strain      456 non-null    object 
+ 3   spore.species     456 non-null    object 
+ 4   dose              456 non-null    object 
+ 5   spores            456 non-null    float64
+ 6   fixing.date       456 non-null    object 
+ 7   slide             456 non-null    int64  
+ 8   file              456 non-null    object 
+ 9   worm.number       456 non-null    int64  
+ 10  area              456 non-null    float64
+ 11  percent.infected  456 non-null    float64
+ 12  area.infected     456 non-null    float64
+ 13  timepoint         456 non-null    object 
+dtypes: float64(4), int64(2), object(8)
+memory usage: 50.0+ KB
+</pre>
 </div>
 </div>
 </div>
