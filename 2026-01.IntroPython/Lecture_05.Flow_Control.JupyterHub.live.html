@@ -10518,17 +10518,40 @@ memory usage: 524.9+ KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remember order of precedence, you'll need some () to evaluate properly</span>
-<span class="p">(</span><span class="n">N2_infected</span><span class="p">[</span><span class="s1">'numEmbryos'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">...</span> <span class="p">(</span><span class="n">N2_infected</span><span class="p">[</span><span class="s1">'numEmbryos'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span>
+<span class="p">(</span><span class="n">N2_infected</span><span class="p">[</span><span class="s1">'numEmbryos'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">N2_infected</span><span class="p">[</span><span class="s1">'numEmbryos'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>42       False
+44       False
+46       False
+47       False
+49       False
+         ...  
+11010    False
+11012    False
+11014    False
+11016    False
+11018    False
+Name: numEmbryos, Length: 2221, dtype: bool</pre>
 </div>
 </div>
 </div>
