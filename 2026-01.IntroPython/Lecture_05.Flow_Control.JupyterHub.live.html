@@ -10071,7 +10071,7 @@ memory usage: 2.5+ MB
     
     <span class="c1"># sum the 'Total ul spore' in every sub-table we import</span>
     <span class="c1"># Notice that we are making a list containing the sum within each chunk!</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> 
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s1">'Total ul spore'</span><span class="p">]))</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"result list:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># sum chunk results in result</span>
