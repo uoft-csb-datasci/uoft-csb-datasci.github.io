@@ -12695,7 +12695,7 @@ Calculate the mean with a method that already exists
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">'wormStrain'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span> 
     
     <span class="c1"># Second or inner for loop to track pathogenStrain with j</span>
-    <span class="o">...</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">'pathogenStrain'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
         
         <span class="c1"># Build a dictionary with our three keys</span>
         <span class="c1"># Each round we update each key in the dictionary </span>
