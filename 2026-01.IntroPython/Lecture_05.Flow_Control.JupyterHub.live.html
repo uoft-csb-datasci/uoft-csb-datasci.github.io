@@ -12586,21 +12586,81 @@ Calculate the mean with a method that already exists
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We can replace the entire for loop and filter code with a simple groupby() call</span>
-<span class="p">(</span><span class="n">data</span><span class="o">...</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"wormStrain"</span><span class="p">)[[</span><span class="s2">"numEmbryos"</span><span class="p">]]</span>             <span class="c1"># Group the data by wormstrain and keep the numEmbryos column</span>
+<span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"wormStrain"</span><span class="p">)[[</span><span class="s2">"numEmbryos"</span><span class="p">]]</span>             <span class="c1"># Group the data by wormstrain and keep the numEmbryos column</span>
     <span class="o">.</span><span class="n">sum</span><span class="p">()</span>                                                 <span class="c1"># Sum the values for each group</span>
     <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"numEmbryos"</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># Sort the values</span>
     <span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>numEmbryos</th>
+</tr>
+<tr>
+<th>wormStrain</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>N2</th>
+<td>35613</td>
+</tr>
+<tr>
+<th>JU1400</th>
+<td>15467</td>
+</tr>
+<tr>
+<th>AWR144</th>
+<td>7130</td>
+</tr>
+<tr>
+<th>MY1</th>
+<td>5825</td>
+</tr>
+<tr>
+<th>AWR145</th>
+<td>5823</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
