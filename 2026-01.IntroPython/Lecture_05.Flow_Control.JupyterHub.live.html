@@ -12376,7 +12376,7 @@ Calculate the mean with a method that already exists
     <span class="c1"># embryo_sum.append(data[data['wormStrain'] == strain]['numEmbryos'].sum())</span>
 
 <span class="c1"># Combine our two lists together by matching indices</span>
-<span class="n">embryo_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="o">...</span><span class="p">(</span><span class="n">wormStrain</span><span class="p">,</span> <span class="n">embryo_sum</span><span class="p">))</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">embryo_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">z</span><span class="p">(</span><span class="n">wormStrain</span><span class="p">,</span> <span class="n">embryo_sum</span><span class="p">))</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Take a quick look at the new DataFrame</span>
 <span class="n">embryo_count</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
