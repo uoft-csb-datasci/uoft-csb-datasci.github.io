@@ -14114,7 +14114,7 @@ else:
     <span class="n">list_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">strainData_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     
     <span class="c1"># Add that element into list_b</span>
-    <span class="n">list_b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">list_b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_a</span><span class="p">)</span>
         
     <span class="c1"># Concatenate list_b to df_test</span>
     <span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">list_b</span><span class="p">)</span> <span class="c1"># Does this belong inside or outside the loop?</span>
