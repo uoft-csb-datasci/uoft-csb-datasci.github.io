@@ -10264,7 +10264,7 @@ memory usage: 2.5+ MB
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use query() to filter your data by boolean inclusion</span>
-<span class="n">N2_infected</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'wormStrain == "N2" ...'</span><span class="p">)</span>
+<span class="n">N2_infected</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'wormStrain == "N2" &amp; dose'</span><span class="p">)</span>
 
 <span class="c1"># Compare this to using .loc</span>
 <span class="c1"># N2_infected = data.loc[(data["wormStrain"] == "N2") &amp; </span>
