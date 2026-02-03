@@ -11869,17 +11869,98 @@ memory usage: 2.5+ MB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Recall that we can just slice off a row with this simple notation</span>
 <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>worm.number</th>
+<th>date</th>
+<th>wormStrain</th>
+<th>pathogenStrain</th>
+<th>pathogenDose</th>
+<th>doseLevel</th>
+<th>timepoint</th>
+<th>merontsPresent</th>
+<th>sporesPresent</th>
+<th>numEmbryos</th>
+<th>...</th>
+<th>Plate Size</th>
+<th>Spores/cm2</th>
+<th>Temp</th>
+<th>infection.type</th>
+<th>Staining Date</th>
+<th>Stain type</th>
+<th>Slide date</th>
+<th>Slide number</th>
+<th>Slide Box</th>
+<th>Imaging Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>190426</td>
+<td>AB1</td>
+<td>LUAm1</td>
+<td>10M</td>
+<td>Medium</td>
+<td>72hpi</td>
+<td>True</td>
+<td>False</td>
+<td>6</td>
+<td>...</td>
+<td>6</td>
+<td>0.353857</td>
+<td>21</td>
+<td>continuous</td>
+<td>190513</td>
+<td>Sp.9 FISH + DY96</td>
+<td>190515</td>
+<td>8</td>
+<td>2</td>
+<td>190516</td>
+</tr>
+</tbody>
+</table>
+<p>1 rows × 31 columns</p>
+</div>
 </div>
 </div>
 </div>
@@ -11896,7 +11977,7 @@ memory usage: 2.5+ MB
 <span class="n">summation</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># Loop through </span>
-<span class="k">for</span> <span class="n">row_num</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">row_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">:</span>
 
     <span class="c1"># Print some column values for the row</span>
     <span class="c1"># note the use of double-[] and the filter() method</span>
