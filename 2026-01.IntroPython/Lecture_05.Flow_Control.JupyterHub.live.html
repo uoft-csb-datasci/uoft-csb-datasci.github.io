@@ -14041,7 +14041,7 @@ else:
 <span class="n">strainData_list</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># While go through the criteria list</span>
-<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="o">...</span><span class="p">:</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">strain</span><span class="p">):</span>
 
     <span class="n">strainData_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subdata</span><span class="o">.</span><span class="n">iloc</span><span class="p">[(</span><span class="n">subdata</span><span class="p">[</span><span class="s1">'wormStrain'</span><span class="p">]</span> <span class="o">==</span> <span class="n">strain</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="c1"># filter the data by strain</span>
                                         <span class="p">:</span><span class="mi">6</span><span class="p">]</span>                                          <span class="c1"># only keep the first 6 columns</span>
