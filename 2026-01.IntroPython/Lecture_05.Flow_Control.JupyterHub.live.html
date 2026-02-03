@@ -13711,16 +13711,16 @@ else:
 
     <span class="c1"># print(row)</span>
     <span class="c1"># if doseLevel is Mock, then these are baseline</span>
-    <span class="o">...</span>
+    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">doseLevel</span> <span class="o">==</span> <span class="s2">"Mock"</span>
         <span class="c1"># Directly set the treatment value in the corresponding row</span>
         <span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">Index</span><span class="p">,</span> <span class="s1">'treatment'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'baseline'</span>
 
     <span class="c1"># Pick your infected condition</span>
-    <span class="o">...</span> <span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">doseLevel</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Medium"</span><span class="p">,</span> <span class="s2">"High"</span><span class="p">]):</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">doseLevel</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Medium"</span><span class="p">,</span> <span class="s2">"High"</span><span class="p">]):</span>
         <span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">Index</span><span class="p">,</span> <span class="s1">'treatment'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'infected'</span>
         
     <span class="c1"># By default remaining values are varying dose level types we may want to drop</span>
-    <span class="o">...</span><span class="p">:</span> 
+    <span class="k">else</span><span class="p">:</span> 
         <span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">Index</span><span class="p">,</span> <span class="s1">'treatment'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'excluded'</span>
         
 <span class="c1"># Check our resulting DataFrame        </span>
