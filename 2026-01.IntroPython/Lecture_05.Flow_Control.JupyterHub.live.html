@@ -12803,12 +12803,12 @@ memory usage: 4.3+ KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [70]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Gather the number of unique values in wormStrain and pathogenStrain</span>
@@ -12818,6 +12818,30 @@ memory usage: 4.3+ KB
 <span class="c1"># How many rows should we produce looking at "worm strain" vs "pathogen strain"</span>
 <span class="n">data</span><span class="p">[</span><span class="s2">"wormStrain"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s2">"pathogenStrain"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">size</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>18</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>10</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>180</pre>
 </div>
 </div>
 </div>
@@ -12833,7 +12857,7 @@ memory usage: 4.3+ KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -12870,6 +12894,36 @@ memory usage: 4.3+ KB
         <span class="c1"># Pause the program for 0.5 seconds</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Worm strain: AB1
+Pathogen strain: LUAm1
+[np.int64(1448)]
+Pathogen strain: ERTm5
+[np.int64(1448), np.int64(0)]
+Pathogen strain: ERTm2
+[np.int64(1448), np.int64(0), np.int64(0)]
+Pathogen strain: AWRm78
+[np.int64(1448), np.int64(0), np.int64(0), np.int64(0)]
+Worm strain: CB4856
+Pathogen strain: LUAm1
+[np.int64(1448), np.int64(0), np.int64(0), np.int64(0), np.int64(0)]
+Pathogen strain: ERTm5
+[np.int64(1448), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(3077)]
+Pathogen strain: ERTm2
+[np.int64(1448), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(3077), np.int64(0)]
+Pathogen strain: AWRm78
+[np.int64(1448), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(3077), np.int64(0), np.int64(0)]
+</pre>
 </div>
 </div>
 </div>
