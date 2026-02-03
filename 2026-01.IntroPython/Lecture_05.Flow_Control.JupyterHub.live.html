@@ -12348,12 +12348,12 @@ Calculate the mean with a method that already exists
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Capture the unique worm strains</span>
@@ -12376,11 +12376,98 @@ Calculate the mean with a method that already exists
     <span class="c1"># embryo_sum.append(data[data['wormStrain'] == strain]['numEmbryos'].sum())</span>
 
 <span class="c1"># Combine our two lists together by matching indices</span>
-<span class="n">embryo_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">z</span><span class="p">(</span><span class="n">wormStrain</span><span class="p">,</span> <span class="n">embryo_sum</span><span class="p">))</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">embryo_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">wormStrain</span><span class="p">,</span> <span class="n">embryo_sum</span><span class="p">))</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Take a quick look at the new DataFrame</span>
 <span class="n">embryo_count</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[65]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>11</th>
+<td>N2</td>
+<td>35613</td>
+</tr>
+<tr>
+<th>3</th>
+<td>JU1400</td>
+<td>15467</td>
+</tr>
+<tr>
+<th>15</th>
+<td>AWR144</td>
+<td>7130</td>
+</tr>
+<tr>
+<th>8</th>
+<td>MY1</td>
+<td>5825</td>
+</tr>
+<tr>
+<th>16</th>
+<td>AWR145</td>
+<td>5823</td>
+</tr>
+<tr>
+<th>9</th>
+<td>MY2</td>
+<td>4951</td>
+</tr>
+<tr>
+<th>12</th>
+<td>VC20019</td>
+<td>4305</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CB4856</td>
+<td>3077</td>
+</tr>
+<tr>
+<th>5</th>
+<td>JU360</td>
+<td>3049</td>
+</tr>
+<tr>
+<th>14</th>
+<td>ED3052B</td>
+<td>2239</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -12403,16 +12490,16 @@ Calculate the mean with a method that already exists
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># A more complex example of list comprehension that foregoes a for loop</span>
-<span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([(</span><span class="o">...</span><span class="p">,</span> 
+<span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([(</span><span class="n">strain</span><span class="p">,</span> 
                 <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'wormStrain == @strain'</span><span class="p">)[</span><span class="s1">'numEmbryos'</span><span class="p">]))</span>         <span class="c1"># Here's the "expression" which make a tuple at each iteration</span>
                <span class="k">for</span> <span class="n">strain</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">'wormStrain'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>                        <span class="c1"># Here's the for loop initiator</span>
               <span class="p">]</span>       <span class="c1"># The closing bracket for our list comprehension will create a list of tuples</span>
@@ -12421,6 +12508,68 @@ Calculate the mean with a method that already exists
  <span class="o">.</span><span class="n">head</span><span class="p">()</span>                                                                        <span class="c1"># Show the first 5 observations</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[66]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>11</th>
+<td>N2</td>
+<td>35613</td>
+</tr>
+<tr>
+<th>3</th>
+<td>JU1400</td>
+<td>15467</td>
+</tr>
+<tr>
+<th>15</th>
+<td>AWR144</td>
+<td>7130</td>
+</tr>
+<tr>
+<th>8</th>
+<td>MY1</td>
+<td>5825</td>
+</tr>
+<tr>
+<th>16</th>
+<td>AWR145</td>
+<td>5823</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
