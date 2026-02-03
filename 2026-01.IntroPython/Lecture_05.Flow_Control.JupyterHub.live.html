@@ -13367,7 +13367,7 @@ else:
 <span class="n">subdata</span><span class="p">[</span><span class="s1">'sterile'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">()</span>
 
 <span class="c1"># Set the "sterile" value row by row</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="o">...</span> <span class="ow">in</span> <span class="n">subdata</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="o">*</span><span class="n">row</span> <span class="ow">in</span> <span class="n">subdata</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
     
     <span class="c1"># if our embryo counts are 0 or less (-1 = males) then consider it sterile</span>
     <span class="k">if</span> <span class="n">subdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s1">'numEmbryos'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
