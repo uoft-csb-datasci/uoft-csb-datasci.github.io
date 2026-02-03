@@ -11787,12 +11787,12 @@ memory usage: 2.5+ MB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a list to hold our results</span>
@@ -11803,7 +11803,7 @@ memory usage: 2.5+ MB
 
     <span class="c1"># Print some column values for the row</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Index</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">wormStrain</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">sporesPresent</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">numEmbryos</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Index</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">wormStrain</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">sporesPresent</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">numEmbryos</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">_14</span><span class="p">)</span>
     <span class="c1"># Produce some new values based on the values in the current row</span>
     <span class="n">summation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">summation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">sporesPresent</span>
     <span class="n">summation</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">summation</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">row</span><span class="o">.</span><span class="n">numEmbryos</span>
@@ -11811,6 +11811,44 @@ memory usage: 2.5+ MB
 <span class="c1"># Display your summations from sporesPresent and numEmbryos</span>
 <span class="n">summation</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.Pandas'&gt;
+0 AB1 False 10 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+1 AB1 False 6 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+2 AB1 False 4 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+3 CB4856 False 19 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+4 CB4856 False 13 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+5 CB4856 False 2 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+6 ED3042 False 17 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+7 ED3042 False 0 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+8 ED3042 False 0 190423
+&lt;class 'pandas.core.frame.Pandas'&gt;
+9 JU1400 False 6 190423
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>[0, 77]</pre>
 </div>
 </div>
 </div>
