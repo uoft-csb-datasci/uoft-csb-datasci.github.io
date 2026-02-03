@@ -14353,7 +14353,7 @@ else:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [94]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -14378,8 +14378,25 @@ else:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;list_iterator object at 0x00000232007C4340&gt;
+<pre>&lt;list_iterator object at 0x00000232007C48E0&gt;
+1
+2
+3
 </pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[95]</span><span class="ansi-green-fg">, line 10</span>
+<span class="ansi-green-fg">      8</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">next</span>(my_iterator))  <span style="color: rgb(95,135,135)"># element position 2</span>
+<span class="ansi-green-fg">      9</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">next</span>(my_iterator))  <span style="color: rgb(95,135,135)"># element position 3</span>
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">10</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg" style="color: rgb(0,135,0)">next</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">my_iterator</span><span class="ansi-yellow-bg">)</span>)  <span style="color: rgb(95,135,135)"># element position 4</span>
+
+<span class="ansi-red-fg">StopIteration</span>: </pre>
 </div>
 </div>
 </div>
