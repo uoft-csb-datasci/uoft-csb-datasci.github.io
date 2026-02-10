@@ -12198,9 +12198,9 @@ split 14: AGCCCGUCGCAACCCAGG
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove all of the "M" characters in the pathogenDose column</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'pathogenDose'</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">},</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'pathogenDose'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'M'</span><span class="p">:</span><span class="s1">''</span><span class="p">},</span>
                                   <span class="c1"># Remove all of the "hpi" units from the timepoint column</span>
-                                  <span class="s1">'timepoint'</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}},</span> 
+                                  <span class="s1">'timepoint'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'hpi'</span><span class="p">}},</span> 
                     <span class="c1"># Set regular expressions to true</span>
                     <span class="n">regex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
                     <span class="c1"># Set the data types for the updated columns</span>
