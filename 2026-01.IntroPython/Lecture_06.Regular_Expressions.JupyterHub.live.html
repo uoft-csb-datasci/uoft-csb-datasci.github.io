@@ -10792,7 +10792,7 @@ As if the strings were thine, shouldst know of this.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [75]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># split using multiple delimeters (stop codons in this case), and save them as a list</span>
@@ -10803,13 +10803,12 @@ As if the strings were thine, shouldst know of this.
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"translation is of type:"</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">translation</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> <span class="c1"># Translation is a list</span>
 
-<span class="n">translation</span> 
 <span class="c1"># Print each string produced by re.split()</span>
 <span class="c1"># Use print() and re.sub() to format output</span>
 
-<span class="c1"># ... = [print('split ' + str(count) + ': ' + re.sub(r'\.', '', value) + '\n') </span>
-<span class="c1">#      # enumerate through the list of split sequences</span>
-<span class="c1">#      for count,value in enumerate(translation, start = 1)]</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="s1">'split '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">': '</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\.'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span> 
+     <span class="c1"># enumerate through the list of split sequences</span>
+     <span class="k">for</span> <span class="n">count</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -10829,7 +10828,7 @@ translation is of type: &lt;class 'list'&gt;
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[74]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[75]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['AUG.GUC.CGC.AAA.GGG.GGA.CCU.UCG.AGG.GAG.CAC.AAG.GCU.GGG.ACG.GCG.AAU.GGC.CUA.UGG.ACA.GGC.GGA.AAG.AGG.GAA.GCC.CUU.CGC.ACC.GAC.GAG.UGC.GAC.AUG.GAU.AGA.GUC.AAG.CCA.CAU.CCA.GCA.AGC.GAG.GUU.CGA.CCC.GAC.ACA.CGG.CAA.GUC.GGG.CUG.GCG.ACG.CGG.AAU.AGG.CCA.UUG.AUA.GCA.GAA.CUC.AGG.UUG.GGC.CAU.UUC.AUC.CUG.UCC.ACG.GCC.GUC.GCG.AGA.CCC.AGU.AAA.AGC.CGC.UCC.UGG.CGA.AAG.CGA.CCU.CUA.GCC.GGA.CAG.CGA.ACG.CCA.',
  '.GCC.UUA.GAA.CGU.GCG.GGA.GCG.AGU.UCG.GAA.GCA.GUG.AGG.UUU.GCA.AAG.CCG.CUC.UUC.GUC.CGG.',
@@ -10845,6 +10844,40 @@ translation is of type: &lt;class 'list'&gt;
  '.CGC.AGG.CGG.',
  '.AGG.UCG.UCG.GCG.UGC.GCC.GCG.',
  '.AGC.CCG.UCG.CAA.CCC.AGG']</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>split 1: AUGGUCCGCAAAGGGGGACCUUCGAGGGAGCACAAGGCUGGGACGGCGAAUGGCCUAUGGACAGGCGGAAAGAGGGAAGCCCUUCGCACCGACGAGUGCGACAUGGAUAGAGUCAAGCCACAUCCAGCAAGCGAGGUUCGACCCGACACACGGCAAGUCGGGCUGGCGACGCGGAAUAGGCCAUUGAUAGCAGAACUCAGGUUGGGCCAUUUCAUCCUGUCCACGGCCGUCGCGAGACCCAGUAAAAGCCGCUCCUGGCGAAAGCGACCUCUAGCCGGACAGCGAACGCCA
+
+split 2: GCCUUAGAACGUGCGGGAGCGAGUUCGGAAGCAGUGAGGUUUGCAAAGCCGCUCUUCGUCCGG
+
+split 3: 
+
+split 4: CGGCCGUACCGCCGGCUGCGCGACCCGACCGCAAGCGCUGCGCUCCGACCUACCGGAAGGGGUAAUACUAAGAAGAGCGAAGGCCGCCGGGCGCAACGUCCGGUACGACAGGUCCGUCCAUCUACUGCUGGUAGUCCCUGUCGAAGUUGCCGAGAAUGGUCGGAU
+
+split 5: AGC
+
+split 6: 
+
+split 7: CCUGGCGAC
+
+split 8: CAGUGCCGC
+
+split 9: AUACGGCGUGUACCUGCGCAACGACCGCAAAAAGGUAUCCGAGGCGGGGGGACUGCUCGUAGUGUUUGUUCAGUCUCCACCGCUUUGGGCUGUCCUGAUAUUUCUAUGGUCCGCAAAGGGGGACCUUCGCGAGAGGACAAGGCUGGGACGGCGAAUGGCCUAUGGACAGGCGGAAAGAGGGAAGCCCGAAAGAGUUACGAGUGCGACAUCCAUAGAGUCAAGCCACAUCCAGCAAGCGAGGUUCGACUGCUUGGGGGGCAAGUCGGGCUGGCGACGCGGAAUAGGCCAUUGAUAGCAGAACUCAGGUUGUGC
+
+split 10: AUUGCCCAACCGUACCUAACAUCCGCGGCGGGAUAUGGAACAGACGGAGGGGCGCCACGUACCUCGGCCCGGUGGAGCUGGACUUACCUUCGGCCGCCGUGGAGCGAUUGCCGGUUCUUAACCUCGGUUAGU
+
+split 11: GAACGCCUCUUGACACUUACGCGUUUGGUUGGGAACCGG
+
+split 12: CGCAGGCGG
+
+split 13: AGGUCGUCGGCGUGCGCCGCG
+
+split 14: AGCCCGUCGCAACCCAGG
+
+</pre>
 </div>
 </div>
 </div>
