@@ -12724,20 +12724,52 @@ memory usage: 2.5+ MB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [94]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Keep all of the column names WITHOUT the word Date in them</span>
 <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\A(?!.*[dD]ate)'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
 
 <span class="c1"># This version is a little more comprehensive (ie error-proofed) but accomplishes the same task</span>
-<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\A(?!.*[dD]ate).* ...'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\A(?!.*[dD]ate).*\Z'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[94]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['wormNumber', 'wormStrain', 'pathogenStrain', 'pathogenDose',
+       'doseLevel', 'timepoint', 'merontsPresent', 'sporesPresent',
+       'numEmbryos', 'experiment', 'experimenter', 'description',
+       'plateNumber', 'totalWorms', 'sporeLot', 'lotConcentration',
+       'totalUlSpore', 'infectionRound', '40XOP50_mL', 'plateSize',
+       'spores_cm2', 'temp', 'infectionType', 'stainType', 'slideNumber',
+       'slideBox'],
+      dtype='object')</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[94]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['wormNumber', 'wormStrain', 'pathogenStrain', 'pathogenDose',
+       'doseLevel', 'timepoint', 'merontsPresent', 'sporesPresent',
+       'numEmbryos', 'experiment', 'experimenter', 'description',
+       'plateNumber', 'totalWorms', 'sporeLot', 'lotConcentration',
+       'totalUlSpore', 'infectionRound', '40XOP50_mL', 'plateSize',
+       'spores_cm2', 'temp', 'infectionType', 'stainType', 'slideNumber',
+       'slideBox'],
+      dtype='object')</pre>
 </div>
 </div>
 </div>
