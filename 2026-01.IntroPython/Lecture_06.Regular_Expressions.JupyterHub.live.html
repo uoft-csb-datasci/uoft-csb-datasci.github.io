@@ -12733,10 +12733,10 @@ memory usage: 2.5+ MB
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Keep all of the column names WITHOUT the word Date in them</span>
-<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">' ... (?!.*[dD]ate)'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\A(?!.*[dD]ate)'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
 
 <span class="c1"># This version is a little more comprehensive (ie error-proofed) but accomplishes the same task</span>
-<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">' ... (?!.*[dD]ate).* ...'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\A(?!.*[dD]ate).* ...'</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
