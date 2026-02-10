@@ -12460,7 +12460,7 @@ memory usage: 2.5+ MB
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Keep all of the column names with the words "Date"/"date" OR "Worm"/"worm" in them</span>
-<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'...'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'.*[dD]ate|.*[wW]orm'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
