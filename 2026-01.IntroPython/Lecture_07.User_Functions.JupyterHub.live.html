@@ -11971,7 +11971,7 @@ Seq('ATCAGTCTCCGCACGCGGTTCCGCAGGTGGCAGCGATGGCCCAGTCCTGAACTC...GTC')
 <span class="c1"># Open a connection to your XML</span>
 <span class="n">xmlCon</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data/blastResult.xml"</span><span class="p">)</span>
 
-<span class="n">blast_record</span> <span class="o">=</span> <span class="n">NCBIXML</span><span class="o">...</span>
+<span class="n">blast_record</span> <span class="o">=</span> <span class="n">NCBIXML</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">xmlcon</span><span class="p">)</span>
 
 <span class="c1"># Close the connection</span>
 <span class="n">xmlCon</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
