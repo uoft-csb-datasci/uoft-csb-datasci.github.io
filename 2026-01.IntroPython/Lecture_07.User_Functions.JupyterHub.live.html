@@ -10214,7 +10214,7 @@ Outside the scoping_func, global_value is still 100
 <span class="k">def</span><span class="w"> </span><span class="nf">scoping_func</span><span class="p">(</span><span class="n">passed_value</span><span class="p">):</span>
     
     <span class="n">local_value</span> <span class="o">=</span> <span class="mi">42</span>
-    <span class="o">...</span> <span class="o">=</span> <span class="n">passed_value</span> <span class="o">+</span> <span class="n">local_value</span> <span class="c1"># Let's increment global_value by 1</span>
+    <span class="n">global_value</span> <span class="o">=</span> <span class="n">passed_value</span> <span class="o">+</span> <span class="n">local_value</span> <span class="c1"># Let's increment global_value by 1</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="s2">"We can see global: </span><span class="si">{}</span><span class="s2"> and local: </span><span class="si">{}</span><span class="s2"> values"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">global_value</span><span class="p">,</span> <span class="n">local_value</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">return_value</span>
