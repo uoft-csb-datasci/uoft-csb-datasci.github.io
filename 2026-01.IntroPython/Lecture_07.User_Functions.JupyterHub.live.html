@@ -10724,7 +10724,7 @@ RNDRKKVSEAGGLLVVFLAAPPLWAVLIFLWSAKGDLRGSURLGRRSTARTGPSTARTDRRKEGSPSHRRVRHGSQGPHP
 <span class="n">tgz_path</span> <span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">HOUSING_PATH</span><span class="p">,</span> <span class="s1">'housing.tgz'</span><span class="p">)</span> <span class="c1"># the file we are interested in</span>
 
 <span class="c1"># Open a connection to the path</span>
-<span class="n">housing_tgz</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">housing_tgz</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tgz_path</span><span class="p">)</span>
 
 <span class="c1"># Extract all the contents</span>
 <span class="o">...</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">HOUSING_PATH</span><span class="p">)</span>
