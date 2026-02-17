@@ -7752,18 +7752,193 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="o">...</span>
+np.array<span class="o">?</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre><span class="ansi-red-fg">Signature:</span>
+np.array(
+    object,
+    dtype=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
+    *,
+    copy=<span class="ansi-bold" style="color: rgb(0,135,0)">True</span>,
+    order=<span class="ansi-yellow-fg">'K'</span>,
+    subok=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>,
+    ndmin=<span class="ansi-green-fg">0</span>,
+    ndmax=<span class="ansi-green-fg">0</span>,
+    like=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
+)
+<span class="ansi-red-fg">Docstring:</span>
+array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0,
+      ndmax=0, like=None)
+
+Create an array.
+
+Parameters
+----------
+object : array_like
+    An array, any object exposing the array interface, an object whose
+    ``__array__`` method returns an array, or any (nested) sequence.
+    If object is a scalar, a 0-dimensional array containing object is
+    returned.
+dtype : data-type, optional
+    The desired data-type for the array. If not given, NumPy will try to use
+    a default ``dtype`` that can represent the values (by applying promotion
+    rules when necessary.)
+copy : bool, optional
+    If ``True`` (default), then the array data is copied. If ``None``,
+    a copy will only be made if ``__array__`` returns a copy, if obj is
+    a nested sequence, or if a copy is needed to satisfy any of the other
+    requirements (``dtype``, ``order``, etc.). Note that any copy of
+    the data is shallow, i.e., for arrays with object dtype, the new
+    array will point to the same objects. See Examples for `ndarray.copy`.
+    For ``False`` it raises a ``ValueError`` if a copy cannot be avoided.
+    Default: ``True``.
+order : {'K', 'A', 'C', 'F'}, optional
+    Specify the memory layout of the array. If object is not an array, the
+    newly created array will be in C order (row major) unless 'F' is
+    specified, in which case it will be in Fortran order (column major).
+    If object is an array the following holds.
+
+    ===== ========= ===================================================
+    order  no copy                     copy=True
+    ===== ========= ===================================================
+    'K'   unchanged F &amp; C order preserved, otherwise most similar order
+    'A'   unchanged F order if input is F and not C, otherwise C order
+    'C'   C order   C order
+    'F'   F order   F order
+    ===== ========= ===================================================
+
+    When ``copy=None`` and a copy is made for other reasons, the result is
+    the same as if ``copy=True``, with some exceptions for 'A', see the
+    Notes section. The default order is 'K'.
+subok : bool, optional
+    If True, then sub-classes will be passed-through, otherwise
+    the returned array will be forced to be a base-class array (default).
+ndmin : int, optional
+    Specifies the minimum number of dimensions that the resulting
+    array should have.  Ones will be prepended to the shape as
+    needed to meet this requirement.
+ndmax : int, optional
+    Specifies the maximum number of dimensions to create when inferring
+    shape from nested sequences. By default (ndmax=0), NumPy recurses
+    through all nesting levels (up to the compile-time constant
+    ``NPY_MAXDIMS``).
+    Setting ``ndmax`` stops recursion at the specified depth, preserving
+    deeper nested structures as objects instead of promoting them to
+    higher-dimensional arrays. In this case, ``dtype=object`` is required.
+
+    .. versionadded:: 2.4.0
+like : array_like, optional
+    Reference object to allow the creation of arrays which are not
+    NumPy arrays. If an array-like passed in as ``like`` supports
+    the ``__array_function__`` protocol, the result will be defined
+    by it. In this case, it ensures the creation of an array object
+    compatible with that passed in via this argument.
+
+    .. versionadded:: 1.20.0
+
+Returns
+-------
+out : ndarray
+    An array object satisfying the specified requirements.
+
+See Also
+--------
+empty_like : Return an empty array with shape and type of input.
+ones_like : Return an array of ones with shape and type of input.
+zeros_like : Return an array of zeros with shape and type of input.
+full_like : Return a new array with shape of input filled with value.
+empty : Return a new uninitialized array.
+ones : Return a new array setting values to one.
+zeros : Return a new array setting values to zero.
+full : Return a new array of given shape filled with value.
+copy : Return an array copy of the given object.
+
+
+Notes
+-----
+When order is 'A' and ``object`` is an array in neither 'C' nor 'F' order,
+and a copy is forced by a change in dtype, then the order of the result is
+not necessarily 'C' as expected. This is likely a bug.
+
+Examples
+--------
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; np.array([1, 2, 3])
+array([1, 2, 3])
+
+Upcasting:
+
+&gt;&gt;&gt; np.array([1, 2, 3.0])
+array([ 1.,  2.,  3.])
+
+More than one dimension:
+
+&gt;&gt;&gt; np.array([[1, 2], [3, 4]])
+array([[1, 2],
+       [3, 4]])
+
+Minimum dimensions 2:
+
+&gt;&gt;&gt; np.array([1, 2, 3], ndmin=2)
+array([[1, 2, 3]])
+
+Type provided:
+
+&gt;&gt;&gt; np.array([1, 2, 3], dtype=complex)
+array([ 1.+0.j,  2.+0.j,  3.+0.j])
+
+Data-type consisting of more than one element:
+
+&gt;&gt;&gt; x = np.array([(1,2),(3,4)],dtype=[('a','&lt;i4'),('b','&lt;i4')])
+&gt;&gt;&gt; x['a']
+array([1, 3], dtype=int32)
+
+Creating an array from sub-classes:
+
+&gt;&gt;&gt; np.array(np.asmatrix('1 2; 3 4'))
+array([[1, 2],
+       [3, 4]])
+
+&gt;&gt;&gt; np.array(np.asmatrix('1 2; 3 4'), subok=True)
+matrix([[1, 2],
+        [3, 4]])
+
+Limiting the maximum dimensions with ``ndmax``:
+
+&gt;&gt;&gt; a = np.array([[1, 2], [3, 4]], dtype=object, ndmax=2)
+&gt;&gt;&gt; a
+array([[1, 2],
+       [3, 4]], dtype=object)
+&gt;&gt;&gt; a.shape
+(2, 2)
+
+&gt;&gt;&gt; b = np.array([[1, 2], [3, 4]], dtype=object, ndmax=1)
+&gt;&gt;&gt; b
+array([list([1, 2]), list([3, 4])], dtype=object)
+&gt;&gt;&gt; b.shape
+(2,)
+<span class="ansi-red-fg">Type:</span>      builtin_function_or_method</pre>
 </div>
 </div>
 </div>
