@@ -11861,8 +11861,8 @@ Seq('ATCAGTCTCCGCACGCGGTTCCGCAGGTGGCAGCGATGGCCCAGTCCTGAACTC...GTC')
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create our BLAST query, searching the entire core nt database of NCBI</span>
 <span class="c1"># Note that this could take a few minutes to complete depending on how busy the server is</span>
 
-<span class="n">blastResult</span> <span class="o">=</span> <span class="n">ncbi</span><span class="o">.</span><span class="n">qblast</span><span class="p">(</span><span class="n">program</span> <span class="o">=</span> <span class="s1">'...'</span><span class="p">,</span>
-                          <span class="n">database</span> <span class="o">=</span> <span class="s1">'...'</span><span class="p">,</span>
+<span class="n">blastResult</span> <span class="o">=</span> <span class="n">ncbi</span><span class="o">.</span><span class="n">qblast</span><span class="p">(</span><span class="n">program</span> <span class="o">=</span> <span class="s1">'blastn'</span><span class="p">,</span>
+                          <span class="n">database</span> <span class="o">=</span> <span class="s1">'core_nt'</span><span class="p">,</span>
                           <span class="n">sequence</span> <span class="o">=</span> <span class="n">fastaRecordList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"fasta"</span><span class="p">),</span>   <span class="c1"># Only examine the first fasta record in our list. Send it as plain text</span>
                           <span class="n">format_type</span> <span class="o">=</span> <span class="s2">"XML"</span><span class="p">)</span>
 
