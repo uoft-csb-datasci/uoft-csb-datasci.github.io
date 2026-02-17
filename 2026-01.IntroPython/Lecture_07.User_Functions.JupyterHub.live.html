@@ -11981,10 +11981,10 @@ Seq('ATCAGTCTCCGCACGCGGTTCCGCAGGTGGCAGCGATGGCCCAGTCCTGAACTC...GTC')
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Available attributes in the blast record:"</span><span class="p">)</span>
 
-<span class="c1"># # Use list comprehension to find out the attributes of the blast record object</span>
-<span class="c1"># print([attr for attr in dir(blast_record)      # dir() returns a list of attributes and methods</span>
-<span class="c1">#  if not attr.startswith('__') and              # remove any double-underlines methods</span>
-<span class="c1">#  not callable(getattr(blast_record, attr))])   # remove any methods by checking if they are callable()</span>
+<span class="c1"># Use list comprehension to find out the attributes of the blast record object</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">blast_record</span><span class="p">)</span>      <span class="c1"># dir() returns a list of attributes and methods</span>
+ <span class="k">if</span> <span class="ow">not</span> <span class="n">attr</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'__'</span><span class="p">)</span> <span class="ow">and</span>              <span class="c1"># remove any double-underlines methods</span>
+ <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">blast_record</span><span class="p">,</span> <span class="n">attr</span><span class="p">))])</span>   <span class="c1"># remove any methods by checking if they are callable()</span>
 </pre></div>
 </div>
 </div>
