@@ -10039,11 +10039,11 @@ Tyrosine
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># A quick example about scope and namespaces</span>
 
-<span class="n">global_value</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">global_value</span> <span class="o">=</span> <span class="mi">100</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">scoping_func</span><span class="p">():</span>
     
-    <span class="n">local_value</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">local_value</span> <span class="o">=</span> <span class="mi">42</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="s2">"We can access global: </span><span class="si">{}</span><span class="s2"> and local: </span><span class="si">{}</span><span class="s2"> values"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">global_value</span><span class="p">,</span> <span class="n">local_value</span><span class="p">))</span>
 
