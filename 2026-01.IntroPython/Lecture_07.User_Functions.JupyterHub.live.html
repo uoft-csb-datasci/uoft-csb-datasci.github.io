@@ -11957,12 +11957,12 @@ Seq('ATCAGTCTCCGCACGCGGTTCCGCAGGTGGCAGCGATGGCCCAGTCCTGAACTC...GTC')
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Bio.Blast</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCBIXML</span>
@@ -11971,7 +11971,7 @@ Seq('ATCAGTCTCCGCACGCGGTTCCGCAGGTGGCAGCGATGGCCCAGTCCTGAACTC...GTC')
 <span class="c1"># Open a connection to your XML</span>
 <span class="n">xmlCon</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data/blastResult.xml"</span><span class="p">)</span>
 
-<span class="n">blast_record</span> <span class="o">=</span> <span class="n">NCBIXML</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">xmlcon</span><span class="p">)</span>
+<span class="n">blast_record</span> <span class="o">=</span> <span class="n">NCBIXML</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">xmlCon</span><span class="p">)</span>
 
 <span class="c1"># Close the connection</span>
 <span class="n">xmlCon</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -11981,11 +11981,30 @@ Seq('ATCAGTCTCCGCACGCGGTTCCGCAGGTGGCAGCGATGGCCCAGTCCTGAACTC...GTC')
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Available attributes in the blast record:"</span><span class="p">)</span>
 
-<span class="c1"># Use list comprehension to find out the attributes of the blast record object</span>
-<span class="nb">print</span><span class="p">([</span><span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">blast_record</span><span class="p">)</span>      <span class="c1"># dir() returns a list of attributes and methods</span>
- <span class="k">if</span> <span class="ow">not</span> <span class="n">attr</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'__'</span><span class="p">)</span> <span class="ow">and</span>              <span class="c1"># remove any double-underlines methods</span>
- <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">blast_record</span><span class="p">,</span> <span class="n">attr</span><span class="p">))])</span>   <span class="c1"># remove any methods by checking if they are callable()</span>
+<span class="c1"># # Use list comprehension to find out the attributes of the blast record object</span>
+<span class="c1"># print([attr for attr in dir(blast_record)      # dir() returns a list of attributes and methods</span>
+<span class="c1">#  if not attr.startswith('__') and              # remove any double-underlines methods</span>
+<span class="c1">#  not callable(getattr(blast_record, attr))])   # remove any methods by checking if they are callable()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[84]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Bio.Blast.NCBIXML.Blast</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Available attributes in the blast record:
+</pre>
 </div>
 </div>
 </div>
