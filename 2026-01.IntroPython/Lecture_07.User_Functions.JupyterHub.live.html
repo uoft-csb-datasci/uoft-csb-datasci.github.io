@@ -9337,7 +9337,7 @@ three
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a list of arguments</span>
@@ -9349,7 +9349,7 @@ three
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Run print_multiple() with unpacked values"</span><span class="p">)</span>
 <span class="c1"># Run func() with the unpacked list</span>
-<span class="c1"># print_multiple(...) </span>
+<span class="n">print_multiple</span><span class="p">(</span><span class="o">*</span><span class="n">list_of_arg_values</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -9366,6 +9366,10 @@ three
 [1, 2, 'three']
 
 Run print_multiple() with unpacked values
+1
+2
+three
+4
 </pre>
 </div>
 </div>
