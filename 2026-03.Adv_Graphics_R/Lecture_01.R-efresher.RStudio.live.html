@@ -496,35 +496,8 @@ data visualizations</p>
 for working with date formats in R</p>
 <p>Let’s run our first code cell!</p>
 <pre class="r"><code># Packages to help tidy our data
-library(tidyverse)</code></pre>
-<pre><code>## -- [1mAttaching core tidyverse packages[22m ---------------------------------------------------------------- tidyverse 2.0.0 --
-## [32mv[39m [34mdplyr    [39m 1.1.3     [32mv[39m [34mreadr    [39m 2.1.4
-## [32mv[39m [34mforcats  [39m 1.0.0     [32mv[39m [34mstringr  [39m 1.5.0
-## [32mv[39m [34mggplot2  [39m 3.5.2     [32mv[39m [34mtibble   [39m 3.2.1
-## [32mv[39m [34mlubridate[39m 1.9.2     [32mv[39m [34mtidyr    [39m 1.3.0
-## [32mv[39m [34mpurrr    [39m 1.0.2     
-## -- [1mConflicts[22m ---------------------------------------------------------------------------------- tidyverse_conflicts() --
-## [31mx[39m [34mdplyr[39m::[32mfilter()[39m   masks [34mstats[39m::filter()
-## [31mx[39m [34mpurrr[39m::[32mis_empty()[39m masks [34mgit2r[39m::is_empty()
-## [31mx[39m [34mdplyr[39m::[32mlag()[39m      masks [34mstats[39m::lag()
-## [31mx[39m [34mdplyr[39m::[32mpull()[39m     masks [34mgit2r[39m::pull()
-## [31mx[39m [34mpurrr[39m::[32mwhen()[39m     masks [34mgit2r[39m::when()
-## [36mi[39m Use the conflicted package ([3m[34m&lt;http://conflicted.r-lib.org/&gt;[39m[23m) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>library(magrittr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;magrittr&#39;
-## 
-## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     set_names
-## 
-## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract
-## 
-## The following object is masked from &#39;package:git2r&#39;:
-## 
-##     add</code></pre>
+library(tidyverse)
+library(magrittr)</code></pre>
 <hr />
 </div>
 <div id="coding-in-r-markdown-notebooks" class="section level1">
@@ -1116,17 +1089,18 @@ char.vector &lt;- c(&quot;Canada&quot;, &quot;Maple Syrup&quot;, &quot;Hockey&qu
 char.vector</code></pre>
 <pre><code>## [1] &quot;Canada&quot;      &quot;Maple Syrup&quot; &quot;Hockey&quot;</code></pre>
 <pre class="r"><code># subset by a single value
-char.vector[...]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+char.vector[1]</code></pre>
+<pre><code>## [1] &quot;Canada&quot;</code></pre>
 <pre class="r"><code># subset by multiple values
-char.vector[...]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+char.vector[2:3]</code></pre>
+<pre><code>## [1] &quot;Maple Syrup&quot; &quot;Hockey&quot;</code></pre>
 <pre class="r"><code># subset by removing values (cannot be mixed with positive values)
-char.vector[c(-1, ...)]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+char.vector[c(-1, -3)]</code></pre>
+<pre><code>## [1] &quot;Maple Syrup&quot;</code></pre>
 <pre class="r"><code># subset with repeating multiple values
-char.vector[c(1, 2, 3, ...)]</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+char.vector[c(1, 2, 3, 3, 2, 1)]</code></pre>
+<pre><code>## [1] &quot;Canada&quot;      &quot;Maple Syrup&quot; &quot;Hockey&quot;      &quot;Hockey&quot;      &quot;Maple Syrup&quot;
+## [6] &quot;Canada&quot;</code></pre>
 <pre class="r"><code># Build a named character vector by including variable names
 character.vector &lt;- c(a = &quot;Canada&quot;, b = &quot;Maple Syrup&quot;, c = &quot;Hockey&quot;)
 character.vector</code></pre>
@@ -1692,13 +1666,25 @@ str(sapply(numeric.df, sum))</code></pre>
 sum.list &lt;- list(...)</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>str(sum.list)</code></pre>
-<pre><code>## Error in str(sum.list): object &#39;sum.list&#39; not found</code></pre>
+<pre><code>## List of 2
+##  $ :&#39;data.frame&#39;:    12 obs. of  3 variables:
+##   ..$ geneA: int [1:12] -1 0 1 2 3 4 5 6 7 8 ...
+##   ..$ geneB: num [1:12] -2 0 2 4 6 8 10 12 14 16 ...
+##   ..$ geneC: num [1:12] -3 0 3 6 9 12 15 18 21 24 ...
+##  $ :&#39;data.frame&#39;:    12 obs. of  3 variables:
+##   ..$ geneA: int [1:12] -1 0 1 2 3 4 5 6 7 8 ...
+##   ..$ geneB: num [1:12] -2 0 2 4 6 8 10 12 14 16 ...
+##   ..$ geneC: num [1:12] -3 0 3 6 9 12 15 18 21 24 ...</code></pre>
 <pre class="r"><code># lapply on the list returns a list
 lapply(sum.list, sum)</code></pre>
-<pre><code>## Error in lapply(sum.list, sum): object &#39;sum.list&#39; not found</code></pre>
+<pre><code>## [[1]]
+## [1] 324
+## 
+## [[2]]
+## [1] 324</code></pre>
 <pre class="r"><code># sapply on the list returns a vector
 sapply(sum.list, sum)</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;sum.list&#39; not found</code></pre>
+<pre><code>## [1] 324 324</code></pre>
 <pre class="r"><code># Use lapply to select portions from a list
 sum.list &lt;- list(numeric.df, numeric.df)
 
