@@ -1847,30 +1847,29 @@ used to work with <code>NA</code> values.</li>
 </ol>
 <pre class="r"><code># Add some NAs to our data frame
 mixed.df &lt;- data.frame(Canadiana = character.vector,
-                      values = c(3, ..., 9),
+                      values = c(3, NA, 9),
                       manmade = logical.vector[1:3],
                       type = c(&quot;Nature&quot;, &quot;Nature&quot;, &quot;Sport&quot;),
                       unit = c(NA, &quot;gallons&quot;, &quot;Stanley Cups&quot;)
-                      )</code></pre>
-<pre><code>## Error in data.frame(Canadiana = character.vector, values = c(3, ..., 9), : &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Look at our updated data frame
+                      )
+# Look at our updated data frame
 mixed.df</code></pre>
-<pre><code>##     Canadiana values manmade   type
-## a      Canada      0    TRUE Nature
-## b Maple Syrup      1   FALSE Nature
-## c      Hockey      2    TRUE  Sport</code></pre>
+<pre><code>##     Canadiana values manmade   type         unit
+## a      Canada      3    TRUE Nature         &lt;NA&gt;
+## b Maple Syrup     NA   FALSE Nature      gallons
+## c      Hockey      9    TRUE  Sport Stanley Cups</code></pre>
 <pre class="r"><code># Which entries are NA?
 is.na(mixed.df)</code></pre>
-<pre><code>##   Canadiana values manmade  type
-## a     FALSE  FALSE   FALSE FALSE
-## b     FALSE  FALSE   FALSE FALSE
-## c     FALSE  FALSE   FALSE FALSE</code></pre>
+<pre><code>##   Canadiana values manmade  type  unit
+## a     FALSE  FALSE   FALSE FALSE  TRUE
+## b     FALSE   TRUE   FALSE FALSE FALSE
+## c     FALSE  FALSE   FALSE FALSE FALSE</code></pre>
 <pre class="r"><code># Which rows are incomplete?
 complete.cases(mixed.df)</code></pre>
-<pre><code>## [1] TRUE TRUE TRUE</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
 <pre class="r"><code># Use some math functions 
-sum(mixed.df$values, ...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+sum(mixed.df$values, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 12</code></pre>
 <hr />
 </div>
 </div>
@@ -1963,14 +1962,98 @@ will use most often are:</p>
 <p>Let’s read in our first dataset so that we can convert from wide to
 long format.</p>
 <pre class="r"><code># Import the respiratory surveillance data
-respData.df &lt;- read_csv(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+respData.df &lt;- read_csv(&quot;data/2022-24_surveillanceDataset.csv&quot;)</code></pre>
+<pre><code>## [1mRows: [22m[34m3715[39m [1mColumns: [22m[34m29[39m
+## [36m--[39m [1mColumn specification[22m [36m------------------------------------------------------------------------------------------------[39m
+## [1mDelimiter:[22m &quot;,&quot;
+## [31mchr[39m (26): Season, Reporting Laboratory, SARS-CoV-2 Tested, SARS-CoV-2 Positi...
+## [32mdbl[39m  (3): Year, Week, Surveillance week
+## 
+## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
+## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code># What is the basic shape of our data?
-str(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+str(respData.df)</code></pre>
+<pre><code>## spc_tbl_ [3,715 x 29] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ Season              : chr [1:3715] &quot;2023-2024&quot; &quot;2023-2024&quot; &quot;2023-2024&quot; &quot;2023-2024&quot; ...
+##  $ Year                : num [1:3715] 2024 2024 2024 2024 2024 ...
+##  $ Week                : num [1:3715] 23 23 23 23 23 23 23 23 23 23 ...
+##  $ Surveillance week   : num [1:3715] 40 40 40 40 40 40 40 40 40 40 ...
+##  $ Reporting Laboratory: chr [1:3715] &quot;Newfoundland&quot; &quot;Prince Edward Island&quot; &quot;Nova Scotia&quot; &quot;New Brunswick&quot; ...
+##  $ SARS-CoV-2 Tested   : chr [1:3715] &quot;25911&quot; &quot;8528&quot; &quot;56416&quot; &quot;42456&quot; ...
+##  $ SARS-CoV-2 Positive : chr [1:3715] &quot;3589&quot; &quot;846&quot; &quot;9244&quot; &quot;4186&quot; ...
+##  $ Flu Tested          : chr [1:3715] &quot;19630&quot; &quot;5734&quot; &quot;42399&quot; &quot;40274&quot; ...
+##  $ A(H1)pdm09 Positive : chr [1:3715] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;925&quot; ...
+##  $ A(H3) Positive      : chr [1:3715] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;29&quot; ...
+##  $ A(UnS) Positive     : chr [1:3715] &quot;1363&quot; &quot;542&quot; &quot;2925&quot; &quot;1907&quot; ...
+##  $ Total Flu A Positive: chr [1:3715] &quot;1363&quot; &quot;542&quot; &quot;2925&quot; &quot;2861&quot; ...
+##  $ Total Flu B Positive: chr [1:3715] &quot;187&quot; &quot;239&quot; &quot;690&quot; &quot;1058&quot; ...
+##  $ RSV Tested          : chr [1:3715] &quot;19630&quot; &quot;5734&quot; &quot;34977&quot; &quot;39870&quot; ...
+##  $ RSV Positive        : chr [1:3715] &quot;1063&quot; &quot;376&quot; &quot;1495&quot; &quot;1934&quot; ...
+##  $ HPIV Tested         : chr [1:3715] &quot;19630&quot; &quot;674&quot; &quot;1392&quot; &quot;3839&quot; ...
+##  $ HPIV 1 Positive     : chr [1:3715] &quot;31&quot; &quot;4&quot; &quot;16&quot; &quot;11&quot; ...
+##  $ HPIV 2 Positive     : chr [1:3715] &quot;95&quot; &quot;1&quot; &quot;3&quot; &quot;8&quot; ...
+##  $ HPIV 3 Positive     : chr [1:3715] &quot;432&quot; &quot;43&quot; &quot;22&quot; &quot;136&quot; ...
+##  $ HPIV 4 Positive     : chr [1:3715] &quot;116&quot; &quot;9&quot; &quot;10&quot; &quot;35&quot; ...
+##  $ Other HPIV Positive : chr [1:3715] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+##  $ ADV Tested          : chr [1:3715] &quot;19630&quot; &quot;673&quot; &quot;1392&quot; &quot;3839&quot; ...
+##  $ ADV Positive        : chr [1:3715] &quot;324&quot; &quot;44&quot; &quot;47&quot; &quot;135&quot; ...
+##  $ HMPV Tested         : chr [1:3715] &quot;19630&quot; &quot;663&quot; &quot;1385&quot; &quot;3839&quot; ...
+##  $ HMPV Positive       : chr [1:3715] &quot;529&quot; &quot;30&quot; &quot;21&quot; &quot;120&quot; ...
+##  $ EV/RV Tested        : chr [1:3715] &quot;19630&quot; &quot;674&quot; &quot;1392&quot; &quot;3839&quot; ...
+##  $ EV/RV Positive      : chr [1:3715] &quot;1844&quot; &quot;188&quot; &quot;257&quot; &quot;763&quot; ...
+##  $ HCoV Tested         : chr [1:3715] &quot;19630&quot; &quot;658&quot; &quot;1391&quot; &quot;3839&quot; ...
+##  $ HCoV Positive       : chr [1:3715] &quot;574&quot; &quot;35&quot; &quot;34&quot; &quot;153&quot; ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   Season = [31mcol_character()[39m,
+##   ..   Year = [32mcol_double()[39m,
+##   ..   Week = [32mcol_double()[39m,
+##   ..   `Surveillance week` = [32mcol_double()[39m,
+##   ..   `Reporting Laboratory` = [31mcol_character()[39m,
+##   ..   `SARS-CoV-2 Tested` = [31mcol_character()[39m,
+##   ..   `SARS-CoV-2 Positive` = [31mcol_character()[39m,
+##   ..   `Flu Tested` = [31mcol_character()[39m,
+##   ..   `A(H1)pdm09 Positive` = [31mcol_character()[39m,
+##   ..   `A(H3) Positive` = [31mcol_character()[39m,
+##   ..   `A(UnS) Positive` = [31mcol_character()[39m,
+##   ..   `Total Flu A Positive` = [31mcol_character()[39m,
+##   ..   `Total Flu B Positive` = [31mcol_character()[39m,
+##   ..   `RSV Tested` = [31mcol_character()[39m,
+##   ..   `RSV Positive` = [31mcol_character()[39m,
+##   ..   `HPIV Tested` = [31mcol_character()[39m,
+##   ..   `HPIV 1 Positive` = [31mcol_character()[39m,
+##   ..   `HPIV 2 Positive` = [31mcol_character()[39m,
+##   ..   `HPIV 3 Positive` = [31mcol_character()[39m,
+##   ..   `HPIV 4 Positive` = [31mcol_character()[39m,
+##   ..   `Other HPIV Positive` = [31mcol_character()[39m,
+##   ..   `ADV Tested` = [31mcol_character()[39m,
+##   ..   `ADV Positive` = [31mcol_character()[39m,
+##   ..   `HMPV Tested` = [31mcol_character()[39m,
+##   ..   `HMPV Positive` = [31mcol_character()[39m,
+##   ..   `EV/RV Tested` = [31mcol_character()[39m,
+##   ..   `EV/RV Positive` = [31mcol_character()[39m,
+##   ..   `HCoV Tested` = [31mcol_character()[39m,
+##   ..   `HCoV Positive` = [31mcol_character()[39m
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <pre class="r"><code># What does it look like
-head(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+head(respData.df)</code></pre>
+<pre><code>## [90m# A tibble: 6 x 29[39m
+##   Season     Year  Week `Surveillance week` `Reporting Laboratory`
+##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m               [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                 
+## [90m1[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland          
+## [90m2[39m 2023-2024  [4m2[24m024    23                  40 Prince Edward Island  
+## [90m3[39m 2023-2024  [4m2[24m024    23                  40 Nova Scotia           
+## [90m4[39m 2023-2024  [4m2[24m024    23                  40 New Brunswick         
+## [90m5[39m 2023-2024  [4m2[24m024    23                  40 Atlantic              
+## [90m6[39m 2023-2024  [4m2[24m024    23                  40 Région Nord-Est       
+## [90m# i 24 more variables: `SARS-CoV-2 Tested` &lt;chr&gt;, `SARS-CoV-2 Positive` &lt;chr&gt;,[39m
+## [90m#   `Flu Tested` &lt;chr&gt;, `A(H1)pdm09 Positive` &lt;chr&gt;, `A(H3) Positive` &lt;chr&gt;,[39m
+## [90m#   `A(UnS) Positive` &lt;chr&gt;, `Total Flu A Positive` &lt;chr&gt;,[39m
+## [90m#   `Total Flu B Positive` &lt;chr&gt;, `RSV Tested` &lt;chr&gt;, `RSV Positive` &lt;chr&gt;,[39m
+## [90m#   `HPIV Tested` &lt;chr&gt;, `HPIV 1 Positive` &lt;chr&gt;, `HPIV 2 Positive` &lt;chr&gt;,[39m
+## [90m#   `HPIV 3 Positive` &lt;chr&gt;, `HPIV 4 Positive` &lt;chr&gt;,[39m
+## [90m#   `Other HPIV Positive` &lt;chr&gt;, `ADV Tested` &lt;chr&gt;, `ADV Positive` &lt;chr&gt;, ...[39m</code></pre>
 <hr />
 <div id="the-respiratory-surveillance-data-covers-multiple-viruses" class="section level3">
 <h3>3.1.1 The respiratory surveillance data covers multiple viruses</h3>
@@ -2033,34 +2116,72 @@ unique values in those five metadata variables.</p>
 
 cat(&quot;Season values: &quot;)</code></pre>
 <pre><code>## Season values:</code></pre>
-<pre class="r"><code>respData.df$...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;respData.df&#39; not found</code></pre>
+<pre class="r"><code>respData.df$Season %&gt;% unique()</code></pre>
+<pre><code>## [1] &quot;2023-2024&quot; &quot;2022-2023&quot;</code></pre>
 <pre class="r"><code>cat(&quot;\nYear values: &quot;)</code></pre>
 <pre><code>## 
 ## Year values:</code></pre>
 <pre class="r"><code>respData.df$Year %&gt;% unique()</code></pre>
-<pre><code>## Error in unique(.): object &#39;respData.df&#39; not found</code></pre>
+<pre><code>## [1] 2024 2023 2022</code></pre>
 <pre class="r"><code>cat(&quot;\nUnique Weeks: &quot;)</code></pre>
 <pre><code>## 
 ## Unique Weeks:</code></pre>
 <pre class="r"><code>respData.df$Week %&gt;% unique()</code></pre>
-<pre><code>## Error in unique(.): object &#39;respData.df&#39; not found</code></pre>
+<pre><code>##  [1] 23 22 21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1 52 50
+## [26] 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26 25
+## [51] 24</code></pre>
 <pre class="r"><code>cat(&quot;\nUnique Surveillance Weeks: &quot;)</code></pre>
 <pre><code>## 
 ## Unique Surveillance Weeks:</code></pre>
-<pre class="r"><code>respData.df$... %&gt;% unique()</code></pre>
-<pre><code>## Error in unique(.): object &#39;respData.df&#39; not found</code></pre>
+<pre class="r"><code>respData.df$`Surveillance week` %&gt;% unique()</code></pre>
+<pre><code>##  [1] 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 15
+## [26] 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0 51 50 49 48 47 46 45 44 43 42
+## [51] 41</code></pre>
 <pre class="r"><code>cat(&quot;\nUnique Reporting laboratories: &quot;)</code></pre>
 <pre><code>## 
 ## Unique Reporting laboratories:</code></pre>
 <pre class="r"><code>respData.df$`Reporting Laboratory` %&gt;% unique()</code></pre>
-<pre><code>## Error in unique(.): object &#39;respData.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;Newfoundland&quot;                 &quot;Prince Edward Island&quot;        
+##  [3] &quot;Nova Scotia&quot;                  &quot;New Brunswick&quot;               
+##  [5] &quot;Atlantic&quot;                     &quot;Région Nord-Est&quot;             
+##  [7] &quot;Québec-Chaudière-Appalaches&quot;  &quot;Centre-du-Québec&quot;            
+##  [9] &quot;Montréal-Laval&quot;               &quot;Ouest du Québec&quot;             
+## [11] &quot;Montérégie&quot;                   &quot;Province of Québec&quot;          
+## [13] &quot;P.H.O.L. - Ottawa&quot;            &quot;EORLA&quot;                       
+## [15] &quot;P.H.O.L. - Kingston&quot;          &quot;UHN / Mount Sinai Hospital&quot;  
+## [17] &quot;P.H.O.L. - Toronto&quot;           &quot;Sick Kids Hospital - Toronto&quot;
+## [19] &quot;Shared Hospital Laboratory&quot;   &quot;P.H.O.L. - Sault Ste. Marie&quot; 
+## [21] &quot;P.H.O.L. - Timmins&quot;           &quot;St. Joseph&#39;s - London&quot;       
+## [23] &quot;P.H.O.L. - London&quot;            &quot;P.H.O.L. - Orillia&quot;          
+## [25] &quot;P.H.O.L. - Thunder Bay&quot;       &quot;P.H.O.L. - Sudbury&quot;          
+## [27] &quot;P.H.O.L. - Hamilton&quot;          &quot;P.H.O.L. - Peterborough&quot;     
+## [29] &quot;St. Joseph&#39;s - Hamilton&quot;      &quot;Sault Area Hospital&quot;         
+## [31] &quot;Province of Ontario&quot;          &quot;Manitoba&quot;                    
+## [33] &quot;Saskatchewan&quot;                 &quot;Alberta&quot;                     
+## [35] &quot;Prairies&quot;                     &quot;British Columbia&quot;            
+## [37] &quot;Yukon&quot;                        &quot;Northwest Territories&quot;       
+## [39] &quot;Nunavut&quot;                      &quot;Territories&quot;                 
+## [41] &quot;CANADA&quot;                       &quot;Canada&quot;                      
+## [43] &quot;Montréal-Laval &quot;              &quot;P.H.O.L. - Toronto &quot;         
+## [45] &quot;St. Joseph&#39;s - London &quot;       &quot;Montréal-Laval  &quot;            
+## [47] &quot;P.H.O.L. - Toronto  &quot;         &quot;St. Joseph&#39;s - London  &quot;     
+## [49] &quot;Province of Québec &quot;          &quot;Province of Manitoba&quot;        
+## [51] &quot;Province of Saskatchewan&quot;     &quot;Province of Alberta&quot;</code></pre>
 <pre class="r"><code># What are the column names of our dataset?
 cat(&quot;\ncolumn names: \n&quot;)</code></pre>
 <pre><code>## 
 ## column names:</code></pre>
 <pre class="r"><code>colnames(respData.df)</code></pre>
-<pre><code>## Error in is.data.frame(x): object &#39;respData.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;Season&quot;               &quot;Year&quot;                 &quot;Week&quot;                
+##  [4] &quot;Surveillance week&quot;    &quot;Reporting Laboratory&quot; &quot;SARS-CoV-2 Tested&quot;   
+##  [7] &quot;SARS-CoV-2 Positive&quot;  &quot;Flu Tested&quot;           &quot;A(H1)pdm09 Positive&quot; 
+## [10] &quot;A(H3) Positive&quot;       &quot;A(UnS) Positive&quot;      &quot;Total Flu A Positive&quot;
+## [13] &quot;Total Flu B Positive&quot; &quot;RSV Tested&quot;           &quot;RSV Positive&quot;        
+## [16] &quot;HPIV Tested&quot;          &quot;HPIV 1 Positive&quot;      &quot;HPIV 2 Positive&quot;     
+## [19] &quot;HPIV 3 Positive&quot;      &quot;HPIV 4 Positive&quot;      &quot;Other HPIV Positive&quot; 
+## [22] &quot;ADV Tested&quot;           &quot;ADV Positive&quot;         &quot;HMPV Tested&quot;         
+## [25] &quot;HMPV Positive&quot;        &quot;EV/RV Tested&quot;         &quot;EV/RV Positive&quot;      
+## [28] &quot;HCoV Tested&quot;          &quot;HCoV Positive&quot;</code></pre>
 <hr />
 </div>
 <div id="the-respiratory-surveillance-data-covers-2-seasons-of-data-gathered-across-canada" class="section level3">
@@ -2101,11 +2222,12 @@ respData.df %&gt;%
   pull(6) %&gt;%             # Pull out just the first data column
   as.numeric() %&gt;%        # Convert to numeric. Any non-numeric values will become NA
   is.na() %&gt;%             # Identify which values are NA
-  ... %&gt;%             # Pull down their locations
+  which() %&gt;%             # Pull down their locations
   respData.df[., 6] %&gt;%   # Retrieve the non-numeric data from the table 
-  ... %&gt;%            # Convert it to a simple vector for looking at
+  unlist() %&gt;%            # Convert it to a simple vector for looking at
   unique()</code></pre>
-<pre><code>## Error in ...(.): could not find function &quot;...&quot;</code></pre>
+<pre><code>## Warning in which(.): NAs introduced by coercion</code></pre>
+<pre><code>## [1] &quot;N.R.&quot; &quot;N.R&quot;  &quot;N.C.&quot;</code></pre>
 <hr />
 <p>From our quick investigation, we can see that our non-numeric data
 consists of either “N.R”, “N.R.” or “N.C.” values. These are
@@ -2418,13 +2540,38 @@ version.</p>
 
 respData.df %&gt;%
   # Convert the measurements to numeric
-  mutate_at(.vars = ..., .funs = ...) %&gt;% 
+  mutate_at(.vars = -c(1:5), .funs = as.numeric) %&gt;% 
   
   # Create some new &quot;total positive&quot; columns
   mutate(... = `Total Flu A Positive`+`Total Flu B Positive`,
          ... = `HPIV 1 Positive` + `HPIV 2 Positive` + `HPIV 3 Positive` + `HPIV 4 Positive` + `Other HPIV Positive`
          )</code></pre>
-<pre><code>## Error in mutate(., ... = `Total Flu A Positive` + `Total Flu B Positive`, : &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
+## The first warning was:
+## [1m[22m[36mi[39m In argument: `SARS-CoV-2 Tested = .Primitive(&quot;as.double&quot;)(`SARS-CoV-2 Tested`)`.
+## Caused by warning:
+## [33m![39m NAs introduced by coercion
+## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
+<pre><code>## [90m# A tibble: 3,715 x 30[39m
+##    Season     Year  Week `Surveillance week` `Reporting Laboratory`     
+##    [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m               [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                      
+## [90m 1[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland               
+## [90m 2[39m 2023-2024  [4m2[24m024    23                  40 Prince Edward Island       
+## [90m 3[39m 2023-2024  [4m2[24m024    23                  40 Nova Scotia                
+## [90m 4[39m 2023-2024  [4m2[24m024    23                  40 New Brunswick              
+## [90m 5[39m 2023-2024  [4m2[24m024    23                  40 Atlantic                   
+## [90m 6[39m 2023-2024  [4m2[24m024    23                  40 Région Nord-Est            
+## [90m 7[39m 2023-2024  [4m2[24m024    23                  40 Québec-Chaudière-Appalaches
+## [90m 8[39m 2023-2024  [4m2[24m024    23                  40 Centre-du-Québec           
+## [90m 9[39m 2023-2024  [4m2[24m024    23                  40 Montréal-Laval             
+## [90m10[39m 2023-2024  [4m2[24m024    23                  40 Ouest du Québec            
+## [90m# i 3,705 more rows[39m
+## [90m# i 25 more variables: `SARS-CoV-2 Tested` &lt;dbl&gt;, `SARS-CoV-2 Positive` &lt;dbl&gt;,[39m
+## [90m#   `Flu Tested` &lt;dbl&gt;, `A(H1)pdm09 Positive` &lt;dbl&gt;, `A(H3) Positive` &lt;dbl&gt;,[39m
+## [90m#   `A(UnS) Positive` &lt;dbl&gt;, `Total Flu A Positive` &lt;dbl&gt;,[39m
+## [90m#   `Total Flu B Positive` &lt;dbl&gt;, `RSV Tested` &lt;dbl&gt;, `RSV Positive` &lt;dbl&gt;,[39m
+## [90m#   `HPIV Tested` &lt;dbl&gt;, `HPIV 1 Positive` &lt;dbl&gt;, `HPIV 2 Positive` &lt;dbl&gt;,[39m
+## [90m#   `HPIV 3 Positive` &lt;dbl&gt;, `HPIV 4 Positive` &lt;dbl&gt;, ...[39m</code></pre>
 <hr />
 <p>Exploring the output above, we can see that row 59, for example, has
 <code>NA</code> values for week 22 of 2024 but we also see that our
