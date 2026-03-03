@@ -2825,8 +2825,28 @@ respData.df %&gt;%
   separate_wider_regex(., cols = category, patterns = c(virus = &quot;.*&quot;, &quot; &quot;, type = &quot;Tested|Positive&quot;)) %&gt;% 
   
   # Bring out the type data into Tested vs Positive columns
-  pivot_wider(names_from = ..., values_from = ...) </code></pre>
-<pre><code>## Error in respData.df %&gt;% mutate_at(.vars = -c(1:5), .funs = as.numeric) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+  pivot_wider(names_from = type, values_from = count) </code></pre>
+<pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
+## The first warning was:
+## [1m[22m[36mi[39m In argument: `SARS-CoV-2 Tested = .Primitive(&quot;as.double&quot;)(`SARS-CoV-2 Tested`)`.
+## Caused by warning:
+## [33m![39m NAs introduced by coercion
+## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
+<pre><code>## [90m# A tibble: 29,720 x 8[39m
+##    Season     Year  Week `Surveillance week` `Reporting Laboratory` virus Tested
+##    [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m               [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                  [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           SARS~  [4m2[24m[4m5[24m911
+## [90m 2[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           Flu    [4m1[24m[4m9[24m630
+## [90m 3[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           RSV    [4m1[24m[4m9[24m630
+## [90m 4[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HPIV   [4m1[24m[4m9[24m630
+## [90m 5[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           ADV    [4m1[24m[4m9[24m630
+## [90m 6[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HMPV   [4m1[24m[4m9[24m630
+## [90m 7[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           EV/RV  [4m1[24m[4m9[24m630
+## [90m 8[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HCoV   [4m1[24m[4m9[24m630
+## [90m 9[39m 2023-2024  [4m2[24m024    23                  40 Prince Edward Island   SARS~   [4m8[24m528
+## [90m10[39m 2023-2024  [4m2[24m024    23                  40 Prince Edward Island   Flu     [4m5[24m734
+## [90m# i 29,710 more rows[39m
+## [90m# i 1 more variable: Positive &lt;dbl&gt;[39m</code></pre>
 <hr />
 </div>
 <div id="updatefix-some-values-with-mutate-and-regular-expressions" class="section level3">
@@ -2870,13 +2890,33 @@ respData.df %&gt;%
   pivot_wider(names_from = type, values_from = count) %&gt;% 
   
   # Clean up the Reporting Lab names a little bit to remove redundancy
-  mutate(`Reporting Laboratory` = ...(string = `Reporting Laboratory`, pattern = &quot;...&quot;),
-         `Reporting Laboratory` = ...(string = `Reporting Laboratory`, pattern = &quot;CANADA&quot;, replacement = &quot;Canada&quot;),
+  mutate(`Reporting Laboratory` = str_remove_all(string = `Reporting Laboratory`, pattern = &quot;[Pp]rovince of &quot;),
+         `Reporting Laboratory` = str_replace(string = `Reporting Laboratory`, pattern = &quot;CANADA&quot;, replacement = &quot;Canada&quot;),
          
          # Create a new variable to calculate % positive cases
-         &quot;Percent Positive&quot; = ...
+         &quot;Percent Positive&quot; = Positive/Tested*100
          )</code></pre>
-<pre><code>## Error in respData.df %&gt;% mutate_at(.vars = -c(1:5), .funs = as.numeric) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
+## The first warning was:
+## [1m[22m[36mi[39m In argument: `SARS-CoV-2 Tested = .Primitive(&quot;as.double&quot;)(`SARS-CoV-2 Tested`)`.
+## Caused by warning:
+## [33m![39m NAs introduced by coercion
+## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
+<pre><code>## [90m# A tibble: 29,720 x 9[39m
+##    Season     Year  Week `Surveillance week` `Reporting Laboratory` virus Tested
+##    [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m               [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                  [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           SARS~  [4m2[24m[4m5[24m911
+## [90m 2[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           Flu    [4m1[24m[4m9[24m630
+## [90m 3[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           RSV    [4m1[24m[4m9[24m630
+## [90m 4[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HPIV   [4m1[24m[4m9[24m630
+## [90m 5[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           ADV    [4m1[24m[4m9[24m630
+## [90m 6[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HMPV   [4m1[24m[4m9[24m630
+## [90m 7[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           EV/RV  [4m1[24m[4m9[24m630
+## [90m 8[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HCoV   [4m1[24m[4m9[24m630
+## [90m 9[39m 2023-2024  [4m2[24m024    23                  40 Prince Edward Island   SARS~   [4m8[24m528
+## [90m10[39m 2023-2024  [4m2[24m024    23                  40 Prince Edward Island   Flu     [4m5[24m734
+## [90m# i 29,710 more rows[39m
+## [90m# i 2 more variables: Positive &lt;dbl&gt;, `Percent Positive` &lt;dbl&gt;[39m</code></pre>
 <hr />
 </div>
 <div id="update-your-variable-names-with-rename-for-clarity-and-simplicity" class="section level3">
@@ -2921,9 +2961,29 @@ respData.df %&gt;%
          ) %&gt;% 
   
   # Rename the variable names a bit to all begin with upper case
-  rename_with(., .fn = ...) %&gt;% 
-  rename_with(., .fn = function(x) ...)</code></pre>
-<pre><code>## Error in rename_with(., .fn = function(x) ...): &#39;...&#39; used in an incorrect context</code></pre>
+  rename_with(., .fn = str_to_title) %&gt;% 
+  rename_with(., .fn = function(x) str_remove_all(string = x, pattern = &quot;\\s&quot;))</code></pre>
+<pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
+## The first warning was:
+## [1m[22m[36mi[39m In argument: `SARS-CoV-2 Tested = .Primitive(&quot;as.double&quot;)(`SARS-CoV-2 Tested`)`.
+## Caused by warning:
+## [33m![39m NAs introduced by coercion
+## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
+<pre><code>## [90m# A tibble: 29,720 x 9[39m
+##    Season  Year  Week SurveillanceWeek ReportingLaboratory Virus Tested Positive
+##    [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m               [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;dbl&gt;[39m[23m    [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m 2023-~  [4m2[24m024    23               40 Newfoundland        SARS~  [4m2[24m[4m5[24m911     [4m3[24m589
+## [90m 2[39m 2023-~  [4m2[24m024    23               40 Newfoundland        Flu    [4m1[24m[4m9[24m630     [4m1[24m550
+## [90m 3[39m 2023-~  [4m2[24m024    23               40 Newfoundland        RSV    [4m1[24m[4m9[24m630     [4m1[24m063
+## [90m 4[39m 2023-~  [4m2[24m024    23               40 Newfoundland        HPIV   [4m1[24m[4m9[24m630      674
+## [90m 5[39m 2023-~  [4m2[24m024    23               40 Newfoundland        ADV    [4m1[24m[4m9[24m630      324
+## [90m 6[39m 2023-~  [4m2[24m024    23               40 Newfoundland        HMPV   [4m1[24m[4m9[24m630      529
+## [90m 7[39m 2023-~  [4m2[24m024    23               40 Newfoundland        EV/RV  [4m1[24m[4m9[24m630     [4m1[24m844
+## [90m 8[39m 2023-~  [4m2[24m024    23               40 Newfoundland        HCoV   [4m1[24m[4m9[24m630      574
+## [90m 9[39m 2023-~  [4m2[24m024    23               40 Prince Edward Isla~ SARS~   [4m8[24m528      846
+## [90m10[39m 2023-~  [4m2[24m024    23               40 Prince Edward Isla~ Flu     [4m5[24m734      781
+## [90m# i 29,710 more rows[39m
+## [90m# i 1 more variable: PercentPositive &lt;dbl&gt;[39m</code></pre>
 <hr />
 </div>
 <div id="reorder-your-columns-with-relocate" class="section level3">
@@ -2988,14 +3048,41 @@ respData_long.df &lt;-
   rename_with(., .fn = ~ str_remove_all(string = .x, pattern = &quot;\\s&quot;)) %&gt;% 
   
   # Move the Reporting Lab column to the start
-  relocate(...)</code></pre>
-<pre><code>## Error in respData.df %&gt;% mutate_at(.vars = -c(1:5), .funs = as.numeric) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+  relocate(ReportingLaboratory)</code></pre>
+<pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
+## The first warning was:
+## [1m[22m[36mi[39m In argument: `SARS-CoV-2 Tested = .Primitive(&quot;as.double&quot;)(`SARS-CoV-2 Tested`)`.
+## Caused by warning:
+## [33m![39m NAs introduced by coercion
+## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
 <pre class="r"><code># Take a look at the final result
 head(respData_long.df, 20)</code></pre>
-<pre><code>## Error in head(respData_long.df, 20): object &#39;respData_long.df&#39; not found</code></pre>
+<pre><code>## [90m# A tibble: 20 x 9[39m
+##    ReportingLaboratory Season  Year  Week SurveillanceWeek Virus Tested Positive
+##    [3m[90m&lt;chr&gt;[39m[23m               [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;dbl&gt;[39m[23m    [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m Newfoundland        2023-~  [4m2[24m024    23               40 SARS~  [4m2[24m[4m5[24m911     [4m3[24m589
+## [90m 2[39m Newfoundland        2023-~  [4m2[24m024    23               40 Flu    [4m1[24m[4m9[24m630     [4m1[24m550
+## [90m 3[39m Newfoundland        2023-~  [4m2[24m024    23               40 RSV    [4m1[24m[4m9[24m630     [4m1[24m063
+## [90m 4[39m Newfoundland        2023-~  [4m2[24m024    23               40 HPIV   [4m1[24m[4m9[24m630      674
+## [90m 5[39m Newfoundland        2023-~  [4m2[24m024    23               40 ADV    [4m1[24m[4m9[24m630      324
+## [90m 6[39m Newfoundland        2023-~  [4m2[24m024    23               40 HMPV   [4m1[24m[4m9[24m630      529
+## [90m 7[39m Newfoundland        2023-~  [4m2[24m024    23               40 EV/RV  [4m1[24m[4m9[24m630     [4m1[24m844
+## [90m 8[39m Newfoundland        2023-~  [4m2[24m024    23               40 HCoV   [4m1[24m[4m9[24m630      574
+## [90m 9[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 SARS~   [4m8[24m528      846
+## [90m10[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 Flu     [4m5[24m734      781
+## [90m11[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 RSV     [4m5[24m734      376
+## [90m12[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 HPIV     674       57
+## [90m13[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 ADV      673       44
+## [90m14[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 HMPV     663       30
+## [90m15[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 EV/RV    674      188
+## [90m16[39m Prince Edward Isla~ 2023-~  [4m2[24m024    23               40 HCoV     658       35
+## [90m17[39m Nova Scotia         2023-~  [4m2[24m024    23               40 SARS~  [4m5[24m[4m6[24m416     [4m9[24m244
+## [90m18[39m Nova Scotia         2023-~  [4m2[24m024    23               40 Flu    [4m4[24m[4m2[24m399     [4m3[24m615
+## [90m19[39m Nova Scotia         2023-~  [4m2[24m024    23               40 RSV    [4m3[24m[4m4[24m977     [4m1[24m495
+## [90m20[39m Nova Scotia         2023-~  [4m2[24m024    23               40 HPIV    [4m1[24m392       51
+## [90m# i 1 more variable: PercentPositive &lt;dbl&gt;[39m</code></pre>
 <pre class="r"><code># Make a quick copy of our long dataframe
 respData_long_copy.df &lt;- respData_long.df</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;respData_long.df&#39; not found</code></pre>
 <hr />
 <div class="alert alert-block alert-danger">
 <p><strong>Comprehension Question 3.2.9:</strong> In the above example
@@ -3048,9 +3135,9 @@ print(dir(&quot;./data/&quot;))</code></pre>
 ##  [9] &quot;sunshineListLong.RData&quot;                    
 ## [10] &quot;sunshineListLong.tsv&quot;</code></pre>
 <pre class="r"><code># Write respData_long.df to a tab-delimited file
-...(respData_long.df, file = &quot;./data/respSurveillance_long.tsv&quot;)</code></pre>
-<pre><code>## Error in ...(respData_long.df, file = &quot;./data/respSurveillance_long.tsv&quot;): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># Check our file names after writing
+write_tsv(respData_long.df, file = &quot;./data/respSurveillance_long.tsv&quot;)
+
+# Check our file names after writing
 print(dir(&quot;./data/&quot;))</code></pre>
 <pre><code>##  [1] &quot;2022-24_respiratoryMetadata.csv&quot;           
 ##  [2] &quot;2022-24_surveillanceDataset.csv&quot;           
@@ -3063,9 +3150,9 @@ print(dir(&quot;./data/&quot;))</code></pre>
 ##  [9] &quot;sunshineListLong.RData&quot;                    
 ## [10] &quot;sunshineListLong.tsv&quot;</code></pre>
 <pre class="r"><code># Save our data frame as an object
-...(respData_long.df, file=&quot;./data/respSurveillance_long.RData&quot;)</code></pre>
-<pre><code>## Error in ...(respData_long.df, file = &quot;./data/respSurveillance_long.RData&quot;): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># Check our file names after saving
+save(respData_long.df, file=&quot;./data/respSurveillance_long.RData&quot;)
+
+# Check our file names after saving
 print(dir(&quot;./data/&quot;))</code></pre>
 <pre><code>##  [1] &quot;2022-24_respiratoryMetadata.csv&quot;           
 ##  [2] &quot;2022-24_surveillanceDataset.csv&quot;           
@@ -3158,14 +3245,30 @@ provinceList = c(&quot;British Columbia&quot;, &quot;Alberta&quot;, &quot;Saskat
 # Pass the data
 respData_long.df %&gt;%
   # Filter for just the provincial totals
-  filter(...) %&gt;% 
+  filter(ReportingLaboratory %in% provinceList) %&gt;% 
   # Group the data by season and reporting lab
-  group_by(...) %&gt;% 
+  group_by(ReportingLaboratory, Season) %&gt;% 
   # Summarize the total number of tests 
-  summarise(totalTests = ...) %&gt;% 
+  summarise(totalTests = sum(Tested, na.rm = TRUE)) %&gt;% 
   # Sort the data in ascending order
-  arrange(...)</code></pre>
-<pre><code>## Error in respData_long.df %&gt;% filter(...) %&gt;% group_by(...) %&gt;% summarise(totalTests = ...) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+  arrange(totalTests)</code></pre>
+<pre><code>## [1m[22m`summarise()` has grouped output by &#39;ReportingLaboratory&#39;. You can
+## override using the `.groups` argument.</code></pre>
+<pre><code>## [90m# A tibble: 24 x 3[39m
+## [90m# Groups:   ReportingLaboratory [12][39m
+##    ReportingLaboratory   Season    totalTests
+##    [3m[90m&lt;chr&gt;[39m[23m                 [3m[90m&lt;chr&gt;[39m[23m          [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m Yukon                 2022-2023       [4m4[24m738
+## [90m 2[39m Northwest Territories 2022-2023       [4m5[24m247
+## [90m 3[39m Yukon                 2023-2024       [4m9[24m109
+## [90m 4[39m Nunavut               2022-2023       [4m9[24m933
+## [90m 5[39m Northwest Territories 2023-2024      [4m1[24m[4m2[24m907
+## [90m 6[39m Nunavut               2023-2024      [4m2[24m[4m7[24m592
+## [90m 7[39m Prince Edward Island  2022-2023      [4m3[24m[4m0[24m681
+## [90m 8[39m Prince Edward Island  2023-2024      [4m4[24m[4m4[24m265
+## [90m 9[39m Newfoundland          2022-2023     [4m1[24m[4m2[24m[4m2[24m366
+## [90m10[39m Nova Scotia           2022-2023     [4m1[24m[4m8[24m[4m2[24m702
+## [90m# i 14 more rows[39m</code></pre>
 <hr />
 <p>So on a seasonal basis, we can see that thousands to
 <em>millions</em> of tests are performed across the provinces. Let’s
@@ -3185,10 +3288,16 @@ respData_long.df %&gt;%
   summarise(totalTests = sum(Tested, na.rm = TRUE)) %&gt;% 
 
   # Regroup the data by season only
-  group_by(...) %&gt;% 
-  summarise(meanTests = mean(...),
-            sdTests = sd(...))</code></pre>
-<pre><code>## Error in summarise(., meanTests = mean(...), sdTests = sd(...)): &#39;...&#39; used in an incorrect context</code></pre>
+  group_by(Season) %&gt;% 
+  summarise(meanTests = mean(totalTests),
+            sdTests = sd(totalTests))</code></pre>
+<pre><code>## [1m[22m`summarise()` has grouped output by &#39;ReportingLaboratory&#39;. You can
+## override using the `.groups` argument.</code></pre>
+<pre><code>## [90m# A tibble: 2 x 3[39m
+##   Season    meanTests  sdTests
+##   [3m[90m&lt;chr&gt;[39m[23m         [3m[90m&lt;dbl&gt;[39m[23m    [3m[90m&lt;dbl&gt;[39m[23m
+## [90m1[39m 2022-2023   [4m3[24m[4m4[24m[4m9[24m788.  [4m5[24m[4m6[24m[4m3[24m686.
+## [90m2[39m 2023-2024   [4m6[24m[4m7[24m[4m4[24m624. 1[4m0[24m[4m3[24m[4m9[24m156.</code></pre>
 <p>As was confirmed by looking at the range of our data in part one of
 this question, we can see that the average total tests has a wide
 distribution and this is confirmed by the large standard deviations per
@@ -3226,11 +3335,27 @@ respData_long.df %&gt;%
   group_by(ReportingLaboratory, Season) %&gt;% 
   
   # Summarize the data for maximum value
-  summarise(maxTested = ...,
+  summarise(maxTested = max(totalTests),
             # Use which.max to index the max value 
-            maxTestedVirus = ...
+            maxTestedVirus = .[which.max(totalTests),]$Virus
             )</code></pre>
-<pre><code>## Error in respData_long.df %&gt;% filter(ReportingLaboratory %in% provinceList) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [1m[22m`summarise()` has grouped output by &#39;ReportingLaboratory&#39;, &#39;Season&#39;. You can override using the `.groups` argument.
+## `summarise()` has grouped output by &#39;ReportingLaboratory&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## [90m# A tibble: 24 x 4[39m
+## [90m# Groups:   ReportingLaboratory [12][39m
+##    ReportingLaboratory Season    maxTested maxTestedVirus
+##    [3m[90m&lt;chr&gt;[39m[23m               [3m[90m&lt;chr&gt;[39m[23m         [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m         
+## [90m 1[39m Alberta             2022-2023    [4m1[24m[4m6[24m[4m5[24m806 SARS-CoV-2    
+## [90m 2[39m Alberta             2023-2024    [4m3[24m[4m9[24m[4m8[24m342 SARS-CoV-2    
+## [90m 3[39m British Columbia    2022-2023    [4m1[24m[4m3[24m[4m8[24m747 SARS-CoV-2    
+## [90m 4[39m British Columbia    2023-2024    [4m2[24m[4m8[24m[4m6[24m544 SARS-CoV-2    
+## [90m 5[39m Manitoba            2022-2023     [4m5[24m[4m3[24m929 SARS-CoV-2    
+## [90m 6[39m Manitoba            2023-2024    [4m1[24m[4m2[24m[4m0[24m522 SARS-CoV-2    
+## [90m 7[39m New Brunswick       2022-2023     [4m6[24m[4m8[24m865 SARS-CoV-2    
+## [90m 8[39m New Brunswick       2023-2024     [4m8[24m[4m2[24m554 SARS-CoV-2    
+## [90m 9[39m Newfoundland        2022-2023     [4m1[24m[4m9[24m081 SARS-CoV-2    
+## [90m10[39m Newfoundland        2023-2024     [4m5[24m[4m0[24m372 SARS-CoV-2    
+## [90m# i 14 more rows[39m</code></pre>
 <hr />
 </div>
 <div id="which-provinces-in-the-past-two-seasons-had-the-highest-mean-weekly-percent-positivity-across-all-viruses-combined" class="section level3">
@@ -3284,7 +3409,13 @@ respData_long.df %&gt;%
             maxProvince = .[which.max(meanWeeklyPositivity),]$ReportingLaboratory,
             maxProvinceIndex = which.max(meanWeeklyPositivity)
             )</code></pre>
-<pre><code>## Error in filter(., ReportingLaboratory %in% provinceList): object &#39;respData_long.df&#39; not found</code></pre>
+<pre><code>## [1m[22m`summarise()` has grouped output by &#39;ReportingLaboratory&#39;, &#39;Season&#39;. You can override using the `.groups` argument.
+## `summarise()` has grouped output by &#39;Season&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## [90m# A tibble: 2 x 4[39m
+##   Season    maxPositivity maxProvince           maxProvinceIndex
+##   [3m[90m&lt;chr&gt;[39m[23m             [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                            [3m[90m&lt;int&gt;[39m[23m
+## [90m1[39m 2022-2023         0.119 Northwest Territories                6
+## [90m2[39m 2023-2024         0.105 Nova Scotia                          7</code></pre>
 <p>It looks like from our data, that the Northwest Territories and Nova
 Scotia had the highest mean weekly positivity amongst our dataset in
 2022-23 and 2023-24 respectively. What would your interpretation be for
@@ -3572,7 +3703,7 @@ respData_long.df %&gt;%
 
   # 4. Geoms
   ...</code></pre>
-<pre><code>## Error in filter(., ReportingLaboratory %in% provinceList, Season == &quot;2022-2023&quot;): object &#39;respData_long.df&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <p>Looks like our number of tests per season, on a provincial level is
 definitely the highest in Ontario. Of course that doesn’t tells us much
 about the number of positive tests or percent positivity, which may be
@@ -3608,7 +3739,7 @@ respData_long.df %&gt;%
 
   # 4. Geoms
   geom_bar(stat = &quot;identity&quot;)</code></pre>
-<pre><code>## Error in filter(., ReportingLaboratory %in% provinceList, Season == &quot;2022-2023&quot;): object &#39;respData_long.df&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <p>Having switched to looking at “Positive” results, we see the total
 values between provinces share a relatively similar shape to the total
 tests. There are some slight differences but overall there is a
@@ -3647,7 +3778,7 @@ we’ll adjust our x-axis text so it is at a 45-degree angle.</p>
   ggtitle(&quot;Weekly percent positivity across the 2022-2023 season&quot;) +
   
   ...</code></pre>
-<pre><code>## Error in filter(., ReportingLaboratory %in% provinceList, Season == &quot;2022-2023&quot;, : object &#39;respData_long.df&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <p>Despite the high number of tests in Ontario, the percent positivity
 remains low across most of the viruses tested! Could this be a sign of
 over-testing within the province? This could also be an indicator of the
