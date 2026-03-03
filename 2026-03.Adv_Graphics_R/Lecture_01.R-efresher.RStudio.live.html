@@ -1151,23 +1151,23 @@ numeric.vector &lt;- c(-1:10)
 str(numeric.vector)</code></pre>
 <pre><code>##  int [1:12] -1 0 1 2 3 4 5 6 7 8 ...</code></pre>
 <pre class="r"><code># Make a mixed vector and display its structure. Take a note of its typing afterwards
-mixed.vector &lt;- c(FALSE, TRUE, 1, 2, &quot;three&quot;, 4, 5, ...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>str(mixed.vector)</code></pre>
-<pre><code>## Error in str(mixed.vector): object &#39;mixed.vector&#39; not found</code></pre>
+mixed.vector &lt;- c(FALSE, TRUE, 1, 2, &quot;three&quot;, 4, 5, &quot;six&quot;)
+str(mixed.vector)</code></pre>
+<pre><code>##  chr [1:8] &quot;FALSE&quot; &quot;TRUE&quot; &quot;1&quot; &quot;2&quot; &quot;three&quot; &quot;4&quot; &quot;5&quot; &quot;six&quot;</code></pre>
 <pre class="r"><code># Attempt to coerce our vectors
 # logical to numeric
-as.numeric(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+as.numeric(logical.vector)</code></pre>
+<pre><code>## [1] 1 0 1 0 0</code></pre>
 <pre class="r"><code># numeric to logical
-as.logical(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+as.logical(numeric.vector)</code></pre>
+<pre><code>##  [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <pre class="r"><code># numeric to character
-as.character(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+as.character(numeric.vector)</code></pre>
+<pre><code>##  [1] &quot;-1&quot; &quot;0&quot;  &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
 <pre class="r"><code># mixed to a numeric. Note what happens when elements cannot be converted
-as.numeric(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+as.numeric(mixed.vector)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA NA  1  2 NA  4  5 NA</code></pre>
 <hr />
 </div>
 <div id="data-frames-hold-tabular-data" class="section level3">
