@@ -2543,8 +2543,8 @@ respData.df %&gt;%
   mutate_at(.vars = -c(1:5), .funs = as.numeric) %&gt;% 
   
   # Create some new &quot;total positive&quot; columns
-  mutate(... = `Total Flu A Positive`+`Total Flu B Positive`,
-         ... = `HPIV 1 Positive` + `HPIV 2 Positive` + `HPIV 3 Positive` + `HPIV 4 Positive` + `Other HPIV Positive`
+  mutate(`Flu Positive` = `Total Flu A Positive`+`Total Flu B Positive`,
+         &quot;HPIV Positive&quot; = `HPIV 1 Positive` + `HPIV 2 Positive` + `HPIV 3 Positive` + `HPIV 4 Positive` + `Other HPIV Positive`
          )</code></pre>
 <pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
 ## The first warning was:
@@ -2552,7 +2552,7 @@ respData.df %&gt;%
 ## Caused by warning:
 ## [33m![39m NAs introduced by coercion
 ## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
-<pre><code>## [90m# A tibble: 3,715 x 30[39m
+<pre><code>## [90m# A tibble: 3,715 x 31[39m
 ##    Season     Year  Week `Surveillance week` `Reporting Laboratory`     
 ##    [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m               [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                      
 ## [90m 1[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland               
@@ -2566,7 +2566,7 @@ respData.df %&gt;%
 ## [90m 9[39m 2023-2024  [4m2[24m024    23                  40 Montréal-Laval             
 ## [90m10[39m 2023-2024  [4m2[24m024    23                  40 Ouest du Québec            
 ## [90m# i 3,705 more rows[39m
-## [90m# i 25 more variables: `SARS-CoV-2 Tested` &lt;dbl&gt;, `SARS-CoV-2 Positive` &lt;dbl&gt;,[39m
+## [90m# i 26 more variables: `SARS-CoV-2 Tested` &lt;dbl&gt;, `SARS-CoV-2 Positive` &lt;dbl&gt;,[39m
 ## [90m#   `Flu Tested` &lt;dbl&gt;, `A(H1)pdm09 Positive` &lt;dbl&gt;, `A(H3) Positive` &lt;dbl&gt;,[39m
 ## [90m#   `A(UnS) Positive` &lt;dbl&gt;, `Total Flu A Positive` &lt;dbl&gt;,[39m
 ## [90m#   `Total Flu B Positive` &lt;dbl&gt;, `RSV Tested` &lt;dbl&gt;, `RSV Positive` &lt;dbl&gt;,[39m
@@ -2620,11 +2620,30 @@ respData.df %&gt;%
          ) %&gt;% 
   
   # Drop some of the columns from our analysis
-  select(-c(...)) %&gt;% 
+  select(-c(9:13, 17:21)) %&gt;% 
   
   # Pivot the data using the first 5 variables as a unique id
-  pivot_longer(cols = -c(1:5), names_to = ..., values_to = ...)</code></pre>
-<pre><code>## Error in respData.df %&gt;% mutate_at(.vars = -c(1:5), .funs = as.numeric) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+  pivot_longer(cols = -c(1:5), names_to = &quot;category&quot;, values_to = &quot;count&quot;)</code></pre>
+<pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
+## The first warning was:
+## [1m[22m[36mi[39m In argument: `SARS-CoV-2 Tested = .Primitive(&quot;as.double&quot;)(`SARS-CoV-2 Tested`)`.
+## Caused by warning:
+## [33m![39m NAs introduced by coercion
+## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
+<pre><code>## [90m# A tibble: 59,440 x 7[39m
+##    Season   Year  Week `Surveillance week` `Reporting Laboratory` category count
+##    [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m               [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                  [3m[90m&lt;chr&gt;[39m[23m    [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           SARS-Co~ [4m2[24m[4m5[24m911
+## [90m 2[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           SARS-Co~  [4m3[24m589
+## [90m 3[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           Flu Tes~ [4m1[24m[4m9[24m630
+## [90m 4[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           RSV Tes~ [4m1[24m[4m9[24m630
+## [90m 5[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           RSV Pos~  [4m1[24m063
+## [90m 6[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           HPIV Te~ [4m1[24m[4m9[24m630
+## [90m 7[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           ADV Tes~ [4m1[24m[4m9[24m630
+## [90m 8[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           ADV Pos~   324
+## [90m 9[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           HMPV Te~ [4m1[24m[4m9[24m630
+## [90m10[39m 2023-2~  [4m2[24m024    23                  40 Newfoundland           HMPV Po~   529
+## [90m# i 59,430 more rows[39m</code></pre>
 <hr />
 </div>
 <div id="split-character-data-variables-using-separate_" class="section level3">
@@ -2740,8 +2759,28 @@ respData.df %&gt;%
   pivot_longer(cols = -c(1:5), names_to = &quot;category&quot;, values_to = &quot;count&quot;) %&gt;% 
   
   # Separate out the &quot;Tested&quot; from the &quot;Positive&quot;
-  separate_wider_regex(., cols = category, patterns = ...)</code></pre>
-<pre><code>## Error in respData.df %&gt;% mutate_at(.vars = -c(1:5), .funs = as.numeric) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
+  separate_wider_regex(., cols = category, patterns = c(virus= &quot;.*&quot;, &quot; &quot;, type=&quot;Tested|Positive&quot;))</code></pre>
+<pre><code>## Warning: [1m[22mThere were 24 warnings in `mutate()`.
+## The first warning was:
+## [1m[22m[36mi[39m In argument: `SARS-CoV-2 Tested = .Primitive(&quot;as.double&quot;)(`SARS-CoV-2 Tested`)`.
+## Caused by warning:
+## [33m![39m NAs introduced by coercion
+## [1m[22m[36mi[39m Run `dplyr::last_dplyr_warnings()` to see the 23 remaining warnings.</code></pre>
+<pre><code>## [90m# A tibble: 59,440 x 8[39m
+##    Season     Year  Week `Surveillance week` `Reporting Laboratory` virus  type 
+##    [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m               [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m                  [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;chr&gt;[39m[23m
+## [90m 1[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           SARS-~ Test~
+## [90m 2[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           SARS-~ Posi~
+## [90m 3[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           Flu    Test~
+## [90m 4[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           RSV    Test~
+## [90m 5[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           RSV    Posi~
+## [90m 6[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HPIV   Test~
+## [90m 7[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           ADV    Test~
+## [90m 8[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           ADV    Posi~
+## [90m 9[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HMPV   Test~
+## [90m10[39m 2023-2024  [4m2[24m024    23                  40 Newfoundland           HMPV   Posi~
+## [90m# i 59,430 more rows[39m
+## [90m# i 1 more variable: count &lt;dbl&gt;[39m</code></pre>
 <hr />
 </div>
 <div id="redistribute-the-type-columns-using-pivot_wider" class="section level3">
