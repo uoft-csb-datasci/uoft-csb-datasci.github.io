@@ -630,11 +630,24 @@ ls()</code></pre>
 ## [16] &quot;respFinalPop.df&quot;        &quot;termDir&quot;                &quot;termGit&quot;               
 ## [19] &quot;timeout&quot;                &quot;top5Provinces&quot;          &quot;top5Provinces_initials&quot;</code></pre>
 <pre class="r"><code># Remind ourselves what respFinalPop.df looks like
-str(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+str(respFinalPop.df)</code></pre>
+<pre><code>## tibble [16,339 x 12] (S3: tbl_df/tbl/data.frame)
+##  $ season             : chr [1:16339] &quot;2023-2024&quot; &quot;2023-2024&quot; &quot;2023-2024&quot; &quot;2023-2024&quot; ...
+##  $ week               : num [1:16339] 23 23 23 23 23 23 23 23 23 23 ...
+##  $ endingDate         : Date[1:16339], format: &quot;2024-06-08&quot; &quot;2024-06-08&quot; ...
+##  $ year               : num [1:16339] 2024 2024 2024 2024 2024 ...
+##  $ month              : Ord.factor w/ 12 levels &quot;Jan&quot;&lt;&quot;Feb&quot;&lt;&quot;Mar&quot;&lt;..: 6 6 6 6 6 6 6 6 6 6 ...
+##  $ yearMonth          : Date[1:16339], format: &quot;2024-06-01&quot; &quot;2024-06-01&quot; ...
+##  $ reportingLaboratory: chr [1:16339] &quot;Newfoundland&quot; &quot;Newfoundland&quot; &quot;Newfoundland&quot; &quot;Newfoundland&quot; ...
+##  $ population         : num [1:16339] 548402 548402 548402 548402 548402 ...
+##  $ virus              : chr [1:16339] &quot;SARS-CoV-2&quot; &quot;Influenza&quot; &quot;RSV&quot; &quot;HPIV&quot; ...
+##  $ tests              : num [1:16339] 669 581 581 581 581 581 581 581 104 47 ...
+##  $ detections         : num [1:16339] 95 4 3 33 2 9 85 9 14 0 ...
+##  $ percentPositive    : num [1:16339] 14.2 0.688 0.516 5.68 0.344 ...</code></pre>
 <pre class="r"><code># What are the top provinces?
-...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+top5Provinces</code></pre>
+<pre><code>## [1] &quot;Ontario&quot;          &quot;Québec&quot;           &quot;British Columbia&quot; &quot;Alberta&quot;         
+## [5] &quot;Manitoba&quot;</code></pre>
 <hr />
 </div>
 <div id="generate-a-line-graph-of-our-data-looking-at-changes-in-positivity-over-time" class="section level3">
@@ -4059,7 +4072,7 @@ ggarrange(respLine_annotated.plot + theme(...,
 <pre class="r"><code>plot </code></pre>
 <pre><code>## function (x, y, ...) 
 ## UseMethod(&quot;plot&quot;)
-## &lt;bytecode: 0x000000000ea41e90&gt;
+## &lt;bytecode: 0x000000004e0f8f98&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <hr />
 </div>
@@ -4243,7 +4256,7 @@ ggarrange(respLine_annotated.plot + theme(plot.title = element_blank(),
 <pre class="r"><code>plot </code></pre>
 <pre><code>## function (x, y, ...) 
 ## UseMethod(&quot;plot&quot;)
-## &lt;bytecode: 0x000000000ea41e90&gt;
+## &lt;bytecode: 0x000000004e0f8f98&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <pre class="r"><code># Save the plot for yourself
 ggsave(filename=&quot;Lec03.ggarrange.png&quot;, width = 20, height=20, units = &quot;in&quot;, dpi = 300)</code></pre>
