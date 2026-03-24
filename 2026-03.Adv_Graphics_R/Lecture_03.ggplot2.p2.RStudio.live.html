@@ -1790,7 +1790,7 @@ respViolin.plot &lt;-
     scale_colour_manual(values = rep(&quot;black&quot;, 4)) +
   
     ### 2.2.3.2 Set the labels of our x-axis categories
-    scale_x_discrete(...)+
+    scale_x_discrete(labels=top5)+
 
     # 4. Geoms
     # Add a violin plot and fill based on season
@@ -1804,7 +1804,7 @@ respViolin.plot &lt;-
 
     # Add the points back in
     geom_quasirandom(aes(group = season), dodge.width = 0.9, width = 0.10)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error in check_breaks_labels(breaks, labels, call = call): object &#39;top5&#39; not found</code></pre>
 <pre class="r"><code># Display the plot
 respViolin.plot</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;respViolin.plot&#39; not found</code></pre>
