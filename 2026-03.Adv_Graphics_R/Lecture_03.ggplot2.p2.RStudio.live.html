@@ -628,9 +628,9 @@ ls()</code></pre>
 ## [10] &quot;lectureName&quot;            &quot;mainDir&quot;                &quot;originDir&quot;             
 ## [13] &quot;renderOut&quot;              &quot;repo&quot;                   &quot;repoLocal&quot;             
 ## [16] &quot;repoURL&quot;                &quot;respFinalPop.df&quot;        &quot;respLine.plot&quot;         
-## [19] &quot;respObsSummary.df&quot;      &quot;respScatter.plot&quot;       &quot;termDir&quot;               
-## [22] &quot;termGit&quot;                &quot;timeout&quot;                &quot;top5Provinces&quot;         
-## [25] &quot;top5Provinces_initials&quot;</code></pre>
+## [19] &quot;respObsSummary.df&quot;      &quot;respScatter.plot&quot;       &quot;respViolin.plot&quot;       
+## [22] &quot;termDir&quot;                &quot;termGit&quot;                &quot;timeout&quot;               
+## [25] &quot;top5Provinces&quot;          &quot;top5Provinces_initials&quot;</code></pre>
 <pre class="r"><code># Remind ourselves what respFinalPop.df looks like
 str(respFinalPop.df)</code></pre>
 <pre><code>## tibble [16,339 x 12] (S3: tbl_df/tbl/data.frame)
@@ -4076,7 +4076,7 @@ ggarrange(respLine_annotated.plot + theme(...,
 <pre class="r"><code>plot </code></pre>
 <pre><code>## function (x, y, ...) 
 ## UseMethod(&quot;plot&quot;)
-## &lt;bytecode: 0x000000004e0f8f98&gt;
+## &lt;bytecode: 0x000000000ea41e90&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <hr />
 </div>
@@ -4260,7 +4260,7 @@ ggarrange(respLine_annotated.plot + theme(plot.title = element_blank(),
 <pre class="r"><code>plot </code></pre>
 <pre><code>## function (x, y, ...) 
 ## UseMethod(&quot;plot&quot;)
-## &lt;bytecode: 0x000000004e0f8f98&gt;
+## &lt;bytecode: 0x000000000ea41e90&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <pre class="r"><code># Save the plot for yourself
 ggsave(filename=&quot;Lec03.ggarrange.png&quot;, width = 20, height=20, units = &quot;in&quot;, dpi = 300)</code></pre>
