@@ -2410,8 +2410,8 @@ form of an excel file. Let’s use some of the tools from this package to
 help open up our data file. We’ll start by peeking at how many sheets
 there are using <code>excel_sheets()</code>.</p>
 <pre class="r"><code># What are the sheets to open in our data set?
-excel_sheets(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+excel_sheets(&quot;./data/Blanco-Melo2020Cell.Supp1.xlsx&quot;)</code></pre>
+<pre><code>## [1] &quot;Legend&quot;         &quot;DESeq2_Results&quot;</code></pre>
 <hr />
 </div>
 <div id="open-each-sheet-separately-with-read_excel" class="section level3">
@@ -2422,15 +2422,39 @@ command which contains the parameter <code>sheet</code>. We can use this
 to determine which sheet to load either based on it’s position (integer)
 or it’s name as specified by <code>excel_sheets()</code>.</p>
 <pre class="r"><code># Assign our legend 
-blanco_legend.df &lt;- read_excel(&quot;./data/Blanco-Melo2020Cell.Supp1.xlsx&quot;, sheet=...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Assign our data
-blanco_data.df &lt;- read_excel(&quot;./data/Blanco-Melo2020Cell.Supp1.xlsx&quot;, sheet=...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>str(blanco_legend.df)</code></pre>
-<pre><code>## Error in str(blanco_legend.df): object &#39;blanco_legend.df&#39; not found</code></pre>
+blanco_legend.df &lt;- read_excel(&quot;./data/Blanco-Melo2020Cell.Supp1.xlsx&quot;, sheet=1)
+
+# Assign our data
+blanco_data.df &lt;- read_excel(&quot;./data/Blanco-Melo2020Cell.Supp1.xlsx&quot;, sheet=2)
+
+str(blanco_legend.df)</code></pre>
+<pre><code>## tibble [20 x 3] (S3: tbl_df/tbl/data.frame)
+##  $ Field      : chr [1:20] &quot;SARS-CoV-2(A549)_L2FC&quot; &quot;SARS-CoV-1_L2FC&quot; &quot;MERS-CoV_L2FC&quot; &quot;RSV_L2FC&quot; ...
+##  $ Explanation: chr [1:20] &quot;Fold expresion change Infected vs Control (logarithmic scale to base 2)&quot; &quot;Fold expresion change Infected vs Control (logarithmic scale to base 2)&quot; &quot;Fold expresion change Infected vs Control (logarithmic scale to base 2)&quot; &quot;Fold expresion change Infected vs Control (logarithmic scale to base 2)&quot; ...
+##  $ Notes      : chr [1:20] &quot;SARS-CoV-2 infection (A549 cells, MOI: 2, 24hpi)&quot; &quot;SARS-CoV-1 infection (MRC5 cells, MOI: 3, 24hpi Data from: GSE56192)&quot; &quot;MERS-CoV infection (MRC5 cells, MOI: 3, 24hpi Data from: GSE56192)&quot; &quot;RSV (A549 cells, MOI: 2, 24hpi)&quot; ...</code></pre>
 <pre class="r"><code>str(blanco_data.df)</code></pre>
-<pre><code>## Error in str(blanco_data.df): object &#39;blanco_data.df&#39; not found</code></pre>
+<pre><code>## tibble [23,710 x 21] (S3: tbl_df/tbl/data.frame)
+##  $ GeneName                              : chr [1:23710] &quot;IFNL1&quot; &quot;IFNL2&quot; &quot;IFNL3&quot; &quot;IFNB1&quot; ...
+##  $ SARS-CoV-1_L2FC                       : num [1:23710] 0 0 0 0 0 ...
+##  $ IAV_L2FC                              : num [1:23710] 1.37 1.379 1.815 0.468 0.24 ...
+##  $ MERS-CoV_L2FC                         : num [1:23710] 0 0.125 0 0 0.125 ...
+##  $ HPIV3_L2FC                            : num [1:23710] 7.84 6.84 6.23 6.44 2.62 ...
+##  $ RSV_L2FC                              : num [1:23710] 7.14 4.84 4.83 4.86 0 ...
+##  $ SARS-CoV-2(Calu-3)_L2FC               : num [1:23710] 7.24 7.88 7.47 8.7 3.33 ...
+##  $ SARS-CoV-2(A549)_L2FC                 : num [1:23710] 0 0 0 -0.127 0 ...
+##  $ SARS-CoV-2(A549-ACE2)LowMOI_L2FC      : num [1:23710] 0 0 0 0.388 0 ...
+##  $ SARS-CoV-2(A549-ACE2)HiMOI_L2FC       : num [1:23710] 5.08 5.25 5.05 5.76 1.54 ...
+##  $ SARS-CoV-2(A549-ACE2)-Ruxolitinib_L2FC: num [1:23710] 3.548 1.947 2.511 3.92 0.297 ...
+##  $ padj_SARS-CoV-1                       : num [1:23710] 1 1 1 1 1 ...
+##  $ padj_IAV                              : num [1:23710] 1.00 1.00 1.00 1.00 1.00 1.11e-06 1.00 1.00 1.00 1.00 ...
+##  $ padj_MERS-CoV                         : num [1:23710] 1 1 1 1 1 ...
+##  $ padj_HPIV3                            : num [1:23710] 2.62e-68 1.48e-48 3.66e-35 2.13e-42 1.00 ...
+##  $ padj_RSV                              : num [1:23710] 4.51e-44 9.74e-17 3.19e-16 4.92e-17 1.00 ...
+##  $ padj_SARS-CoV-2(Calu-3)               : num [1:23710] 2.53e-139 5.69e-107 5.51e-102 0.00 4.20e-11 ...
+##  $ padj_SARS-CoV-2(A549)                 : num [1:23710] 1 1 1 1 1 ...
+##  $ padj_SARS-CoV-2(A549-ACE2)LowMOI      : num [1:23710] 0 0 0 0 0 ...
+##  $ padj_SARS-CoV-2(A549-ACE2)HiMOI       : num [1:23710] 1.00 2.69e-20 2.37e-18 1.15e-28 1.00 ...
+##  $ padj_SARS-CoV-2(A549-ACE2)-Ruxolitinib: num [1:23710] 1.00 1.00 1.00 1.54e-12 1.00 ...</code></pre>
 <hr />
 </div>
 <div id="abw-always-be-wrangling-your-data" class="section level3">
@@ -2447,7 +2471,11 @@ themselves like the <strong>pathogen</strong> and <strong>host</strong>
 in each experimental set.</p>
 <pre class="r"><code># Look at the entire legend
 blanco_legend.df</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;blanco_legend.df&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Field"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Explanation"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Notes"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"SARS-CoV-2(A549)_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"SARS-CoV-2 infection (A549 cells, MOI: 2, 24hpi)"},{"1":"SARS-CoV-1_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"SARS-CoV-1 infection (MRC5 cells, MOI: 3, 24hpi Data from: GSE56192)"},{"1":"MERS-CoV_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"MERS-CoV infection (MRC5 cells, MOI: 3, 24hpi Data from: GSE56192)"},{"1":"RSV_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"RSV (A549 cells, MOI: 2, 24hpi)"},{"1":"HPIV3_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"HPIV3 (A549 cells, MOI: 2, 24hpi)"},{"1":"IAV_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"IAV (A549 cells, MOI: 5, 9hpi)"},{"1":"SARS-CoV-2(Calu-3)_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"SARS-CoV-2 infection (Calu-3cells, MOI: 2, 24hpi)"},{"1":"SARS-CoV-2(A549-ACE2)LowMOI_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"SARS-CoV-2 infection (A549-ACE2 cells, MOI: 0.2, 24hpi)"},{"1":"SARS-CoV-2(A549-ACE2)HiMOI_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"SARS-CoV-2 infection (A549-ACE2 cells, MOI: 2, 24hpi)"},{"1":"SARS-CoV-2(A549-ACE2)-Ruxolitinib_L2FC","2":"Fold expresion change Infected vs Control (logarithmic scale to base 2)","3":"SARS-CoV-2 infection with Ruxolitinib (A549-ACE2 cells, MOI: 2, 24hpi)"},{"1":"padj_SARS-CoV-2(A549)","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"SARS-CoV-2 infection (A549 cells, MOI: 2, 24hpi)"},{"1":"padj_SARS-CoV-1","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"SARS-CoV-1 infection (MRC5 cells, MOI: 3, 24hpi Data from: GSE56192)"},{"1":"padj_MERS-CoV","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"MERS-CoV infection (MRC5 cells, MOI: 3, 24hpi Data from: GSE56192)"},{"1":"padj_RSV","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"RSV (A549 cells, MOI: 2, 24hpi)"},{"1":"padj_HPIV3","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"HPIV3 (A549 cells, MOI: 2, 24hpi)"},{"1":"padj_IAV","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"IAV (A549 cells, MOI: 5, 9hpi)"},{"1":"padj_SARS-CoV-2(Calu-3)","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"SARS-CoV-2 infection (Calu-3cells, MOI: 2, 24hpi)"},{"1":"padj_SARS-CoV-2(A549-ACE2)LowMOI","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"SARS-CoV-2 infection (A549-ACE2 cells, MOI: 0.2, 24hpi)"},{"1":"padj_SARS-CoV-2(A549-ACE2)HiMOI","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"SARS-CoV-2 infection (A549-ACE2 cells, MOI: 2, 24hpi)"},{"1":"padj_SARS-CoV-2(A549-ACE2)-Ruxolitinib","2":"Benjamini-Hochberg adjusted p-values (Multiple comparisons adjustement)","3":"SARS-CoV-2 infection with Ruxolitinib (A549-ACE2 cells, MOI: 2, 24hpi)"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="extract-substring-patterns-and-save-them-using-str_match_all" class="section level3">
@@ -2577,7 +2605,7 @@ with <code>pivot_wider()</code></p></li>
   
   # 5. Pivot out the data so that each observation for each experiment has an L2FC and padj value
   pivot_wider(names_from = data_type, values_from = value)</code></pre>
-<pre><code>## Error in pivot_longer(., cols = (2:21), names_to = &quot;experiment&quot;, values_to = &quot;value&quot;): object &#39;blanco_data.df&#39; not found</code></pre>
+<pre><code>## Error in is.data.frame(y): object &#39;blanco_exp_info.df&#39; not found</code></pre>
 <pre class="r"><code>blanco_data_long.df</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;blanco_data_long.df&#39; not found</code></pre>
 <pre class="r"><code># Don&#39;t forget to save your wrangled data!
@@ -3335,17 +3363,19 @@ genes in our set, and 0 represents all remaining genes.</p>
 
 # Casting our logical as an integer will create a 0/1 matrix
 genes_SARS_CoV_2 &lt;- as.integer(blanco_data.df$`padj_SARS-CoV-2(A549)` &lt; 0.05 &amp; # low p-value
-                               abs(blanco_data.df$`SARS-CoV-2(A549)_L2FC`) &gt; 1.5) # absolute L2FC &gt; 1.5</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;blanco_data.df&#39; not found</code></pre>
-<pre class="r"><code># We&#39;ll name each element in our vector by the gene names
+                               abs(blanco_data.df$`SARS-CoV-2(A549)_L2FC`) &gt; 1.5) # absolute L2FC &gt; 1.5
+
+# We&#39;ll name each element in our vector by the gene names
 names(...) &lt;- blanco_data.df$GeneName</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;blanco_data.df&#39; not found</code></pre>
+<pre><code>## Error in names(...) &lt;- blanco_data.df$GeneName: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># What is our object?
 str(genes_SARS_CoV_2)</code></pre>
-<pre><code>## Error in str(genes_SARS_CoV_2): object &#39;genes_SARS_CoV_2&#39; not found</code></pre>
+<pre><code>##  int [1:23710] 0 0 0 0 0 1 0 0 1 0 ...</code></pre>
 <pre class="r"><code># Summarize our vector
 table(genes_SARS_CoV_2)</code></pre>
-<pre><code>## Error in eval(quote(list(...)), env): object &#39;genes_SARS_CoV_2&#39; not found</code></pre>
+<pre><code>## genes_SARS_CoV_2
+##     0     1 
+## 23232   478</code></pre>
 <hr />
 <p>So a quick bit of filtering and we can see from our table summary,
 that we have close to 500 genes that are significantly differentially
