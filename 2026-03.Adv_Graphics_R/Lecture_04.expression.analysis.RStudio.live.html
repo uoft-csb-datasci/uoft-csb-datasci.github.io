@@ -2204,7 +2204,7 @@ function.</p>
     wyler_readcounts.df %&gt;% 
 
     # Select for just the columns withs SARS-CoV-2 infection and DMSO at 24 and 72h
-    dplyr::select(...) %&gt;% 
+    dplyr::select(matches(r&quot;()&quot;)) %&gt;% 
 
     # Restrict our data analysis to just readcounts above 10 and below 5000
     filter(if_all(.cols = ..., .fns = ~ .x &gt;10 &amp; .x &lt; ...)) %&gt;% 
@@ -2213,7 +2213,10 @@ function.</p>
     rename_with(., ~ str_replace(string = .x, 
                                  pattern = r&quot;(\w*_\d*_)&quot;, 
                                  replace = &quot;&quot;))</code></pre>
-<pre><code>## Error in filter(., if_all(.cols = ..., .fns = ~.x &gt; 10 &amp; .x &lt; ...)): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [1m[33mError[39m in `dplyr::select()`:[22m
+## [1m[22m[36mi[39m In argument: `matches(&quot;&quot;)`.
+## [1mCaused by error in `check_match()`:[22m
+## [1m[22m[33m![39m `match` must be a character vector of non empty strings.</code></pre>
 <pre class="r"><code># Take a peek at our resulting tibble
 str(readcounts_24hv72h)</code></pre>
 <pre><code>## Error in str(readcounts_24hv72h): object &#39;readcounts_24hv72h&#39; not found</code></pre>
