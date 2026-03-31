@@ -1789,9 +1789,7 @@ some of our visualizations including flowcharts, and upset plots.</p>
 will help us perform some basic Gene Ontology (GO) annotations with our
 data.</p>
 <p>These packages could take ~13 minutes to install!</p>
-<pre class="r"><code>load(&quot;assignment/data/Assignment04.RData&quot;)
-
-# # Install these packages onto r.datatools
+<pre class="r"><code># # Install these packages onto r.datatools
 # install.packages(&quot;networkD3&quot;)
 # install.packages(&quot;gghighlight&quot;)
 # devtools::install_github(&quot;krassowski/complex-upset&quot;)
@@ -1799,7 +1797,7 @@ data.</p>
 # install.packages(&quot;ggrepel&quot;)
 # # 
 # # 
-# # # 250401: Current version of R.datatools takes ~10 minues to properly install
+# # # 250401: Current version of R.datatools takes ~10 minutes to properly install
 # # 
 # # # # Some packages can be installed via Bioconductor
 # # if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
@@ -1917,8 +1915,8 @@ information in <code>./data/Lecture04_sankey_data.csv</code>. Let’s
 begin by reading it in.</p>
 <pre class="r"><code># Read in our Sankey diagram in ./data/Lecture04_sankey_data.csv 
 
-sankey_info.df &lt;- read_csv(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+sankey_info.df &lt;- read_csv()</code></pre>
+<pre><code>## Error in vroom::vroom(file, delim = &quot;,&quot;, col_names = col_names, col_types = col_types, : argument &quot;file&quot; is missing, with no default</code></pre>
 <pre class="r"><code># Check the structure
 str(sankey_info.df)</code></pre>
 <pre><code>## Error in str(sankey_info.df): object &#39;sankey_info.df&#39; not found</code></pre>
