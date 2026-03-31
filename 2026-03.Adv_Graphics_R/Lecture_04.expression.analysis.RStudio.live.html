@@ -2017,14 +2017,15 @@ subtracting 1 from every position.</p>
 <pre class="r"><code># Add our sankey_nodes.df as index information that maps between it and `sankey_info.df`
 sankey_info.df &lt;-
 sankey_info.df  %&gt;% mutate(IDsource = match(.$source, sankey_nodes.df$name) - 1,
-                           IDtarget = match(.$target, sankey_nodes.df$name) - 1 # nodes must be 0-indexed
+                           IDtarget = match(.$target, sankey_nodes.df$name) - 1) # nodes must be 0-indexed
 
 # take a peek at what we&#39;ve wrought
 head(sankey_info.df)</code></pre>
-<pre><code>## Error: &lt;text&gt;:7:1: unexpected symbol
-## 6: # take a peek at what we&#39;ve wrought
-## 7: head
-##    ^</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["source"],"name":[1],"type":["chr"],"align":["left"]},{"label":["target"],"name":[2],"type":["chr"],"align":["left"]},{"label":["value"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["IDsource"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["IDtarget"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"CoV","2":"A549","3":"0.25","4":"0","5":"3"},{"1":"CoV","2":"NHBE","3":"0.25","4":"0","5":"4"},{"1":"IVS","2":"A549","3":"0.25","4":"1","5":"3"},{"1":"RSV","2":"A549","3":"0.25","4":"2","5":"3"},{"1":"A549","2":"RNAseq","3":"0.70","4":"3","5":"5"},{"1":"NHBE","2":"RNAseq","3":"0.20","4":"4","5":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="build-your-sankey-diagram-with-sankeynetwork" class="section level3">
@@ -2061,15 +2062,15 @@ extra column in <code>Links</code>.</p></li>
 <p>For more information on these parameters and others, you can go <a href="https://www.rdocumentation.org/packages/networkD3/versions/0.4/topics/sankeyNetwork">here</a></p>
 <pre class="r"><code># Build the Sankey diagram with all of our information
 
-sankeyNetwork(Links = ..., # Where is the &quot;edge&quot; information
-              Nodes = ..., # Where is the &quot;node&quot; information
-              Source = ..., # Where are the source node labels
-              Target = ..., # Where are the target node labels
-              Value = ..., # What value do we assign to the relationships/edges
-              NodeID = ..., # Where are the labels for the nodes stored?
+sankeyNetwork(Links = sankey_info.df, # Where is the &quot;edge&quot; information
+              Nodes = sankey_nodes.df, # Where is the &quot;node&quot; information
+              Source = &quot;IDsource&quot;, # Where are the source node labels
+              Target = &quot;IDtarget&quot;, # Where are the target node labels
+              Value = &quot;value&quot;, # What value do we assign to the relationships/edges
+              NodeID = &quot;name&quot;, # Where are the labels for the nodes stored?
               sinksRight = TRUE, # Push the nodes to the right
               fontSize = 10)</code></pre>
-<pre><code>## Error in sankeyNetwork(Links = ..., Nodes = ..., Source = ..., Target = ..., : could not find function &quot;sankeyNetwork&quot;</code></pre>
+<pre><code>## Error in sankeyNetwork(Links = sankey_info.df, Nodes = sankey_nodes.df, : could not find function &quot;sankeyNetwork&quot;</code></pre>
 <hr />
 </div>
 </div>
