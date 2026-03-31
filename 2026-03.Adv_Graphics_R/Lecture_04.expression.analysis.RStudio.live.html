@@ -2526,7 +2526,7 @@ exp_info &lt;-
   
   # Use str_match_all to grab the pattern we want, piece by piece
   # example string: SARS-CoV-2 infection (A549-ACE2 cells, MOI: 2, 24hpi)
-  str_match_all(pattern = r&quot;()&quot;) %&gt;% 
+  str_match_all(pattern = r&quot;(([\w-]+))&quot;) %&gt;% 
   
   # Set the matrix into a data frame
   as.data.frame() %&gt;% 
