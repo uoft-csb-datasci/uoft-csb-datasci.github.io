@@ -2016,8 +2016,8 @@ offset that information as we generate it. We can do it on the fly by
 subtracting 1 from every position.</p>
 <pre class="r"><code># Add our sankey_nodes.df as index information that maps between it and `sankey_info.df`
 sankey_info.df &lt;-
-sankey_info.df  %&gt;% mutate(IDsource = ...,
-                           IDtarget = ... # nodes must be 0-indexed
+sankey_info.df  %&gt;% mutate(IDsource = match(.$source, sankey_nodes.df$name) - 1,
+                           IDtarget = match(.$target, sankey_nodes.df$name) - 1 # nodes must be 0-indexed
 
 # take a peek at what we&#39;ve wrought
 head(sankey_info.df)</code></pre>
