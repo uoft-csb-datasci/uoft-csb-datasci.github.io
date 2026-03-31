@@ -2557,7 +2557,7 @@ blanco_exp_info.df &lt;-
          host = exp_info$host) %&gt;% # Our host information 
   
   # Combine our pathogen and host information into a single column as well
-  unite(col = ..., ..., sep=&quot;_&quot;, remove = FALSE) %&gt;% 
+  unite(col = exp_info, ..., sep=&quot;_&quot;, remove = FALSE) %&gt;% 
   
   # Just keep the original Field column and the new ones
   dplyr::select(1, 4, 5, 6) </code></pre>
