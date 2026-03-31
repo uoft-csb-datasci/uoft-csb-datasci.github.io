@@ -2207,19 +2207,22 @@ function.</p>
     dplyr::select(matches(r&quot;((24h|72h)_S2_DMSO)&quot;)) %&gt;% 
 
     # Restrict our data analysis to just readcounts above 10 and below 5000
-    filter(if_all(.cols = everything(), .fns = ~ .x &gt;10 &amp; .x &lt; ...)) %&gt;% 
+    filter(if_all(.cols = everything(), .fns = ~ .x &gt;10 &amp; .x &lt; 5000)) %&gt;% 
 
     # Rename the columns by removing the first portion: AECII_xx
     rename_with(., ~ str_replace(string = .x, 
                                  pattern = r&quot;(\w*_\d*_)&quot;, 
-                                 replace = &quot;&quot;))</code></pre>
-<pre><code>## [1m[33mError[39m in `filter()`:[22m
-## [1m[22m[36mi[39m In argument: `&amp;...`.
-## [1mCaused by error in `` `AECII_07_24h_S2_DMSO-1` &gt; 10 &amp; `AECII_07_24h_S2_DMSO-1` &lt; ... ``:[22m
-## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Take a peek at our resulting tibble
+                                 replace = &quot;&quot;))
+
+# Take a peek at our resulting tibble
 str(readcounts_24hv72h)</code></pre>
-<pre><code>## Error in str(readcounts_24hv72h): object &#39;readcounts_24hv72h&#39; not found</code></pre>
+<pre><code>## tibble [12,430 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ 24h_S2_DMSO-1: num [1:12430] 24 41 2534 712 204 ...
+##  $ 24h_S2_DMSO-2: num [1:12430] 18 46 2484 654 205 ...
+##  $ 24h_S2_DMSO-3: num [1:12430] 22 42 2750 739 225 ...
+##  $ 72h_S2_DMSO-1: num [1:12430] 24 58 958 1065 147 ...
+##  $ 72h_S2_DMSO-2: num [1:12430] 33 63 1163 1081 156 ...
+##  $ 72h_S2_DMSO-3: num [1:12430] 23 47 835 1022 124 ...</code></pre>
 <hr />
 </div>
 <div id="use-ggpairs-to-generate-a-scatterplot-matrix" class="section level3">
