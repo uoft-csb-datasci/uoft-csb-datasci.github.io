@@ -2660,11 +2660,15 @@ dataset from an earlier pre-publication copy of the Blanco-Melo et al.,
 2020 paper: <code>Blanco-Melo2020_Supp_Data_4.xlsx</code>.</p>
 <p>Let’s open this up and take a look!</p>
 <pre class="r"><code># We&#39;ll be looking at DE data for IAV infection of A549 cells
-DE_A549_IAV.df &lt;- read_excel(..., sheet=2)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Look at the data frame we&#39;ve made
+DE_A549_IAV.df &lt;- read_excel(&quot;data/Blanco-Melo2020_Supp_Data_4.xlsx&quot;, sheet=2)
+
+# Look at the data frame we&#39;ve made
 head(DE_A549_IAV.df)</code></pre>
-<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;DE_A549_IAV.df&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["GeneName"],"name":[1],"type":["chr"],"align":["left"]},{"label":["baseMean"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["log2FoldChange"],"name":[3],"type":["chr"],"align":["left"]},{"label":["lfcSE"],"name":[4],"type":["chr"],"align":["left"]},{"label":["stat"],"name":[5],"type":["chr"],"align":["left"]},{"label":["pvalue"],"name":[6],"type":["chr"],"align":["left"]},{"label":["padj"],"name":[7],"type":["chr"],"align":["left"]},{"label":["status"],"name":[8],"type":["chr"],"align":["left"]}],"data":[{"1":"A1BG","2":"188.2808108","3":"0.62513831855045399","4":"0.35066646804794899","5":"1.7827148459058599","6":"7.4632733430825202E-2","7":"0.36098583186238298","8":"OK"},{"1":"A1BG-AS1","2":"71.8509755","3":"-0.271011828295395","4":"0.51547397821110097","5":"-0.52575268539434905","6":"0.59906005266250995","7":"0.86261497584579405","8":"OK"},{"1":"A1CF","2":"36.1544502","3":"-1.4109515085643001","4":"0.63504512806976798","5":"-2.22181298020964","6":"2.6295947148654599E-2","7":"0.20375590069103","8":"OK"},{"1":"A2M","2":"0.6370128","3":"3.6682361685538201","4":"4.7612924012057203","5":"0.77042866924637798","6":"0.44104565255438499","7":"NaN","8":"Low"},{"1":"A2M-AS1","2":"15.9095151","3":"-1.1067414911928199","4":"0.92353059087077005","5":"-1.1983809763673401","6":"0.23076873499770401","7":"0.60966094504213497","8":"OK"},{"1":"A2ML1","2":"0.0000000","3":"NaN","4":"NaN","5":"NaN","6":"NaN","7":"NaN","8":"Low"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="abmw-a-bit-more-wrangling-with-across" class="section level3">
 <h3>2.1.1 ABmW: A Bit more Wrangling with <code>across()</code></h3>
@@ -2687,7 +2691,15 @@ DE_A549_IAV.df &lt;-
 <pre><code>## Error in DE_A549_IAV.df %&gt;% mutate(...): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># Check the result
 str(DE_A549_IAV.df)</code></pre>
-<pre><code>## Error in str(DE_A549_IAV.df): object &#39;DE_A549_IAV.df&#39; not found</code></pre>
+<pre><code>## tibble [27,914 x 8] (S3: tbl_df/tbl/data.frame)
+##  $ GeneName      : chr [1:27914] &quot;A1BG&quot; &quot;A1BG-AS1&quot; &quot;A1CF&quot; &quot;A2M&quot; ...
+##  $ baseMean      : num [1:27914] 188.281 71.851 36.154 0.637 15.91 ...
+##  $ log2FoldChange: chr [1:27914] &quot;0.62513831855045399&quot; &quot;-0.271011828295395&quot; &quot;-1.4109515085643001&quot; &quot;3.6682361685538201&quot; ...
+##  $ lfcSE         : chr [1:27914] &quot;0.35066646804794899&quot; &quot;0.51547397821110097&quot; &quot;0.63504512806976798&quot; &quot;4.7612924012057203&quot; ...
+##  $ stat          : chr [1:27914] &quot;1.7827148459058599&quot; &quot;-0.52575268539434905&quot; &quot;-2.22181298020964&quot; &quot;0.77042866924637798&quot; ...
+##  $ pvalue        : chr [1:27914] &quot;7.4632733430825202E-2&quot; &quot;0.59906005266250995&quot; &quot;2.6295947148654599E-2&quot; &quot;0.44104565255438499&quot; ...
+##  $ padj          : chr [1:27914] &quot;0.36098583186238298&quot; &quot;0.86261497584579405&quot; &quot;0.20375590069103&quot; &quot;NaN&quot; ...
+##  $ status        : chr [1:27914] &quot;OK&quot; &quot;OK&quot; &quot;OK&quot; &quot;Low&quot; ...</code></pre>
 <hr />
 <div class="alert alert-block alert-warning">
 <p><strong>Skip the wrangling with a proper import!</strong> While we
@@ -2764,7 +2776,7 @@ DE_A549_IAV.df %&gt;%
     ### 2.1.2
     # Change it so that only high L2FC with low p-values will be in red, the rest as black
     gghighlight(..., ..., unhighlighted_params = list(colour = &quot;black&quot;))</code></pre>
-<pre><code>## Error in filter(., status == &quot;OK&quot;): object &#39;DE_A549_IAV.df&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 </div>
 <div id="interpreting-our-ma-plot" class="section level3">
