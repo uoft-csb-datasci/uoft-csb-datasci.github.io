@@ -1789,7 +1789,9 @@ some of our visualizations including flowcharts, and upset plots.</p>
 will help us perform some basic Gene Ontology (GO) annotations with our
 data.</p>
 <p>These packages could take ~13 minutes to install!</p>
-<pre class="r"><code># # Install these packages onto r.datatools
+<pre class="r"><code>load(&quot;assignment/data/Assignment04.RData&quot;)
+
+# # Install these packages onto r.datatools
 # install.packages(&quot;networkD3&quot;)
 # install.packages(&quot;gghighlight&quot;)
 # devtools::install_github(&quot;krassowski/complex-upset&quot;)
@@ -1813,26 +1815,13 @@ to work on r.datatools.utoronto.ca so after the installation is
 complete, restart your session with <code>Session &gt; Restart R</code>.
 Don’t refresh your browser or you’ll lose the installation.</p>
 <pre class="r"><code># Packages to help tidy our data
-library(tidyverse)</code></pre>
-<pre><code>## -- [1mAttaching core tidyverse packages[22m ---------------------------------------------------------------- tidyverse 2.0.0 --
-## [32mv[39m [34mdplyr    [39m 1.1.3     [32mv[39m [34mreadr    [39m 2.1.4
-## [32mv[39m [34mforcats  [39m 1.0.0     [32mv[39m [34mstringr  [39m 1.5.0
-## [32mv[39m [34mggplot2  [39m 3.5.2     [32mv[39m [34mtibble   [39m 3.2.1
-## [32mv[39m [34mlubridate[39m 1.9.2     [32mv[39m [34mtidyr    [39m 1.3.0
-## [32mv[39m [34mpurrr    [39m 1.0.2     
-## -- [1mConflicts[22m ---------------------------------------------------------------------------------- tidyverse_conflicts() --
-## [31mx[39m [34mdplyr[39m::[32mfilter()[39m   masks [34mstats[39m::filter()
-## [31mx[39m [34mpurrr[39m::[32mis_empty()[39m masks [34mgit2r[39m::is_empty()
-## [31mx[39m [34mdplyr[39m::[32mlag()[39m      masks [34mstats[39m::lag()
-## [31mx[39m [34mdplyr[39m::[32mpull()[39m     masks [34mgit2r[39m::pull()
-## [31mx[39m [34mpurrr[39m::[32mwhen()[39m     masks [34mgit2r[39m::when()
-## [36mi[39m Use the conflicted package ([3m[34m&lt;http://conflicted.r-lib.org/&gt;[39m[23m) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>library(readxl)
+library(tidyverse)
+library(readxl)
 
 # Packages for the graphical analysis section
-library(viridis)</code></pre>
-<pre><code>## Loading required package: viridisLite</code></pre>
-<pre class="r"><code># Lecture 04 visualization packages
+library(viridis)
+
+# Lecture 04 visualization packages
 library(networkD3)</code></pre>
 <pre><code>## Error: package or namespace load failed for &#39;networkD3&#39; in loadNamespace(j &lt;- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
 ##  there is no package called &#39;igraph&#39;</code></pre>
@@ -1846,87 +1835,8 @@ library(ComplexUpset)</code></pre>
 usage. We’ll need every last drop we can get.</p>
 <pre class="r"><code># GO term analysis packages if you managed to install goseq
 library(goseq)</code></pre>
-<pre><code>## Loading required package: BiasedUrn</code></pre>
 <pre><code>## Error: package &#39;geneLenDataBase&#39; required by &#39;goseq&#39; could not be found</code></pre>
 <pre class="r"><code>library(org.Hs.eg.db)</code></pre>
-<pre><code>## Loading required package: AnnotationDbi</code></pre>
-<pre><code>## Loading required package: stats4</code></pre>
-<pre><code>## Loading required package: BiocGenerics</code></pre>
-<pre><code>## Loading required package: parallel</code></pre>
-<pre><code>## 
-## Attaching package: &#39;BiocGenerics&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:parallel&#39;:
-## 
-##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-##     parLapplyLB, parRapply, parSapply, parSapplyLB</code></pre>
-<pre><code>## The following objects are masked from &#39;package:lubridate&#39;:
-## 
-##     intersect, setdiff, union</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     combine, intersect, setdiff, union</code></pre>
-<pre><code>## The following object is masked from &#39;package:git2r&#39;:
-## 
-##     as.data.frame</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, sd, var, xtabs</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
-##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
-##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
-##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
-##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
-##     union, unique, unsplit, which.max, which.min</code></pre>
-<pre><code>## Loading required package: Biobase</code></pre>
-<pre><code>## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
-##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.</code></pre>
-<pre><code>## 
-## Attaching package: &#39;Biobase&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:git2r&#39;:
-## 
-##     content, notes</code></pre>
-<pre><code>## Loading required package: IRanges</code></pre>
-<pre><code>## Loading required package: S4Vectors</code></pre>
-<pre><code>## 
-## Attaching package: &#39;S4Vectors&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:lubridate&#39;:
-## 
-##     second, second&lt;-</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     first, rename</code></pre>
-<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     expand</code></pre>
-<pre><code>## The following object is masked from &#39;package:base&#39;:
-## 
-##     expand.grid</code></pre>
-<pre><code>## 
-## Attaching package: &#39;IRanges&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
-## 
-##     %within%</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     collapse, desc, slice</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     reduce</code></pre>
-<pre><code>## The following object is masked from &#39;package:grDevices&#39;:
-## 
-##     windows</code></pre>
-<pre><code>## 
-## Attaching package: &#39;AnnotationDbi&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     select</code></pre>
-<pre><code>## </code></pre>
 <hr />
 </div>
 </div>
@@ -3534,7 +3444,14 @@ enriched.GO_SARS_CoV_2 &lt;-
 <pre><code>## Error in GO.wall_SARS_CoV_2 %&gt;% filter(...): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># How many terms come back from our filtering?
 str(enriched.GO_SARS_CoV_2)</code></pre>
-<pre><code>## Error in str(enriched.GO_SARS_CoV_2): object &#39;enriched.GO_SARS_CoV_2&#39; not found</code></pre>
+<pre><code>## &#39;data.frame&#39;:    84 obs. of  7 variables:
+##  $ category                : chr  &quot;GO:0006261&quot; &quot;GO:0003688&quot; &quot;GO:0000727&quot; &quot;GO:0008283&quot; ...
+##  $ over_represented_pvalue : num  2.86e-10 2.30e-09 3.83e-09 7.78e-09 2.07e-08 ...
+##  $ under_represented_pvalue: num  1 1 1 1 1 ...
+##  $ numDEInCat              : int  20 9 7 83 73 10 24 136 6 99 ...
+##  $ numInCat                : int  142 23 12 1967 1694 39 259 4174 12 2649 ...
+##  $ term                    : chr  &quot;DNA-dependent DNA replication&quot; &quot;DNA replication origin binding&quot; &quot;double-strand break repair via break-induced replication&quot; &quot;cell population proliferation&quot; ...
+##  $ ontology                : chr  &quot;BP&quot; &quot;MF&quot; &quot;BP&quot; &quot;BP&quot; ...</code></pre>
 <pre class="r"><code># Load our goseq data to look at and visualize
 # This will also contain some additional datasets we&#39;ll want to look at.
 load(&quot;./data/Lecture04.RData&quot;)</code></pre>
