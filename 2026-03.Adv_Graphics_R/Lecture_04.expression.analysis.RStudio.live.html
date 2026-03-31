@@ -2867,15 +2867,15 @@ volcano.plot1 &lt;-
   
     # 4. Geoms
     # points all coloured red
-    ...(colour = &quot;red&quot;, alpha = 0.7, size=4) +
+    geom_point(colour = &quot;red&quot;, alpha = 0.7, size=4) +
   
     # highlight leaves only the ones meeting our criteria as red, colour rest as blue
-    ...(abs(L2FC) &gt; 2, padj &lt; 0.05, 
+    gghighlight(abs(L2FC) &gt; 2, padj &lt; 0.05, 
                 unhighlighted_params = list(colour = &quot;lightblue&quot;),
                 use_direct_label = TRUE,
                 label_key = ...
                 ) </code></pre>
-<pre><code>## Error in ...(colour = &quot;red&quot;, alpha = 0.7, size = 4): could not find function &quot;...&quot;</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># Remove p-values = 0
 volcano.plot2 &lt;-
 
