@@ -1915,14 +1915,35 @@ information in <code>./data/Lecture04_sankey_data.csv</code>. Let’s
 begin by reading it in.</p>
 <pre class="r"><code># Read in our Sankey diagram in ./data/Lecture04_sankey_data.csv 
 
-sankey_info.df &lt;- read_csv()</code></pre>
-<pre><code>## Error in vroom::vroom(file, delim = &quot;,&quot;, col_names = col_names, col_types = col_types, : argument &quot;file&quot; is missing, with no default</code></pre>
+sankey_info.df &lt;- read_csv(&quot;./data/Lecture04_sankey_data.csv&quot;)</code></pre>
+<pre><code>## [1mRows: [22m[34m24[39m [1mColumns: [22m[34m3[39m
+## [36m--[39m [1mColumn specification[22m [36m------------------------------------------------------------------------------------------------[39m
+## [1mDelimiter:[22m &quot;,&quot;
+## [31mchr[39m (2): source, target
+## [32mdbl[39m (1): value
+## 
+## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
+## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code># Check the structure
 str(sankey_info.df)</code></pre>
-<pre><code>## Error in str(sankey_info.df): object &#39;sankey_info.df&#39; not found</code></pre>
+<pre><code>## spc_tbl_ [24 x 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ source: chr [1:24] &quot;CoV&quot; &quot;CoV&quot; &quot;IVS&quot; &quot;RSV&quot; ...
+##  $ target: chr [1:24] &quot;A549&quot; &quot;NHBE&quot; &quot;A549&quot; &quot;A549&quot; ...
+##  $ value : num [1:24] 0.25 0.25 0.25 0.25 0.7 0.2 0.4 0.4 0.15 0.15 ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   source = [31mcol_character()[39m,
+##   ..   target = [31mcol_character()[39m,
+##   ..   value = [32mcol_double()[39m
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <pre class="r"><code># Look a few rows
 head(sankey_info.df)</code></pre>
-<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;sankey_info.df&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["source"],"name":[1],"type":["chr"],"align":["left"]},{"label":["target"],"name":[2],"type":["chr"],"align":["left"]},{"label":["value"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"CoV","2":"A549","3":"0.25"},{"1":"CoV","2":"NHBE","3":"0.25"},{"1":"IVS","2":"A549","3":"0.25"},{"1":"RSV","2":"A549","3":"0.25"},{"1":"A549","2":"RNAseq","3":"0.70"},{"1":"NHBE","2":"RNAseq","3":"0.20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <p>From the above output we can see that one <code>source</code> may
 have multiple <code>target</code> values and vice versa.</p>
@@ -1982,7 +2003,8 @@ new node table, <code>sankey_nodes.df</code>. Let’s try that as a quick
 example with our data.</p>
 <pre class="r"><code># Which nodes match from our source nodes to our collected nodes (18 total nodes)?
 match(sankey_info.df$..., sankey_nodes.df$...)</code></pre>
-<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;match&#39;: object &#39;sankey_info.df&#39; not found</code></pre>
+<pre><code>## Warning: Unknown or uninitialised column: `...`.</code></pre>
+<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;table&#39; in selecting a method for function &#39;match&#39;: object &#39;sankey_nodes.df&#39; not found</code></pre>
 <hr />
 <p>So we can see for instance that “CoV” is node 1 in
 <code>sankey_nodes.df</code> and that the first 14 source nodes show up
@@ -3851,9 +3873,9 @@ assignment. Please provide answers in markdown or code cells that
 immediately follow each question section.</p>
 <table>
 <colgroup>
-<col width="26%" />
-<col width="26%" />
-<col width="47%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr>
