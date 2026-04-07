@@ -2817,9 +2817,8 @@ and Tgd.Sp (gamma-delta T) cells.</p>
 <p>What if we were to look at all 4000 genes! Let’s repeat the
 experiment with the <strong>full dataset</strong>.</p>
 <pre class="r"><code># Make a matrix of our full 4K gene dataset
-rnaSeq.mx &lt;- as.matrix(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>rownames(rnaSeq.mx) &lt;- pull(rnaSeq.tbl, 1)
+rnaSeq.mx &lt;- as.matrix(rnaSeq.tbl[, -1])
+rownames(rnaSeq.mx) &lt;- pull(rnaSeq.tbl, 1)
 
 rnaSeq_cor.mx &lt;- 
   cor(rnaSeq.mx, method = &quot;pearson&quot;)
