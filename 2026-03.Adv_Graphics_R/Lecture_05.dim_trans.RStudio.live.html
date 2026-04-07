@@ -2995,11 +2995,17 @@ need to also <em>transpose</em> the matrix with the <code>t()</code>
 function.</p>
 <pre class="r"><code># Generate our distance matrix
 
-dist(...,       # Transpose the matrix
+dist(t(rnaSeq_trimmed.mx),       # Transpose the matrix
      method = &quot;euclidean&quot;, ) %&gt;% # The default method is euclidean
   # Show the structure of our output
   str() </code></pre>
-<pre><code>## Error in str(.): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>##  &#39;dist&#39; num [1:3403] 1929 2240 2054 2080 2032 ...
+##  - attr(*, &quot;Size&quot;)= int 83
+##  - attr(*, &quot;Labels&quot;)= chr [1:83] &quot;B.fo.Sp#1.1&quot; &quot;B.fo.Sp#1.10&quot; &quot;B.fo.Sp#1.11&quot; &quot;B.fo.Sp#1.12&quot; ...
+##  - attr(*, &quot;Diag&quot;)= logi FALSE
+##  - attr(*, &quot;Upper&quot;)= logi FALSE
+##  - attr(*, &quot;method&quot;)= chr &quot;euclidean&quot;
+##  - attr(*, &quot;call&quot;)= language dist(x = t(rnaSeq_trimmed.mx), method = &quot;euclidean&quot;)</code></pre>
 <hr />
 </div>
 <div id="cluster-your-distance-matrix" class="section level3">
