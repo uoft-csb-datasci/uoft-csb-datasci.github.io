@@ -3266,11 +3266,11 @@ set.seed(123)
 
 # Generate our k-means analysis
 rnaSeq.km &lt;- 
-  kmeans(..., # We&#39;ll scale our data for this (more on that later too!)
+  kmeans(scale(t), # We&#39;ll scale our data for this (more on that later too!)
          centers = 5, 
          nstart = 25,
          iter.max = 500)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error in as.vector(x, mode): cannot coerce type &#39;closure&#39; to vector of type &#39;any&#39;</code></pre>
 <pre class="r"><code># What is the structure of our kmeans object?
 str(rnaSeq.km)</code></pre>
 <pre><code>## Error in str(rnaSeq.km): object &#39;rnaSeq.km&#39; not found</code></pre>
