@@ -3266,17 +3266,63 @@ set.seed(123)
 
 # Generate our k-means analysis
 rnaSeq.km &lt;- 
-  kmeans(scale(t), # We&#39;ll scale our data for this (more on that later too!)
+  kmeans(scale(t(rnaSeq.mx)), # We&#39;ll scale our data for this (more on that later too!)
          centers = 5, 
          nstart = 25,
          iter.max = 500)</code></pre>
-<pre><code>## Error in as.vector(x, mode): cannot coerce type &#39;closure&#39; to vector of type &#39;any&#39;</code></pre>
 <pre class="r"><code># What is the structure of our kmeans object?
 str(rnaSeq.km)</code></pre>
-<pre><code>## Error in str(rnaSeq.km): object &#39;rnaSeq.km&#39; not found</code></pre>
+<pre><code>## List of 9
+##  $ cluster     : Named int [1:83] 3 3 3 3 3 3 3 3 3 3 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:83] &quot;B.fo.Sp#1.1&quot; &quot;B.fo.Sp#1.10&quot; &quot;B.fo.Sp#1.11&quot; &quot;B.fo.Sp#1.12&quot; ...
+##  $ centers     : num [1:5, 1:4258] 0.107 0.373 0.893 -1.271 0.473 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:5] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##   .. ..$ : chr [1:4258] &quot;0610030E20Rik&quot; &quot;1110059E24Rik&quot; &quot;1600012H06Rik&quot; &quot;1600014C10Rik&quot; ...
+##  $ totss       : num 349156
+##  $ withinss    : num [1:5] 0 7624 6753 16259 23282
+##  $ tot.withinss: num 53918
+##  $ betweenss   : num 295238
+##  $ size        : int [1:5] 1 16 15 25 26
+##  $ iter        : int 2
+##  $ ifault      : int 0
+##  - attr(*, &quot;class&quot;)= chr &quot;kmeans&quot;</code></pre>
 <pre class="r"><code># K-means clusters showing the group of each individuals
-rnaSeq.km$...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;rnaSeq.km&#39; not found</code></pre>
+rnaSeq.km$cluster</code></pre>
+<pre><code>##     B.fo.Sp#1.1    B.fo.Sp#1.10    B.fo.Sp#1.11    B.fo.Sp#1.12    B.fo.Sp#1.13 
+##               3               3               3               3               3 
+##    B.fo.Sp#1.14    B.fo.Sp#1.15    B.fo.Sp#1.16     B.fo.Sp#1.2     B.fo.Sp#1.3 
+##               3               3               3               3               3 
+##     B.fo.Sp#1.4     B.fo.Sp#1.5     B.fo.Sp#1.6     B.fo.Sp#1.8     B.fo.Sp#1.9 
+##               3               3               3               3               3 
+##       MF.PC#1.1      MF.PC#1.10      MF.PC#1.11      MF.PC#1.12      MF.PC#1.13 
+##               4               4               4               4               4 
+##      MF.PC#1.14      MF.PC#1.15      MF.PC#1.16       MF.PC#1.2       MF.PC#1.3 
+##               4               4               4               4               4 
+##       MF.PC#1.4       MF.PC#1.5       MF.PC#1.6       MF.PC#1.7       MF.PC#1.8 
+##               4               4               4               4               4 
+##       MF.PC#1.9       MF.PC#2.1       MF.PC#2.2       MF.PC#2.3       MF.PC#2.4 
+##               4               4               4               4               4 
+##       MF.PC#2.5       MF.PC#2.6       MF.PC#2.7       MF.PC#2.8       NK.Sp#1.1 
+##               4               4               4               4               2 
+##      NK.Sp#1.10      NK.Sp#1.11      NK.Sp#1.12      NK.Sp#1.13      NK.Sp#1.14 
+##               2               2               2               2               2 
+##      NK.Sp#1.15      NK.Sp#1.16      NK.Sp#1.17      NK.Sp#1.18       NK.Sp#1.2 
+##               2               2               5               4               2 
+##       NK.Sp#1.3       NK.Sp#1.4       NK.Sp#1.5       NK.Sp#1.6       NK.Sp#1.7 
+##               2               2               2               2               2 
+##       NK.Sp#1.8       NK.Sp#1.9    T.4.Nve.#2.1    T.4.Nve.#2.2  T.4.Nve.Sp#1.1 
+##               2               2               5               5               5 
+## T.4.Nve.Sp#1.10 T.4.Nve.Sp#1.11 T.4.Nve.Sp#1.12 T.4.Nve.Sp#1.13 T.4.Nve.Sp#1.14 
+##               5               5               5               5               5 
+## T.4.Nve.Sp#1.15 T.4.Nve.Sp#1.16  T.4.Nve.Sp#1.2  T.4.Nve.Sp#1.3  T.4.Nve.Sp#1.4 
+##               5               5               5               5               5 
+##  T.4.Nve.Sp#1.5  T.4.Nve.Sp#1.6  T.4.Nve.Sp#1.7  T.4.Nve.Sp#1.8  T.4.Nve.Sp#1.9 
+##               5               5               5               5               5 
+##      Tgd.Sp#1.1      Tgd.Sp#1.2      Tgd.Sp#1.3      Tgd.Sp#1.4      Tgd.Sp#1.5 
+##               5               5               5               5               5 
+##      Tgd.Sp#1.6      Tgd.Sp#1.7      Tgd.Sp#1.8 
+##               5               5               1</code></pre>
 <hr />
 </div>
 <div id="plot-your-k-means-results-with-fviz_cluster" class="section level2">
