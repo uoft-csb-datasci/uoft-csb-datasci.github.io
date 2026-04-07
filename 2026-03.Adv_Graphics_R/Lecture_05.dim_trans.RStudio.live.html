@@ -2285,20 +2285,69 @@ top200 &lt;-
   # Use rowwise to calculate the mean gene counts across all ROWs
   rowwise() %&gt;% 
   # Create a new variable that calculates the mean
-  mutate(meanExp =...) %&gt;% 
+  mutate(meanExp = mean(c_across(-1))) %&gt;% 
   # Filter for the range we want to visualize
-  filter(meanExp &gt; ...,
-         meanExp &lt; ...) %&gt;%  
+  filter(meanExp &gt; 100,
+         meanExp &lt; 1000) %&gt;%  
   # Sort the data by highest mean values
   arrange(desc(meanExp)) %&gt;% 
   # Retrieve just the gene symbols
   pull(1) %&gt;% 
   # Keep the top 200
-  .[1:200]</code></pre>
-<pre><code>## Error in filter(., meanExp &gt; ..., meanExp &lt; ...): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># View our list of 200 genes
+  .[1:200]
+
+# View our list of 200 genes
 top200</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;top200&#39; not found</code></pre>
+<pre><code>##   [1] &quot;Ifngr1&quot;        &quot;Lnpep&quot;         &quot;Rpl13&quot;         &quot;Clk1&quot;         
+##   [5] &quot;Actg1&quot;         &quot;Sdha&quot;          &quot;Gpi1&quot;          &quot;Celf2&quot;        
+##   [9] &quot;Copa&quot;          &quot;Npm1&quot;          &quot;Cltc&quot;          &quot;Zfp207&quot;       
+##  [13] &quot;Nucb1&quot;         &quot;H2-Ob&quot;         &quot;Idh1&quot;          &quot;Arhgef18&quot;     
+##  [17] &quot;Ifitm3&quot;        &quot;Alox5ap&quot;       &quot;Msr1&quot;          &quot;Il2rg&quot;        
+##  [21] &quot;Myo1g&quot;         &quot;Pmp22&quot;         &quot;Rps20&quot;         &quot;Rasal3&quot;       
+##  [25] &quot;Ikzf1&quot;         &quot;Tgfbr2&quot;        &quot;Pik3cd&quot;        &quot;Cd79a&quot;        
+##  [29] &quot;Sptbn1&quot;        &quot;Gm2682&quot;        &quot;Sp100&quot;         &quot;Wnk1&quot;         
+##  [33] &quot;Rpl26&quot;         &quot;Rps13&quot;         &quot;Actr2&quot;         &quot;Ikbkb&quot;        
+##  [37] &quot;Arhgap15&quot;      &quot;Sash3&quot;         &quot;Ctsz&quot;          &quot;Cd36&quot;         
+##  [41] &quot;Rpl6&quot;          &quot;Zc3hav1&quot;       &quot;Rap1b&quot;         &quot;Slc25a5&quot;      
+##  [45] &quot;Stk17b&quot;        &quot;Akr1a1&quot;        &quot;Gramd1a&quot;       &quot;Arl6ip1&quot;      
+##  [49] &quot;Rasa3&quot;         &quot;Tcf25&quot;         &quot;Hgsnat&quot;        &quot;Cd79b&quot;        
+##  [53] &quot;Bin2&quot;          &quot;Gm2a&quot;          &quot;Ccr7&quot;          &quot;Mtpn&quot;         
+##  [57] &quot;Rps16&quot;         &quot;Rplp2&quot;         &quot;Lyn&quot;           &quot;Sh3bgrl&quot;      
+##  [61] &quot;Rps27a&quot;        &quot;Dhrs3&quot;         &quot;Cd9&quot;           &quot;Rps12&quot;        
+##  [65] &quot;Lbr&quot;           &quot;Gapdh&quot;         &quot;Ubap2l&quot;        &quot;Lgals3bp&quot;     
+##  [69] &quot;Rpl7a&quot;         &quot;Fnbp1&quot;         &quot;Ctsc&quot;          &quot;Cd84&quot;         
+##  [73] &quot;Stat6&quot;         &quot;Nisch&quot;         &quot;Tcf7&quot;          &quot;Rps21&quot;        
+##  [77] &quot;Psmb8&quot;         &quot;Cbl&quot;           &quot;Sod1&quot;          &quot;Myo1f&quot;        
+##  [81] &quot;Elmo1&quot;         &quot;H2-Q6&quot;         &quot;Prrc2c&quot;        &quot;Cd164&quot;        
+##  [85] &quot;Ltb&quot;           &quot;Gnai3&quot;         &quot;Prex1&quot;         &quot;Zyx&quot;          
+##  [89] &quot;Sat1&quot;          &quot;Stk4&quot;          &quot;Arf1&quot;          &quot;Ikzf3&quot;        
+##  [93] &quot;Bank1&quot;         &quot;Atp1a3&quot;        &quot;Sdf4&quot;          &quot;Kmt2e&quot;        
+##  [97] &quot;S1pr1&quot;         &quot;Ccnl2&quot;         &quot;Elovl5&quot;        &quot;Samhd1&quot;       
+## [101] &quot;Cyfip2&quot;        &quot;Rbm5&quot;          &quot;Crip1&quot;         &quot;Ctsw&quot;         
+## [105] &quot;Birc6&quot;         &quot;Ptbp3&quot;         &quot;Ppp2r5c&quot;       &quot;Arid1a&quot;       
+## [109] &quot;Cmtm6&quot;         &quot;Rps6&quot;          &quot;Eno1&quot;          &quot;Fam49b&quot;       
+## [113] &quot;Mob3a&quot;         &quot;Pdcd6ip&quot;       &quot;Klf3&quot;          &quot;Cnp&quot;          
+## [117] &quot;Fcgr3&quot;         &quot;Klrb1c&quot;        &quot;Zeb2&quot;          &quot;Kif21b&quot;       
+## [121] &quot;Sipa1&quot;         &quot;Cct8&quot;          &quot;Stk38&quot;         &quot;Tm9sf2&quot;       
+## [125] &quot;Sun2&quot;          &quot;Septin2&quot;       &quot;Cyth4&quot;         &quot;Sla&quot;          
+## [129] &quot;Ostf1&quot;         &quot;Ewsr1&quot;         &quot;AI467606&quot;      &quot;Smg1&quot;         
+## [133] &quot;Klhl6&quot;         &quot;Hcfc1&quot;         &quot;Calm2&quot;         &quot;Txnip&quot;        
+## [137] &quot;Eif4h&quot;         &quot;Tpm4&quot;          &quot;Sec61a1&quot;       &quot;Lasp1&quot;        
+## [141] &quot;Cdc42se2&quot;      &quot;Atxn2l&quot;        &quot;Huwe1&quot;         &quot;Glud1&quot;        
+## [145] &quot;Acap1&quot;         &quot;Id2&quot;           &quot;Pitpnc1&quot;       &quot;Rpl35a&quot;       
+## [149] &quot;Rps26&quot;         &quot;Derl1&quot;         &quot;Syk&quot;           &quot;Dnm2&quot;         
+## [153] &quot;Rassf5&quot;        &quot;Sec24c&quot;        &quot;Ncl&quot;           &quot;4932438A13Rik&quot;
+## [157] &quot;Il17ra&quot;        &quot;Cdc42se1&quot;      &quot;Mau2&quot;          &quot;Snrnp200&quot;     
+## [161] &quot;Leng8&quot;         &quot;Cct5&quot;          &quot;Arhgap4&quot;       &quot;Srsf3&quot;        
+## [165] &quot;Tram1&quot;         &quot;Rcsd1&quot;         &quot;Ptbp1&quot;         &quot;Rac1&quot;         
+## [169] &quot;AC149090.1&quot;    &quot;Plec&quot;          &quot;Dnajc7&quot;        &quot;Ms4a6b&quot;       
+## [173] &quot;Add1&quot;          &quot;Nfam1&quot;         &quot;Rnf167&quot;        &quot;Bzw1&quot;         
+## [177] &quot;Gnb1&quot;          &quot;M6pr&quot;          &quot;Il18rap&quot;       &quot;Tspan32&quot;      
+## [181] &quot;Git2&quot;          &quot;Gusb&quot;          &quot;Pros1&quot;         &quot;Rapgef6&quot;      
+## [185] &quot;Ogdh&quot;          &quot;Uqcrc1&quot;        &quot;Irf8&quot;          &quot;B4galnt1&quot;     
+## [189] &quot;Cope&quot;          &quot;Tug1&quot;          &quot;Gm4759&quot;        &quot;Ppp2r1a&quot;      
+## [193] &quot;Mat2a&quot;         &quot;Stat3&quot;         &quot;Adcy7&quot;         &quot;Rpl14&quot;        
+## [197] &quot;Bsg&quot;           &quot;G3bp2&quot;         &quot;Xdh&quot;           &quot;Tkt&quot;</code></pre>
 <p>With our list in hand, we can make a trimmed version of our data
 frame to work with</p>
 <pre class="r"><code>rnaSeq_trimmed.tbl &lt;-
