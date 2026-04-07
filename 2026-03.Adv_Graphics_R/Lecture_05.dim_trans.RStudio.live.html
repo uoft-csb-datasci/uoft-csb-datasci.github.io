@@ -1630,8 +1630,8 @@ display: none;
 <div id="advanced-graphics-and-data-visualization-in-r" class="section level1">
 <h1>Advanced Graphics and Data Visualization in R</h1>
 </div>
-<div id="lecture-05-dimension-transformation-live-html" class="section level1">
-<h1>Lecture 05: Dimension Transformation Live HTML</h1>
+<div id="lecture-05-dimension-transformation" class="section level1">
+<h1>Lecture 05: Dimension Transformation</h1>
 <div id="an-overview-of-advanced-graphics-and-data-visualization-in-r" class="section level2">
 <h2>0.1.0 An overview of Advanced Graphics and Data Visualization in
 R</h2>
@@ -1849,92 +1849,33 @@ BiocManager::install(&quot;ComplexHeatmap&quot;)</code></pre>
 <pre><code>## Warning in install.packages(&quot;FactoMineR&quot;, dependencies = TRUE): installation of
 ## package &#39;Factoshiny&#39; had non-zero exit status</code></pre>
 <pre class="r"><code>install.packages(&quot;factoextra&quot;, dependencies = TRUE)</code></pre>
-<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## Warning: package &#39;factoextra&#39; is not available for this version of R
-## 
-## A version of this package for your version of R might be available elsewhere,
-## see the ideas at
-## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
+<pre><code>## Warning: package &#39;factoextra&#39; is in use and will not be installed</code></pre>
 <pre class="r"><code>install.packages(&quot;Rtsne&quot;)</code></pre>
-<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## 
-##   There is a binary version available but the source version is later:
-##       binary source needs_compilation
-## Rtsne   0.16   0.17              TRUE</code></pre>
-<pre><code>## installing the source package &#39;Rtsne&#39;</code></pre>
+<pre><code>## Warning: package &#39;Rtsne&#39; is in use and will not be installed</code></pre>
 <pre class="r"><code>install.packages(&quot;umap&quot;)</code></pre>
-<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## 
-##   There is a binary version available but the source version is later:
-##       binary   source needs_compilation
-## umap 0.2.8.0 0.2.10.0              TRUE</code></pre>
-<pre><code>## installing the source package &#39;umap&#39;</code></pre>
+<pre><code>## Warning: package &#39;umap&#39; is in use and will not be installed</code></pre>
 <pre class="r"><code># ------------ Legacy installation code which we hopefully never need again ----------#
 # We need to specifically install a package called pbkrtest for the facto packages
 # This is due to using an older verion of R 
 # library(remotes)
 # install_version(&quot;pbkrtest&quot;, &quot;0.5.1&quot;)</code></pre>
 <pre class="r"><code># Packages to help tidy our data
-library(tidyverse)</code></pre>
-<pre><code>## -- [1mAttaching core tidyverse packages[22m ---------------------------------------------------------------- tidyverse 2.0.0 --
-## [32mv[39m [34mdplyr    [39m 1.1.3     [32mv[39m [34mreadr    [39m 2.1.4
-## [32mv[39m [34mforcats  [39m 1.0.0     [32mv[39m [34mstringr  [39m 1.5.0
-## [32mv[39m [34mggplot2  [39m 3.5.2     [32mv[39m [34mtibble   [39m 3.2.1
-## [32mv[39m [34mlubridate[39m 1.9.2     [32mv[39m [34mtidyr    [39m 1.3.0
-## [32mv[39m [34mpurrr    [39m 1.0.2     
-## -- [1mConflicts[22m ---------------------------------------------------------------------------------- tidyverse_conflicts() --
-## [31mx[39m [34mdplyr[39m::[32mfilter()[39m   masks [34mstats[39m::filter()
-## [31mx[39m [34mpurrr[39m::[32mis_empty()[39m masks [34mgit2r[39m::is_empty()
-## [31mx[39m [34mdplyr[39m::[32mlag()[39m      masks [34mstats[39m::lag()
-## [31mx[39m [34mdplyr[39m::[32mpull()[39m     masks [34mgit2r[39m::pull()
-## [31mx[39m [34mpurrr[39m::[32mwhen()[39m     masks [34mgit2r[39m::when()
-## [36mi[39m Use the conflicted package ([3m[34m&lt;http://conflicted.r-lib.org/&gt;[39m[23m) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>library(readxl)
-library(magrittr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;magrittr&#39;
-## 
-## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     set_names
-## 
-## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract
-## 
-## The following object is masked from &#39;package:git2r&#39;:
-## 
-##     add</code></pre>
-<pre class="r"><code># Packages for the graphical analysis section
-library(viridis)</code></pre>
-<pre><code>## Loading required package: viridisLite</code></pre>
-<pre class="r"><code># library(gplots) # heatmap2()
-library(ComplexHeatmap) # Heatmap()</code></pre>
-<pre><code>## Loading required package: grid
-## ========================================
-## ComplexHeatmap version 2.6.2
-## Bioconductor page: http://bioconductor.org/packages/ComplexHeatmap/
-## Github page: https://github.com/jokergoo/ComplexHeatmap
-## Documentation: http://jokergoo.github.io/ComplexHeatmap-reference
-## 
-## If you use it in published research, please cite:
-## Gu, Z. Complex heatmaps reveal patterns and correlations in multidimensional 
-##   genomic data. Bioinformatics 2016.
-## 
-## This message can be suppressed by:
-##   suppressPackageStartupMessages(library(ComplexHeatmap))
-## ========================================</code></pre>
-<pre class="r"><code>library(RColorBrewer)
+library(tidyverse)
+library(readxl)
+library(magrittr)
+
+# Packages for the graphical analysis section
+library(viridis)
+# library(gplots) # heatmap2()
+library(ComplexHeatmap) # Heatmap()
+library(RColorBrewer)
 
 # Useful for PCA and PCA visualization
 library(FactoMineR)</code></pre>
 <pre><code>## Error in library(FactoMineR): there is no package called &#39;FactoMineR&#39;</code></pre>
-<pre class="r"><code>library(factoextra)</code></pre>
-<pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
-<pre class="r"><code># Data projection packages
+<pre class="r"><code>library(factoextra)
+
+# Data projection packages
 library(Rtsne)
 library(umap)</code></pre>
 <hr />
@@ -2161,7 +2102,7 @@ top200 &lt;-
   # Use rowwise to calculate the mean gene counts across all ROWs
   rowwise() %&gt;% 
   # Create a new variable that calculates the mean
-  mutate(meanExp = ...) %&gt;% 
+  mutate(meanExp =...) %&gt;% 
   # Filter for the range we want to visualize
   filter(meanExp &gt; ...,
          meanExp &lt; ...) %&gt;%  
@@ -2467,8 +2408,7 @@ and can be more appropriate when … ???</p>
 <p>Let’s produce a correlation matrix of our 200-row matrix dataset.</p>
 <pre class="r"><code># Create a correlation matrix of the top 200 genes on 83 samples
 
-rnaSeq_trimmed_cor.mx &lt;- cor(..., 
-                             ...)</code></pre>
+rnaSeq_trimmed_cor.mx &lt;- cor(..., ...)</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># take a look at the final matrix
 head(rnaSeq_trimmed_cor.mx)</code></pre>
@@ -2519,13 +2459,13 @@ ComplexHeatmap::draw(trimmed_cor_heatmap,
 <h3>1.4.3 Plot a correlation heatmap from all data available</h3>
 <p>Wow! Aside from a few off-target samples, most of our data is grouped
 by cell type. We see <code>NK.SP#1.17</code> has grouped with most of
-the <code>Tgd.Sp</code> samples, NK.Sp#1.18 has correlated highly with
-the MF.PC series of cells, and <code>Tgd.Sp#1.8</code> appears to be
-living kind of in its own world. We do, however, see that most cell
-types are positively correlated to each other based on the rusty red
-boxes along our diagonals! We even have some strong <strong>negative
-correlations</strong> between our MF.PC (macrophage) and Tgd.Sp
-(gamma-delta T) cells.</p>
+the <code>Tgd.Sp</code> samples, <code>NK.Sp#1.18</code> has correlated
+highly with the MF.PC series of cells, and <code>Tgd.Sp#1.8</code>
+appears to be living kind of in its own world. We do, however, see that
+most cell types are positively correlated to each other based on the
+rusty red boxes along our diagonals! We even have some strong
+<strong>negative correlations</strong> between our MF.PC (macrophage)
+and Tgd.Sp (gamma-delta T) cells.</p>
 <p>What if we were to look at all 4000 genes! Let’s repeat the
 experiment with the <strong>full dataset</strong>.</p>
 <pre class="r"><code># Make a matrix of our full 4K gene dataset
@@ -2538,7 +2478,7 @@ rnaSeq.mx &lt;- as.matrix(...)</code></pre>
 <pre><code>## Error in is.data.frame(x): object &#39;rnaSeq.mx&#39; not found</code></pre>
 <pre class="r"><code># Create a Heatmap object
 pearsonCor_heatmap &lt;- 
-  Heatmap(...,                                 # Supply our matrix 
+  Heatmap(...,               # Supply our matrix 
           cluster_rows = TRUE, cluster_columns = TRUE,   # Cluster on both rows and columns
           
           # Colour it with viridis
@@ -2564,87 +2504,56 @@ ComplexHeatmap::draw(pearsonCor_heatmap,
      heatmap_legend_side = &quot;bottom&quot;
     )</code></pre>
 <pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;object&#39; in selecting a method for function &#39;draw&#39;: object &#39;pearsonCor_heatmap&#39; not found</code></pre>
-<table>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody>
-<tr>
-<td align="left">### 1.4.4 Choose the correct correlation methods for
-your dataset</td>
-</tr>
-<tr>
-<td align="left">What happened to our heatmap?</td>
-</tr>
-<tr>
-<td align="left">From our output, it looks like when we added in more
-data points, we lost the power to really discriminate between all the
-immunocyte groups. This may have to do with our choice of Pearson
-correlation. In fact, we find that if we had used the Spearman
-correlation we would have replicated our results from the smaller
-set.</td>
-</tr>
-<tr>
-<td align="left">Let’s quickly make that small change to our code:</td>
-</tr>
-<tr>
-<td align="left"><code>r # Make a matrix of our full 4K gene dataset rnaSeq.mx &lt;- as.matrix(rnaSeq.tbl[, -1])</code></td>
-</tr>
-<tr>
-<td align="left"><code>## Error in as.matrix(rnaSeq.tbl[, -1]): object &#39;rnaSeq.tbl&#39; not found</code></td>
-</tr>
-<tr>
-<td align="left"><code>r rownames(rnaSeq.mx) &lt;- pull(rnaSeq.tbl, 1)</code></td>
-</tr>
-<tr>
-<td align="left"><code>## Error in pull(rnaSeq.tbl, 1): object &#39;rnaSeq.tbl&#39; not found</code></td>
-</tr>
-<tr>
-<td align="left"><code>r # Create the correlation matrix ### Change the method to Spearman rnaSeq_cor.mx &lt;- cor(rnaSeq.mx, method = ...)</code></td>
-</tr>
-<tr>
-<td align="left"><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></td>
-</tr>
-<tr>
-<td align="left">```r # Create a Heatmap object spearmanCor_heatmap
-&lt;- Heatmap(rnaSeq_cor.mx, # Supply our matrix cluster_rows = TRUE,
-cluster_columns = TRUE, # Cluster on both rows and columns</td>
-</tr>
-<tr>
-<td align="left"># Colour it with viridis col = viridis(1000, option =
-“turbo”),</td>
-</tr>
-<tr>
-<td align="left"># Use column_title as the title of our heatmap
-column_title = “Heatmap of Spearman correlation between 4K genes in
-immune cell samples”,</td>
-</tr>
-<tr>
-<td align="left"># Rotate the legend horizontally and give it a title
-heatmap_legend_param = list(title = “Spearman corr. value”,
-legend_direction = “horizontal”),</td>
-</tr>
-<tr>
-<td align="left"># Just increase the size of our dendrograms a little
-row_dend_width = unit(2, “in”),</td>
-</tr>
-<tr>
-<td align="left">column_dend_height = unit(2, “in”)</td>
-</tr>
-<tr>
-<td align="left">) ```</td>
-</tr>
-<tr>
-<td align="left"><code>## Error in is.data.frame(matrix): object &#39;rnaSeq_cor.mx&#39; not found</code></td>
-</tr>
-<tr>
-<td align="left"><code>r # Plot the heatmap ComplexHeatmap::draw(spearmanCor_heatmap, # Plot the legend on the bottom heatmap_legend_side = &quot;bottom&quot; )</code></td>
-</tr>
-<tr>
-<td align="left"><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;object&#39; in selecting a method for function &#39;draw&#39;: object &#39;spearmanCor_heatmap&#39; not found</code></td>
-</tr>
-</tbody>
-</table>
+<hr />
+</div>
+<div id="choose-the-correct-correlation-methods-for-your-dataset" class="section level3">
+<h3>1.4.4 Choose the correct correlation methods for your dataset</h3>
+<p>What happened to our heatmap?</p>
+<p>From our output, it looks like when we added in more data points, we
+lost the power to really discriminate between all the immunocyte groups.
+This may have to do with our choice of Pearson correlation. In fact, we
+find that if we had used the Spearman correlation we would have
+replicated our results from the smaller set.</p>
+<p>Let’s quickly make that small change to our code:</p>
+<pre class="r"><code># Make a matrix of our full 4K gene dataset
+rnaSeq.mx &lt;- as.matrix(rnaSeq.tbl[, -1])</code></pre>
+<pre><code>## Error in as.matrix(rnaSeq.tbl[, -1]): object &#39;rnaSeq.tbl&#39; not found</code></pre>
+<pre class="r"><code>rownames(rnaSeq.mx) &lt;- pull(rnaSeq.tbl, 1)</code></pre>
+<pre><code>## Error in pull(rnaSeq.tbl, 1): object &#39;rnaSeq.tbl&#39; not found</code></pre>
+<pre class="r"><code># Create the correlation matrix
+### Change the method to Spearman
+rnaSeq_cor.mx &lt;- 
+  cor(rnaSeq.mx, method = ...)</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code># Create a Heatmap object
+spearmanCor_heatmap &lt;- 
+  Heatmap(rnaSeq_cor.mx,                                 # Supply our matrix 
+          cluster_rows = TRUE, cluster_columns = TRUE,   # Cluster on both rows and columns
+          
+          # Colour it with viridis
+          col = viridis(1000, option = &quot;turbo&quot;),
+                      
+          # Use column_title as the title of our heatmap
+          column_title = &quot;Heatmap of Spearman correlation between 4K genes in immune cell samples&quot;,
+          
+          # Rotate the legend horizontally and give it a title
+          heatmap_legend_param = list(title = &quot;Spearman corr. value&quot;,
+                                      legend_direction = &quot;horizontal&quot;),
+          
+          # Just increase the size of our dendrograms a little
+          row_dend_width = unit(2, &quot;in&quot;),
+          
+          column_dend_height = unit(2, &quot;in&quot;)
+                      
+         )</code></pre>
+<pre><code>## Error in is.data.frame(matrix): object &#39;rnaSeq_cor.mx&#39; not found</code></pre>
+<pre class="r"><code># Plot the heatmap 
+ComplexHeatmap::draw(spearmanCor_heatmap, 
+     # Plot the legend on the bottom
+     heatmap_legend_side = &quot;bottom&quot;
+    )</code></pre>
+<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;object&#39; in selecting a method for function &#39;draw&#39;: object &#39;spearmanCor_heatmap&#39; not found</code></pre>
+<hr />
 </div>
 <div id="concatenate-multiple-heatmaps-together-into-a-heatmaplist-object" class="section level3">
 <h3>1.4.5 Concatenate multiple heatmaps together into a
@@ -2989,14 +2898,11 @@ set.seed(123)
 
 # Generate our k-means analysis
 rnaSeq.km &lt;- 
-  kmeans(...), # We&#39;ll scale our data for this (more on that later too!)
+  kmeans(..., # We&#39;ll scale our data for this (more on that later too!)
          centers = 5, 
          nstart = 25,
          iter.max = 500)</code></pre>
-<pre><code>## Error: &lt;text&gt;:8:14: unexpected &#39;,&#39;
-## 7: rnaSeq.km &lt;- 
-## 8:   kmeans(...),
-##                 ^</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># What is the structure of our kmeans object?
 str(rnaSeq.km)</code></pre>
 <pre><code>## Error in str(rnaSeq.km): object &#39;rnaSeq.km&#39; not found</code></pre>
@@ -3136,12 +3042,12 @@ features which are a combination of the old features! Attempt to extract
 the essential features of your data in a more information-dense
 manner.</p></li>
 </ol>
-<table style="width:99%;">
+<table>
 <colgroup>
-<col width="4%" />
-<col width="70%" />
-<col width="8%" />
-<col width="15%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead>
 <tr>
@@ -3589,7 +3495,7 @@ rnaSeq.var$... %&gt;% head()</code></pre>
 <hr />
 </div>
 <div id="plot-your-variable-information-on-a-unit-circle-with-fviz_pca_var" class="section level3">
-<h3>3.4.3 Plot your variable information on a unit circle with
+<h3>3.4.4 Plot your variable information on a unit circle with
 <code>fviz_pca_var()</code></h3>
 <p>To capture all of our information in a single visualization we can
 use <code>factoextra::fviz_pca_var()</code> to assess our variables. The
@@ -3647,7 +3553,7 @@ account for much of the variance in the data to begin with!</p>
 </div>
 </div>
 <div id="projecting-our-pca-onto-2-dimensions-with-fviz_pca_ind" class="section level2">
-<h2>3.4.0 Projecting our PCA onto 2 dimensions with
+<h2>3.5.0 Projecting our PCA onto 2 dimensions with
 <code>fviz_pca_ind</code></h2>
 <p>Well, we appear to have successfully distilled our 200 gene set into
 4 or so new principal components. We already had a sense that our 200
@@ -3688,7 +3594,7 @@ bit!</li>
 <hr />
 </div>
 <div id="pca-can-work-on-very-large-datasets-too" class="section level2">
-<h2>3.5.0 PCA can work on very large datasets too!</h2>
+<h2>3.6.0 PCA can work on very large datasets too!</h2>
 <p>Well we started with a small example of our trimmed RNAseq dataset.
 Can we repeat or improve on our results using all 4000 genes as a source
 of data?</p>
@@ -3750,7 +3656,7 @@ are now more closely clustered with the Naive CD4+ cells. Both of these
 share a T lymphocyte lineage!</li>
 </ol>
 <div id="principal-component-analysis-is-a-good-form-of-dimension-reduction" class="section level3">
-<h3>3.5.1 Principal component analysis is a good form of dimension
+<h3>3.6.1 Principal component analysis is a good form of dimension
 reduction</h3>
 <p>While it may not be apparent, this form of analysis is a very solid
 and <strong>deterministic</strong> form of dimension reduction. Because
@@ -3772,7 +3678,7 @@ the results will <strong>always</strong> be the same!</p>
 umap. You’ll learn more about that in upcoming sections!</p>
 </div>
 <div id="start-with-as-much-data-as-you-can-and-let-pca-do-the-rest" class="section level3">
-<h3>3.5.2 Start with as much data as you can and let PCA do the
+<h3>3.6.2 Start with as much data as you can and let PCA do the
 rest</h3>
 <p>What is our take-home message in comparing our smaller vs our larger
 dataset with something like PCA? Just as the title of the section
@@ -3810,7 +3716,7 @@ features</em></strong> in our second.</p>
 </div>
 </div>
 <div id="use-pca-to-identify-outlier-samples" class="section level3">
-<h3>3.5.3 Use PCA to identify outlier samples</h3>
+<h3>3.6.3 Use PCA to identify outlier samples</h3>
 <p>The other important message we should take from our results is that
 our PCA of the data helped to identify that two sets of samples within
 our data: NK.Sp#1.17 and NK.Sp#1.18 - both replicates from NK cell
@@ -3823,7 +3729,7 @@ the populations. This could again be attributed to some kind of
 contamination or artifact of the sorting process.</p>
 </div>
 <div id="does-pca-ever-fail" class="section level3">
-<h3>3.5.4 Does PCA ever fail?</h3>
+<h3>3.6.4 Does PCA ever fail?</h3>
 <p>Yes. While we have shown a great example today of how PCA works,
 there are certainly exceptions to using this method. A major caveat to
 recall is that this is based on linear relationships being projected
@@ -3835,7 +3741,7 @@ about some of those methods in section 4.0.0.</p>
 <hr />
 </div>
 <div id="was-it-worth-it-to-use-pca" class="section level3">
-<h3>3.5.5 Was it worth it to use PCA?</h3>
+<h3>3.6.5 Was it worth it to use PCA?</h3>
 <p>From our estimations, the clustering choices look near identical
 between k-means and PCA. However, what we’ve really shown is that
 thousands of features can be distilled and combined into just 2
@@ -3850,7 +3756,7 @@ set!</p>
 </div>
 </div>
 <div id="restart-your-r-session" class="section level2">
-<h2>3.6.0 Restart your R Session!</h2>
+<h2>3.7.0 Restart your R Session!</h2>
 <p>At this point, we’ve accumulated a lot of data in memory. We won’t
 need our previous data anymore so let’s restart R from the menu
 (Session&gt;Restart R) and reload the libraries we’ll need.</p>
@@ -4386,11 +4292,11 @@ under the “assignment” subfolder. It will include an R markdown notebook
 that you will use to produce the code and answers for this week’s
 assignment. Please provide answers in markdown or code cells that
 immediately follow each question section.</p>
-<table style="width:99%;">
+<table>
 <colgroup>
-<col width="22%" />
-<col width="24%" />
-<col width="52%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr>
