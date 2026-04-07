@@ -3024,15 +3024,29 @@ median and centroid.</li>
 to be split into - represented by colours.</p></li>
 </ul>
 <pre class="r"><code># Make a cluster object and take a look at it
-rnaSeq.hc &lt;- ...(dist(t(rnaSeq_trimmed.mx)), 
-                 method = ...)</code></pre>
-<pre><code>## Error in ...(dist(t(rnaSeq_trimmed.mx)), method = ...): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># What does our hclust object contain?
+rnaSeq.hc &lt;- hclust(dist(t(rnaSeq_trimmed.mx)), 
+                 method = &quot;ward.D2&quot;)
+
+# What does our hclust object contain?
 str(rnaSeq.hc)</code></pre>
-<pre><code>## Error in str(rnaSeq.hc): object &#39;rnaSeq.hc&#39; not found</code></pre>
+<pre><code>## List of 7
+##  $ merge      : int [1:82, 1:2] -27 -63 -60 -23 -62 -5 -72 -78 -20 -64 ...
+##  $ height     : num [1:82] 855 862 899 921 940 ...
+##  $ order      : int [1:83] 30 16 29 23 24 34 26 25 31 27 ...
+##  $ labels     : chr [1:83] &quot;B.fo.Sp#1.1&quot; &quot;B.fo.Sp#1.10&quot; &quot;B.fo.Sp#1.11&quot; &quot;B.fo.Sp#1.12&quot; ...
+##  $ method     : chr &quot;ward.D2&quot;
+##  $ call       : language hclust(d = dist(t(rnaSeq_trimmed.mx)), method = &quot;ward.D2&quot;)
+##  $ dist.method: chr &quot;euclidean&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;hclust&quot;</code></pre>
 <pre class="r"><code># What does our merge matrix look like?
-head(rnaSeq.hc$...)</code></pre>
-<pre><code>## Error in head(rnaSeq.hc$...): object &#39;rnaSeq.hc&#39; not found</code></pre>
+head(rnaSeq.hc$merge)</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]  -27  -28
+## [2,]  -63  -70
+## [3,]  -60  -74
+## [4,]  -23  -24
+## [5,]  -62  -65
+## [6,]   -5   -6</code></pre>
 <hr />
 </div>
 <div id="plot-your-cluster-object-using-fviz_dend-from-the-package-factoextra" class="section level3">
