@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:23:49 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:27:05 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,11 +1894,11 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578123145f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65787bab6994\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578123145f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65787bab6994\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578123145f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65787bab6994\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1927,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65786029723c/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65786f8138fb/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1990,7 +1990,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:25:43 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:28:55 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -2178,8 +2178,15 @@ tb_metadata.df &lt;- read_tsv(&quot;data/nextstrain_tb_global_metadata.tsv&quot;
 ## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
 ## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code># What does the tree look like as a structure?
-str(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+str(tb_variants_time.phylo)</code></pre>
+<pre><code>## List of 5
+##  $ edge       : int [1:2122, 1:2] 1136 1137 1138 1139 1139 1140 1141 1141 1142 1142 ...
+##  $ edge.length: num [1:2122] 0.00 2.40e-05 4.88e-05 1.17e-04 5.08e-05 ...
+##  $ Nnode      : int 988
+##  $ tip.label  : chr [1:1135] &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336166&quot; &quot;ERR5336169&quot; ...
+##  $ root.edge  : num 0
+##  - attr(*, &quot;class&quot;)= chr &quot;phylo&quot;
+##  - attr(*, &quot;order&quot;)= chr &quot;cladewise&quot;</code></pre>
 <pre class="r"><code># How does it print?
 tb_variants_time.phylo</code></pre>
 <pre><code>## 
@@ -2201,7 +2208,7 @@ bifurcate).</p>
 the accession number given to each individual strain entry. We should be
 able to link this information back to our metadata as well. Notice that
 there are 1135 tips reported and 988 internal nodes. In total, our tree
-has 2123 nodes.</p>
+has 2122 nodes.</p>
 <hr />
 </div>
 <div id="convert-the-tree-object-to-a-tibble-for-adding-external-information" class="section level3">
@@ -2221,13 +2228,21 @@ kind of tidy data frame.</p>
 <p>Let’s convert our variant phylo object to something we can work
 with.</p>
 <pre class="r"><code># Convert the phylo object using as_tibble
-tb_variants_time.tb &lt;- ...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Check out the structure now
+tb_variants_time.tb &lt;- tidytree::as_tibble
+
+# Check out the structure now
 str(tb_variants_time.tb)</code></pre>
-<pre><code>## Error in str(tb_variants_time.tb): object &#39;tb_variants_time.tb&#39; not found</code></pre>
+<pre><code>## function (x, ..., .rows = NULL, .name_repair = c(&quot;check_unique&quot;, &quot;unique&quot;, 
+##     &quot;universal&quot;, &quot;minimal&quot;), rownames = pkgconfig::get_config(&quot;tibble::rownames&quot;, 
+##     NULL))</code></pre>
 <pre class="r"><code>head(tb_variants_time.tb)</code></pre>
-<pre><code>## Error in head(tb_variants_time.tb): object &#39;tb_variants_time.tb&#39; not found</code></pre>
+<pre><code>##                                                                                               
+## 1 function (x, ..., .rows = NULL, .name_repair = c(&quot;check_unique&quot;,                            
+## 2     &quot;unique&quot;, &quot;universal&quot;, &quot;minimal&quot;), rownames = pkgconfig::get_config(&quot;tibble::rownames&quot;, 
+## 3     NULL))                                                                                  
+## 4 {                                                                                           
+## 5     UseMethod(&quot;as_tibble&quot;)                                                                  
+## 6 }</code></pre>
 <hr />
 </div>
 </div>
