@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:53:48 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:57:12 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,9 +1894,11 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65786d744503\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578640878ec\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65786d744503\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578640878ec\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+  
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578640878ec\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1925,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file6578421c46dc/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file657811a06f6f/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1988,7 +1990,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:55:46 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:59:13 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -3259,14 +3261,14 @@ curated_tips &lt;-
 
 # Take a quick look at the tips we&#39;ve selected
 curated_tips</code></pre>
-<pre><code>##  [1] &quot;ERR6337069&quot;  &quot;SRR1792274&quot;  &quot;ERR12976116&quot; &quot;SRR1792151&quot;  &quot;SRR27449966&quot;
-##  [6] &quot;SRR31100623&quot; &quot;ERR13291168&quot; &quot;ERR1462611&quot;  &quot;ERR13149108&quot; &quot;ERR1462618&quot; 
-## [11] &quot;SRR32327398&quot; &quot;DRR750139&quot;   &quot;SRR5338518&quot;  &quot;SRR5709998&quot;  &quot;SRR12006545&quot;
-## [16] &quot;SRR28741112&quot; &quot;SRR28515970&quot; &quot;SRR10303333&quot; &quot;DRR473764&quot;   &quot;SRR28868858&quot;
-## [21] &quot;SRR1735613&quot;  &quot;SRR29289413&quot; &quot;SRR31008646&quot; &quot;SRR6152969&quot;  &quot;ERR040133&quot;  
-## [26] &quot;SRR29906774&quot; &quot;SRR4034720&quot;  &quot;SRR4034545&quot;  &quot;SRR36421142&quot; &quot;ERR8775776&quot; 
-## [31] &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR18715441&quot; &quot;ERR5336170&quot;  &quot;SRR29341580&quot;
-## [36] &quot;ERR5336144&quot;  &quot;ERR5336166&quot;  &quot;ERR3799588&quot;  &quot;ERR14869894&quot; &quot;ERR2704688&quot; 
+<pre><code>##  [1] &quot;SRR11418314&quot; &quot;SRR13199722&quot; &quot;SRR21689921&quot; &quot;SRR7617751&quot;  &quot;SRR7617526&quot; 
+##  [6] &quot;ERR1462618&quot;  &quot;ERR1462580&quot;  &quot;ERR1462584&quot;  &quot;ERR1462611&quot;  &quot;ERR13149108&quot;
+## [11] &quot;SRR29056188&quot; &quot;SRR6397704&quot;  &quot;SRR17729359&quot; &quot;SRR33936000&quot; &quot;SRR29017710&quot;
+## [16] &quot;SRR6807763&quot;  &quot;SRR29539322&quot; &quot;ERR176799&quot;   &quot;SRR5552376&quot;  &quot;ERR144573&quot;  
+## [21] &quot;SRR29289413&quot; &quot;SRR6153150&quot;  &quot;ERR6358714&quot;  &quot;SRR29341611&quot; &quot;ERR2512375&quot; 
+## [26] &quot;SRR28351500&quot; &quot;SRR36877571&quot; &quot;SRR31892331&quot; &quot;SRR8703882&quot;  &quot;ERR025453&quot;  
+## [31] &quot;ERR5336170&quot;  &quot;ERR15418590&quot; &quot;ERR15418602&quot; &quot;SRR29341535&quot; &quot;SRR24302113&quot;
+## [36] &quot;ERR3799588&quot;  &quot;ERR5336169&quot;  &quot;ERR5336144&quot;  &quot;ERR14869817&quot; &quot;ERR2704688&quot; 
 ## [41] &quot;ERR1971865&quot;  &quot;SRR10828835&quot; &quot;ERR5336171&quot;</code></pre>
 <hr />
 <p>We now have a vector of 43 tips which suggests that we didn’t quite
@@ -3299,17 +3301,17 @@ curated_tree_info.df &lt;-
 <pre class="r"><code># Look at the structure of the data frame
 str(curated_tree_info.df)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
-##  $ parent             : int  46 48 48 49 50 50 52 54 54 55 ...
+##  $ parent             : int  46 48 48 49 50 50 52 53 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 7.10e-05 4.38e-05 ...
-##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336166&quot; &quot;ERR2704688&quot; ...
-##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2017-07-21&quot; &quot;2008-02-05&quot; ...
+##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 7.10e-05 3.05e-05 ...
+##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336169&quot; &quot;ERR2704688&quot; ...
+##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2018-05-03&quot; &quot;2008-02-05&quot; ...
 ##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Ghana&quot; ...
 ##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 70 110 69 86 122 137 35 177 ...
+##  $ target_median_depth: num  207 112 78 110 104 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
 ##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.2.1&quot; ...
-##  $ num_dr_variants    : num  0 0 0 0 0 1 0 0 0 0 ...
+##  $ num_dr_variants    : num  0 0 0 0 1 1 0 0 0 0 ...
 ##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; ...
 ##  $ rifampicin         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ amikacin           : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
@@ -3319,15 +3321,15 @@ str(curated_tree_info.df)</code></pre>
 ##  $ ethambutol         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...</code></pre>
 <pre class="r"><code># What are the labels of our nodes like?
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336166&quot;  &quot;ERR2704688&quot;  &quot;ERR14869894&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;SRR27449966&quot; &quot;ERR12976116&quot; &quot;ERR6337069&quot;  &quot;SRR1792274&quot; 
-## [16] &quot;SRR1792151&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341580&quot; &quot;ERR5336170&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR12006545&quot; &quot;SRR5338518&quot;  &quot;DRR750139&quot;  
-## [26] &quot;SRR5709998&quot;  &quot;SRR32327398&quot; &quot;ERR1971865&quot;  &quot;SRR31008646&quot; &quot;SRR6152969&quot; 
-## [31] &quot;SRR1735613&quot;  &quot;SRR29289413&quot; &quot;ERR040133&quot;   &quot;SRR28741112&quot; &quot;SRR28515970&quot;
-## [36] &quot;DRR473764&quot;   &quot;SRR28868858&quot; &quot;SRR10303333&quot; &quot;ERR8775776&quot;  &quot;SRR4034545&quot; 
-## [41] &quot;SRR4034720&quot;  &quot;SRR36421142&quot; &quot;SRR29906774&quot; NA            NA           
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR2704688&quot;  &quot;ERR14869817&quot;
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR1462584&quot;  &quot;ERR1462580&quot;  &quot;ERR1462611&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR21689921&quot; &quot;SRR11418314&quot; &quot;SRR13199722&quot; &quot;SRR7617751&quot; 
+## [16] &quot;SRR7617526&quot;  &quot;ERR15418602&quot; &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot;
+## [21] &quot;ERR5336170&quot;  &quot;SRR10828835&quot; &quot;SRR6397704&quot;  &quot;SRR33936000&quot; &quot;SRR17729359&quot;
+## [26] &quot;SRR29056188&quot; &quot;SRR29017710&quot; &quot;ERR1971865&quot;  &quot;SRR29341611&quot; &quot;SRR29289413&quot;
+## [31] &quot;ERR6358714&quot;  &quot;ERR2512375&quot;  &quot;SRR6153150&quot;  &quot;ERR176799&quot;   &quot;SRR5552376&quot; 
+## [36] &quot;ERR144573&quot;   &quot;SRR29539322&quot; &quot;SRR6807763&quot;  &quot;SRR28351500&quot; &quot;ERR025453&quot;  
+## [41] &quot;SRR8703882&quot;  &quot;SRR36877571&quot; &quot;SRR31892331&quot; NA            NA           
 ## [46] NA            NA            NA            NA            NA           
 ## [51] NA            NA            NA            NA            NA           
 ## [56] NA            NA            NA            NA            NA           
@@ -3374,15 +3376,15 @@ curated_tree_info.df$label[is.na(curated_tree_info.df$label)] &lt;- node_replace
 
 # Check if the process worked
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336166&quot;  &quot;ERR2704688&quot;  &quot;ERR14869894&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;SRR27449966&quot; &quot;ERR12976116&quot; &quot;ERR6337069&quot;  &quot;SRR1792274&quot; 
-## [16] &quot;SRR1792151&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341580&quot; &quot;ERR5336170&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR12006545&quot; &quot;SRR5338518&quot;  &quot;DRR750139&quot;  
-## [26] &quot;SRR5709998&quot;  &quot;SRR32327398&quot; &quot;ERR1971865&quot;  &quot;SRR31008646&quot; &quot;SRR6152969&quot; 
-## [31] &quot;SRR1735613&quot;  &quot;SRR29289413&quot; &quot;ERR040133&quot;   &quot;SRR28741112&quot; &quot;SRR28515970&quot;
-## [36] &quot;DRR473764&quot;   &quot;SRR28868858&quot; &quot;SRR10303333&quot; &quot;ERR8775776&quot;  &quot;SRR4034545&quot; 
-## [41] &quot;SRR4034720&quot;  &quot;SRR36421142&quot; &quot;SRR29906774&quot; &quot;NODE_1&quot;      &quot;NODE_2&quot;     
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR2704688&quot;  &quot;ERR14869817&quot;
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR1462584&quot;  &quot;ERR1462580&quot;  &quot;ERR1462611&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR21689921&quot; &quot;SRR11418314&quot; &quot;SRR13199722&quot; &quot;SRR7617751&quot; 
+## [16] &quot;SRR7617526&quot;  &quot;ERR15418602&quot; &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot;
+## [21] &quot;ERR5336170&quot;  &quot;SRR10828835&quot; &quot;SRR6397704&quot;  &quot;SRR33936000&quot; &quot;SRR17729359&quot;
+## [26] &quot;SRR29056188&quot; &quot;SRR29017710&quot; &quot;ERR1971865&quot;  &quot;SRR29341611&quot; &quot;SRR29289413&quot;
+## [31] &quot;ERR6358714&quot;  &quot;ERR2512375&quot;  &quot;SRR6153150&quot;  &quot;ERR176799&quot;   &quot;SRR5552376&quot; 
+## [36] &quot;ERR144573&quot;   &quot;SRR29539322&quot; &quot;SRR6807763&quot;  &quot;SRR28351500&quot; &quot;ERR025453&quot;  
+## [41] &quot;SRR8703882&quot;  &quot;SRR36877571&quot; &quot;SRR31892331&quot; &quot;NODE_1&quot;      &quot;NODE_2&quot;     
 ## [46] &quot;NODE_3&quot;      &quot;NODE_4&quot;      &quot;NODE_5&quot;      &quot;NODE_6&quot;      &quot;NODE_7&quot;     
 ## [51] &quot;NODE_8&quot;      &quot;NODE_9&quot;      &quot;NODE_10&quot;     &quot;NODE_11&quot;     &quot;NODE_12&quot;    
 ## [56] &quot;NODE_13&quot;     &quot;NODE_14&quot;     &quot;NODE_15&quot;     &quot;NODE_16&quot;     &quot;NODE_17&quot;    
@@ -3406,17 +3408,17 @@ rownames(curated_tree_info.df) &lt;- curated_tree_info.df$label
 # Let&#39;s view the tree
 str(curated_tree_info.df)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
-##  $ parent             : int  46 48 48 49 50 50 52 54 54 55 ...
+##  $ parent             : int  46 48 48 49 50 50 52 53 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 7.10e-05 4.38e-05 ...
-##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336166&quot; &quot;ERR2704688&quot; ...
-##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2017-07-21&quot; &quot;2008-02-05&quot; ...
+##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 7.10e-05 3.05e-05 ...
+##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336169&quot; &quot;ERR2704688&quot; ...
+##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2018-05-03&quot; &quot;2008-02-05&quot; ...
 ##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Ghana&quot; ...
 ##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 70 110 69 86 122 137 35 177 ...
+##  $ target_median_depth: num  207 112 78 110 104 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
 ##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.2.1&quot; ...
-##  $ num_dr_variants    : num  0 0 0 0 0 1 0 0 0 0 ...
+##  $ num_dr_variants    : num  0 0 0 0 1 1 0 0 0 0 ...
 ##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; ...
 ##  $ rifampicin         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ amikacin           : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
@@ -4380,7 +4382,7 @@ SC2_metadata.df %&gt;%
          &#39;Nextstrain clade&#39;, &#39;GISAID clade&#39;, &#39;PANGO lineage&#39;, &#39;Collection Data&#39;) %&gt;% 
   
   # Do a bunch of renaming for our variables
-  mutate(source_location = &#39;Admin Division of exposure&#39;, 
+  rename(source_location = &#39;Admin Division of exposure&#39;, 
          case_location = &#39;Admin Division&#39;,
          source_region = &#39;Region of exposure&#39;,
          case_region = &#39;Region&#39;,
@@ -4393,7 +4395,7 @@ SC2_metadata.df %&gt;%
 head(SC2_graph_info.df)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Admin Division"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Admin Division of exposure"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Region of exposure"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Region"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Nextstrain clade"],"name":[7],"type":["chr"],"align":["left"]},{"label":["GISAID clade"],"name":[8],"type":["chr"],"align":["left"]},{"label":["PANGO lineage"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Collection Data"],"name":[10],"type":["date"],"align":["right"]},{"label":["source_location"],"name":[11],"type":["chr"],"align":["left"]},{"label":["case_location"],"name":[12],"type":["chr"],"align":["left"]},{"label":["source_region"],"name":[13],"type":["chr"],"align":["left"]},{"label":["case_region"],"name":[14],"type":["chr"],"align":["left"]},{"label":["collection_date"],"name":[15],"type":["chr"],"align":["left"]},{"label":["Nextstrain"],"name":[16],"type":["chr"],"align":["left"]},{"label":["GISAID"],"name":[17],"type":["chr"],"align":["left"]},{"label":["PANGO"],"name":[18],"type":["chr"],"align":["left"]}],"data":[{"1":"Wuhan/WH01/2019","2":"Asia","3":"Asia","4":"Asia","5":"Asia","6":"Asia","7":"19A","8":"L","9":"B","10":"2019-12-26","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"USA/MA1/2020","2":"USA","3":"Massachusetts","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-29","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"Canada/ON_ON-VIDO-01-2/2020","2":"Canada","3":"Ontario","4":"Ontario","5":"North America","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-23","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"Canada/ON_VIDO-01/2020","2":"Canada","3":"Ontario","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-23","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"USA/CA-CDC-5/2020","2":"USA","3":"California","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-29","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"Taiwan/CGMH-CGU-02/2020","2":"Asia","3":"Asia","4":"Asia","5":"Asia","6":"Asia","7":"19A","8":"S","9":"B","10":"2020-02-04","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["case_location"],"name":[3],"type":["chr"],"align":["left"]},{"label":["source_location"],"name":[4],"type":["chr"],"align":["left"]},{"label":["source_region"],"name":[5],"type":["chr"],"align":["left"]},{"label":["case_region"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Nextstrain"],"name":[7],"type":["chr"],"align":["left"]},{"label":["GISAID"],"name":[8],"type":["chr"],"align":["left"]},{"label":["PANGO"],"name":[9],"type":["chr"],"align":["left"]},{"label":["collection_date"],"name":[10],"type":["date"],"align":["right"]}],"data":[{"1":"Wuhan/WH01/2019","2":"Asia","3":"Asia","4":"Asia","5":"Asia","6":"Asia","7":"19A","8":"L","9":"B","10":"2019-12-26"},{"1":"USA/MA1/2020","2":"USA","3":"Massachusetts","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-29"},{"1":"Canada/ON_ON-VIDO-01-2/2020","2":"Canada","3":"Ontario","4":"Ontario","5":"North America","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-23"},{"1":"Canada/ON_VIDO-01/2020","2":"Canada","3":"Ontario","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-23"},{"1":"USA/CA-CDC-5/2020","2":"USA","3":"California","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-29"},{"1":"Taiwan/CGMH-CGU-02/2020","2":"Asia","3":"Asia","4":"Asia","5":"Asia","6":"Asia","7":"19A","8":"S","9":"B","10":"2020-02-04"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <hr />
@@ -4544,8 +4546,8 @@ SC2_graph_info.df %&gt;%
       geom_edge_link(aes(colour = Nextstrain), arrow=arrow(), width = 1) +
 
       ### 2.2.0 Add our nodes and label them
-      ...(size = 7) + 
-      ...(aes(label = name), size = 5, repel = TRUE)</code></pre>
+      geom_node_point(size = 7) + 
+      geom_node_text(aes(label = name), size = 5, repel = TRUE)</code></pre>
 <pre><code>## Error in ggraph(.): could not find function &quot;ggraph&quot;</code></pre>
 <hr />
 <div id="use-geom_edge_fan-to-visualize-parallel-edges" class="section level3">
