@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:45:16 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:51:33 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,9 +1894,11 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657826ec2feb\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783ee312f8\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657826ec2feb\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783ee312f8\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+  
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783ee312f8\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1925,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file657814275000/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file657861515067/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1988,7 +1990,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:47:08 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:53:27 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -3013,7 +3015,7 @@ tb_variants_time.tree %&gt;%
     # 4. Geoms
     # Add tips labels to our tree tips
     ### 1.6.1 Change our tip shape by country
-    ...  # Add tips only    </code></pre>
+    geom_tippoint(aes(shape = country), alpha = 0.7, size = 3)  # Add tips only    </code></pre>
 <pre><code>## Error in ggtree(tr = .): could not find function &quot;ggtree&quot;</code></pre>
 <hr />
 </div>
@@ -3081,20 +3083,20 @@ to_view &lt;-
   tb_metadata.df %&gt;% 
   
     # Filter our tip information for 2 lineages and their North American samples
-    filter(main_lineage %in% ...,
+    filter(main_lineage %in% c(&quot;lineage1&quot;, &quot;lineage2&quot;),
            region == &quot;North America&quot;,
            year &gt;= 2000
           ) %&gt;% 
   
     # Just keep the strain names
-    pull(strain)</code></pre>
-<pre><code>## [1m[33mError[39m in `filter()`:[22m
-## [1m[22m[36mi[39m In argument: `main_lineage %in% ...`.
-## [1mCaused by error:[22m
-## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># What&#39;s the list look like?
+    pull(strain)
+
+# What&#39;s the list look like?
 to_view</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;to_view&#39; not found</code></pre>
+<pre><code>##  [1] &quot;SRR6397704&quot;  &quot;SRR33936000&quot; &quot;SRR6152874&quot;  &quot;SRR7496547&quot;  &quot;SRR16058030&quot;
+##  [6] &quot;SRR19128039&quot; &quot;SRR19320511&quot; &quot;SRR29056188&quot; &quot;SRR28073398&quot; &quot;SRR28073428&quot;
+## [11] &quot;SRR28073466&quot; &quot;SRR31874198&quot; &quot;SRR1765888&quot;  &quot;SRR6152798&quot;  &quot;SRR28859852&quot;
+## [16] &quot;SRR7453049&quot;  &quot;SRR6397530&quot;</code></pre>
 <hr />
 <p>Our efforts yield 17 strains that match our criteria. Now we’ll look
 for the most recent common ancestor of these strains within the same
