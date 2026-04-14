@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:33:28 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:37:39 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,9 +1894,11 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657824d052ac\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578566241a4\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657824d052ac\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578566241a4\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+  
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578566241a4\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1925,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file6578747e5c4f/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file6578204d5f81/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1988,7 +1990,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:35:16 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:39:32 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -2586,21 +2588,56 @@ tb_variants_time.tree &lt;-
   tb_metadata.df %&gt;% 
   
   # Select just a handful of attributes to go to the tree
-  ...(strain, date, country, region, 
+  select(strain, date, country, region, 
          target_median_depth, main_lineage, sub_lineage, 
          num_dr_variants, drtype, 
          rifampicin, amikacin, streptomycin, isoniazid, pyrazinamide, ethambutol) %&gt;% 
 
   # left_join to our tree to ensure no data is lost from our left-side table
   # although you could also carefully use a full_join
-  left_join(x=..., y=..., by=...) %&gt;% 
+  left_join(x=tb_variants_time.tb, y=., by=c(&quot;label&quot; = &quot;strain&quot;)) %&gt;% 
   
   # Convert to a tidytree format
-  as.treedata()</code></pre>
-<pre><code>## Error in as.treedata(.): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Look at the resulting structure
+  as.treedata()
+
+# Look at the resulting structure
 str(tb_variants_time.tree)</code></pre>
-<pre><code>## Error in str(tb_variants_time.tree): object &#39;tb_variants_time.tree&#39; not found</code></pre>
+<pre><code>## Formal class &#39;treedata&#39; [package &quot;tidytree&quot;] with 11 slots
+##   ..@ file       : chr(0) 
+##   ..@ treetext   : chr(0) 
+##   ..@ phylo      :List of 4
+##   .. ..$ edge       : int [1:2122, 1:2] 1139 1141 1142 1142 1143 1145 1145 1146 1147 1147 ...
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : NULL
+##   .. .. .. ..$ : chr [1:2] &quot;parent&quot; &quot;node&quot;
+##   .. ..$ edge.length: num [1:2122] 1.17e-04 5.67e-05 0.00 0.00 7.10e-05 ...
+##   .. ..$ tip.label  : chr [1:1135] &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336166&quot; &quot;ERR5336169&quot; ...
+##   .. ..$ Nnode      : int 988
+##   .. ..- attr(*, &quot;class&quot;)= chr &quot;phylo&quot;
+##   ..@ data       : tibble [2,123 x 15] (S3: tbl_df/tbl/data.frame)
+##   .. ..$ node               : int [1:2123] 1 2 3 4 5 6 7 8 9 10 ...
+##   .. ..$ date               : chr [1:2123] &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2017-07-21&quot; &quot;2018-05-03&quot; ...
+##   .. ..$ country            : chr [1:2123] &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; ...
+##   .. ..$ region             : chr [1:2123] &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; ...
+##   .. ..$ target_median_depth: num [1:2123] 207 112 70 78 110 67 69 104 159 86 ...
+##   .. ..$ main_lineage       : chr [1:2123] &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
+##   .. ..$ sub_lineage        : chr [1:2123] &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.3.2&quot; ...
+##   .. ..$ num_dr_variants    : num [1:2123] 0 0 0 0 0 3 0 1 1 1 ...
+##   .. ..$ drtype             : chr [1:2123] &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; ...
+##   .. ..$ rifampicin         : chr [1:2123] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ amikacin           : chr [1:2123] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ streptomycin       : chr [1:2123] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ isoniazid          : chr [1:2123] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ pyrazinamide       : chr [1:2123] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ ethambutol         : chr [1:2123] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   ..@ extraInfo  : tibble [0 x 0] (S3: tbl_df/tbl/data.frame)
+##  Named list()
+##   ..@ tip_seq    : NULL
+##   ..@ anc_seq    : NULL
+##   ..@ seq_type   : chr(0) 
+##   ..@ tipseq_file: chr(0) 
+##   ..@ ancseq_file: chr(0) 
+##   ..@ info       : list()</code></pre>
 <hr />
 </div>
 <div id="how-to-access-s4-object-types" class="section level3">
@@ -2619,11 +2656,21 @@ the <code>tbl_tree</code> before converting it is stored in the
 sequencing information for comparison in different types of phylogenetic
 tree visualizations.</p>
 <pre class="r"><code># Grab our phylo object
-...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+tb_variants_time.tree@phylo</code></pre>
+<pre><code>## 
+## Phylogenetic tree with 1135 tips and 988 internal nodes.
+## 
+## Tip labels:
+##   ERR5336171, ERR5336144, ERR5336166, ERR5336169, ERR2704688, ERR14869679, ...
+## 
+## Rooted; includes branch length(s).</code></pre>
 <pre class="r"><code># Take a peek at our associated node
-head(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+head(tb_variants_time.tree@data)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["node"],"name":[1],"type":["int"],"align":["right"]},{"label":["date"],"name":[2],"type":["chr"],"align":["left"]},{"label":["country"],"name":[3],"type":["chr"],"align":["left"]},{"label":["region"],"name":[4],"type":["chr"],"align":["left"]},{"label":["target_median_depth"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["main_lineage"],"name":[6],"type":["chr"],"align":["left"]},{"label":["sub_lineage"],"name":[7],"type":["chr"],"align":["left"]},{"label":["num_dr_variants"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["drtype"],"name":[9],"type":["chr"],"align":["left"]},{"label":["rifampicin"],"name":[10],"type":["chr"],"align":["left"]},{"label":["amikacin"],"name":[11],"type":["chr"],"align":["left"]},{"label":["streptomycin"],"name":[12],"type":["chr"],"align":["left"]},{"label":["isoniazid"],"name":[13],"type":["chr"],"align":["left"]},{"label":["pyrazinamide"],"name":[14],"type":["chr"],"align":["left"]},{"label":["ethambutol"],"name":[15],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"2020-04-28","3":"Norway","4":"Europe","5":"207","6":"lineage9","7":"lineage9","8":"0","9":"Sensitive","10":"-","11":"-","12":"-","13":"-","14":"-","15":"-"},{"1":"2","2":"2010-11-03","3":"Norway","4":"Europe","5":"112","6":"lineage6","7":"lineage6.3.1","8":"0","9":"Sensitive","10":"-","11":"-","12":"-","13":"-","14":"-","15":"-"},{"1":"3","2":"2017-07-21","3":"Norway","4":"Europe","5":"70","6":"lineage6","7":"lineage6.3.2","8":"0","9":"Sensitive","10":"-","11":"-","12":"-","13":"-","14":"-","15":"-"},{"1":"4","2":"2018-05-03","3":"Norway","4":"Europe","5":"78","6":"lineage6","7":"lineage6.3.2","8":"0","9":"Sensitive","10":"-","11":"-","12":"-","13":"-","14":"-","15":"-"},{"1":"5","2":"2008-02-05","3":"Ghana","4":"Africa","5":"110","6":"lineage6","7":"lineage6.2.1","8":"0","9":"Sensitive","10":"-","11":"-","12":"-","13":"-","14":"-","15":"-"},{"1":"6","2":"2005-XX-XX","3":"Gambia","4":"Africa","5":"67","6":"lineage6","7":"lineage6.1.1","8":"3","9":"HR-TB","10":"-","11":"-","12":"-","13":"ahpC c.-48G>A (0.12), ahpC c.-81C>T (0.13), katG c.133_134insG (1.00)","14":"-","15":"-"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 </div>
