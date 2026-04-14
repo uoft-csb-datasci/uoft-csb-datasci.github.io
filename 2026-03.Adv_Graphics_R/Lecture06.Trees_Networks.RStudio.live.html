@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:51:33 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:55:50 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,11 +1894,11 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783ee312f8\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65784f463bb2\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783ee312f8\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65784f463bb2\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783ee312f8\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65784f463bb2\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1927,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file657861515067/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file657859fe14b2/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1990,7 +1990,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:53:27 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:57:42 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -3112,11 +3112,23 @@ to_view_MRCA &lt;-
   drop.tip(., to_drop) %&gt;%
   
   # Determine the MRCA between the tips in the list
-  MRCA(., ...)</code></pre>
-<pre><code>## Error in tb_variants_time.tree %&gt;% drop.tip(., to_drop) %&gt;% MRCA(., ...): &#39;...&#39; used in an incorrect context</code></pre>
+  MRCA(., to_view)</code></pre>
+<pre><code>## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.
+## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.</code></pre>
 <pre class="r"><code># What kind of value does MRCA() return?
 to_view_MRCA</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;to_view_MRCA&#39; not found</code></pre>
+<pre><code>## [1] 105</code></pre>
 <pre class="r"><code># How many offspring does our MRCA have in our tree?
 
 # Pass along our tree information
@@ -3127,11 +3139,47 @@ tb_variants_time.tree %&gt;%
   # make a tibble so we can see all the relevant information
   as_tibble() %&gt;% 
   # Find the offspring of a specific node
-  ... %&gt;% 
+  offspring(., to_view_MRCA) %&gt;% 
   # Convert to a tree
   as.treedata() %&gt;% 
   str()</code></pre>
-<pre><code>## Error in ...(.): could not find function &quot;...&quot;</code></pre>
+<pre><code>## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.</code></pre>
+<pre><code>## Formal class &#39;treedata&#39; [package &quot;tidytree&quot;] with 11 slots
+##   ..@ file       : chr(0) 
+##   ..@ treetext   : chr(0) 
+##   ..@ phylo      :List of 4
+##   .. ..$ edge       : int [1:97, 1:2] 107 108 109 110 110 110 111 111 114 114 ...
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : NULL
+##   .. .. .. ..$ : chr [1:2] &quot;parent&quot; &quot;node&quot;
+##   .. ..$ edge.length: num [1:97] 3.28e-05 2.44e-05 1.60e-05 1.08e-05 1.56e-05 ...
+##   .. ..$ tip.label  : chr [1:52] &quot;SRR6397704&quot; &quot;SRR33936000&quot; &quot;SRR6152874&quot; &quot;SRR7496547&quot; ...
+##   .. ..$ Nnode      : int 45
+##   .. ..- attr(*, &quot;class&quot;)= chr &quot;phylo&quot;
+##   ..@ data       : tibble [97 x 15] (S3: tbl_df/tbl/data.frame)
+##   .. ..$ node               : int [1:97] 29 30 31 32 33 34 35 36 37 38 ...
+##   .. ..$ date               : chr [1:97] &quot;2004-XX-XX&quot; &quot;2022-XX-XX&quot; &quot;2008-XX-XX&quot; &quot;2010-XX-XX&quot; ...
+##   .. ..$ country            : chr [1:97] &quot;Canada&quot; &quot;USA&quot; &quot;Canada&quot; &quot;USA&quot; ...
+##   .. ..$ region             : chr [1:97] &quot;North America&quot; &quot;North America&quot; &quot;North America&quot; &quot;North America&quot; ...
+##   .. ..$ target_median_depth: num [1:97] 175 73 132 118 84 ...
+##   .. ..$ main_lineage       : chr [1:97] &quot;lineage1&quot; &quot;lineage1&quot; &quot;lineage1&quot; &quot;lineage1&quot; ...
+##   .. ..$ sub_lineage        : chr [1:97] &quot;lineage1.2.1.2&quot; &quot;lineage1.2.1.2.1&quot; &quot;lineage1.2.1.2.1&quot; &quot;lineage1.2.1.2.1&quot; ...
+##   .. ..$ num_dr_variants    : num [1:97] 0 0 1 0 0 0 0 1 1 1 ...
+##   .. ..$ drtype             : chr [1:97] &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Other&quot; &quot;Sensitive&quot; ...
+##   .. ..$ rifampicin         : chr [1:97] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ amikacin           : chr [1:97] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ streptomycin       : chr [1:97] &quot;-&quot; &quot;-&quot; &quot;gid c.195dupC (1.00)&quot; &quot;-&quot; ...
+##   .. ..$ isoniazid          : chr [1:97] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ pyrazinamide       : chr [1:97] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   .. ..$ ethambutol         : chr [1:97] &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
+##   ..@ extraInfo  : tibble [0 x 0] (S3: tbl_df/tbl/data.frame)
+##  Named list()
+##   ..@ tip_seq    : NULL
+##   ..@ anc_seq    : NULL
+##   ..@ seq_type   : chr(0) 
+##   ..@ tipseq_file: chr(0) 
+##   ..@ ancseq_file: chr(0) 
+##   ..@ info       : list()</code></pre>
 <hr />
 <div id="pass-a-ggplot2-object-to-viewclade" class="section level3">
 <h3>1.7.1 Pass a <code>ggplot2</code> object to
@@ -3185,8 +3233,8 @@ tb_variants_time.tree %&gt;%
 <pre class="r"><code>tree.plot</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;tree.plot&#39; not found</code></pre>
 <pre class="r"><code>### 1.7.1 View the clade we made using the same MRCA call we already used.
-viewClade(tree.plot, ...)</code></pre>
-<pre><code>## Error in viewClade(tree.plot, ...): could not find function &quot;viewClade&quot;</code></pre>
+viewClade(tree.plot, MRCA(tree.plot, to_view))</code></pre>
+<pre><code>## Error in viewClade(tree.plot, MRCA(tree.plot, to_view)): could not find function &quot;viewClade&quot;</code></pre>
 <hr />
 </div>
 </div>
