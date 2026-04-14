@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:46:05 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:49:27 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,7 +1894,11 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657855ae7d75\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657828ff5086\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+  
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657828ff5086\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+  
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657828ff5086\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1923,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file657843b43fb2/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65783637b43/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1986,7 +1990,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:48:01 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:51:22 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -3257,14 +3261,14 @@ curated_tips &lt;-
 
 # Take a quick look at the tips we&#39;ve selected
 curated_tips</code></pre>
-<pre><code>##  [1] &quot;SRR13199762&quot; &quot;SRR21689921&quot; &quot;SRR33251930&quot; &quot;ERR6199027&quot;  &quot;SRR7851382&quot; 
-##  [6] &quot;ERR13291168&quot; &quot;ERR13149108&quot; &quot;ERR1462618&quot;  &quot;SRR31100623&quot; &quot;ERR1462611&quot; 
-## [11] &quot;SRR5710004&quot;  &quot;SRR29081004&quot; &quot;SRR29341608&quot; &quot;ERR15278557&quot; &quot;DRR034523&quot;  
-## [16] &quot;SRR29055891&quot; &quot;SRR33867276&quot; &quot;ERR4553982&quot;  &quot;ERR15577552&quot; &quot;SRR24256243&quot;
-## [21] &quot;SRR31322823&quot; &quot;SRR14520128&quot; &quot;SRR22250197&quot; &quot;ERR2245401&quot;  &quot;ERR2245346&quot; 
-## [26] &quot;ERR9786096&quot;  &quot;SRR11241400&quot; &quot;ERR2791538&quot;  &quot;SRR26865722&quot; &quot;SRR21732908&quot;
-## [31] &quot;SRR24302113&quot; &quot;ERR2704686&quot;  &quot;SRR29341535&quot; &quot;SRR29341580&quot; &quot;ERR15418590&quot;
-## [36] &quot;ERR14869475&quot; &quot;ERR14869817&quot; &quot;ERR5336169&quot;  &quot;ERR5336166&quot;  &quot;ERR3799588&quot; 
+<pre><code>##  [1] &quot;SRR7851364&quot;  &quot;ERR6199027&quot;  &quot;ERR1744454&quot;  &quot;SRR27449966&quot; &quot;SRR5216884&quot; 
+##  [6] &quot;ERR1462580&quot;  &quot;ERR1462584&quot;  &quot;SRR31100623&quot; &quot;ERR13149108&quot; &quot;ERR13291168&quot;
+## [11] &quot;ERR164000&quot;   &quot;SRR5338515&quot;  &quot;DRR750139&quot;   &quot;SRR30336487&quot; &quot;SRR29440769&quot;
+## [16] &quot;SRR13180350&quot; &quot;ERR4553937&quot;  &quot;ERR13258006&quot; &quot;ERR12945360&quot; &quot;SRR25395635&quot;
+## [21] &quot;SRR6152969&quot;  &quot;SRR19115680&quot; &quot;ERR2245292&quot;  &quot;ERR2245307&quot;  &quot;ERR13289978&quot;
+## [26] &quot;SRR32148201&quot; &quot;SRR29050670&quot; &quot;SRR13180378&quot; &quot;SRR29096201&quot; &quot;SRR8571813&quot; 
+## [31] &quot;ERR2704686&quot;  &quot;ERR15418590&quot; &quot;SRR29341580&quot; &quot;ERR5336170&quot;  &quot;SRR24302113&quot;
+## [36] &quot;ERR5336169&quot;  &quot;ERR14869475&quot; &quot;ERR3799588&quot;  &quot;ERR5336166&quot;  &quot;ERR14869817&quot;
 ## [41] &quot;ERR1971865&quot;  &quot;SRR10828835&quot; &quot;ERR5336171&quot;</code></pre>
 <hr />
 <p>We now have a vector of 43 tips which suggests that we didn’t quite
@@ -3296,7 +3300,7 @@ curated_tree_info.df &lt;-
 <pre><code>## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.</code></pre>
 <pre class="r"><code># Look at the structure of the data frame
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    85 obs. of  18 variables:
+<pre><code>## &#39;data.frame&#39;:    83 obs. of  18 variables:
 ##  $ parent             : int  46 48 48 49 50 50 52 54 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ branch.length      : num  1.17e-04 0.00 0.00 3.05e-05 2.24e-05 ...
@@ -3304,7 +3308,7 @@ str(curated_tree_info.df)</code></pre>
 ##  $ date               : chr  &quot;2020-04-28&quot; &quot;2017-07-21&quot; &quot;2018-05-03&quot; &quot;2018-XX-XX&quot; ...
 ##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
 ##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 70 78 104 159 86 122 137 35 177 ...
+##  $ target_median_depth: num  207 70 78 104 159 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
 ##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.2&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.3&quot; ...
 ##  $ num_dr_variants    : num  0 0 0 1 1 1 0 0 0 0 ...
@@ -3318,14 +3322,14 @@ str(curated_tree_info.df)</code></pre>
 <pre class="r"><code># What are the labels of our nodes like?
 curated_tree_info.df$label</code></pre>
 <pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336166&quot;  &quot;ERR5336169&quot;  &quot;ERR14869817&quot; &quot;ERR14869475&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;SRR21689921&quot; &quot;SRR13199762&quot; &quot;SRR33251930&quot; &quot;ERR6199027&quot; 
-## [16] &quot;SRR7851382&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;SRR29341580&quot;
-## [21] &quot;ERR2704686&quot;  &quot;SRR10828835&quot; &quot;DRR034523&quot;   &quot;SRR29081004&quot; &quot;SRR5710004&quot; 
-## [26] &quot;SRR29341608&quot; &quot;ERR15278557&quot; &quot;ERR1971865&quot;  &quot;SRR14520128&quot; &quot;SRR22250197&quot;
-## [31] &quot;SRR31322823&quot; &quot;ERR2245401&quot;  &quot;ERR2245346&quot;  &quot;ERR4553982&quot;  &quot;SRR29055891&quot;
-## [36] &quot;SRR24256243&quot; &quot;SRR33867276&quot; &quot;ERR15577552&quot; &quot;ERR9786096&quot;  &quot;SRR26865722&quot;
-## [41] &quot;ERR2791538&quot;  &quot;SRR11241400&quot; &quot;SRR21732908&quot; NA            NA           
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462584&quot; 
+## [11] &quot;ERR1462580&quot;  &quot;SRR27449966&quot; &quot;ERR6199027&quot;  &quot;SRR7851364&quot;  &quot;ERR1744454&quot; 
+## [16] &quot;SRR5216884&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341580&quot; &quot;ERR2704686&quot; 
+## [21] &quot;ERR5336170&quot;  &quot;SRR10828835&quot; &quot;SRR30336487&quot; &quot;DRR750139&quot;   &quot;SRR5338515&quot; 
+## [26] &quot;SRR29440769&quot; &quot;ERR164000&quot;   &quot;ERR1971865&quot;  &quot;SRR6152969&quot;  &quot;ERR13289978&quot;
+## [31] &quot;ERR2245292&quot;  &quot;SRR19115680&quot; &quot;ERR2245307&quot;  &quot;ERR12945360&quot; &quot;ERR13258006&quot;
+## [36] &quot;ERR4553937&quot;  &quot;SRR25395635&quot; &quot;SRR13180350&quot; &quot;SRR32148201&quot; &quot;SRR13180378&quot;
+## [41] &quot;SRR29096201&quot; &quot;SRR29050670&quot; &quot;SRR8571813&quot;  NA            NA           
 ## [46] NA            NA            NA            NA            NA           
 ## [51] NA            NA            NA            NA            NA           
 ## [56] NA            NA            NA            NA            NA           
@@ -3333,7 +3337,7 @@ curated_tree_info.df$label</code></pre>
 ## [66] NA            NA            NA            NA            NA           
 ## [71] NA            NA            NA            NA            NA           
 ## [76] NA            NA            NA            NA            NA           
-## [81] NA            NA            NA            NA            NA</code></pre>
+## [81] NA            NA            NA</code></pre>
 <hr />
 <div id="not-all-trees-name-their-internal-nodes" class="section level3">
 <h3>1.8.1 Not all trees name their internal nodes</h3>
@@ -3366,21 +3370,21 @@ node_replacements</code></pre>
 ## [15] &quot;NODE_15&quot; &quot;NODE_16&quot; &quot;NODE_17&quot; &quot;NODE_18&quot; &quot;NODE_19&quot; &quot;NODE_20&quot; &quot;NODE_21&quot;
 ## [22] &quot;NODE_22&quot; &quot;NODE_23&quot; &quot;NODE_24&quot; &quot;NODE_25&quot; &quot;NODE_26&quot; &quot;NODE_27&quot; &quot;NODE_28&quot;
 ## [29] &quot;NODE_29&quot; &quot;NODE_30&quot; &quot;NODE_31&quot; &quot;NODE_32&quot; &quot;NODE_33&quot; &quot;NODE_34&quot; &quot;NODE_35&quot;
-## [36] &quot;NODE_36&quot; &quot;NODE_37&quot; &quot;NODE_38&quot; &quot;NODE_39&quot; &quot;NODE_40&quot; &quot;NODE_41&quot; &quot;NODE_42&quot;</code></pre>
+## [36] &quot;NODE_36&quot; &quot;NODE_37&quot; &quot;NODE_38&quot; &quot;NODE_39&quot; &quot;NODE_40&quot;</code></pre>
 <pre class="r"><code># Use basic values to replace the NAs
 curated_tree_info.df$label[is.na(curated_tree_info.df$label)] &lt;- node_replacements
 
 # Check if the process worked
 curated_tree_info.df$label</code></pre>
 <pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336166&quot;  &quot;ERR5336169&quot;  &quot;ERR14869817&quot; &quot;ERR14869475&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;SRR21689921&quot; &quot;SRR13199762&quot; &quot;SRR33251930&quot; &quot;ERR6199027&quot; 
-## [16] &quot;SRR7851382&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;SRR29341580&quot;
-## [21] &quot;ERR2704686&quot;  &quot;SRR10828835&quot; &quot;DRR034523&quot;   &quot;SRR29081004&quot; &quot;SRR5710004&quot; 
-## [26] &quot;SRR29341608&quot; &quot;ERR15278557&quot; &quot;ERR1971865&quot;  &quot;SRR14520128&quot; &quot;SRR22250197&quot;
-## [31] &quot;SRR31322823&quot; &quot;ERR2245401&quot;  &quot;ERR2245346&quot;  &quot;ERR4553982&quot;  &quot;SRR29055891&quot;
-## [36] &quot;SRR24256243&quot; &quot;SRR33867276&quot; &quot;ERR15577552&quot; &quot;ERR9786096&quot;  &quot;SRR26865722&quot;
-## [41] &quot;ERR2791538&quot;  &quot;SRR11241400&quot; &quot;SRR21732908&quot; &quot;NODE_1&quot;      &quot;NODE_2&quot;     
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462584&quot; 
+## [11] &quot;ERR1462580&quot;  &quot;SRR27449966&quot; &quot;ERR6199027&quot;  &quot;SRR7851364&quot;  &quot;ERR1744454&quot; 
+## [16] &quot;SRR5216884&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341580&quot; &quot;ERR2704686&quot; 
+## [21] &quot;ERR5336170&quot;  &quot;SRR10828835&quot; &quot;SRR30336487&quot; &quot;DRR750139&quot;   &quot;SRR5338515&quot; 
+## [26] &quot;SRR29440769&quot; &quot;ERR164000&quot;   &quot;ERR1971865&quot;  &quot;SRR6152969&quot;  &quot;ERR13289978&quot;
+## [31] &quot;ERR2245292&quot;  &quot;SRR19115680&quot; &quot;ERR2245307&quot;  &quot;ERR12945360&quot; &quot;ERR13258006&quot;
+## [36] &quot;ERR4553937&quot;  &quot;SRR25395635&quot; &quot;SRR13180350&quot; &quot;SRR32148201&quot; &quot;SRR13180378&quot;
+## [41] &quot;SRR29096201&quot; &quot;SRR29050670&quot; &quot;SRR8571813&quot;  &quot;NODE_1&quot;      &quot;NODE_2&quot;     
 ## [46] &quot;NODE_3&quot;      &quot;NODE_4&quot;      &quot;NODE_5&quot;      &quot;NODE_6&quot;      &quot;NODE_7&quot;     
 ## [51] &quot;NODE_8&quot;      &quot;NODE_9&quot;      &quot;NODE_10&quot;     &quot;NODE_11&quot;     &quot;NODE_12&quot;    
 ## [56] &quot;NODE_13&quot;     &quot;NODE_14&quot;     &quot;NODE_15&quot;     &quot;NODE_16&quot;     &quot;NODE_17&quot;    
@@ -3388,7 +3392,7 @@ curated_tree_info.df$label</code></pre>
 ## [66] &quot;NODE_23&quot;     &quot;NODE_24&quot;     &quot;NODE_25&quot;     &quot;NODE_26&quot;     &quot;NODE_27&quot;    
 ## [71] &quot;NODE_28&quot;     &quot;NODE_29&quot;     &quot;NODE_30&quot;     &quot;NODE_31&quot;     &quot;NODE_32&quot;    
 ## [76] &quot;NODE_33&quot;     &quot;NODE_34&quot;     &quot;NODE_35&quot;     &quot;NODE_36&quot;     &quot;NODE_37&quot;    
-## [81] &quot;NODE_38&quot;     &quot;NODE_39&quot;     &quot;NODE_40&quot;     &quot;NODE_41&quot;     &quot;NODE_42&quot;</code></pre>
+## [81] &quot;NODE_38&quot;     &quot;NODE_39&quot;     &quot;NODE_40&quot;</code></pre>
 <hr />
 </div>
 <div id="rename-your-dataframe-rows-using-a-completed-node-list" class="section level3">
@@ -3403,7 +3407,7 @@ rownames(curated_tree_info.df) &lt;- curated_tree_info.df$label
 
 # Let&#39;s view the tree
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    85 obs. of  18 variables:
+<pre><code>## &#39;data.frame&#39;:    83 obs. of  18 variables:
 ##  $ parent             : int  46 48 48 49 50 50 52 54 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ branch.length      : num  1.17e-04 0.00 0.00 3.05e-05 2.24e-05 ...
@@ -3411,7 +3415,7 @@ str(curated_tree_info.df)</code></pre>
 ##  $ date               : chr  &quot;2020-04-28&quot; &quot;2017-07-21&quot; &quot;2018-05-03&quot; &quot;2018-XX-XX&quot; ...
 ##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
 ##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 70 78 104 159 86 122 137 35 177 ...
+##  $ target_median_depth: num  207 70 78 104 159 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
 ##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.2&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.3&quot; ...
 ##  $ num_dr_variants    : num  0 0 0 1 1 1 0 0 0 0 ...
@@ -4374,11 +4378,11 @@ where infections cases began and where they were identified.</p>
 SC2_metadata.df %&gt;% 
 
   # We&#39;ll grab information about each case that relates to its geographical region
-  ...(Strain, Country, &#39;Admin Division&#39;, &#39;Admin Division of exposure&#39;, &#39;Region of exposure&#39;, Region,
+  select(Strain, Country, &#39;Admin Division&#39;, &#39;Admin Division of exposure&#39;, &#39;Region of exposure&#39;, Region,
          &#39;Nextstrain clade&#39;, &#39;GISAID clade&#39;, &#39;PANGO lineage&#39;, &#39;Collection Data&#39;) %&gt;% 
   
   # Do a bunch of renaming for our variables
-  ...(source_location = &#39;Admin Division of exposure&#39;, 
+  mutate(source_location = &#39;Admin Division of exposure&#39;, 
          case_location = &#39;Admin Division&#39;,
          source_region = &#39;Region of exposure&#39;,
          case_region = &#39;Region&#39;,
@@ -4386,10 +4390,14 @@ SC2_metadata.df %&gt;%
          Nextstrain = &#39;Nextstrain clade&#39;,
          GISAID = &#39;GISAID clade&#39;,
          PANGO = &#39;PANGO lineage&#39;
-        )</code></pre>
-<pre><code>## Error in ...(., source_location = &quot;Admin Division of exposure&quot;, case_location = &quot;Admin Division&quot;, : could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code>head(SC2_graph_info.df)</code></pre>
-<pre><code>## Error in head(SC2_graph_info.df): object &#39;SC2_graph_info.df&#39; not found</code></pre>
+        )
+
+head(SC2_graph_info.df)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Admin Division"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Admin Division of exposure"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Region of exposure"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Region"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Nextstrain clade"],"name":[7],"type":["chr"],"align":["left"]},{"label":["GISAID clade"],"name":[8],"type":["chr"],"align":["left"]},{"label":["PANGO lineage"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Collection Data"],"name":[10],"type":["date"],"align":["right"]},{"label":["source_location"],"name":[11],"type":["chr"],"align":["left"]},{"label":["case_location"],"name":[12],"type":["chr"],"align":["left"]},{"label":["source_region"],"name":[13],"type":["chr"],"align":["left"]},{"label":["case_region"],"name":[14],"type":["chr"],"align":["left"]},{"label":["collection_date"],"name":[15],"type":["chr"],"align":["left"]},{"label":["Nextstrain"],"name":[16],"type":["chr"],"align":["left"]},{"label":["GISAID"],"name":[17],"type":["chr"],"align":["left"]},{"label":["PANGO"],"name":[18],"type":["chr"],"align":["left"]}],"data":[{"1":"Wuhan/WH01/2019","2":"Asia","3":"Asia","4":"Asia","5":"Asia","6":"Asia","7":"19A","8":"L","9":"B","10":"2019-12-26","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"USA/MA1/2020","2":"USA","3":"Massachusetts","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-29","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"Canada/ON_ON-VIDO-01-2/2020","2":"Canada","3":"Ontario","4":"Ontario","5":"North America","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-23","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"Canada/ON_VIDO-01/2020","2":"Canada","3":"Ontario","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-23","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"USA/CA-CDC-5/2020","2":"USA","3":"California","4":"Asia","5":"Asia","6":"North America","7":"19A","8":"L","9":"B","10":"2020-01-29","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"},{"1":"Taiwan/CGMH-CGU-02/2020","2":"Asia","3":"Asia","4":"Asia","5":"Asia","6":"Asia","7":"19A","8":"S","9":"B","10":"2020-02-04","11":"Admin Division of exposure","12":"Admin Division","13":"Region of exposure","14":"Region","15":"Collection Data","16":"Nextstrain clade","17":"GISAID clade","18":"PANGO lineage"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-the-tidygraph-package-to-help-prepare-data" class="section level2">
