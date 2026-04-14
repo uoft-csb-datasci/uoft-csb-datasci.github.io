@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 12:00:39 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 12:06:11 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,9 +1894,11 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65782e5c7595\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65785627f29\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65782e5c7595\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65785627f29\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+  
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65785627f29\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1925,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file6578297f5575/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65786d755338/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1988,7 +1990,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 12:02:41 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 12:08:16 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -3259,14 +3261,14 @@ curated_tips &lt;-
 
 # Take a quick look at the tips we&#39;ve selected
 curated_tips</code></pre>
-<pre><code>##  [1] &quot;SRR7617712&quot;  &quot;SRR1792279&quot;  &quot;SRR7851382&quot;  &quot;ERR6199027&quot;  &quot;SRR34066820&quot;
-##  [6] &quot;ERR1462618&quot;  &quot;SRR31100623&quot; &quot;ERR1462611&quot;  &quot;ERR13149108&quot; &quot;ERR1462584&quot; 
-## [11] &quot;SRR3085307&quot;  &quot;SRR19128039&quot; &quot;SRR12006545&quot; &quot;ERR2704679&quot;  &quot;SRR32327398&quot;
-## [16] &quot;SRR25395635&quot; &quot;ERR13290965&quot; &quot;ERR067578&quot;   &quot;SRR5153271&quot;  &quot;ERR13290725&quot;
-## [21] &quot;SRR19115680&quot; &quot;SRR18213664&quot; &quot;SRR13180216&quot; &quot;SRR29096871&quot; &quot;SRR29096180&quot;
-## [26] &quot;ERR14936817&quot; &quot;SRR5709740&quot;  &quot;SRR3082067&quot;  &quot;SRR36879567&quot; &quot;SRR22536493&quot;
-## [31] &quot;SRR29341580&quot; &quot;SRR18715441&quot; &quot;ERR15418602&quot; &quot;SRR29341535&quot; &quot;ERR5336170&quot; 
-## [36] &quot;ERR14869894&quot; &quot;ERR14869679&quot; &quot;ERR14869475&quot; &quot;ERR2704688&quot;  &quot;ERR5336144&quot; 
+<pre><code>##  [1] &quot;SRR7851352&quot;  &quot;SRR5216773&quot;  &quot;ERR14185491&quot; &quot;ERR6201849&quot;  &quot;SRR5216852&quot; 
+##  [6] &quot;SRR31100623&quot; &quot;ERR1462584&quot;  &quot;ERR1462618&quot;  &quot;ERR1462580&quot;  &quot;ERR13149108&quot;
+## [11] &quot;SRR12006545&quot; &quot;SRR5710004&quot;  &quot;SRR17729359&quot; &quot;SRR30629597&quot; &quot;SRR12882468&quot;
+## [16] &quot;ERR15516222&quot; &quot;DRR130192&quot;   &quot;SRR28073466&quot; &quot;SRR29356765&quot; &quot;DRR130169&quot;  
+## [21] &quot;SRR29341570&quot; &quot;SRR29341611&quot; &quot;SRR6152969&quot;  &quot;ERR13289978&quot; &quot;ERR2245377&quot; 
+## [26] &quot;SRR22528548&quot; &quot;ERR14224546&quot; &quot;SRR6807718&quot;  &quot;ERR8774548&quot;  &quot;SRR37004692&quot;
+## [31] &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;SRR29341580&quot; &quot;SRR18715441&quot; &quot;SRR24302113&quot;
+## [36] &quot;ERR5336144&quot;  &quot;ERR14869894&quot; &quot;ERR5336169&quot;  &quot;ERR3799588&quot;  &quot;ERR14869817&quot;
 ## [41] &quot;ERR1971865&quot;  &quot;SRR10828835&quot; &quot;ERR5336171&quot;</code></pre>
 <hr />
 <p>We now have a vector of 43 tips which suggests that we didn’t quite
@@ -3298,36 +3300,36 @@ curated_tree_info.df &lt;-
 <pre><code>## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.</code></pre>
 <pre class="r"><code># Look at the structure of the data frame
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
-##  $ parent             : int  46 47 48 50 50 49 52 53 54 55 ...
+<pre><code>## &#39;data.frame&#39;:    85 obs. of  18 variables:
+##  $ parent             : int  46 48 48 49 50 50 52 53 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 9.63e-05 7.10e-05 3.50e-05 3.23e-05 ...
-##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR2704688&quot; &quot;ERR14869679&quot; ...
-##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2008-02-05&quot; &quot;2005-XX-XX&quot; ...
-##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Ghana&quot; &quot;Gambia&quot; ...
-##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 110 67 69 ...
+##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 4.38e-05 3.05e-05 ...
+##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336169&quot; &quot;ERR14869894&quot; ...
+##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2018-05-03&quot; &quot;2003-XX-XX&quot; ...
+##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
+##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
+##  $ target_median_depth: num  207 112 78 69 104 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
-##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.2.1&quot; &quot;lineage6.1.1&quot; ...
-##  $ num_dr_variants    : num  0 0 0 3 0 1 0 0 0 0 ...
-##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;HR-TB&quot; ...
+##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.1&quot; ...
+##  $ num_dr_variants    : num  0 0 0 0 1 1 0 0 0 0 ...
+##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; ...
 ##  $ rifampicin         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ amikacin           : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ streptomycin       : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
-##  $ isoniazid          : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;ahpC c.-48G&gt;A (0.12), ahpC c.-81C&gt;T (0.13), katG c.133_134insG (1.00)&quot; ...
+##  $ isoniazid          : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ pyrazinamide       : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ ethambutol         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...</code></pre>
 <pre class="r"><code># What are the labels of our nodes like?
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR2704688&quot;  &quot;ERR14869679&quot; &quot;ERR14869894&quot;
-##  [6] &quot;ERR14869475&quot; &quot;ERR13149108&quot; &quot;SRR31100623&quot; &quot;ERR1462584&quot;  &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;ERR6199027&quot;  &quot;SRR7851382&quot;  &quot;SRR7617712&quot;  &quot;SRR1792279&quot; 
-## [16] &quot;SRR34066820&quot; &quot;ERR15418602&quot; &quot;SRR29341535&quot; &quot;SRR29341580&quot; &quot;ERR5336170&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR12006545&quot; &quot;SRR19128039&quot; &quot;ERR2704679&quot; 
-## [26] &quot;SRR32327398&quot; &quot;SRR3085307&quot;  &quot;ERR1971865&quot;  &quot;SRR29096180&quot; &quot;SRR13180216&quot;
-## [31] &quot;SRR18213664&quot; &quot;SRR29096871&quot; &quot;SRR19115680&quot; &quot;ERR13290725&quot; &quot;ERR13290965&quot;
-## [36] &quot;SRR25395635&quot; &quot;SRR5153271&quot;  &quot;ERR067578&quot;   &quot;SRR36879567&quot; &quot;SRR5709740&quot; 
-## [41] &quot;SRR22536493&quot; &quot;ERR14936817&quot; &quot;SRR3082067&quot;  NA            NA           
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR14869894&quot; &quot;ERR14869817&quot;
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;SRR31100623&quot; &quot;ERR1462584&quot;  &quot;ERR1462580&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR7851352&quot;  &quot;ERR6201849&quot;  &quot;SRR5216852&quot;  &quot;ERR14185491&quot;
+## [16] &quot;SRR5216773&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;SRR29341580&quot;
+## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR12006545&quot; &quot;SRR17729359&quot; &quot;SRR30629597&quot;
+## [26] &quot;SRR5710004&quot;  &quot;SRR12882468&quot; &quot;ERR1971865&quot;  &quot;SRR29341611&quot; &quot;SRR6152969&quot; 
+## [31] &quot;ERR13289978&quot; &quot;SRR29341570&quot; &quot;ERR2245377&quot;  &quot;DRR130192&quot;   &quot;ERR15516222&quot;
+## [36] &quot;DRR130169&quot;   &quot;SRR29356765&quot; &quot;SRR28073466&quot; &quot;SRR37004692&quot; &quot;ERR8774548&quot; 
+## [41] &quot;SRR6807718&quot;  &quot;SRR22528548&quot; &quot;ERR14224546&quot; NA            NA           
 ## [46] NA            NA            NA            NA            NA           
 ## [51] NA            NA            NA            NA            NA           
 ## [56] NA            NA            NA            NA            NA           
@@ -3335,7 +3337,7 @@ curated_tree_info.df$label</code></pre>
 ## [66] NA            NA            NA            NA            NA           
 ## [71] NA            NA            NA            NA            NA           
 ## [76] NA            NA            NA            NA            NA           
-## [81] NA            NA            NA            NA</code></pre>
+## [81] NA            NA            NA            NA            NA</code></pre>
 <hr />
 <div id="not-all-trees-name-their-internal-nodes" class="section level3">
 <h3>1.8.1 Not all trees name their internal nodes</h3>
@@ -3368,21 +3370,21 @@ node_replacements</code></pre>
 ## [15] &quot;NODE_15&quot; &quot;NODE_16&quot; &quot;NODE_17&quot; &quot;NODE_18&quot; &quot;NODE_19&quot; &quot;NODE_20&quot; &quot;NODE_21&quot;
 ## [22] &quot;NODE_22&quot; &quot;NODE_23&quot; &quot;NODE_24&quot; &quot;NODE_25&quot; &quot;NODE_26&quot; &quot;NODE_27&quot; &quot;NODE_28&quot;
 ## [29] &quot;NODE_29&quot; &quot;NODE_30&quot; &quot;NODE_31&quot; &quot;NODE_32&quot; &quot;NODE_33&quot; &quot;NODE_34&quot; &quot;NODE_35&quot;
-## [36] &quot;NODE_36&quot; &quot;NODE_37&quot; &quot;NODE_38&quot; &quot;NODE_39&quot; &quot;NODE_40&quot; &quot;NODE_41&quot;</code></pre>
+## [36] &quot;NODE_36&quot; &quot;NODE_37&quot; &quot;NODE_38&quot; &quot;NODE_39&quot; &quot;NODE_40&quot; &quot;NODE_41&quot; &quot;NODE_42&quot;</code></pre>
 <pre class="r"><code># Use basic values to replace the NAs
 curated_tree_info.df$label[is.na(curated_tree_info.df$label)] &lt;- node_replacements
 
 # Check if the process worked
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR2704688&quot;  &quot;ERR14869679&quot; &quot;ERR14869894&quot;
-##  [6] &quot;ERR14869475&quot; &quot;ERR13149108&quot; &quot;SRR31100623&quot; &quot;ERR1462584&quot;  &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;ERR6199027&quot;  &quot;SRR7851382&quot;  &quot;SRR7617712&quot;  &quot;SRR1792279&quot; 
-## [16] &quot;SRR34066820&quot; &quot;ERR15418602&quot; &quot;SRR29341535&quot; &quot;SRR29341580&quot; &quot;ERR5336170&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR12006545&quot; &quot;SRR19128039&quot; &quot;ERR2704679&quot; 
-## [26] &quot;SRR32327398&quot; &quot;SRR3085307&quot;  &quot;ERR1971865&quot;  &quot;SRR29096180&quot; &quot;SRR13180216&quot;
-## [31] &quot;SRR18213664&quot; &quot;SRR29096871&quot; &quot;SRR19115680&quot; &quot;ERR13290725&quot; &quot;ERR13290965&quot;
-## [36] &quot;SRR25395635&quot; &quot;SRR5153271&quot;  &quot;ERR067578&quot;   &quot;SRR36879567&quot; &quot;SRR5709740&quot; 
-## [41] &quot;SRR22536493&quot; &quot;ERR14936817&quot; &quot;SRR3082067&quot;  &quot;NODE_1&quot;      &quot;NODE_2&quot;     
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR14869894&quot; &quot;ERR14869817&quot;
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;SRR31100623&quot; &quot;ERR1462584&quot;  &quot;ERR1462580&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR7851352&quot;  &quot;ERR6201849&quot;  &quot;SRR5216852&quot;  &quot;ERR14185491&quot;
+## [16] &quot;SRR5216773&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;SRR29341580&quot;
+## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR12006545&quot; &quot;SRR17729359&quot; &quot;SRR30629597&quot;
+## [26] &quot;SRR5710004&quot;  &quot;SRR12882468&quot; &quot;ERR1971865&quot;  &quot;SRR29341611&quot; &quot;SRR6152969&quot; 
+## [31] &quot;ERR13289978&quot; &quot;SRR29341570&quot; &quot;ERR2245377&quot;  &quot;DRR130192&quot;   &quot;ERR15516222&quot;
+## [36] &quot;DRR130169&quot;   &quot;SRR29356765&quot; &quot;SRR28073466&quot; &quot;SRR37004692&quot; &quot;ERR8774548&quot; 
+## [41] &quot;SRR6807718&quot;  &quot;SRR22528548&quot; &quot;ERR14224546&quot; &quot;NODE_1&quot;      &quot;NODE_2&quot;     
 ## [46] &quot;NODE_3&quot;      &quot;NODE_4&quot;      &quot;NODE_5&quot;      &quot;NODE_6&quot;      &quot;NODE_7&quot;     
 ## [51] &quot;NODE_8&quot;      &quot;NODE_9&quot;      &quot;NODE_10&quot;     &quot;NODE_11&quot;     &quot;NODE_12&quot;    
 ## [56] &quot;NODE_13&quot;     &quot;NODE_14&quot;     &quot;NODE_15&quot;     &quot;NODE_16&quot;     &quot;NODE_17&quot;    
@@ -3390,7 +3392,7 @@ curated_tree_info.df$label</code></pre>
 ## [66] &quot;NODE_23&quot;     &quot;NODE_24&quot;     &quot;NODE_25&quot;     &quot;NODE_26&quot;     &quot;NODE_27&quot;    
 ## [71] &quot;NODE_28&quot;     &quot;NODE_29&quot;     &quot;NODE_30&quot;     &quot;NODE_31&quot;     &quot;NODE_32&quot;    
 ## [76] &quot;NODE_33&quot;     &quot;NODE_34&quot;     &quot;NODE_35&quot;     &quot;NODE_36&quot;     &quot;NODE_37&quot;    
-## [81] &quot;NODE_38&quot;     &quot;NODE_39&quot;     &quot;NODE_40&quot;     &quot;NODE_41&quot;</code></pre>
+## [81] &quot;NODE_38&quot;     &quot;NODE_39&quot;     &quot;NODE_40&quot;     &quot;NODE_41&quot;     &quot;NODE_42&quot;</code></pre>
 <hr />
 </div>
 <div id="rename-your-dataframe-rows-using-a-completed-node-list" class="section level3">
@@ -3405,23 +3407,23 @@ rownames(curated_tree_info.df) &lt;- curated_tree_info.df$label
 
 # Let&#39;s view the tree
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
-##  $ parent             : int  46 47 48 50 50 49 52 53 54 55 ...
+<pre><code>## &#39;data.frame&#39;:    85 obs. of  18 variables:
+##  $ parent             : int  46 48 48 49 50 50 52 53 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 9.63e-05 7.10e-05 3.50e-05 3.23e-05 ...
-##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR2704688&quot; &quot;ERR14869679&quot; ...
-##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2008-02-05&quot; &quot;2005-XX-XX&quot; ...
-##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Ghana&quot; &quot;Gambia&quot; ...
-##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 110 67 69 ...
+##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 4.38e-05 3.05e-05 ...
+##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336169&quot; &quot;ERR14869894&quot; ...
+##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2018-05-03&quot; &quot;2003-XX-XX&quot; ...
+##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
+##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
+##  $ target_median_depth: num  207 112 78 69 104 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
-##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.2.1&quot; &quot;lineage6.1.1&quot; ...
-##  $ num_dr_variants    : num  0 0 0 3 0 1 0 0 0 0 ...
-##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;HR-TB&quot; ...
+##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.1&quot; ...
+##  $ num_dr_variants    : num  0 0 0 0 1 1 0 0 0 0 ...
+##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; ...
 ##  $ rifampicin         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ amikacin           : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ streptomycin       : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
-##  $ isoniazid          : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;ahpC c.-48G&gt;A (0.12), ahpC c.-81C&gt;T (0.13), katG c.133_134insG (1.00)&quot; ...
+##  $ isoniazid          : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ pyrazinamide       : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
 ##  $ ethambutol         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...</code></pre>
 <hr />
@@ -4704,11 +4706,13 @@ example_seq2 &lt;- c(&quot;cacccactaatggtgttggtg&quot;,&quot;aatccactaatggtgttgc
   str_to_upper()
 
 # Build our list
-example_seq.list = list(spike_set1 = ..., spike_set2 = ...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Take a look at our list
+example_seq.list = list(spike_set1 = example_seq1, spike_set2 = example_seq2)
+
+# Take a look at our list
 str(example_seq.list)</code></pre>
-<pre><code>## Error in str(example_seq.list): object &#39;example_seq.list&#39; not found</code></pre>
+<pre><code>## List of 2
+##  $ spike_set1: chr [1:9] &quot;AACCCACTAATGGTGTTGGTT&quot; &quot;AATCCACTAATGGTGTTGCTT&quot; &quot;AACCCAATAATAGTGTTGGTT&quot; &quot;AACCCACTAATGGTGTTGGTT&quot; ...
+##  $ spike_set2: chr [1:9] &quot;CACCCACTAATGGTGTTGGTG&quot; &quot;AATCCACTAATGGTGTTGCTT&quot; &quot;AACCCAATAATAGTGTTGGTT&quot; &quot;CACCCACTAATGGTGTTGGTG&quot; ...</code></pre>
 <hr />
 <div id="plot-your-logo-information-with-the-ggseqlogo-wrapper-function" class="section level3">
 <h3>3.1.1 Plot your logo information with the <code>ggseqlogo()</code>
@@ -4727,7 +4731,7 @@ are:</p>
 facet geom.</p></li>
 </ul>
 <pre class="r"><code># Make a 2-row sequence logo
-ggseqlogo(..., ...) +
+ggseqlogo(example_seq.list, ...) +
   theme(text = element_text(size = 20)) +
   labs(title = &quot;Facet in rows&quot;)</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
@@ -4766,7 +4770,12 @@ ggplot() +
   
   # 6. Facet
   facet_wrap(..., ...)</code></pre>
-<pre><code>## Error in geom_logo(data = example_seq.list, seq_type = &quot;DNA&quot;, method = &quot;bits&quot;): object &#39;example_seq.list&#39; not found</code></pre>
+<pre><code>## Warning: [1m[22mThe `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use &quot;none&quot; instead as of ggplot2 3.3.4.
+## [36mi[39m The deprecated feature was likely used in the [34mggseqlogo[39m package.
+##   Please report the issue at [3m[34m&lt;https://github.com/omarwagih/ggseqlogo/issues&gt;[39m[23m.
+## [90mThis warning is displayed once per session.[39m
+## [90mCall `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.[39m</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 </div>
 </div>
