@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:37:39 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:41:55 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,11 +1894,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578566241a4\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
-  
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578566241a4\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
-  
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578566241a4\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578254c5286\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1927,7 +1923,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file6578204d5f81/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65786db65029/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1990,7 +1986,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:39:32 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:43:55 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -2712,7 +2708,7 @@ tb_variants_time.tree %&gt;%
 # 1. Data
 ggtree(tr = .) + 
   # 2. Aesthetics
-  aes(color = ...) + 
+  aes(color = main_lineage) + 
   
   # Themes
   theme_tree2() + 
@@ -2750,19 +2746,16 @@ to_drop &lt;-
   tb_metadata.df %&gt;% 
   
   # Filter for strains that are not from North America and are from the year 2000 or after
-  filter(!(region == ... &amp;
-             year &gt;= ...
+  filter(!(region == &quot;North America&quot; &amp;
+             year &gt;= 2000
           )) %&gt;%
   
   # Just keep the strain information
-  pull(strain)</code></pre>
-<pre><code>## [1m[33mError[39m in `filter()`:[22m
-## [1m[22m[36mi[39m In argument: `!(region == ... &amp; year &gt;= ...)`.
-## [1mCaused by error:[22m
-## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Take a look at what we got back
+  pull(strain)
+
+# Take a look at what we got back
 str(to_drop)</code></pre>
-<pre><code>## Error in str(to_drop): object &#39;to_drop&#39; not found</code></pre>
+<pre><code>##  chr [1:1055] &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336166&quot; &quot;ERR5336169&quot; ...</code></pre>
 <pre class="r"><code># At the same time make a dataset to keep. You&#39;ll use this to update the information in the tree later
 to_keep &lt;- tb_metadata.df %&gt;% filter(...)</code></pre>
 <pre><code>## Error in tb_metadata.df %&gt;% filter(...): &#39;...&#39; used in an incorrect context</code></pre>
