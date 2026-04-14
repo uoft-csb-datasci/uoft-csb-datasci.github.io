@@ -1633,8 +1633,8 @@ display: none;
 <div id="lecture-06-trees-network-diagrams-and-genomic-representations" class="section level1">
 <h1>Lecture 06: Trees, Network Diagrams and Genomic Representations</h1>
 </div>
-<div id="live-html" class="section level1">
-<h1>Live HTML</h1>
+<div id="html" class="section level1">
+<h1>HTML</h1>
 <div id="an-overview-of-advanced-graphics-and-data-visualization-in-r" class="section level2">
 <h2>0.1.0 An overview of Advanced Graphics and Data Visualization in
 R</h2>
@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 00:42:06 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:23:49 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1805,12 +1805,8 @@ BiocManager::install(&quot;ggnewscale&quot;, update = FALSE)</code></pre>
 ## Replacement repositories:
 ##     CRAN: https://cran.r-project.org</code></pre>
 <pre><code>## Bioconductor version 3.12 (BiocManager 1.30.22), R 4.0.5 (2021-03-31)</code></pre>
-<pre><code>## Installing package(s) &#39;ggnewscale&#39;</code></pre>
-<pre><code>## 
-##   There is a binary version available but the source version is later:
-##            binary source needs_compilation
-## ggnewscale  0.4.7  0.5.2             FALSE</code></pre>
-<pre><code>## installing the source package &#39;ggnewscale&#39;</code></pre>
+<pre><code>## Warning: package(s) not installed when version(s) same as or greater than current; use
+##   `force = TRUE` to re-install: &#39;ggnewscale&#39;</code></pre>
 <pre class="r"><code># BiocManager::install(&quot;ggtree&quot;, update = FALSE)
 
 devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
@@ -1823,31 +1819,25 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ## tibble      (3.2.1  -&gt; 3.3.1 ) [CRAN]
 ## rlang       (1.1.5  -&gt; 1.2.0 ) [CRAN]
 ## magrittr    (2.0.3  -&gt; 2.0.5 ) [CRAN]
-## lazyeval    (0.2.2  -&gt; 0.2.3 ) [CRAN]
-## ape         (5.8    -&gt; 5.8-1 ) [CRAN]
-## cpp11       (0.5.3  -&gt; 0.5.4 ) [CRAN]
 ## jsonlite    (1.8.7  -&gt; 2.0.0 ) [CRAN]
 ## sass        (0.4.1  -&gt; 0.4.10) [CRAN]
 ## mime        (0.12   -&gt; 0.13  ) [CRAN]
 ## cachem      (1.0.6  -&gt; 1.1.0 ) [CRAN]
 ## tinytex     (0.45   -&gt; 0.59  ) [CRAN]
-## fontawesome (0.5.1  -&gt; 0.5.3 ) [CRAN]
 ## bslib       (0.5.1  -&gt; 0.10.0) [CRAN]
 ## xfun        (0.40   -&gt; 0.57  ) [CRAN]
-## evaluate    (0.21   -&gt; 1.0.5 ) [CRAN]
 ## fastmap     (1.1.1  -&gt; 1.2.0 ) [CRAN]
 ## yaml        (2.3.5  -&gt; 2.3.12) [CRAN]
 ## rmarkdown   (2.24   -&gt; 2.31  ) [CRAN]
 ## knitr       (1.44   -&gt; 1.51  ) [CRAN]
 ## htmltools   (0.5.6  -&gt; 0.5.9 ) [CRAN]
 ## tidytree    (0.4.6  -&gt; 0.4.7 ) [CRAN]
-## S7          (NA     -&gt; 0.2.1 ) [CRAN]
 ## htmlwidgets (1.6.2  -&gt; 1.6.4 ) [CRAN]
-## gdtools     (NA     -&gt; 0.5.0 ) [CRAN]
 ## ggiraph     (NA     -&gt; 0.9.6 ) [CRAN]</code></pre>
 <pre><code>## Skipping 10 packages not available: yulab.utils, tidyr, dplyr, rappdirs, fs, purrr, ggplot2, scales, ggfun, aplot</code></pre>
-<pre><code>## Installing 31 packages: vctrs, glue, digest, cli, tibble, rlang, magrittr, lazyeval, ape, cpp11, jsonlite, sass, mime, cachem, tinytex, fontawesome, bslib, xfun, evaluate, fastmap, yaml, rmarkdown, knitr, htmltools, tidytree, S7, htmlwidgets, gdtools, ggiraph, ggfun, aplot</code></pre>
-<pre><code>## Warning: packages &#39;rmarkdown&#39;, &#39;knitr&#39; are in use and will not be installed</code></pre>
+<pre><code>## Installing 24 packages: vctrs, glue, digest, cli, tibble, rlang, magrittr, jsonlite, sass, mime, cachem, tinytex, bslib, xfun, fastmap, yaml, rmarkdown, knitr, htmltools, tidytree, htmlwidgets, ggiraph, ggfun, aplot</code></pre>
+<pre><code>## Warning: packages &#39;tibble&#39;, &#39;rmarkdown&#39;, &#39;knitr&#39;, &#39;tidytree&#39; are in use and
+## will not be installed</code></pre>
 <pre><code>## Installing packages into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning: packages &#39;ggfun&#39;, &#39;aplot&#39; are not available for this version of R
@@ -1855,7 +1845,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ## Versions of these packages for your version of R might be available elsewhere,
 ## see the ideas at
 ## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
-<pre><code>## Warning: dependencies &#39;yulab.utils&#39;, &#39;ggplot2&#39; are not available</code></pre>
+<pre><code>## Warning: dependency &#39;ggplot2&#39; is not available</code></pre>
 <pre><code>## 
 ##   There are binary versions available but the source versions are later:
 ##             binary source needs_compilation
@@ -1863,31 +1853,21 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ## glue         1.6.2  1.8.0              TRUE
 ## digest      0.6.29 0.6.39              TRUE
 ## cli          3.2.0  3.6.6              TRUE
-## tibble       3.1.6  3.3.1              TRUE
 ## rlang        1.0.2  1.2.0              TRUE
 ## magrittr     2.0.3  2.0.5              TRUE
-## lazyeval     0.2.2  0.2.3              TRUE
-## ape          5.6-2  5.8-1              TRUE
-## cpp11        0.4.2  0.5.4             FALSE
 ## jsonlite     1.8.0  2.0.0              TRUE
 ## sass         0.4.1 0.4.10              TRUE
 ## mime          0.12   0.13              TRUE
 ## cachem       1.0.6  1.1.0              TRUE
 ## tinytex       0.38   0.59             FALSE
-## fontawesome  0.2.2  0.5.3             FALSE
 ## bslib        0.3.1 0.10.0             FALSE
 ## xfun          0.30   0.57              TRUE
-## evaluate      0.15  1.0.5             FALSE
 ## fastmap      1.1.0  1.2.0              TRUE
 ## yaml         2.3.5 2.3.12              TRUE
 ## htmltools    0.5.2  0.5.9              TRUE
-## tidytree     0.3.9  0.4.7             FALSE
 ## htmlwidgets  1.5.4  1.6.4             FALSE
-## gdtools      0.2.4  0.5.0              TRUE
 ## ggiraph      0.8.2  0.9.6              TRUE</code></pre>
-<pre><code>## Package which is only available in source form, and may need
-##   compilation of C/C++/Fortran: &#39;S7&#39;</code></pre>
-<pre><code>## installing the source packages &#39;vctrs&#39;, &#39;glue&#39;, &#39;digest&#39;, &#39;cli&#39;, &#39;tibble&#39;, &#39;rlang&#39;, &#39;magrittr&#39;, &#39;lazyeval&#39;, &#39;ape&#39;, &#39;cpp11&#39;, &#39;jsonlite&#39;, &#39;sass&#39;, &#39;mime&#39;, &#39;cachem&#39;, &#39;tinytex&#39;, &#39;fontawesome&#39;, &#39;bslib&#39;, &#39;xfun&#39;, &#39;evaluate&#39;, &#39;fastmap&#39;, &#39;yaml&#39;, &#39;htmltools&#39;, &#39;tidytree&#39;, &#39;S7&#39;, &#39;htmlwidgets&#39;, &#39;gdtools&#39;, &#39;ggiraph&#39;</code></pre>
+<pre><code>## installing the source packages &#39;vctrs&#39;, &#39;glue&#39;, &#39;digest&#39;, &#39;cli&#39;, &#39;rlang&#39;, &#39;magrittr&#39;, &#39;jsonlite&#39;, &#39;sass&#39;, &#39;mime&#39;, &#39;cachem&#39;, &#39;tinytex&#39;, &#39;bslib&#39;, &#39;xfun&#39;, &#39;fastmap&#39;, &#39;yaml&#39;, &#39;htmltools&#39;, &#39;htmlwidgets&#39;, &#39;ggiraph&#39;</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;glue&#39; had non-zero exit status</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;digest&#39; had non-zero exit status</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;cli&#39; had non-zero exit status</code></pre>
@@ -1905,21 +1885,20 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;tinytex&#39; had non-zero exit status</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;htmltools&#39; had non-zero exit
 ## status</code></pre>
-<pre><code>## Warning in i.p(...): installation of package &#39;tibble&#39; had non-zero exit status</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;sass&#39; had non-zero exit status</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;htmlwidgets&#39; had non-zero exit
 ## status</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;bslib&#39; had non-zero exit status</code></pre>
-<pre><code>## Warning in i.p(...): installation of package &#39;tidytree&#39; had non-zero exit
-## status</code></pre>
 <pre><code>## Warning in i.p(...): installation of package &#39;ggiraph&#39; had non-zero exit status</code></pre>
 <pre><code>## [36m--[39m [36mR CMD build[39m [36m---------------------------------------------------------------------------------------------------------[39m
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657853451119\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578123145f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657853451119\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578123145f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ... 
+  
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578123145f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1948,7 +1927,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65785af23c7e/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65786029723c/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1968,32 +1947,11 @@ BiocManager::install(&quot;ggtreeExtra&quot;, update = FALSE)</code></pre>
 
 # New CRAN packages we haven&#39;t worked with before
 install.packages(&quot;tidytree&quot;)</code></pre>
-<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## Warning: dependency &#39;yulab.utils&#39; is not available</code></pre>
-<pre><code>## 
-##   There is a binary version available but the source version is later:
-##          binary source needs_compilation
-## tidytree  0.3.9  0.4.7             FALSE</code></pre>
-<pre><code>## installing the source package &#39;tidytree&#39;</code></pre>
-<pre><code>## Warning in install.packages(&quot;tidytree&quot;): installation of package &#39;tidytree&#39; had
-## non-zero exit status</code></pre>
+<pre><code>## Warning: package &#39;tidytree&#39; is in use and will not be installed</code></pre>
 <pre class="r"><code>install.packages(&quot;ggseqlogo&quot;)</code></pre>
-<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## 
-##   There is a binary version available but the source version is later:
-##           binary source needs_compilation
-## ggseqlogo    0.1  0.2.2             FALSE</code></pre>
-<pre><code>## installing the source package &#39;ggseqlogo&#39;</code></pre>
+<pre><code>## Warning: package &#39;ggseqlogo&#39; is in use and will not be installed</code></pre>
 <pre class="r"><code>install.packages(&quot;qqman&quot;)</code></pre>
-<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## 
-##   There is a binary version available but the source version is later:
-##       binary source needs_compilation
-## qqman  0.1.8  0.1.9             FALSE</code></pre>
-<pre><code>## installing the source package &#39;qqman&#39;</code></pre>
+<pre><code>## Warning: package &#39;qqman&#39; is in use and will not be installed</code></pre>
 <pre class="r"><code>install.packages(&quot;ggraph&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
@@ -2032,104 +1990,24 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 00:45:48 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:25:43 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
-library(tidyverse)</code></pre>
-<pre><code>## -- [1mAttaching core tidyverse packages[22m ---------------------------------------------------------------- tidyverse 2.0.0 --
-## [32mv[39m [34mdplyr    [39m 1.1.3     [32mv[39m [34mreadr    [39m 2.1.4
-## [32mv[39m [34mforcats  [39m 1.0.0     [32mv[39m [34mstringr  [39m 1.5.0
-## [32mv[39m [34mggplot2  [39m 3.5.2     [32mv[39m [34mtibble   [39m 3.2.1
-## [32mv[39m [34mlubridate[39m 1.9.2     [32mv[39m [34mtidyr    [39m 1.3.0
-## [32mv[39m [34mpurrr    [39m 1.0.2     
-## -- [1mConflicts[22m ---------------------------------------------------------------------------------- tidyverse_conflicts() --
-## [31mx[39m [34mdplyr[39m::[32mfilter()[39m   masks [34mstats[39m::filter()
-## [31mx[39m [34mpurrr[39m::[32mis_empty()[39m masks [34mgit2r[39m::is_empty()
-## [31mx[39m [34mdplyr[39m::[32mlag()[39m      masks [34mstats[39m::lag()
-## [31mx[39m [34mdplyr[39m::[32mpull()[39m     masks [34mgit2r[39m::pull()
-## [31mx[39m [34mpurrr[39m::[32mwhen()[39m     masks [34mgit2r[39m::when()
-## [36mi[39m Use the conflicted package ([3m[34m&lt;http://conflicted.r-lib.org/&gt;[39m[23m) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>library(readxl)
+library(tidyverse)
+library(readxl)
 
 # Packages for the graphical analysis section
-library(viridis)</code></pre>
-<pre><code>## Loading required package: viridisLite</code></pre>
-<pre class="r"><code>library(RColorBrewer)
+library(viridis)
+library(RColorBrewer)
 library(ggnewscale)
 
 # Packages for today&#39;s lecture about trees
-library(tidytree)</code></pre>
-<pre><code>## [90mIf you use the ggtree package suite in published research, please
-## cite the appropriate paper(s):
-## 
-## Guangchuang Yu, David Smith, Huachen Zhu, Yi Guan, Tommy Tsan-Yuk Lam.
-## ggtree: an R package for visualization and annotation of phylogenetic
-## trees with their covariates and other associated data. Methods in
-## Ecology and Evolution. 2017, 8(1):28-36. doi:10.1111/2041-210X.12628
-## 
-## S Xu, Z Dai, P Guo, X Fu, S Liu, L Zhou, W Tang, T Feng, M Chen, L
-## Zhan, T Wu, E Hu, Y Jiang, X Bo, G Yu. ggtreeExtra: Compact
-## visualization of richly annotated phylogenetic data. Molecular Biology
-## and Evolution. 2021, 38(9):4039-4042. doi: 10.1093/molbev/msab166 [39m
-## 
-## Attaching package: &#39;tidytree&#39;
-## 
-## The following object is masked from &#39;package:git2r&#39;:
-## 
-##     pull
-## 
-## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</code></pre>
-<pre class="r"><code>library(ggtree)</code></pre>
+library(tidytree)
+library(ggtree)</code></pre>
 <pre><code>## Error in library(ggtree): there is no package called &#39;ggtree&#39;</code></pre>
-<pre class="r"><code>library(ggtreeExtra)</code></pre>
-<pre><code>## ggtreeExtra v1.0.4  For help: https://yulab-smu.top/treedata-book/
-## 
-## If you use ggtreeExtra in published research, please cite the paper:
-## 
-## SB Xu, Z Dai, P Guo, X Fu, S Liu, L Zhou, W Tang, T Feng, M Chen, L Zhan, T Wu, E Hu, G Yu. ggtreeExtra: Compact visualization of richly annotated phylogenetic data. Research Square. doi: 10.21203/rs.3.rs-155672/v2, (preprint).</code></pre>
-<pre class="r"><code>library(treeio)</code></pre>
-<pre><code>## Registered S3 methods overwritten by &#39;treeio&#39;:
-##   method              from    
-##   MRCA.phylo          tidytree
-##   MRCA.treedata       tidytree
-##   Nnode.treedata      tidytree
-##   Ntip.treedata       tidytree
-##   ancestor.phylo      tidytree
-##   ancestor.treedata   tidytree
-##   child.phylo         tidytree
-##   child.treedata      tidytree
-##   full_join.phylo     tidytree
-##   full_join.treedata  tidytree
-##   groupClade.phylo    tidytree
-##   groupClade.treedata tidytree
-##   groupOTU.phylo      tidytree
-##   groupOTU.treedata   tidytree
-##   is.rooted.treedata  tidytree
-##   nodeid.phylo        tidytree
-##   nodeid.treedata     tidytree
-##   nodelab.phylo       tidytree
-##   nodelab.treedata    tidytree
-##   offspring.phylo     tidytree
-##   offspring.treedata  tidytree
-##   parent.phylo        tidytree
-##   parent.treedata     tidytree
-##   root.treedata       tidytree
-##   rootnode.phylo      tidytree
-##   sibling.phylo       tidytree
-## treeio v1.14.4  For help: https://yulab-smu.top/treedata-book/
-## 
-## If you use treeio in published research, please cite:
-## 
-## LG Wang, TTY Lam, S Xu, Z Dai, L Zhou, T Feng, P Guo, CW Dunn, BR Jones, T Bradley, H Zhu, Y Guan, Y Jiang, G Yu. treeio: an R package for phylogenetic tree input and output with richly annotated and associated data. Molecular Biology and Evolution 2020, 37(2):599-603. doi: 10.1093/molbev/msz240
-## 
-## 
-## Attaching package: &#39;treeio&#39;
-## 
-## The following objects are masked from &#39;package:tidytree&#39;:
-## 
-##     drop.tip, get.treetext, getNodeNum, isTip, tree_subset</code></pre>
-<pre class="r"><code># Packages for graphs
+<pre class="r"><code>library(ggtreeExtra)
+library(treeio)
+
+# Packages for graphs
 library(ggraph)</code></pre>
 <pre><code>## Error in library(ggraph): there is no package called &#39;ggraph&#39;</code></pre>
 <pre class="r"><code>library(tidygraph)</code></pre>
@@ -2138,21 +2016,11 @@ library(ggraph)</code></pre>
 library(ggseqlogo)
 
 # Packages for Manhattan plots
-library(qqman)</code></pre>
-<pre><code>## 
-## For example usage please run: vignette(&#39;qqman&#39;)
-## 
-## Citation appreciated but not required:
-## Turner, (2018). qqman: an R package for visualizing GWAS results using Q-Q and manhattan plots. Journal of Open Source Software, 3(25), 731, https://doi.org/10.21105/joss.00731.</code></pre>
-<pre class="r"><code># Date calculation helpers
+library(qqman)
+
+# Date calculation helpers
 library(lubridate)
 library(zoo)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
 <hr />
 </div>
 </div>
@@ -2297,17 +2165,30 @@ fair amount of metadata.</strong></p>
 <p>Let’s begin by opening up the tree data and some related metadata
 before taking a look under the hood.</p>
 <pre class="r"><code># Import our Newick Tree
-tb_variants_time.phylo &lt;- read.tree(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Import our metadata
-tb_metadata.df &lt;- read_tsv(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+tb_variants_time.phylo &lt;- read.tree(&quot;data/nextstrain_tb_global_tree.nwk&quot;)
+
+# Import our metadata
+tb_metadata.df &lt;- read_tsv(&quot;data/nextstrain_tb_global_metadata.tsv&quot;)</code></pre>
+<pre><code>## [1mRows: [22m[34m1135[39m [1mColumns: [22m[34m32[39m
+## [36m--[39m [1mColumn specification[22m [36m------------------------------------------------------------------------------------------------[39m
+## [1mDelimiter:[22m &quot;\t&quot;
+## [31mchr[39m (26): strain, date, cycloserine, country, amikacin, drtype, pretomanid, ...
+## [32mdbl[39m  (6): num_dr_variants, target_median_depth, num_other_variants, num_read...
+## 
+## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
+## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code># What does the tree look like as a structure?
 str(...)</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># How does it print?
 tb_variants_time.phylo</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;tb_variants_time.phylo&#39; not found</code></pre>
+<pre><code>## 
+## Phylogenetic tree with 1135 tips and 988 internal nodes.
+## 
+## Tip labels:
+##   ERR5336171, ERR5336144, ERR5336166, ERR5336169, ERR2704688, ERR14869679, ...
+## 
+## Rooted; includes branch length(s).</code></pre>
 <hr />
 <div id="the-phylo-object-is-a-simple-list" class="section level3">
 <h3>1.2.1 The <code>phylo</code> object is a simple list</h3>
@@ -2394,32 +2275,185 @@ hold.</p>
 cat(&quot;Country information\n&quot;)</code></pre>
 <pre><code>## Country information</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$...)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$...): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>## Warning: Unknown or uninitialised column: `...`.</code></pre>
+<pre><code>## NULL</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$region)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$region): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>## [1] &quot;Europe&quot;        &quot;Africa&quot;        &quot;Oceania&quot;       &quot;Asia&quot;         
+## [5] &quot;North America&quot; &quot;South America&quot;</code></pre>
 <pre class="r"><code># Sequencing depth
 unique(tb_metadata.df$target_median_depth)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$target_median_depth): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>##   [1] 207.0 112.0  70.0  78.0 110.0  67.0  69.0 104.0 159.0  86.0 133.0 122.0
+##  [13] 137.0  35.0 172.5 249.5 177.0 196.0  46.0 101.0  53.0  48.0 217.0 293.0
+##  [25]  79.0  73.5  61.0 100.0 116.0  62.0  49.0  64.0  38.0 108.0  39.0 136.0
+##  [37] 147.0  45.0  50.0  56.0  89.0  63.0  41.5  36.0 119.5 102.0  77.0  44.0
+##  [49]  83.0  60.0 255.0 111.0  73.0 105.0  58.0  97.0 153.0 166.0  68.0  43.0
+##  [61]  57.0 174.0  59.0  90.0  55.0 107.0  93.0 185.0  94.0  77.5 106.5 109.0
+##  [73]  99.0 173.0  80.0  98.0  87.0  37.0  65.5  54.0  92.0 170.0 135.5 121.0
+##  [85]  82.0  52.0 103.0  74.0 249.0 144.0  34.0  40.0 206.0 129.0 205.5  72.0
+##  [97]  76.0  84.0  85.0 120.0 125.0  88.0 126.0 124.0 114.0 164.0 135.0 163.0
+## [109] 175.0 215.0 119.0 131.0 227.0 171.0 245.0 220.0 186.0  42.0 132.0 118.5
+## [121] 273.0 212.0  33.0  66.0 228.0  47.0 256.0  71.0  51.0  95.0 140.0 168.0
+## [133] 183.0  32.0 254.0  91.0 190.0 225.0 203.0 138.0 248.0 161.0 222.0  65.0
+## [145]  81.0 118.0 149.0 145.0 115.0 221.0 232.0 182.0 191.0 264.0 165.0 213.0
+## [157] 179.0 199.0 230.0 202.0 247.0 167.0 187.0 128.0 156.0 176.0 123.0 127.0
+## [169] 162.0 154.0  41.0 192.0 106.0 150.0 134.0 261.0 130.0 200.0 198.5 197.0
+## [181]  75.0 193.0 234.0 148.0 294.0 188.0 210.0  96.0 178.5 219.0 151.0 113.0
+## [193] 276.0 146.0 172.0 139.0  72.5 155.0 268.0 105.5 223.0  82.5 115.5 160.0
+## [205] 226.0 123.5 195.0 205.0 169.0 185.5 283.0 252.0 142.0 152.0 244.0 216.0
+## [217] 258.0 158.0 160.5  69.5  43.5 211.0  31.0 177.5 181.0 138.5 146.5 224.0
+## [229] 242.0 157.0 235.0 265.0 237.0 233.0  89.5  74.5 143.0 180.0</code></pre>
 <pre class="r"><code># Metadata information on the genomes
 cat(&quot;\nPhylogenetic data\n&quot;)</code></pre>
 <pre><code>## 
 ## Phylogenetic data</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$...)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$...): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>## Warning: Unknown or uninitialised column: `...`.</code></pre>
+<pre><code>## NULL</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$sub_lineage)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$sub_lineage): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;lineage9&quot;                  &quot;lineage6.3.1&quot;             
+##  [3] &quot;lineage6.3.2&quot;              &quot;lineage6.2.1&quot;             
+##  [5] &quot;lineage6.1.1&quot;              &quot;lineage6.1.3&quot;             
+##  [7] &quot;lineage6&quot;                  NA                         
+##  [9] &quot;La2&quot;                       &quot;La1.3&quot;                    
+## [11] &quot;La1.2&quot;                     &quot;La1.2.BCG&quot;                
+## [13] &quot;La1.4&quot;                     &quot;La1.6&quot;                    
+## [15] &quot;La1.7.1&quot;                   &quot;La1.8.X-unk6&quot;             
+## [17] &quot;La1.8.2&quot;                   &quot;La1.8.1&quot;                  
+## [19] &quot;lineage5.2&quot;                &quot;lineage5&quot;                 
+## [21] &quot;lineage5.1.4&quot;              &quot;lineage5.1.5&quot;             
+## [23] &quot;lineage5.1.3&quot;              &quot;lineage5.1.1&quot;             
+## [25] &quot;lineage5.1&quot;                &quot;lineage5.1.2&quot;             
+## [27] &quot;lineage8&quot;                  &quot;lineage4.8&quot;               
+## [29] &quot;lineage1.2.2.2&quot;            &quot;lineage1.2.1&quot;             
+## [31] &quot;lineage1.2.1.2&quot;            &quot;lineage1.2.1.2.1&quot;         
+## [33] &quot;lineage1.1.1&quot;              &quot;lineage1.1.1.1&quot;           
+## [35] &quot;lineage1.1.3&quot;              &quot;lineage1.1.3.2&quot;           
+## [37] &quot;lineage1.1.3.1&quot;            &quot;lineage1.1&quot;               
+## [39] &quot;lineage1.1.2&quot;              &quot;lineage7&quot;                 
+## [41] &quot;lineage3&quot;                  &quot;lineage3.1.3&quot;             
+## [43] &quot;lineage3.1.1&quot;              &quot;lineage3.1.2.1&quot;           
+## [45] &quot;lineage3.1.2&quot;              &quot;lineage3.1&quot;               
+## [47] &quot;lineage2.1&quot;                &quot;lineage2.2&quot;               
+## [49] &quot;lineage2.2.2&quot;              &quot;lineage2.2.1;lineage2.2.2&quot;
+## [51] &quot;lineage2.2.1&quot;              &quot;lineage2.2.1.1&quot;           
+## [53] &quot;lineage2.2.1.2&quot;            &quot;lineage4.1&quot;               
+## [55] &quot;lineage4.1.3&quot;              &quot;lineage4.1.4&quot;             
+## [57] &quot;lineage4.1.1&quot;              &quot;lineage4.1.1.3&quot;           
+## [59] &quot;lineage4.1.1.2&quot;            &quot;lineage4.1.1.1&quot;           
+## [61] &quot;lineage4.1.2;lineage4.3&quot;   &quot;lineage4.1.2&quot;             
+## [63] &quot;lineage4.1.2.1;lineage4.7&quot; &quot;lineage4.1.2.1&quot;           
+## [65] &quot;lineage4.1.2.1.1&quot;          &quot;lineage4.2.1.1&quot;           
+## [67] &quot;lineage4.2.1&quot;              &quot;lineage4.2.2.2&quot;           
+## [69] &quot;lineage4.2.2&quot;              &quot;lineage4.2.2.1&quot;           
+## [71] &quot;lineage4&quot;                  &quot;lineage4.4&quot;               
+## [73] &quot;lineage4.4.2&quot;              &quot;lineage4.4.1.2&quot;           
+## [75] &quot;lineage4.4.1.1&quot;            &quot;lineage4.4.1.1.1&quot;         
+## [77] &quot;lineage4.3&quot;                &quot;lineage4.3.1.1&quot;           
+## [79] &quot;lineage4.3.1&quot;              &quot;lineage4.3.2&quot;             
+## [81] &quot;lineage4.3.2.1&quot;            &quot;lineage4.3.3&quot;             
+## [83] &quot;lineage4.3.4.1&quot;            &quot;lineage4.3.4.2&quot;           
+## [85] &quot;lineage4.3.4.2.1&quot;          &quot;lineage4.5&quot;               
+## [87] &quot;lineage4.6&quot;                &quot;lineage4.6.2.2&quot;           
+## [89] &quot;lineage4.6.3&quot;              &quot;lineage4.6.1&quot;             
+## [91] &quot;lineage4.6.1.1&quot;            &quot;lineage4.6.1.2&quot;           
+## [93] &quot;lineage4.7&quot;                &quot;lineage4.9&quot;               
+## [95] &quot;lineage4.8.1&quot;              &quot;lineage4.8.2&quot;</code></pre>
 <pre class="r"><code># Metadata information on drug resistance and DR markers
 cat(&quot;\nDrug resistance/response\n&quot;)</code></pre>
 <pre><code>## 
 ## Drug resistance/response</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$num_dr_variants)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$num_dr_variants): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>##  [1]  0  3  1  2  6  4  5  8 10 12  7  9 11</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$drtype)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$drtype): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>## [1] &quot;Sensitive&quot;  &quot;HR-TB&quot;      &quot;Other&quot;      &quot;RR-TB&quot;      &quot;MDR-TB&quot;    
+## [6] &quot;Pre-XDR-TB&quot; &quot;XDR-TB&quot;</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$amikacin)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$amikacin): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;-&quot;                    &quot;rrs n.1401A&gt;G (1.00)&quot; &quot;eis c.-14C&gt;T (0.90)&quot; 
+##  [4] &quot;rrs n.1401A&gt;G (0.99)&quot; &quot;rrs n.1401A&gt;G (0.97)&quot; &quot;rrs n.1401A&gt;G (0.98)&quot;
+##  [7] &quot;rrs n.1401A&gt;G (0.96)&quot; &quot;rrs n.1401A&gt;G (0.53)&quot; &quot;eis c.-14C&gt;T (0.95)&quot; 
+## [10] &quot;eis c.-14C&gt;T (1.00)&quot;  &quot;rrs n.1401A&gt;G (0.94)&quot; &quot;rrs n.1401A&gt;G (0.86)&quot;
+## [13] &quot;eis c.-14C&gt;T (0.99)&quot;</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$rifampicin)</code></pre>
-<pre><code>## Error in unique(tb_metadata.df$rifampicin): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;-&quot;                                                                        
+##  [2] &quot;rpoB p.Ser450Leu (0.96)&quot;                                                  
+##  [3] &quot;rpoB p.Ser450Leu (1.00)&quot;                                                  
+##  [4] &quot;rpoB p.Leu430Pro (1.00)&quot;                                                  
+##  [5] &quot;rpoB p.Asp435Tyr (0.90)&quot;                                                  
+##  [6] &quot;rpoB p.Ser450Leu (0.84)&quot;                                                  
+##  [7] &quot;rpoB p.Leu430Pro (0.33)&quot;                                                  
+##  [8] &quot;rpoB p.His445Leu (1.00)&quot;                                                  
+##  [9] &quot;rpoB p.His445Gly (1.00)&quot;                                                  
+## [10] &quot;rpoB p.Val170Phe (1.00)&quot;                                                  
+## [11] &quot;rpoB p.Ser450Leu (1.00), rpoC p.Leu527Val (1.00)&quot;                         
+## [12] &quot;rpoB p.Leu449Gln (0.21)&quot;                                                  
+## [13] &quot;rpoB p.Arg552Cys (0.99), rpoB p.Ser450Leu (1.00)&quot;                         
+## [14] &quot;rpoB p.His445Asn (0.99)&quot;                                                  
+## [15] &quot;rpoB p.His445Asp (1.00)&quot;                                                  
+## [16] &quot;rpoB p.His445Asn (1.00)&quot;                                                  
+## [17] &quot;rpoB p.Asp435Gly (1.00)&quot;                                                  
+## [18] &quot;rpoB p.Asp435Tyr (0.99)&quot;                                                  
+## [19] &quot;rpoB p.Asp435Tyr (1.00)&quot;                                                  
+## [20] &quot;rpoB p.His445Tyr (1.00)&quot;                                                  
+## [21] &quot;rpoB p.Ser450Leu (0.95)&quot;                                                  
+## [22] &quot;rpoB p.Asp435Val (0.93)&quot;                                                  
+## [23] &quot;rpoB p.Ser450Leu (0.97), rpoC p.Leu527Val (1.00)&quot;                         
+## [24] &quot;rpoB p.Ser450Leu (0.98)&quot;                                                  
+## [25] &quot;rpoB p.Ser450Leu (0.99)&quot;                                                  
+## [26] &quot;rpoB p.Asp435Val (1.00)&quot;                                                  
+## [27] &quot;rpoB c.1287_1295delGCTGAGCCA (1.00)&quot;                                      
+## [28] &quot;rpoB p.Ser450Leu (1.00), rpoC p.Asp485Asn (1.00)&quot;                         
+## [29] &quot;rpoB p.Ser450Leu (0.99), rpoC p.Asp485Asn (1.00)&quot;                         
+## [30] &quot;rpoB p.Ser450Leu (0.98), rpoC p.Asp485Asn (1.00)&quot;                         
+## [31] &quot;rpoB p.His445Arg (0.94)&quot;                                                  
+## [32] &quot;rpoB p.Ile491Phe (1.00)&quot;                                                  
+## [33] &quot;rpoB p.Ser450Phe (1.00)&quot;                                                  
+## [34] &quot;rpoB p.Ser450Cys (0.97)&quot;                                                  
+## [35] &quot;rpoB p.His445Arg (1.00)&quot;                                                  
+## [36] &quot;rpoB p.Asp435Tyr (0.60), rpoB p.Leu430Val (0.61), rpoB p.Ser450Leu (0.42)&quot;
+## [37] &quot;rpoB p.Ile480Val (1.00), rpoB p.Ser450Leu (1.00)&quot;                         
+## [38] &quot;rpoB p.Ser450Leu (1.00), rpoC p.Gly332Arg (1.00)&quot;                         
+## [39] &quot;rpoB p.Leu452Pro (1.00)&quot;                                                  
+## [40] &quot;rpoB p.Asp435Val (0.99)&quot;                                                  
+## [41] &quot;rpoB p.Ser441Leu (1.00)&quot;                                                  
+## [42] &quot;rpoB p.Asp435Tyr (1.00), rpoB p.Ser450Leu (1.00)&quot;                         
+## [43] &quot;rpoB p.Leu452Pro (0.99)&quot;                                                  
+## [44] &quot;rpoB p.Ser450Leu (0.99), rpoC p.Gly332Arg (1.00)&quot;                         
+## [45] &quot;rpoB p.Ser450Leu (0.63), rpoB p.Ser450Phe (0.34)&quot;                         
+## [46] &quot;rpoB p.Ser450Leu (1.00), rpoC p.Ile491Thr (1.00)&quot;                         
+## [47] &quot;rpoB p.Asp435Tyr (0.99), rpoB p.Pro454Ser (0.99)&quot;                         
+## [48] &quot;rpoB p.His445Arg (0.68)&quot;                                                  
+## [49] &quot;rpoB p.Ser450Leu (0.99), rpoC p.Phe452Ser (1.00)&quot;                         
+## [50] &quot;rpoB p.Ser450Leu (1.00), rpoC p.Phe452Ser (1.00)&quot;                         
+## [51] &quot;rpoB p.Ser450Leu (0.45)&quot;                                                  
+## [52] &quot;rpoB p.Ser450Leu (0.38)&quot;                                                  
+## [53] &quot;rpoB p.Ser450Leu (0.96), rpoC p.Ile491Thr (0.97)&quot;                         
+## [54] &quot;rpoB p.Glu761Asp (1.00), rpoB p.Ser450Leu (1.00)&quot;                         
+## [55] &quot;rpoB p.Leu430Pro (0.98)&quot;                                                  
+## [56] &quot;rpoB p.Ile480Val (0.99), rpoB p.Ser450Leu (1.00)&quot;                         
+## [57] &quot;rpoB p.Asp435Val (0.97)&quot;                                                  
+## [58] &quot;rpoB p.Val170Phe (0.84)&quot;                                                  
+## [59] &quot;rpoB p.Asp435His (1.00), rpoB p.His445Asp (1.00)&quot;                         
+## [60] &quot;rpoB p.Ser450Leu (1.00), rpoB p.Thr400Ala (0.61)&quot;                         
+## [61] &quot;rpoB p.His445Asp (0.97)&quot;                                                  
+## [62] &quot;rpoB p.Ser450Leu (0.15)&quot;                                                  
+## [63] &quot;rpoB p.His445Asn (1.00), rpoB p.Ser450Trp (1.00)&quot;                         
+## [64] &quot;rpoB p.Ser450Trp (1.00)&quot;                                                  
+## [65] &quot;rpoB p.His445Tyr (0.95)&quot;                                                  
+## [66] &quot;rpoB p.His445Cys (1.00)&quot;                                                  
+## [67] &quot;rpoB p.Gln432Leu (1.00), rpoB p.His445Gln (0.98)&quot;                         
+## [68] &quot;rpoB p.Asp435Glu (1.00), rpoB p.His445Asn (1.00)&quot;                         
+## [69] &quot;rpoB p.Leu430Pro (1.00), rpoB p.Phe424Leu (1.00)&quot;                         
+## [70] &quot;rpoB p.Ser450Leu (0.19)&quot;                                                  
+## [71] &quot;rpoB p.Ser450Leu (1.00), rpoC p.Ile491Thr (0.99)&quot;                         
+## [72] &quot;rpoB c.1301_1304delTGGAinsG (1.00)&quot;                                       
+## [73] &quot;rpoB p.His445Gln (0.83), rpoB p.Leu430Pro (0.83)&quot;                         
+## [74] &quot;rpoB p.Leu449Met (0.97), rpoB p.Ser450Phe (0.96)&quot;                         
+## [75] &quot;rpoB p.His445Asp (0.33)&quot;                                                  
+## [76] &quot;rpoB p.Gln432Lys (1.00)&quot;                                                  
+## [77] &quot;rpoB p.His445Tyr (0.89)&quot;                                                  
+## [78] &quot;rpoB p.Asp435Tyr (1.00), rpoB p.Gln429His (1.00)&quot;                         
+## [79] &quot;rpoB c.1300_1305delATGGAC (0.44), rpoB p.Leu452Pro (0.32)&quot;                
+## [80] &quot;rpoB p.Ser431Gly (1.00)&quot;</code></pre>
 <hr />
 <p>It appears we observations from have 105 countries across 6
 continents. Our drug-based phenotypes appear to include a cataloging of
@@ -2579,7 +2613,10 @@ to_drop &lt;-
   
   # Just keep the strain information
   pull(strain)</code></pre>
-<pre><code>## Error in filter(., !(region == ... &amp; year &gt;= ...)): object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `filter()`:[22m
+## [1m[22m[36mi[39m In argument: `!(region == ... &amp; year &gt;= ...)`.
+## [1mCaused by error:[22m
+## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># Take a look at what we got back
 str(to_drop)</code></pre>
 <pre><code>## Error in str(to_drop): object &#39;to_drop&#39; not found</code></pre>
@@ -2881,7 +2918,10 @@ to_view &lt;-
   
     # Just keep the strain names
     pull(strain)</code></pre>
-<pre><code>## Error in filter(., main_lineage %in% ..., region == &quot;North America&quot;, year &gt;= : object &#39;tb_metadata.df&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `filter()`:[22m
+## [1m[22m[36mi[39m In argument: `main_lineage %in% ...`.
+## [1mCaused by error:[22m
+## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># What&#39;s the list look like?
 to_view</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;to_view&#39; not found</code></pre>
