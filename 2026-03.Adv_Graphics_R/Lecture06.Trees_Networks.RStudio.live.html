@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:24:47 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:29:09 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,9 +1894,9 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657820405d0d\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65785dd0142\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657820405d0d\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65785dd0142\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1925,7 +1925,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65787ee02a2e/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65782f7439dc/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1988,7 +1988,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:26:46 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:31:09 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -3259,14 +3259,14 @@ curated_tips &lt;-
 
 # Take a quick look at the tips we&#39;ve selected
 curated_tips</code></pre>
-<pre><code>##  [1] &quot;SRR34066814&quot; &quot;SRR5216923&quot;  &quot;SRR10482935&quot; &quot;SRR7617442&quot;  &quot;SRR7851322&quot; 
-##  [6] &quot;ERR13291168&quot; &quot;ERR13149108&quot; &quot;ERR1462580&quot;  &quot;ERR1462611&quot;  &quot;SRR31100623&quot;
-## [11] &quot;SRR8380918&quot;  &quot;SRR12882542&quot; &quot;DRR750266&quot;   &quot;ERR13388691&quot; &quot;SRR12882564&quot;
-## [16] &quot;SRR10430362&quot; &quot;SRR30838388&quot; &quot;SRR25515563&quot; &quot;SRR5153718&quot;  &quot;ERR9030298&quot; 
-## [21] &quot;SRR29341529&quot; &quot;SRR29341611&quot; &quot;ERR13289978&quot; &quot;SRR31322794&quot; &quot;ERR2245401&quot; 
-## [26] &quot;ERR15418589&quot; &quot;SRR13180328&quot; &quot;SRR21732908&quot; &quot;ERR10867922&quot; &quot;ERR16004338&quot;
-## [31] &quot;ERR15418590&quot; &quot;SRR24302113&quot; &quot;ERR2704686&quot;  &quot;SRR29341580&quot; &quot;SRR18715441&quot;
-## [36] &quot;ERR3799588&quot;  &quot;ERR5336169&quot;  &quot;ERR14869475&quot; &quot;ERR5336144&quot;  &quot;ERR14869679&quot;
+<pre><code>##  [1] &quot;SRR5430098&quot;  &quot;SRR21689921&quot; &quot;ERR6139636&quot;  &quot;ERR12976145&quot; &quot;SRR1791694&quot; 
+##  [6] &quot;ERR1462618&quot;  &quot;ERR1462611&quot;  &quot;ERR13291168&quot; &quot;ERR13149108&quot; &quot;SRR31100623&quot;
+## [11] &quot;SRR5710004&quot;  &quot;SRR29341492&quot; &quot;ERR9657192&quot;  &quot;SRR14519849&quot; &quot;SRR30629714&quot;
+## [16] &quot;ERR14856123&quot; &quot;ERR16146622&quot; &quot;SRR12080285&quot; &quot;SRR28859852&quot; &quot;SRR6356983&quot; 
+## [21] &quot;SRR24114343&quot; &quot;SRR29056116&quot; &quot;ERR2245352&quot;  &quot;SRR29289413&quot; &quot;SRR12882358&quot;
+## [26] &quot;SRR23453151&quot; &quot;SRR32148241&quot; &quot;ERR14722664&quot; &quot;ERR459443&quot;   &quot;ERR5908128&quot; 
+## [31] &quot;SRR29341535&quot; &quot;SRR18715441&quot; &quot;ERR5336170&quot;  &quot;ERR2704686&quot;  &quot;ERR15418590&quot;
+## [36] &quot;ERR14869817&quot; &quot;ERR14869475&quot; &quot;ERR5336169&quot;  &quot;ERR14869679&quot; &quot;ERR5336144&quot; 
 ## [41] &quot;ERR1971865&quot;  &quot;SRR10828835&quot; &quot;ERR5336171&quot;</code></pre>
 <hr />
 <p>We now have a vector of 43 tips which suggests that we didn’t quite
@@ -3298,15 +3298,15 @@ curated_tree_info.df &lt;-
 <pre><code>## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.</code></pre>
 <pre class="r"><code># Look at the structure of the data frame
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
+<pre><code>## &#39;data.frame&#39;:    83 obs. of  18 variables:
 ##  $ parent             : int  46 48 48 49 50 50 52 54 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 4.66e-05 2.24e-05 ...
+##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 4.66e-05 3.05e-05 ...
 ##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336169&quot; &quot;ERR14869679&quot; ...
 ##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2018-05-03&quot; &quot;2005-XX-XX&quot; ...
 ##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
 ##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 78 67 159 ...
+##  $ target_median_depth: num  207 112 78 67 104 159 122 137 35 177 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
 ##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.1&quot; ...
 ##  $ num_dr_variants    : num  0 0 0 3 1 1 0 0 0 0 ...
@@ -3319,15 +3319,15 @@ str(curated_tree_info.df)</code></pre>
 ##  $ ethambutol         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...</code></pre>
 <pre class="r"><code># What are the labels of our nodes like?
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR14869679&quot; &quot;ERR14869475&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462580&quot; 
-## [11] &quot;ERR1462611&quot;  &quot;SRR7851322&quot;  &quot;SRR10482935&quot; &quot;SRR34066814&quot; &quot;SRR7617442&quot; 
-## [16] &quot;SRR5216923&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341580&quot; &quot;ERR2704686&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;ERR13388691&quot; &quot;SRR12882564&quot; &quot;DRR750266&quot;  
-## [26] &quot;SRR12882542&quot; &quot;SRR8380918&quot;  &quot;ERR1971865&quot;  &quot;SRR29341611&quot; &quot;SRR29341529&quot;
-## [31] &quot;ERR13289978&quot; &quot;ERR2245401&quot;  &quot;SRR31322794&quot; &quot;ERR9030298&quot;  &quot;SRR25515563&quot;
-## [36] &quot;SRR30838388&quot; &quot;SRR5153718&quot;  &quot;SRR10430362&quot; &quot;SRR13180328&quot; &quot;ERR16004338&quot;
-## [41] &quot;ERR10867922&quot; &quot;ERR15418589&quot; &quot;SRR21732908&quot; NA            NA           
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR14869679&quot; &quot;ERR14869817&quot;
+##  [6] &quot;ERR14869475&quot; &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462611&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR21689921&quot; &quot;ERR12976145&quot; &quot;ERR6139636&quot;  &quot;SRR5430098&quot; 
+## [16] &quot;SRR1791694&quot;  &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;ERR2704686&quot;  &quot;ERR5336170&quot; 
+## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR14519849&quot; &quot;SRR5710004&quot;  &quot;SRR29341492&quot;
+## [26] &quot;ERR9657192&quot;  &quot;SRR30629714&quot; &quot;ERR1971865&quot;  &quot;SRR12882358&quot; &quot;SRR24114343&quot;
+## [31] &quot;SRR29289413&quot; &quot;SRR29056116&quot; &quot;ERR2245352&quot;  &quot;ERR14856123&quot; &quot;SRR28859852&quot;
+## [36] &quot;SRR12080285&quot; &quot;ERR16146622&quot; &quot;SRR6356983&quot;  &quot;SRR23453151&quot; &quot;ERR459443&quot;  
+## [41] &quot;SRR32148241&quot; &quot;ERR14722664&quot; &quot;ERR5908128&quot;  NA            NA           
 ## [46] NA            NA            NA            NA            NA           
 ## [51] NA            NA            NA            NA            NA           
 ## [56] NA            NA            NA            NA            NA           
@@ -3335,7 +3335,7 @@ curated_tree_info.df$label</code></pre>
 ## [66] NA            NA            NA            NA            NA           
 ## [71] NA            NA            NA            NA            NA           
 ## [76] NA            NA            NA            NA            NA           
-## [81] NA            NA            NA            NA</code></pre>
+## [81] NA            NA            NA</code></pre>
 <hr />
 <div id="not-all-trees-name-their-internal-nodes" class="section level3">
 <h3>1.8.1 Not all trees name their internal nodes</h3>
@@ -3368,21 +3368,21 @@ node_replacements</code></pre>
 ## [15] &quot;NODE_15&quot; &quot;NODE_16&quot; &quot;NODE_17&quot; &quot;NODE_18&quot; &quot;NODE_19&quot; &quot;NODE_20&quot; &quot;NODE_21&quot;
 ## [22] &quot;NODE_22&quot; &quot;NODE_23&quot; &quot;NODE_24&quot; &quot;NODE_25&quot; &quot;NODE_26&quot; &quot;NODE_27&quot; &quot;NODE_28&quot;
 ## [29] &quot;NODE_29&quot; &quot;NODE_30&quot; &quot;NODE_31&quot; &quot;NODE_32&quot; &quot;NODE_33&quot; &quot;NODE_34&quot; &quot;NODE_35&quot;
-## [36] &quot;NODE_36&quot; &quot;NODE_37&quot; &quot;NODE_38&quot; &quot;NODE_39&quot; &quot;NODE_40&quot; &quot;NODE_41&quot;</code></pre>
+## [36] &quot;NODE_36&quot; &quot;NODE_37&quot; &quot;NODE_38&quot; &quot;NODE_39&quot; &quot;NODE_40&quot;</code></pre>
 <pre class="r"><code># Use basic values to replace the NAs
 curated_tree_info.df$label[is.na(curated_tree_info.df$label)] &lt;- node_replacements
 
 # Check if the process worked
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR14869679&quot; &quot;ERR14869475&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462580&quot; 
-## [11] &quot;ERR1462611&quot;  &quot;SRR7851322&quot;  &quot;SRR10482935&quot; &quot;SRR34066814&quot; &quot;SRR7617442&quot; 
-## [16] &quot;SRR5216923&quot;  &quot;SRR24302113&quot; &quot;ERR15418590&quot; &quot;SRR29341580&quot; &quot;ERR2704686&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;ERR13388691&quot; &quot;SRR12882564&quot; &quot;DRR750266&quot;  
-## [26] &quot;SRR12882542&quot; &quot;SRR8380918&quot;  &quot;ERR1971865&quot;  &quot;SRR29341611&quot; &quot;SRR29341529&quot;
-## [31] &quot;ERR13289978&quot; &quot;ERR2245401&quot;  &quot;SRR31322794&quot; &quot;ERR9030298&quot;  &quot;SRR25515563&quot;
-## [36] &quot;SRR30838388&quot; &quot;SRR5153718&quot;  &quot;SRR10430362&quot; &quot;SRR13180328&quot; &quot;ERR16004338&quot;
-## [41] &quot;ERR10867922&quot; &quot;ERR15418589&quot; &quot;SRR21732908&quot; &quot;NODE_1&quot;      &quot;NODE_2&quot;     
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336169&quot;  &quot;ERR14869679&quot; &quot;ERR14869817&quot;
+##  [6] &quot;ERR14869475&quot; &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462611&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR21689921&quot; &quot;ERR12976145&quot; &quot;ERR6139636&quot;  &quot;SRR5430098&quot; 
+## [16] &quot;SRR1791694&quot;  &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;ERR2704686&quot;  &quot;ERR5336170&quot; 
+## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR14519849&quot; &quot;SRR5710004&quot;  &quot;SRR29341492&quot;
+## [26] &quot;ERR9657192&quot;  &quot;SRR30629714&quot; &quot;ERR1971865&quot;  &quot;SRR12882358&quot; &quot;SRR24114343&quot;
+## [31] &quot;SRR29289413&quot; &quot;SRR29056116&quot; &quot;ERR2245352&quot;  &quot;ERR14856123&quot; &quot;SRR28859852&quot;
+## [36] &quot;SRR12080285&quot; &quot;ERR16146622&quot; &quot;SRR6356983&quot;  &quot;SRR23453151&quot; &quot;ERR459443&quot;  
+## [41] &quot;SRR32148241&quot; &quot;ERR14722664&quot; &quot;ERR5908128&quot;  &quot;NODE_1&quot;      &quot;NODE_2&quot;     
 ## [46] &quot;NODE_3&quot;      &quot;NODE_4&quot;      &quot;NODE_5&quot;      &quot;NODE_6&quot;      &quot;NODE_7&quot;     
 ## [51] &quot;NODE_8&quot;      &quot;NODE_9&quot;      &quot;NODE_10&quot;     &quot;NODE_11&quot;     &quot;NODE_12&quot;    
 ## [56] &quot;NODE_13&quot;     &quot;NODE_14&quot;     &quot;NODE_15&quot;     &quot;NODE_16&quot;     &quot;NODE_17&quot;    
@@ -3390,7 +3390,7 @@ curated_tree_info.df$label</code></pre>
 ## [66] &quot;NODE_23&quot;     &quot;NODE_24&quot;     &quot;NODE_25&quot;     &quot;NODE_26&quot;     &quot;NODE_27&quot;    
 ## [71] &quot;NODE_28&quot;     &quot;NODE_29&quot;     &quot;NODE_30&quot;     &quot;NODE_31&quot;     &quot;NODE_32&quot;    
 ## [76] &quot;NODE_33&quot;     &quot;NODE_34&quot;     &quot;NODE_35&quot;     &quot;NODE_36&quot;     &quot;NODE_37&quot;    
-## [81] &quot;NODE_38&quot;     &quot;NODE_39&quot;     &quot;NODE_40&quot;     &quot;NODE_41&quot;</code></pre>
+## [81] &quot;NODE_38&quot;     &quot;NODE_39&quot;     &quot;NODE_40&quot;</code></pre>
 <hr />
 </div>
 <div id="rename-your-dataframe-rows-using-a-completed-node-list" class="section level3">
@@ -3405,15 +3405,15 @@ rownames(curated_tree_info.df) &lt;- curated_tree_info.df$label
 
 # Let&#39;s view the tree
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
+<pre><code>## &#39;data.frame&#39;:    83 obs. of  18 variables:
 ##  $ parent             : int  46 48 48 49 50 50 52 54 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 4.66e-05 2.24e-05 ...
+##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 4.66e-05 3.05e-05 ...
 ##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336169&quot; &quot;ERR14869679&quot; ...
 ##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2018-05-03&quot; &quot;2005-XX-XX&quot; ...
 ##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
 ##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 78 67 159 ...
+##  $ target_median_depth: num  207 112 78 67 104 159 122 137 35 177 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
 ##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.1&quot; ...
 ##  $ num_dr_variants    : num  0 0 0 3 1 1 0 0 0 0 ...
@@ -3834,10 +3834,55 @@ practice on working with these kinds of objects! Let’s begin with
 importing that <code>Wyler2020_AEC_SARSCoV2_17AAG_readcounts.tsv</code>
 data again.</p>
 <pre class="r"><code># Read in your read_count data
-wyler_readcounts.df &lt;- read_tsv(...)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
+wyler_readcounts.df &lt;- read_tsv(&quot;data/Wyler2020_AEC_SARSCoV2_17AAG_readcounts.tsv&quot;)</code></pre>
+<pre><code>## [1mRows: [22m[34m27011[39m [1mColumns: [22m[34m38[39m
+## [36m--[39m [1mColumn specification[22m [36m------------------------------------------------------------------------------------------------[39m
+## [1mDelimiter:[22m &quot;\t&quot;
+## [31mchr[39m  (1): gene
+## [32mdbl[39m (37): width, AECII_01_24h_DMSO-1, AECII_02_24h_DMSO-2, AECII_03_24h_DMSO...
+## 
+## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
+## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>str(wyler_readcounts.df, give.attr = FALSE)</code></pre>
-<pre><code>## Error in str(wyler_readcounts.df, give.attr = FALSE): object &#39;wyler_readcounts.df&#39; not found</code></pre>
+<pre><code>## spc_tbl_ [27,011 x 38] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ gene                        : chr [1:27011] &quot;A1BG&quot; &quot;A1BG-AS1&quot; &quot;A1CF&quot; &quot;A2M&quot; ...
+##  $ width                       : num [1:27011] 1766 2130 9529 4653 2187 ...
+##  $ AECII_01_24h_DMSO-1         : num [1:27011] 22 55 0 0 0 ...
+##  $ AECII_02_24h_DMSO-2         : num [1:27011] 19 20 0 1 0 ...
+##  $ AECII_03_24h_DMSO-3         : num [1:27011] 15 38 0 0 2 ...
+##  $ AECII_04_24h_200nM17AAG-1   : num [1:27011] 29 11 0 0 2 4740 0 0 882 0 ...
+##  $ AECII_05_24h_200nM17AAG-2   : num [1:27011] 27 15 0 0 0 ...
+##  $ AECII_06_24h_200nM17AAG-3   : num [1:27011] 30 17 0 0 2 4220 0 0 820 0 ...
+##  $ AECII_07_24h_S2_DMSO-1      : num [1:27011] 24 41 0 0 0 ...
+##  $ AECII_08_24h_S2_DMSO-2      : num [1:27011] 18 46 0 0 2 ...
+##  $ AECII_09_24h_S2_DMSO-3      : num [1:27011] 22 42 0 0 4 2750 0 0 739 0 ...
+##  $ AECII_10_24h_S2_200nM17AAG-1: num [1:27011] 23 13 0 1 3 ...
+##  $ AECII_11_24h_S2_200nM17AAG-2: num [1:27011] 25 24 0 0 1 ...
+##  $ AECII_12_24h_S2_200nM17AAG-3: num [1:27011] 18 28 1 0 1 ...
+##  $ AECII_13_48h_DMSO-1         : num [1:27011] 24 57 0 0 0 ...
+##  $ AECII_14_48h_DMSO-2         : num [1:27011] 38 56 0 0 0 1930 0 0 892 0 ...
+##  $ AECII_15_48h_DMSO-3         : num [1:27011] 33 64 0 0 0 ...
+##  $ AECII_16_48h_200nM17AAG-1   : num [1:27011] 29 35 0 0 1 ...
+##  $ AECII_17_48h_200nM17AAG-2   : num [1:27011] 20 24 0 0 0 ...
+##  $ AECII_18_48h_200nM17AAG-3   : num [1:27011] 23 28 0 0 0 ...
+##  $ AECII_19_48h_S2_DMSO-1      : num [1:27011] 13 45 0 0 0 ...
+##  $ AECII_20_48h_S2_DMSO-2      : num [1:27011] 22 36 0 0 0 ...
+##  $ AECII_21_48h_S2_DMSO-3      : num [1:27011] 21 30 0 0 1 ...
+##  $ AECII_22_48h_S2_200nM17AAG-1: num [1:27011] 31 29 0 0 1 ...
+##  $ AECII_23_48h_S2_200nM17AAG-2: num [1:27011] 36 23 0 0 1 ...
+##  $ AECII_24_48h_S2_200nM17AAG-3: num [1:27011] 20 19 1 0 0 ...
+##  $ AECII_25_72h_DMSO-1         : num [1:27011] 35 43 0 1 2 ...
+##  $ AECII_26_72h_DMSO-2         : num [1:27011] 26 38 0 0 1 997 0 0 753 0 ...
+##  $ AECII_27_72h_DMSO-3         : num [1:27011] 29 53 0 0 4 1230 0 0 953 0 ...
+##  $ AECII_28_72h_200nM17AAG-1   : num [1:27011] 32 57 0 0 2 ...
+##  $ AECII_29_72h_200nM17AAG-2   : num [1:27011] 41 49 0 0 2 1050 0 0 553 0 ...
+##  $ AECII_30_72h_200nM17AAG-3   : num [1:27011] 33 37 0 0 3 857 0 0 458 0 ...
+##  $ AECII_31_72h_S2_DMSO-1      : num [1:27011] 24 58 0 0 1 ...
+##  $ AECII_32_72h_S2_DMSO-2      : num [1:27011] 33 63 0 0 3 ...
+##  $ AECII_33_72h_S2_DMSO-3      : num [1:27011] 23 47 1 1 2 ...
+##  $ AECII_34_72h_S2_200nM17AAG-1: num [1:27011] 22 39 0 1 1 ...
+##  $ AECII_35_72h_S2_200nM17AAG-2: num [1:27011] 28 26 0 0 2 866 0 0 481 0 ...
+##  $ AECII_36_72h_S2_200nM17AAG-3: num [1:27011] 43 34 0 0 3 ...</code></pre>
 <hr />
 </div>
 <div id="prepare-our-readcounts-data-as-a-matrix" class="section level2">
@@ -3856,21 +3901,86 @@ wyler_readcounts_filtered.df &lt;-
   # Rename the columns be removing the first portion: AECII_xx
   rename_with(., ~ str_replace(string = .x, 
                                pattern = r&quot;(\w*_\d*_)&quot;, 
-                               replace = &quot;&quot;)) </code></pre>
-<pre><code>## Error in rename_with(., ~str_replace(string = .x, pattern = &quot;\\w*_\\d*_&quot;, : object &#39;wyler_readcounts.df&#39; not found</code></pre>
-<pre class="r"><code># Create our data matrix
+                               replace = &quot;&quot;)) 
+  
+# Create our data matrix
 wyler_readcounts.mx &lt;- wyler_readcounts_filtered.df %&gt;% 
   select(3:38) %&gt;% 
-  as.matrix()</code></pre>
-<pre><code>## Error in select(., 3:38): object &#39;wyler_readcounts_filtered.df&#39; not found</code></pre>
-<pre class="r"><code># Set the row names using the information from the data frame
-rownames(wyler_readcounts.mx) &lt;- wyler_readcounts_filtered.df$gene</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;wyler_readcounts_filtered.df&#39; not found</code></pre>
-<pre class="r"><code># Check the characteristics of our matrix
+  as.matrix()
+
+# Set the row names using the information from the data frame
+rownames(wyler_readcounts.mx) &lt;- wyler_readcounts_filtered.df$gene
+
+# Check the characteristics of our matrix
 head(wyler_readcounts.mx)</code></pre>
-<pre><code>## Error in head(wyler_readcounts.mx): object &#39;wyler_readcounts.mx&#39; not found</code></pre>
+<pre><code>##          24h_DMSO-1 24h_DMSO-2 24h_DMSO-3 24h_200nM17AAG-1 24h_200nM17AAG-2
+## A1BG             22         19         15               29               27
+## A1BG-AS1         55         20         38               11               15
+## A1CF              0          0          0                0                0
+## A2M               0          1          0                0                0
+## A2M-AS1           0          0          2                2                0
+## A2ML1          2721       2349       2683             4740             3914
+##          24h_200nM17AAG-3 24h_S2_DMSO-1 24h_S2_DMSO-2 24h_S2_DMSO-3
+## A1BG                   30            24            18            22
+## A1BG-AS1               17            41            46            42
+## A1CF                    0             0             0             0
+## A2M                     0             0             0             0
+## A2M-AS1                 2             0             2             4
+## A2ML1                4220          2534          2484          2750
+##          24h_S2_200nM17AAG-1 24h_S2_200nM17AAG-2 24h_S2_200nM17AAG-3 48h_DMSO-1
+## A1BG                      23                  25                  18         24
+## A1BG-AS1                  13                  24                  28         57
+## A1CF                       0                   0                   1          0
+## A2M                        1                   0                   0          0
+## A2M-AS1                    3                   1                   1          0
+## A2ML1                   4012                3647                3853       1684
+##          48h_DMSO-2 48h_DMSO-3 48h_200nM17AAG-1 48h_200nM17AAG-2
+## A1BG             38         33               29               20
+## A1BG-AS1         56         64               35               24
+## A1CF              0          0                0                0
+## A2M               0          0                0                0
+## A2M-AS1           0          0                1                0
+## A2ML1          1930       1791             2552             2183
+##          48h_200nM17AAG-3 48h_S2_DMSO-1 48h_S2_DMSO-2 48h_S2_DMSO-3
+## A1BG                   23            13            22            21
+## A1BG-AS1               28            45            36            30
+## A1CF                    0             0             0             0
+## A2M                     0             0             0             0
+## A2M-AS1                 0             0             0             1
+## A2ML1                2918          1323          1503          1305
+##          48h_S2_200nM17AAG-1 48h_S2_200nM17AAG-2 48h_S2_200nM17AAG-3 72h_DMSO-1
+## A1BG                      31                  36                  20         35
+## A1BG-AS1                  29                  23                  19         43
+## A1CF                       0                   0                   1          0
+## A2M                        0                   0                   0          1
+## A2M-AS1                    1                   1                   0          2
+## A2ML1                   2212                2699                2146       1058
+##          72h_DMSO-2 72h_DMSO-3 72h_200nM17AAG-1 72h_200nM17AAG-2
+## A1BG             26         29               32               41
+## A1BG-AS1         38         53               57               49
+## A1CF              0          0                0                0
+## A2M               0          0                0                0
+## A2M-AS1           1          4                2                2
+## A2ML1           997       1230             1248             1050
+##          72h_200nM17AAG-3 72h_S2_DMSO-1 72h_S2_DMSO-2 72h_S2_DMSO-3
+## A1BG                   33            24            33            23
+## A1BG-AS1               37            58            63            47
+## A1CF                    0             0             0             1
+## A2M                     0             0             0             1
+## A2M-AS1                 3             1             3             2
+## A2ML1                 857           958          1163           835
+##          72h_S2_200nM17AAG-1 72h_S2_200nM17AAG-2 72h_S2_200nM17AAG-3
+## A1BG                      22                  28                  43
+## A1BG-AS1                  39                  26                  34
+## A1CF                       0                   0                   0
+## A2M                        1                   0                   0
+## A2M-AS1                    1                   2                   3
+## A2ML1                   1174                 866                1018</code></pre>
 <pre class="r"><code>str(wyler_readcounts.mx)</code></pre>
-<pre><code>## Error in str(wyler_readcounts.mx): object &#39;wyler_readcounts.mx&#39; not found</code></pre>
+<pre><code>##  num [1:27011, 1:36] 22 55 0 0 0 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : chr [1:27011] &quot;A1BG&quot; &quot;A1BG-AS1&quot; &quot;A1CF&quot; &quot;A2M&quot; ...
+##   ..$ : chr [1:36] &quot;24h_DMSO-1&quot; &quot;24h_DMSO-2&quot; &quot;24h_DMSO-3&quot; &quot;24h_200nM17AAG-1&quot; ...</code></pre>
 <hr />
 <div id="generate-metadata-from-your-experimental-information" class="section level3">
 <h3>1.12.2 Generate metadata from your experimental information</h3>
@@ -3901,10 +4011,10 @@ dataframe containing our extracted metadata.</p>
   
   # Split the experimental information into bits and pieces
   # Begin with breaking off the time information
-  separate(..., into = c(&quot;time&quot;, &quot;condition&quot;), extra = &quot;merge&quot;, sep = &quot;_&quot;, remove = FALSE) %&gt;% 
+  separate(experiment, into = c(&quot;time&quot;, &quot;condition&quot;), extra = &quot;merge&quot;, sep = &quot;_&quot;, remove = FALSE) %&gt;% 
   
   # Next break our data into infections vs treatments
-  separate(..., into = c(&quot;infection&quot;, &quot;treatment&quot;), sep = &quot;_&quot;) %&gt;% 
+  separate(condition, into = c(&quot;infection&quot;, &quot;treatment&quot;), sep = &quot;_&quot;) %&gt;% 
   
   # We need to slide over some of the data using a coalesce step
   mutate(treatment = coalesce(treatment, infection),
@@ -3920,10 +4030,15 @@ dataframe containing our extracted metadata.</p>
            rowwise() %&gt;% 
            mutate(totalCount = sum(c_across(-1))) %&gt;% pull(totalCount)
          )</code></pre>
-<pre><code>## Error in mutate(., treatment = coalesce(treatment, infection), treatment = str_remove(treatment, : &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Warning: [1m[22mExpected 2 pieces. Missing pieces filled with `NA` in 18 rows [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18, 25, 26, 27,
+## 28, 29, 30].</code></pre>
 <pre class="r"><code># Take a peek at what we&#39;ve made
 head(wyler_readcounts_metadata.df)</code></pre>
-<pre><code>## Error in head(wyler_readcounts_metadata.df): object &#39;wyler_readcounts_metadata.df&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["time"],"name":[2],"type":["chr"],"align":["left"]},{"label":["infection"],"name":[3],"type":["chr"],"align":["left"]},{"label":["treatment"],"name":[4],"type":["chr"],"align":["left"]},{"label":["totalCount"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"24h_DMSO-1","2":"24h","3":"None","4":"DMSO","5":"13060896","_rn_":"1"},{"1":"24h_DMSO-2","2":"24h","3":"None","4":"DMSO","5":"9390107","_rn_":"2"},{"1":"24h_DMSO-3","2":"24h","3":"None","4":"DMSO","5":"11313261","_rn_":"3"},{"1":"24h_200nM17AAG-1","2":"24h","3":"None","4":"200nM17AAG","5":"12924988","_rn_":"4"},{"1":"24h_200nM17AAG-2","2":"24h","3":"None","4":"200nM17AAG","5":"11662245","_rn_":"5"},{"1":"24h_200nM17AAG-3","2":"24h","3":"None","4":"200nM17AAG","5":"12522172","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="generate-the-hclust-object-for-your-graph" class="section level3">
@@ -3936,27 +4051,43 @@ others. We’ll use a standard euclidean distance method to create the
 distance matrix before passing it onto the <code>hclust()</code>
 function to create our <code>hclust</code> object.</p>
 <pre class="r"><code># Generate an hclust object where rows are experimental information
-wyler.hc &lt;- ...(...(...(wyler_readcounts.mx)), 
-                   method = &quot;ward.D2&quot;)</code></pre>
-<pre><code>## Error in ...(...(...(wyler_readcounts.mx)), method = &quot;ward.D2&quot;): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># Check out if it looks correct
+wyler.hc &lt;- hclust(dist(t(wyler_readcounts.mx)), 
+                   method = &quot;ward.D2&quot;)
+
+# Check out if it looks correct
 str(wyler.hc)</code></pre>
-<pre><code>## Error in str(wyler.hc): object &#39;wyler.hc&#39; not found</code></pre>
+<pre><code>## List of 7
+##  $ merge      : int [1:35, 1:2] -4 -34 -28 -14 -11 -30 -22 -3 -8 -16 ...
+##  $ height     : num [1:35] 15802 18709 19680 19819 22833 ...
+##  $ order      : int [1:36] 5 11 12 10 4 6 17 22 23 24 ...
+##  $ labels     : chr [1:36] &quot;24h_DMSO-1&quot; &quot;24h_DMSO-2&quot; &quot;24h_DMSO-3&quot; &quot;24h_200nM17AAG-1&quot; ...
+##  $ method     : chr &quot;ward.D2&quot;
+##  $ call       : language hclust(d = dist(t(wyler_readcounts.mx)), method = &quot;ward.D2&quot;)
+##  $ dist.method: chr &quot;euclidean&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;hclust&quot;</code></pre>
 <pre class="r"><code># What&#39;s the range of our branch/edge lengths?
 range(wyler.hc$height)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;wyler.hc&#39; not found</code></pre>
+<pre><code>## [1]  15802.1 657653.0</code></pre>
 <hr />
 <p>Note how our branch heights range from ~15000 to ~66000? This is
 quite the range and to display it a little easier, we are going to
 change our heights (aka lengths) by an order of 10000. This will scale
 down the figure for a better visualization.</p>
 <pre class="r"><code># Adjust the height sizes to a smaller scale for plotting
-wyler.hc$height &lt;- wyler.hc$height/...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;wyler.hc&#39; not found</code></pre>
-<pre class="r"><code>str(wyler.hc)</code></pre>
-<pre><code>## Error in str(wyler.hc): object &#39;wyler.hc&#39; not found</code></pre>
+wyler.hc$height &lt;- wyler.hc$height/10000
+
+str(wyler.hc)</code></pre>
+<pre><code>## List of 7
+##  $ merge      : int [1:35, 1:2] -4 -34 -28 -14 -11 -30 -22 -3 -8 -16 ...
+##  $ height     : num [1:35] 1.58 1.87 1.97 1.98 2.28 ...
+##  $ order      : int [1:36] 5 11 12 10 4 6 17 22 23 24 ...
+##  $ labels     : chr [1:36] &quot;24h_DMSO-1&quot; &quot;24h_DMSO-2&quot; &quot;24h_DMSO-3&quot; &quot;24h_200nM17AAG-1&quot; ...
+##  $ method     : chr &quot;ward.D2&quot;
+##  $ call       : language hclust(d = dist(t(wyler_readcounts.mx)), method = &quot;ward.D2&quot;)
+##  $ dist.method: chr &quot;euclidean&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;hclust&quot;</code></pre>
 <pre class="r"><code>range(wyler.hc$height)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;wyler.hc&#39; not found</code></pre>
+<pre><code>## [1]  1.58021 65.76530</code></pre>
 <hr />
 </div>
 <div id="convert-your-hclust-object-to-a-tree-with-metadata" class="section level3">
