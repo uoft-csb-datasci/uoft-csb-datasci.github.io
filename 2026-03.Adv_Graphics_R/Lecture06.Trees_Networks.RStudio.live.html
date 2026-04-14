@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:00:06 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:03:27 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,7 +1894,9 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes6578a764cdc\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783cc26933\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+  
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes65783cc26933\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1923,7 +1925,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65782e311f0d/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file6578323e2fb2/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1986,7 +1988,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 11:02:03 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 11:05:21 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -3257,14 +3259,14 @@ curated_tips &lt;-
 
 # Take a quick look at the tips we&#39;ve selected
 curated_tips</code></pre>
-<pre><code>##  [1] &quot;SRR1792241&quot;  &quot;SRR32861822&quot; &quot;SRR34066820&quot; &quot;SRR5216865&quot;  &quot;SRR7617458&quot; 
-##  [6] &quot;ERR1462618&quot;  &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462580&quot;  &quot;ERR1462611&quot; 
-## [11] &quot;SRR30640839&quot; &quot;ERR9657192&quot;  &quot;SRR7898226&quot;  &quot;SRR10500313&quot; &quot;SRR33936000&quot;
-## [16] &quot;DRR130169&quot;   &quot;SRR28239447&quot; &quot;SRR6280187&quot;  &quot;SRR5526642&quot;  &quot;SRR5709960&quot; 
-## [21] &quot;ERR7737821&quot;  &quot;SRR12882762&quot; &quot;SRR13180216&quot; &quot;ERR13264940&quot; &quot;SRR12882246&quot;
-## [26] &quot;ERR15888548&quot; &quot;ERR8774524&quot;  &quot;SRR23339980&quot; &quot;ERR257913&quot;   &quot;ERR15761652&quot;
-## [31] &quot;ERR2704686&quot;  &quot;SRR29341535&quot; &quot;SRR24302113&quot; &quot;ERR5336170&quot;  &quot;SRR18715441&quot;
-## [36] &quot;ERR5336166&quot;  &quot;ERR3799588&quot;  &quot;ERR14869817&quot; &quot;ERR5336144&quot;  &quot;ERR14869475&quot;
+<pre><code>##  [1] &quot;ERR14783038&quot; &quot;SRR7617388&quot;  &quot;SRR7617443&quot;  &quot;SRR5430098&quot;  &quot;SRR8648485&quot; 
+##  [6] &quot;ERR1462618&quot;  &quot;ERR1462611&quot;  &quot;ERR1462580&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot;
+## [11] &quot;SRR29051462&quot; &quot;ERR9030442&quot;  &quot;SRR30629635&quot; &quot;SRR12882434&quot; &quot;SRR12882430&quot;
+## [16] &quot;SRR28239858&quot; &quot;DRR130120&quot;   &quot;DRR130169&quot;   &quot;SRR23340123&quot; &quot;SRR14520007&quot;
+## [21] &quot;ERR7802060&quot;  &quot;SRR28868672&quot; &quot;SRR12882577&quot; &quot;ERR9901851&quot;  &quot;SRR1735613&quot; 
+## [26] &quot;SRR23339946&quot; &quot;ERR5908125&quot;  &quot;SRR29056139&quot; &quot;SRR29050670&quot; &quot;SRR36879567&quot;
+## [31] &quot;ERR5336170&quot;  &quot;SRR29341535&quot; &quot;ERR2704686&quot;  &quot;ERR15418602&quot; &quot;ERR15418590&quot;
+## [36] &quot;ERR14869894&quot; &quot;ERR5336144&quot;  &quot;ERR14869817&quot; &quot;ERR3799588&quot;  &quot;ERR14869475&quot;
 ## [41] &quot;ERR1971865&quot;  &quot;SRR10828835&quot; &quot;ERR5336171&quot;</code></pre>
 <hr />
 <p>We now have a vector of 43 tips which suggests that we didn’t quite
@@ -3296,17 +3298,17 @@ curated_tree_info.df &lt;-
 <pre><code>## [33m![39m # Invaild edge matrix for [34m[34m&lt;phylo&gt;[34m[39m. A [34m[34m&lt;tbl_df&gt;[34m[39m is returned.</code></pre>
 <pre class="r"><code># Look at the structure of the data frame
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
-##  $ parent             : int  46 48 48 49 50 50 53 53 54 55 ...
+<pre><code>## &#39;data.frame&#39;:    85 obs. of  18 variables:
+##  $ parent             : int  46 47 48 49 50 50 52 53 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 3.05e-05 2.24e-05 ...
-##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336166&quot; &quot;ERR14869817&quot; ...
-##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2017-07-21&quot; &quot;2018-XX-XX&quot; ...
-##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
-##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 70 104 159 ...
+##  $ branch.length      : num  1.17e-04 9.63e-05 4.38e-05 3.05e-05 2.24e-05 ...
+##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR14869894&quot; &quot;ERR14869817&quot; ...
+##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2003-XX-XX&quot; &quot;2018-XX-XX&quot; ...
+##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; &quot;Gambia&quot; ...
+##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; &quot;Africa&quot; ...
+##  $ target_median_depth: num  207 112 69 104 159 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
-##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.3&quot; ...
+##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.1.1&quot; &quot;lineage6.1.3&quot; ...
 ##  $ num_dr_variants    : num  0 0 0 1 1 1 0 0 0 0 ...
 ##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Other&quot; ...
 ##  $ rifampicin         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
@@ -3317,15 +3319,15 @@ str(curated_tree_info.df)</code></pre>
 ##  $ ethambutol         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;embC p.Ala307Thr (1.00)&quot; ...</code></pre>
 <pre class="r"><code># What are the labels of our nodes like?
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336166&quot;  &quot;ERR14869817&quot; &quot;ERR14869475&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462580&quot;  &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;SRR32861822&quot; &quot;SRR1792241&quot;  &quot;SRR34066820&quot; &quot;SRR5216865&quot; 
-## [16] &quot;SRR7617458&quot;  &quot;SRR24302113&quot; &quot;SRR29341535&quot; &quot;ERR2704686&quot;  &quot;ERR5336170&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR33936000&quot; &quot;SRR30640839&quot; &quot;ERR9657192&quot; 
-## [26] &quot;SRR10500313&quot; &quot;SRR7898226&quot;  &quot;ERR1971865&quot;  &quot;SRR12882246&quot; &quot;ERR13264940&quot;
-## [31] &quot;SRR12882762&quot; &quot;SRR13180216&quot; &quot;ERR7737821&quot;  &quot;SRR5709960&quot;  &quot;SRR6280187&quot; 
-## [36] &quot;DRR130169&quot;   &quot;SRR5526642&quot;  &quot;SRR28239447&quot; &quot;SRR23339980&quot; &quot;ERR15761652&quot;
-## [41] &quot;ERR15888548&quot; &quot;ERR257913&quot;   &quot;ERR8774524&quot;  NA            NA           
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR14869894&quot; &quot;ERR14869817&quot; &quot;ERR14869475&quot;
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;ERR1462580&quot;  &quot;ERR1462611&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR8648485&quot;  &quot;ERR14783038&quot; &quot;SRR5430098&quot;  &quot;SRR7617388&quot; 
+## [16] &quot;SRR7617443&quot;  &quot;ERR15418602&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;ERR2704686&quot; 
+## [21] &quot;ERR5336170&quot;  &quot;SRR10828835&quot; &quot;SRR12882430&quot; &quot;SRR12882434&quot; &quot;SRR30629635&quot;
+## [26] &quot;SRR29051462&quot; &quot;ERR9030442&quot;  &quot;ERR1971865&quot;  &quot;ERR9901851&quot;  &quot;SRR28868672&quot;
+## [31] &quot;SRR1735613&quot;  &quot;SRR12882577&quot; &quot;ERR7802060&quot;  &quot;DRR130169&quot;   &quot;SRR14520007&quot;
+## [36] &quot;DRR130120&quot;   &quot;SRR28239858&quot; &quot;SRR23340123&quot; &quot;SRR36879567&quot; &quot;SRR23339946&quot;
+## [41] &quot;SRR29056139&quot; &quot;SRR29050670&quot; &quot;ERR5908125&quot;  NA            NA           
 ## [46] NA            NA            NA            NA            NA           
 ## [51] NA            NA            NA            NA            NA           
 ## [56] NA            NA            NA            NA            NA           
@@ -3333,7 +3335,7 @@ curated_tree_info.df$label</code></pre>
 ## [66] NA            NA            NA            NA            NA           
 ## [71] NA            NA            NA            NA            NA           
 ## [76] NA            NA            NA            NA            NA           
-## [81] NA            NA            NA            NA</code></pre>
+## [81] NA            NA            NA            NA            NA</code></pre>
 <hr />
 <div id="not-all-trees-name-their-internal-nodes" class="section level3">
 <h3>1.8.1 Not all trees name their internal nodes</h3>
@@ -3357,33 +3359,38 @@ individually labeled.</p>
   # Create a sequence of values up to that sum
   seq(1, .) %&gt;% 
   # Use that to make some new node labels
-  paste0(...)</code></pre>
-<pre><code>## Error in curated_tree_info.df$label %&gt;% is.na() %&gt;% sum() %&gt;% seq(1, .) %&gt;% : &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Look at the outcome
+  paste0(&quot;NODE_&quot;, .)
+
+# Look at the outcome
 node_replacements</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;node_replacements&#39; not found</code></pre>
+<pre><code>##  [1] &quot;NODE_1&quot;  &quot;NODE_2&quot;  &quot;NODE_3&quot;  &quot;NODE_4&quot;  &quot;NODE_5&quot;  &quot;NODE_6&quot;  &quot;NODE_7&quot; 
+##  [8] &quot;NODE_8&quot;  &quot;NODE_9&quot;  &quot;NODE_10&quot; &quot;NODE_11&quot; &quot;NODE_12&quot; &quot;NODE_13&quot; &quot;NODE_14&quot;
+## [15] &quot;NODE_15&quot; &quot;NODE_16&quot; &quot;NODE_17&quot; &quot;NODE_18&quot; &quot;NODE_19&quot; &quot;NODE_20&quot; &quot;NODE_21&quot;
+## [22] &quot;NODE_22&quot; &quot;NODE_23&quot; &quot;NODE_24&quot; &quot;NODE_25&quot; &quot;NODE_26&quot; &quot;NODE_27&quot; &quot;NODE_28&quot;
+## [29] &quot;NODE_29&quot; &quot;NODE_30&quot; &quot;NODE_31&quot; &quot;NODE_32&quot; &quot;NODE_33&quot; &quot;NODE_34&quot; &quot;NODE_35&quot;
+## [36] &quot;NODE_36&quot; &quot;NODE_37&quot; &quot;NODE_38&quot; &quot;NODE_39&quot; &quot;NODE_40&quot; &quot;NODE_41&quot; &quot;NODE_42&quot;</code></pre>
 <pre class="r"><code># Use basic values to replace the NAs
-curated_tree_info.df$label[is.na(curated_tree_info.df$label)] &lt;- ...</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Check if the process worked
+curated_tree_info.df$label[is.na(curated_tree_info.df$label)] &lt;- node_replacements
+
+# Check if the process worked
 curated_tree_info.df$label</code></pre>
-<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR5336166&quot;  &quot;ERR14869817&quot; &quot;ERR14869475&quot;
-##  [6] &quot;ERR3799588&quot;  &quot;ERR13291168&quot; &quot;SRR31100623&quot; &quot;ERR1462580&quot;  &quot;ERR1462611&quot; 
-## [11] &quot;ERR1462618&quot;  &quot;SRR32861822&quot; &quot;SRR1792241&quot;  &quot;SRR34066820&quot; &quot;SRR5216865&quot; 
-## [16] &quot;SRR7617458&quot;  &quot;SRR24302113&quot; &quot;SRR29341535&quot; &quot;ERR2704686&quot;  &quot;ERR5336170&quot; 
-## [21] &quot;SRR18715441&quot; &quot;SRR10828835&quot; &quot;SRR33936000&quot; &quot;SRR30640839&quot; &quot;ERR9657192&quot; 
-## [26] &quot;SRR10500313&quot; &quot;SRR7898226&quot;  &quot;ERR1971865&quot;  &quot;SRR12882246&quot; &quot;ERR13264940&quot;
-## [31] &quot;SRR12882762&quot; &quot;SRR13180216&quot; &quot;ERR7737821&quot;  &quot;SRR5709960&quot;  &quot;SRR6280187&quot; 
-## [36] &quot;DRR130169&quot;   &quot;SRR5526642&quot;  &quot;SRR28239447&quot; &quot;SRR23339980&quot; &quot;ERR15761652&quot;
-## [41] &quot;ERR15888548&quot; &quot;ERR257913&quot;   &quot;ERR8774524&quot;  NA            NA           
-## [46] NA            NA            NA            NA            NA           
-## [51] NA            NA            NA            NA            NA           
-## [56] NA            NA            NA            NA            NA           
-## [61] NA            NA            NA            NA            NA           
-## [66] NA            NA            NA            NA            NA           
-## [71] NA            NA            NA            NA            NA           
-## [76] NA            NA            NA            NA            NA           
-## [81] NA            NA            NA            NA</code></pre>
+<pre><code>##  [1] &quot;ERR5336171&quot;  &quot;ERR5336144&quot;  &quot;ERR14869894&quot; &quot;ERR14869817&quot; &quot;ERR14869475&quot;
+##  [6] &quot;ERR3799588&quot;  &quot;ERR13149108&quot; &quot;ERR13291168&quot; &quot;ERR1462580&quot;  &quot;ERR1462611&quot; 
+## [11] &quot;ERR1462618&quot;  &quot;SRR8648485&quot;  &quot;ERR14783038&quot; &quot;SRR5430098&quot;  &quot;SRR7617388&quot; 
+## [16] &quot;SRR7617443&quot;  &quot;ERR15418602&quot; &quot;ERR15418590&quot; &quot;SRR29341535&quot; &quot;ERR2704686&quot; 
+## [21] &quot;ERR5336170&quot;  &quot;SRR10828835&quot; &quot;SRR12882430&quot; &quot;SRR12882434&quot; &quot;SRR30629635&quot;
+## [26] &quot;SRR29051462&quot; &quot;ERR9030442&quot;  &quot;ERR1971865&quot;  &quot;ERR9901851&quot;  &quot;SRR28868672&quot;
+## [31] &quot;SRR1735613&quot;  &quot;SRR12882577&quot; &quot;ERR7802060&quot;  &quot;DRR130169&quot;   &quot;SRR14520007&quot;
+## [36] &quot;DRR130120&quot;   &quot;SRR28239858&quot; &quot;SRR23340123&quot; &quot;SRR36879567&quot; &quot;SRR23339946&quot;
+## [41] &quot;SRR29056139&quot; &quot;SRR29050670&quot; &quot;ERR5908125&quot;  &quot;NODE_1&quot;      &quot;NODE_2&quot;     
+## [46] &quot;NODE_3&quot;      &quot;NODE_4&quot;      &quot;NODE_5&quot;      &quot;NODE_6&quot;      &quot;NODE_7&quot;     
+## [51] &quot;NODE_8&quot;      &quot;NODE_9&quot;      &quot;NODE_10&quot;     &quot;NODE_11&quot;     &quot;NODE_12&quot;    
+## [56] &quot;NODE_13&quot;     &quot;NODE_14&quot;     &quot;NODE_15&quot;     &quot;NODE_16&quot;     &quot;NODE_17&quot;    
+## [61] &quot;NODE_18&quot;     &quot;NODE_19&quot;     &quot;NODE_20&quot;     &quot;NODE_21&quot;     &quot;NODE_22&quot;    
+## [66] &quot;NODE_23&quot;     &quot;NODE_24&quot;     &quot;NODE_25&quot;     &quot;NODE_26&quot;     &quot;NODE_27&quot;    
+## [71] &quot;NODE_28&quot;     &quot;NODE_29&quot;     &quot;NODE_30&quot;     &quot;NODE_31&quot;     &quot;NODE_32&quot;    
+## [76] &quot;NODE_33&quot;     &quot;NODE_34&quot;     &quot;NODE_35&quot;     &quot;NODE_36&quot;     &quot;NODE_37&quot;    
+## [81] &quot;NODE_38&quot;     &quot;NODE_39&quot;     &quot;NODE_40&quot;     &quot;NODE_41&quot;     &quot;NODE_42&quot;</code></pre>
 <hr />
 </div>
 <div id="rename-your-dataframe-rows-using-a-completed-node-list" class="section level3">
@@ -3398,17 +3405,17 @@ rownames(curated_tree_info.df) &lt;- ...</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># Let&#39;s view the tree
 str(curated_tree_info.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    84 obs. of  18 variables:
-##  $ parent             : int  46 48 48 49 50 50 53 53 54 55 ...
+<pre><code>## &#39;data.frame&#39;:    85 obs. of  18 variables:
+##  $ parent             : int  46 47 48 49 50 50 52 53 54 55 ...
 ##  $ node               : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ branch.length      : num  1.17e-04 5.67e-05 4.47e-05 3.05e-05 2.24e-05 ...
-##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR5336166&quot; &quot;ERR14869817&quot; ...
-##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2017-07-21&quot; &quot;2018-XX-XX&quot; ...
-##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; ...
-##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; ...
-##  $ target_median_depth: num  207 112 70 104 159 ...
+##  $ branch.length      : num  1.17e-04 9.63e-05 4.38e-05 3.05e-05 2.24e-05 ...
+##  $ label              : chr  &quot;ERR5336171&quot; &quot;ERR5336144&quot; &quot;ERR14869894&quot; &quot;ERR14869817&quot; ...
+##  $ date               : chr  &quot;2020-04-28&quot; &quot;2010-11-03&quot; &quot;2003-XX-XX&quot; &quot;2018-XX-XX&quot; ...
+##  $ country            : chr  &quot;Norway&quot; &quot;Norway&quot; &quot;Gambia&quot; &quot;Gambia&quot; ...
+##  $ region             : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Africa&quot; &quot;Africa&quot; ...
+##  $ target_median_depth: num  207 112 69 104 159 ...
 ##  $ main_lineage       : chr  &quot;lineage9&quot; &quot;lineage6&quot; &quot;lineage6&quot; &quot;lineage6&quot; ...
-##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.3.2&quot; &quot;lineage6.1.3&quot; ...
+##  $ sub_lineage        : chr  &quot;lineage9&quot; &quot;lineage6.3.1&quot; &quot;lineage6.1.1&quot; &quot;lineage6.1.3&quot; ...
 ##  $ num_dr_variants    : num  0 0 0 1 1 1 0 0 0 0 ...
 ##  $ drtype             : chr  &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Sensitive&quot; &quot;Other&quot; ...
 ##  $ rifampicin         : chr  &quot;-&quot; &quot;-&quot; &quot;-&quot; &quot;-&quot; ...
