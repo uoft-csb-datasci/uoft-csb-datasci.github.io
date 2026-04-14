@@ -1794,7 +1794,7 @@ plots.</p>
 date-based information.</p>
 <pre class="r"><code># When do we start installing the packages
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:30:17 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:33:28 EDT&quot;</code></pre>
 <pre class="r"><code># New bioconductor packages we haven&#39;t worked with before
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -1894,9 +1894,9 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 ##   
   
   
-   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657847004f3f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657824d052ac\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39; ...
   
-[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657847004f3f\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
+[32mv[39m  [90mchecking for file &#39;C:\Users\mokca\AppData\Local\Temp\RtmpWUf6G7\remotes657824d052ac\YuLab-SMU-ggtree-c12faf7/DESCRIPTION&#39;[39m[36m[39m</code></pre>
 <pre><code>## 
   
   
@@ -1925,7 +1925,7 @@ devtools::install_github(&quot;YuLab-SMU/ggtree&quot;)</code></pre>
 <pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre><code>## Warning in i.p(...): installation of package
-## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file65781f791e30/ggtree_4.1.2.tar.gz&#39;
+## &#39;C:/Users/mokca/AppData/Local/Temp/RtmpWUf6G7/file6578747e5c4f/ggtree_4.1.2.tar.gz&#39;
 ## had non-zero exit status</code></pre>
 <pre class="r"><code>### ----------- Installation of ggtreeExtra ---------- ###
 # For ggtreeExtra, if you use ggplot &lt; v4.0.0 then install via BiocManager
@@ -1988,7 +1988,7 @@ install.packages(&quot;tidytree&quot;)</code></pre>
 
 # When do we finish?
 Sys.time()</code></pre>
-<pre><code>## [1] &quot;2026-04-14 10:32:04 EDT&quot;</code></pre>
+<pre><code>## [1] &quot;2026-04-14 10:35:16 EDT&quot;</code></pre>
 <pre class="r"><code># Packages to help tidy our data
 library(tidyverse)
 library(readxl)
@@ -2319,9 +2319,60 @@ hold.</p>
 # sample origin
 cat(&quot;Country information\n&quot;)</code></pre>
 <pre><code>## Country information</code></pre>
-<pre class="r"><code>unique(tb_metadata.df$...)</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `...`.</code></pre>
-<pre><code>## NULL</code></pre>
+<pre class="r"><code>unique(tb_metadata.df$country)</code></pre>
+<pre><code>##   [1] &quot;Norway&quot;                           &quot;Ghana&quot;                           
+##   [3] &quot;Gambia&quot;                           &quot;Germany&quot;                         
+##   [5] &quot;France&quot;                           &quot;Spain&quot;                           
+##   [7] &quot;Italy&quot;                            &quot;Tanzania&quot;                        
+##   [9] &quot;Ethiopia&quot;                         &quot;Russia&quot;                          
+##  [11] &quot;Belgium&quot;                          &quot;Australia&quot;                       
+##  [13] &quot;Netherlands&quot;                      &quot;Iran&quot;                            
+##  [15] &quot;China&quot;                            &quot;Morocco&quot;                         
+##  [17] &quot;Portugal&quot;                         &quot;Switzerland&quot;                     
+##  [19] &quot;Turkey&quot;                           &quot;Cameroon&quot;                        
+##  [21] &quot;USA&quot;                              &quot;South Africa&quot;                    
+##  [23] &quot;Mexico&quot;                           &quot;New Zealand&quot;                     
+##  [25] &quot;Ireland&quot;                          &quot;Uruguay&quot;                         
+##  [27] &quot;Canada&quot;                           &quot;United Kingdom&quot;                  
+##  [29] &quot;Nigeria&quot;                          &quot;Benin&quot;                           
+##  [31] &quot;Democratic Republic of the Congo&quot; &quot;Rwanda&quot;                          
+##  [33] &quot;Bangladesh&quot;                       &quot;Myanmar&quot;                         
+##  [35] &quot;Botswana&quot;                         &quot;Papua New Guinea&quot;                
+##  [37] &quot;Indonesia&quot;                        &quot;Philippines&quot;                     
+##  [39] &quot;Taiwan&quot;                           &quot;Madagascar&quot;                      
+##  [41] &quot;Thailand&quot;                         &quot;Malaysia&quot;                        
+##  [43] &quot;Japan&quot;                            &quot;Cambodia&quot;                        
+##  [45] &quot;Viet Nam&quot;                         &quot;Senegal&quot;                         
+##  [47] &quot;Malawi&quot;                           &quot;Pakistan&quot;                        
+##  [49] &quot;India&quot;                            &quot;Nepal&quot;                           
+##  [51] &quot;Uganda&quot;                           &quot;Sri Lanka&quot;                       
+##  [53] &quot;Afghanistan&quot;                      &quot;Kenya&quot;                           
+##  [55] &quot;Sierra Leone&quot;                     &quot;South Korea&quot;                     
+##  [57] &quot;Czech Republic&quot;                   &quot;Argentina&quot;                       
+##  [59] &quot;Ukraine&quot;                          &quot;Israel&quot;                          
+##  [61] &quot;Mali&quot;                             &quot;Peru&quot;                            
+##  [63] &quot;Bhutan&quot;                           &quot;Panama&quot;                          
+##  [65] &quot;Guatemala&quot;                        &quot;Mozambique&quot;                      
+##  [67] &quot;Mongolia&quot;                         &quot;Sweden&quot;                          
+##  [69] &quot;Finland&quot;                          &quot;Belarus&quot;                         
+##  [71] &quot;Tajikistan&quot;                       &quot;Estonia&quot;                         
+##  [73] &quot;Georgia&quot;                          &quot;Lithuania&quot;                       
+##  [75] &quot;Slovakia&quot;                         &quot;Croatia&quot;                         
+##  [77] &quot;Latvia&quot;                           &quot;Azerbaijan&quot;                      
+##  [79] &quot;Albania&quot;                          &quot;Moldova&quot;                         
+##  [81] &quot;Austria&quot;                          &quot;Poland&quot;                          
+##  [83] &quot;Angola&quot;                           &quot;Kazakhstan&quot;                      
+##  [85] &quot;Guinea-Bissau&quot;                    &quot;Guinea&quot;                          
+##  [87] &quot;Serbia&quot;                           &quot;Brazil&quot;                          
+##  [89] &quot;Ecuador&quot;                          &quot;Bosnia and Herzegovina&quot;          
+##  [91] &quot;Denmark&quot;                          &quot;Colombia&quot;                        
+##  [93] &quot;Romania&quot;                          &quot;Namibia&quot;                         
+##  [95] &quot;Paraguay&quot;                         &quot;Central African Republic&quot;        
+##  [97] &quot;Somalia&quot;                          &quot;Bulgaria&quot;                        
+##  [99] &quot;Zimbabwe&quot;                         &quot;Hungary&quot;                         
+## [101] &quot;Tunisia&quot;                          &quot;El Salvador&quot;                     
+## [103] &quot;Burundi&quot;                          &quot;Haiti&quot;                           
+## [105] &quot;Egypt&quot;                            &quot;Lebanon&quot;</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$region)</code></pre>
 <pre><code>## [1] &quot;Europe&quot;        &quot;Africa&quot;        &quot;Oceania&quot;       &quot;Asia&quot;         
 ## [5] &quot;North America&quot; &quot;South America&quot;</code></pre>
@@ -2351,9 +2402,9 @@ unique(tb_metadata.df$target_median_depth)</code></pre>
 cat(&quot;\nPhylogenetic data\n&quot;)</code></pre>
 <pre><code>## 
 ## Phylogenetic data</code></pre>
-<pre class="r"><code>unique(tb_metadata.df$...)</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `...`.</code></pre>
-<pre><code>## NULL</code></pre>
+<pre class="r"><code>unique(tb_metadata.df$main_lineage)</code></pre>
+<pre><code>##  [1] &quot;lineage9&quot; &quot;lineage6&quot; NA         &quot;La2&quot;      &quot;La1&quot;      &quot;lineage5&quot;
+##  [7] &quot;lineage8&quot; &quot;lineage4&quot; &quot;lineage1&quot; &quot;lineage7&quot; &quot;lineage3&quot; &quot;lineage2&quot;</code></pre>
 <pre class="r"><code>unique(tb_metadata.df$sub_lineage)</code></pre>
 <pre><code>##  [1] &quot;lineage9&quot;                  &quot;lineage6.3.1&quot;             
 ##  [3] &quot;lineage6.3.2&quot;              &quot;lineage6.2.1&quot;             
@@ -2522,8 +2573,8 @@ phylogenetic identifiers for each strain</p></li>
 <li><p><code>num_dr_variants</code>, <code>drtype</code>,
 <code>rifampicin</code>, <code>amikacin</code>,
 <code>streptomycin</code>, <code>isoniazid</code>,
-<code>pyrazinamide</code>, `ethambutol: drug resistance genomic
-information</p></li>
+<code>pyrazinamide</code>, <code>ethambutol</code>: drug resistance
+genomic information</p></li>
 </ul>
 <p>Let’s pull that information down and add it to our
 <code>tbl_tree</code> before converting it to a <code>treedata</code>
