@@ -3625,8 +3625,11 @@ this is the class of object where we will spend most of our time.</p>
 <p>Let’s use some of the functions we have learned for finding out about
 the structure of our data frame.</p>
 <pre class="r"><code># What is the structure of a data frame?
-...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+str(my_data_frame)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  3 variables:
+##  $ charCol: chr  &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;
+##  $ numCol : int  1 2 3
+##  $ logCol : logi  TRUE FALSE TRUE</code></pre>
 <div class="alert alert-block alert-success">
 <p><strong>Is a Data Frame the right tool for you?</strong> While a data
 frame is more flexible in the data it can hold, it comes at a price:
@@ -3656,10 +3659,13 @@ my_matrix</code></pre>
 ## [4,]    0    0    1    1    0
 ## [5,]    0    0    1    1    0</code></pre>
 <pre class="r"><code># cast a matrix to a dataframe
-new_data_frame &lt;- ...(my_matrix)</code></pre>
-<pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code>new_data_frame</code></pre>
-<pre><code>## Error: object &#39;new_data_frame&#39; not found</code></pre>
+new_data_frame &lt;- as.data.frame(my_matrix)
+new_data_frame</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["V1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["V2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["V3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["V4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["V5"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="you-can-access-and-rename-data-frame-columns-like-a-header-with-colnames" class="section level3">
@@ -3670,18 +3676,26 @@ automatically assigned as generic identifiers. Sometimes you may wish to
 <strong><em>rename</em></strong> these for whatever reason. You can even
 rename specific columns as you see fit.</p>
 <pre class="r"><code># Note that R just made up column names for us. We can provide our own vector of column names.
-... &lt;- c(&quot;col1&quot;, &quot;col2&quot;, &quot;col3&quot;, &quot;col4&quot;, &quot;col5&quot;)
+colnames(new_data_frame) &lt;- c(&quot;col1&quot;, &quot;col2&quot;, &quot;col3&quot;, &quot;col4&quot;, &quot;col5&quot;)
 
 #equivalent to
-... &lt;- c(paste0(rep(&quot;col&quot;,5), 1:5))
+colnames(new_data_frame) &lt;- c(paste0(rep(&quot;col&quot;,5), 1:5))
 new_data_frame</code></pre>
-<pre><code>## Error: object &#39;new_data_frame&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["col1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["col2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["col3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["col4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["col5"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code># Rename our columns using specific positions
-colnames(new_data_frame)[...] = c(&quot;newcol1&quot;, &quot;newcol3&quot;, &quot;newcol5&quot;)</code></pre>
-<pre><code>## Error in colnames(new_data_frame)[...] = c(&quot;newcol1&quot;, &quot;newcol3&quot;, &quot;newcol5&quot;): object &#39;new_data_frame&#39; not found</code></pre>
-<pre class="r"><code># Let&#39;s check our handiwork
+colnames(new_data_frame)[c(1,3,5)] = c(&quot;newcol1&quot;, &quot;newcol3&quot;, &quot;newcol5&quot;)
+
+# Let&#39;s check our handiwork
 new_data_frame</code></pre>
-<pre><code>## Error: object &#39;new_data_frame&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["newcol1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["col2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["newcol3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["col4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["newcol5"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <div class="alert alert-block alert-success">
 <p><strong>The paste() and paste0() functions</strong> allow you to
 concatenate (that means join!) multiple sets of characters or
@@ -3705,15 +3719,20 @@ logicals?</p>
 # A matrix can only hold one data type. We could however, transform our new_data_frame back into a matrix. 
 # The matrix will retain our column heading.
 
-new_matrix &lt;- ...(my_data_frame)</code></pre>
-<pre><code>## Error in ...(my_data_frame): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code>str(new_matrix)</code></pre>
-<pre><code>## Error in str(new_matrix): object &#39;new_matrix&#39; not found</code></pre>
+new_matrix &lt;- as.matrix(my_data_frame)
+str(new_matrix)</code></pre>
+<pre><code>##  chr [1:3, 1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;TRUE&quot; &quot;FALSE&quot; ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : NULL
+##   ..$ : chr [1:3] &quot;charCol&quot; &quot;numCol&quot; &quot;logCol&quot;</code></pre>
 <pre class="r"><code>new_matrix</code></pre>
-<pre><code>## Error: object &#39;new_matrix&#39; not found</code></pre>
+<pre><code>##      charCol    numCol logCol 
+## [1,] &quot;bacteria&quot; &quot;1&quot;    &quot;TRUE&quot; 
+## [2,] &quot;virus&quot;    &quot;2&quot;    &quot;FALSE&quot;
+## [3,] &quot;archaea&quot;  &quot;3&quot;    &quot;TRUE&quot;</code></pre>
 <pre class="r"><code># Let&#39;s look at the &quot;numCol&quot; column closer
-str(new_matrix[...])</code></pre>
-<pre><code>## Error in str(new_matrix[...]): object &#39;new_matrix&#39; not found</code></pre>
+str(new_matrix[,2])</code></pre>
+<pre><code>##  chr [1:3] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
 <p>Notice that the numeric vector is now character!</p>
 <hr />
 </div>
@@ -3743,12 +3762,19 @@ list!</p>
 element/object within a list. The elements of a list are also indexed in
 the order of their initial creation.</p>
 <pre class="r"><code># Note that we&#39;ve separated out each &quot;element&quot; into a new line for readability
-mixed_list &lt;- ...(character = c(&#39;bacteria&#39;, &#39;virus&#39;, &#39;archaea&#39;), 
+mixed_list &lt;- list(character = c(&#39;bacteria&#39;, &#39;virus&#39;, &#39;archaea&#39;), 
                    num = c(1:10), 
-                   log = c(TRUE, FALSE, TRUE))</code></pre>
-<pre><code>## Error in ...(character = c(&quot;bacteria&quot;, &quot;virus&quot;, &quot;archaea&quot;), num = c(1:10), : could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code>print(mixed_list)</code></pre>
-<pre><code>## Error in print(mixed_list): object &#39;mixed_list&#39; not found</code></pre>
+                   log = c(TRUE, FALSE, TRUE))
+
+print(mixed_list)</code></pre>
+<pre><code>## $character
+## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot; 
+## 
+## $num
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $log
+## [1]  TRUE FALSE  TRUE</code></pre>
 <hr />
 </div>
 <div id="lists-can-get-complicated." class="section level3">
@@ -3761,9 +3787,12 @@ data types of our vectors for us when we first instantiate them into
 <p>You can (and should) call <code>str()</code> on any R object. You can
 also try it on one of our vectors.</p>
 <pre class="r"><code>str(mixed_list)</code></pre>
-<pre><code>## Error in str(mixed_list): object &#39;mixed_list&#39; not found</code></pre>
-<pre class="r"><code>str(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## List of 3
+##  $ character: chr [1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;
+##  $ num      : int [1:10] 1 2 3 4 5 6 7 8 9 10
+##  $ log      : logi [1:3] TRUE FALSE TRUE</code></pre>
+<pre class="r"><code>str(mixed_vector)</code></pre>
+<pre><code>##  chr [1:4] &quot;bacteria&quot; &quot;1&quot; &quot;TRUE&quot; NA</code></pre>
 <hr />
 </div>
 <div id="accessing-elements-from-a-list-with-and" class="section level3">
@@ -3789,23 +3818,24 @@ a single atomic depending on your list.</p></li>
 # Retrieve a single element directly
 print(&quot;Retrieve a single element&quot;)</code></pre>
 <pre><code>## [1] &quot;Retrieve a single element&quot;</code></pre>
-<pre class="r"><code>mixed_list...</code></pre>
-<pre><code>## Error: object &#39;mixed_list...&#39; not found</code></pre>
+<pre class="r"><code>mixed_list[[1]]</code></pre>
+<pre><code>## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot;</code></pre>
 <pre class="r"><code># What kind of object is that?
 print(&quot;What kind of object is it?&quot;)</code></pre>
 <pre><code>## [1] &quot;What kind of object is it?&quot;</code></pre>
 <pre class="r"><code>str(mixed_list[[1]])</code></pre>
-<pre><code>## Error in str(mixed_list[[1]]): object &#39;mixed_list&#39; not found</code></pre>
+<pre><code>##  chr [1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;</code></pre>
 <pre class="r"><code># Compare to using single []
 print(&quot;Contrast to using the [] notation&quot;)</code></pre>
 <pre><code>## [1] &quot;Contrast to using the [] notation&quot;</code></pre>
 <pre class="r"><code>str(mixed_list[1])</code></pre>
-<pre><code>## Error in str(mixed_list[1]): object &#39;mixed_list&#39; not found</code></pre>
+<pre><code>## List of 1
+##  $ character: chr [1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;</code></pre>
 <pre class="r"><code># Access using a named element
 print(&quot;What is returned using an element&#39;s name?&quot;)</code></pre>
 <pre><code>## [1] &quot;What is returned using an element&#39;s name?&quot;</code></pre>
-<pre class="r"><code>str(mixed_list$...)</code></pre>
-<pre><code>## Error in str(mixed_list$...): object &#39;mixed_list&#39; not found</code></pre>
+<pre class="r"><code>str(mixed_list$character)</code></pre>
+<pre><code>##  chr [1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;</code></pre>
 <hr />
 </div>
 <div id="use-additional-levels-of-notation-to-access-sub-elements-of-a-list" class="section level3">
@@ -3820,16 +3850,15 @@ nature of these objects. This kind of indexing may also be called
 multi-indexing or chained indexing (depending on your programming
 language).</p>
 <pre class="r"><code># Begin with [[]] notation and THEN index [] with the appropriate syntax 
-mixed_list[[1]]...
-mixed_list$character[2]
-
-# This will fail (but not error!) because it returns a list with a single character vector!
+mixed_list[[1]][2]</code></pre>
+<pre><code>## [1] &quot;virus&quot;</code></pre>
+<pre class="r"><code>mixed_list$character[2]</code></pre>
+<pre><code>## [1] &quot;virus&quot;</code></pre>
+<pre class="r"><code># This will fail (but not error!) because it returns a list with a single character vector!
 # there is no element [2] in the list.
 mixed_list[1][2]</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:2:16: unexpected symbol
-## 1: # Begin with [[]] notation and THEN index [] with the appropriate syntax 
-## 2: mixed_list[[1]]...
-##                   ^</code></pre>
+<pre><code>## $&lt;NA&gt;
+## NULL</code></pre>
 <hr />
 <div class="alert alert-block alert-danger">
 <p><strong>Section 3.0.0 Comprehension Question:</strong> What are some
