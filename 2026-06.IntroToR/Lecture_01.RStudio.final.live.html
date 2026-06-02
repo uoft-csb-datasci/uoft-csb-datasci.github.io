@@ -2774,11 +2774,8 @@ b = 2
 a * b</code></pre>
 <pre><code>## [1] 8</code></pre>
 <pre class="r"><code># each code after a semicolon is interpreted as a new line
-a=4... b=2... a*b </code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:2:5: unexpected symbol
-## 1: # each code after a semicolon is interpreted as a new line
-## 2: a=4...
-##        ^</code></pre>
+a=4; b=2; a*b </code></pre>
+<pre><code>## [1] 8</code></pre>
 <hr />
 <div id="blank-spaces-are-usually-ignored-by-the-interpreter" class="section level3">
 <h3>3.1.1 Blank spaces are usually ignored by the interpreter</h3>
@@ -2792,8 +2789,8 @@ a&lt;-3;b*a</code></pre>
 <pre><code>## [1] 6</code></pre>
 <pre class="r"><code># versus
 
-a = 3; ...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+a = 3; b* a</code></pre>
+<pre><code>## [1] 6</code></pre>
 <hr />
 <p>Here’s a more complex example of code:</p>
 <pre><code>for (i in unique(raw_area_long$date)){sub.dat&lt;-subset(raw_area_long, raw_area_long$date==i)
@@ -2831,14 +2828,11 @@ assignment</p></li>
 a &lt;- 3
 
 # Evaluation
-a ...
-
-# The same evaluation but with extra space!
-a &lt; -...</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:5:3: unexpected symbol
-## 4: # Evaluation
-## 5: a ...
-##      ^</code></pre>
+a &lt; -3</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># The same evaluation but with extra space!
+a &lt; -     3</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <hr />
 </div>
 <div id="a-case-where-blank-space-amounts-matter" class="section level3">
