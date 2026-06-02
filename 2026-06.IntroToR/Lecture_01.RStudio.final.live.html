@@ -3257,11 +3257,11 @@ vector by <strong><em>repeating</em></strong> the parameter
 build a matrix with our code and see what it looks like.</p>
 <pre class="r"><code># What will the output be?
 # Note that each &quot;parameter&quot; has been separated to its own line
-my_matrix &lt;- matrix(c(...), 
-                    nrow = ..., 
-                    ncol = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>my_matrix</code></pre>
+my_matrix &lt;- matrix(c(rep(0, 10), rep(1, 10)), 
+                    nrow = 5, 
+                    ncol = 5)
+
+my_matrix</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    0    0    1    1    0
 ## [2,]    0    0    1    1    0
@@ -3270,11 +3270,11 @@ my_matrix &lt;- matrix(c(...),
 ## [5,]    0    0    1    1    0</code></pre>
 <pre class="r"><code># Equivalent result by calling rep just once
 
-my_matrix &lt;- matrix(c(...), 
+my_matrix &lt;- matrix(c(rep(0:1, each = 10)), 
                     nrow = 5, 
-                    ncol = 5)</code></pre>
-<pre><code>## Error in matrix(c(...), nrow = 5, ncol = 5): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>my_matrix</code></pre>
+                    ncol = 5)
+
+my_matrix</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    0    0    1    1    0
 ## [2,]    0    0    1    1    0
@@ -3297,14 +3297,14 @@ the larger vector is a multiple of the smaller.</p>
 as part of the <code>matrix()</code> function? Can you think of 2
 ways?</p>
 <pre class="r"><code># Make a matrix by recycling within rep() but not within the matrix() call
-my_matrix &lt;- matrix(c(rep(..., 
-                          each = ..., 
-                          times = ..., 
-                          length = ...)), 
+my_matrix &lt;- matrix(c(rep(0:1, 
+                          each = 10, 
+                          times = 2, 
+                          length = 25)), 
                     nrow = 5, 
-                    ncol = 5)</code></pre>
-<pre><code>## Error in matrix(c(rep(..., each = ..., times = ..., length = ...)), nrow = 5, : &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># print the matrix
+                    ncol = 5)
+
+# print the matrix
 my_matrix; print(&quot;version 1&quot;)</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    0    0    1    1    0
@@ -3359,8 +3359,13 @@ my_matrix; print(&quot;version 5&quot;)</code></pre>
 time?</strong></p>
 <p><em>Challenge: What do you think this matrix will look like?</em></p>
 <p><code>my_matrix &lt;- matrix(c(0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0), nrow = 5, ncol = 5)</code></p>
-<pre class="r"><code>matrix(c(0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0), nrow = 5, ncol = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>matrix(c(0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0), nrow = 5, ncol = 5)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    0    1    1    0    1
+## [2,]    0    0    1    0    1
+## [3,]    0    0    1    0    1
+## [4,]    1    0    1    1    1
+## [5,]    1    0    0    1    0</code></pre>
 <hr />
 </div>
 <div id="bracket-and-parentheses-location-matters" class="section level3">
@@ -3370,8 +3375,30 @@ time?</strong></p>
 define the start and end of parameters that are being supplied. Some of
 the hardest-to-find errors in our code involves the misplacement or
 incorrect pairings of <code>()</code> in multi-layered functions.</p>
-<pre class="r"><code>...(c(rep(0, 10), rep(1,10), nrow = 5, ncol = 5))</code></pre>
-<pre><code>## Error in ...(c(rep(0, 10), rep(1, 10), nrow = 5, ncol = 5)): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>matrix(c(rep(0, 10), rep(1,10), nrow = 5, ncol = 5))</code></pre>
+<pre><code>##       [,1]
+##  [1,]    0
+##  [2,]    0
+##  [3,]    0
+##  [4,]    0
+##  [5,]    0
+##  [6,]    0
+##  [7,]    0
+##  [8,]    0
+##  [9,]    0
+## [10,]    0
+## [11,]    1
+## [12,]    1
+## [13,]    1
+## [14,]    1
+## [15,]    1
+## [16,]    1
+## [17,]    1
+## [18,]    1
+## [19,]    1
+## [20,]    1
+## [21,]    5
+## [22,]    5</code></pre>
 <p><strong>What happened above?</strong></p>
 <p>R code is evaluated inside-out but the brackets here are poorly
 positioned. With the command above you end up with a single column
@@ -3393,12 +3420,16 @@ parameters <code>from</code>, <code>to</code>, and <code>by</code> which
 makes the process of generating a pattern of numbers much simpler for
 you.</p>
 <pre class="r"><code># Define a matrix using a few different seq() calls
-matrix(c(seq(...), 
+matrix(c(seq(from = 2, to = 12, by = 2), 
          seq(3,12,3),                    # Note we don&#39;t have to name the parameters 
          rep(seq(0,1,1), 3)),            # This last call is a bit repetitive
        nrow = 4, ncol = 4, 
        byrow = TRUE)                     # Notice also we are filling by row instead of by column</code></pre>
-<pre><code>## Error in matrix(c(seq(...), seq(3, 12, 3), rep(seq(0, 1, 1), 3)), nrow = 4, : &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    2    4    6    8
+## [2,]   10   12    3    6
+## [3,]    9   12    0    1
+## [4,]    0    1    0    1</code></pre>
 <pre class="r"><code># Compare that to this version
 matrix(c(seq(from = 2, to = 12, by = 2), 
          seq(3,12,3), 
@@ -3456,24 +3487,24 @@ my_matrix</code></pre>
 ## [5,]    0    0    1    1    0</code></pre>
 <pre class="r"><code>print(&quot;structure&quot;)</code></pre>
 <pre><code>## [1] &quot;structure&quot;</code></pre>
-<pre class="r"><code>...(my_matrix)</code></pre>
-<pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>str(my_matrix)</code></pre>
+<pre><code>##  num [1:5, 1:5] 0 0 0 0 0 0 0 0 0 0 ...</code></pre>
 <pre class="r"><code>print(&quot;rows&quot;)</code></pre>
 <pre><code>## [1] &quot;rows&quot;</code></pre>
-<pre class="r"><code>...(my_matrix)</code></pre>
-<pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>nrow(my_matrix)</code></pre>
+<pre><code>## [1] 5</code></pre>
 <pre class="r"><code>print(&quot;columns&quot;)</code></pre>
 <pre><code>## [1] &quot;columns&quot;</code></pre>
-<pre class="r"><code>...(my_matrix)</code></pre>
-<pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>ncol(my_matrix)</code></pre>
+<pre><code>## [1] 5</code></pre>
 <pre class="r"><code>print(&quot;dimensions&quot;)</code></pre>
 <pre><code>## [1] &quot;dimensions&quot;</code></pre>
-<pre class="r"><code>...(my_matrix) # reported as rows vs columns</code></pre>
-<pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>dim(my_matrix) # reported as rows vs columns</code></pre>
+<pre><code>## [1] 5 5</code></pre>
 <pre class="r"><code>print(&quot;length&quot;)</code></pre>
 <pre><code>## [1] &quot;length&quot;</code></pre>
-<pre class="r"><code>...(my_matrix)</code></pre>
-<pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>length(my_matrix)</code></pre>
+<pre><code>## [1] 25</code></pre>
 <hr />
 </div>
 <div id="use-row-column-notation-to-access-portions-of-a-matrix" class="section level3">
@@ -3487,11 +3518,14 @@ or after the comma is equivalent to saying “all elements”.</p>
 <pre class="r"><code>#To access a specific row or column we can still use indexing.
 
 # Return rows 3:5 and all columns
-my_matrix[...,]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+my_matrix[3:5,]</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    0    0    1    1    0
+## [2,]    0    0    1    1    0
+## [3,]    0    0    1    1    0</code></pre>
 <pre class="r"><code># Return all rows, and column 4
-my_matrix[, ...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+my_matrix[, 4]</code></pre>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
 <hr />
 </div>
 <div id="subsetting-a-matrix-returns-a-vector-or-matrix" class="section level3">
@@ -3502,8 +3536,8 @@ with a vector, otherwise another matrix is returned. We’ll utilize the
 <code>TRUE</code> (yes, it is a vector!) or <code>FALSE</code> result
 depending on the nature of the object supplied.</p>
 <pre class="r"><code># Is a Matrix just a vector?
-...(my_matrix)</code></pre>
-<pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
+is.vector(my_matrix)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code># What is returned when we slice off a column
 is.vector(my_matrix[,4])</code></pre>
 <pre><code>## [1] TRUE</code></pre>
@@ -3511,12 +3545,17 @@ is.vector(my_matrix[,4])</code></pre>
 str(my_matrix[,4])</code></pre>
 <pre><code>##  num [1:5] 1 1 1 1 1</code></pre>
 <pre class="r"><code># vs. a matrix
-str(my_matrix[...])</code></pre>
-<pre><code>## Error in str(my_matrix[...]): &#39;...&#39; used in an incorrect context</code></pre>
+str(my_matrix[1:2, 1:4])</code></pre>
+<pre><code>##  num [1:2, 1:4] 0 0 0 0 1 1 1 1</code></pre>
 <pre class="r"><code># It is common to transpose matrices. Note that the set of ones will now be in rows rather than columns.
 
-...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+t(my_matrix)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    0    0    0    0    0
+## [2,]    0    0    0    0    0
+## [3,]    1    1    1    1    1
+## [4,]    1    1    1    1    1
+## [5,]    0    0    0    0    0</code></pre>
 <hr />
 </div>
 <div id="data-frames" class="section level3">
