@@ -2752,8 +2752,8 @@ a = 4
 print(a)</code></pre>
 <pre><code>## [1] 4</code></pre>
 <pre class="r"><code># Or just evaluate the expression to standard output
-...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+a + 2</code></pre>
+<pre><code>## [1] 6</code></pre>
 <pre class="r"><code>#Left hand assigner (original way to assign results) 
 # sometimes the &lt;- is necessary for functions originally created in S. 
 # Often seen on R help forums if you Google future issues
@@ -2763,12 +2763,9 @@ a</code></pre>
 <pre><code>## [1] 3</code></pre>
 <pre class="r"><code>#Right hand assigner
 
-3 ...
+3 -&gt; d
 d</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:3:3: unexpected symbol
-## 2: 
-## 3: 3 ...
-##      ^</code></pre>
+<pre><code>## [1] 3</code></pre>
 <pre class="r"><code># Assign some variables
 a = 4
 b = 2
