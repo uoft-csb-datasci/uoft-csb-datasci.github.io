@@ -2846,11 +2846,11 @@ treated as a <strong><em>value</em></strong> or more specifically, an
 paste(&quot;Can&quot;, &quot;I&quot;, &quot;go&quot;, &quot;out&quot;, &quot;now&quot;, &quot;?&quot;, sep = &quot;&quot;)</code></pre>
 <pre><code>## [1] &quot;CanIgooutnow?&quot;</code></pre>
 <pre class="r"><code># Single space as a separator
-paste(&quot;Can&quot;, &quot;I&quot;, &quot;go&quot;, &quot;out&quot;, &quot;now&quot;, &quot;?&quot;, sep = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+paste(&quot;Can&quot;, &quot;I&quot;, &quot;go&quot;, &quot;out&quot;, &quot;now&quot;, &quot;?&quot;, sep = &quot; &quot;)</code></pre>
+<pre><code>## [1] &quot;Can I go out now ?&quot;</code></pre>
 <pre class="r"><code># Triple space as a separator
-paste(&quot;Can&quot;, &quot;I&quot;, &quot;go&quot;, &quot;out&quot;, &quot;now&quot;, &quot;?&quot;, sep = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+paste(&quot;Can&quot;, &quot;I&quot;, &quot;go&quot;, &quot;out&quot;, &quot;now&quot;, &quot;?&quot;, sep = &quot;   &quot;)</code></pre>
+<pre><code>## [1] &quot;Can   I   go   out   now   ?&quot;</code></pre>
 <hr />
 </div>
 <div id="r-calculates-from-the-right-side-first-before-leftward-assignment" class="section level3">
@@ -2866,10 +2866,14 @@ update them!</p>
 <pre class="r"><code># What will be the final value of i?
 
 i = 1
-i = ...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>i</code></pre>
-<pre><code>## [1] 1</code></pre>
+i = i + 1
+i = i + 1
+i = i + 1
+i = i + 1
+i = i + 1
+i = i + 1
+i</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>This behaviour can be extended in a more complex fashion to encompass
 multiple variables</p>
 <div class="alert alert-block alert-info">
@@ -2884,19 +2888,18 @@ a;b</code></pre>
 <pre><code>## [1] 3</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code># Use multiple values in an expression assigned to a variable 
-result &lt;- ...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>result</code></pre>
-<pre><code>## Error: object &#39;result&#39; not found</code></pre>
+result &lt;- 5 * a + 2 *b
+result</code></pre>
+<pre><code>## [1] 19</code></pre>
 <pre class="r"><code># make a calculation
 result ^ pi</code></pre>
-<pre><code>## Error: object &#39;result&#39; not found</code></pre>
+<pre><code>## [1] 10406.94</code></pre>
 <pre class="r"><code># Use and overwrite the current value of &quot;result&quot;
-result &lt;- ... </code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># this PERMANENTLY overwrote your old &#39;result&#39; object. If this is an important value be sure to keep it safe!
+result &lt;- result ^ pi
+
+# this PERMANENTLY overwrote your old &#39;result&#39; object. If this is an important value be sure to keep it safe!
 result</code></pre>
-<pre><code>## Error: object &#39;result&#39; not found</code></pre>
+<pre><code>## [1] 10406.94</code></pre>
 <div class="alert alert-block alert-warning">
 <p><strong>Caution!</strong> Variable names are case-sensitive. When
 assigning variables, remember to use original, descriptive names to
@@ -2912,10 +2915,12 @@ b = 3
 B = 15
 
 # Output our variable values
-b; B;...</code></pre>
+b; B; a; A; a + A</code></pre>
 <pre><code>## [1] 3</code></pre>
 <pre><code>## [1] 15</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre><code>## [1] 12</code></pre>
 <hr />
 </div>
 </div>
@@ -3028,14 +3033,13 @@ possible “unit” of data within R.</p>
 <p>Fun fact: although these may be thought of as stand-alone objects,
 these are actually vectors (coming up) with a single element!</p>
 <pre class="r"><code># It doesn&#39;t matter what your variable is named, an atomic is still a single value
-X &lt;- ...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>b &lt;- 10
+X &lt;- 5
+b &lt;- 10
 
 str(X)</code></pre>
-<pre><code>## Error in str(X): object &#39;X&#39; not found</code></pre>
+<pre><code>##  num 5</code></pre>
 <pre class="r"><code>X</code></pre>
-<pre><code>## Error: object &#39;X&#39; not found</code></pre>
+<pre><code>## [1] 5</code></pre>
 <hr />
 </div>
 <div id="vectors-are-like-a-queue-of-a-single-data-type" class="section level3">
@@ -3051,37 +3055,31 @@ to use this notation in order to specifically save on memory as integers
 use less than doubles!</p>
 </div>
 <pre class="r"><code># character vectors
-character_vector &lt;- c(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>character_vector</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+character_vector &lt;- c(&#39;bacteria&#39;, &#39;virus&#39;, &quot;archaea&quot;)
+character_vector</code></pre>
+<pre><code>## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot;</code></pre>
 <pre class="r"><code># numeric vectors
-numeric_vector &lt;- c(...) # The colon specifies an inclusive range of values</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>numeric_vector</code></pre>
-<pre><code>## Error: object &#39;numeric_vector&#39; not found</code></pre>
+numeric_vector &lt;- c(1:10) # The colon specifies an inclusive range of values
+numeric_vector</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <pre class="r"><code># logical vectors
-logical_vector &lt;- c(...) # TRUE and FALSE are also know as &quot;boolean&quot; values</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>logical_vector</code></pre>
-<pre><code>##         male      elderly heart attack 
-##         TRUE        FALSE         TRUE</code></pre>
+logical_vector &lt;- c(TRUE, FALSE, TRUE) # TRUE and FALSE are also know as &quot;boolean&quot; values
+logical_vector</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
 <pre class="r"><code># Integer vectors
-integer_vector &lt;- c(...) </code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># The &quot;L&quot; makes the numbers integers. Can be used to get your code to run faster and consume less memory. 
+integer_vector &lt;- c(1L, 8L) 
+# The &quot;L&quot; makes the numbers integers. Can be used to get your code to run faster and consume less memory. 
 # A double (&quot;numeric&quot;) vector uses 8 bytes per element. An integer vector uses only 4 bytes per element
 
 integer_vector</code></pre>
-<pre><code>## Error: object &#39;integer_vector&#39; not found</code></pre>
+<pre><code>## [1] 1 8</code></pre>
 <pre class="r"><code># What happens if we try to include more than one type of data?
-mixed_vector &lt;- c(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>mixed_vector</code></pre>
-<pre><code>## Error: object &#39;mixed_vector&#39; not found</code></pre>
+mixed_vector &lt;- c(&quot;bacteria&quot;, 1, TRUE, NA)
+mixed_vector</code></pre>
+<pre><code>## [1] &quot;bacteria&quot; &quot;1&quot;        &quot;TRUE&quot;     NA</code></pre>
 <pre class="r"><code># Let&#39;s look at the structure of our vector
 str(mixed_vector)</code></pre>
-<pre><code>## Error in str(mixed_vector): object &#39;mixed_vector&#39; not found</code></pre>
+<pre><code>##  chr [1:4] &quot;bacteria&quot; &quot;1&quot; &quot;TRUE&quot; NA</code></pre>
 <hr />
 </div>
 <div id="coercion-changes-data-from-one-type-to-another-if-possible" class="section level3">
@@ -3093,11 +3091,12 @@ explicitly force a change from one data type to the next, it is known as
 <strong><em>conversion</em></strong> or
 <strong><em>casting</em></strong>.</p>
 <pre class="r"><code># Let&#39;s convert our mixed_vector
-...; into_numeric</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+into_numeric &lt;- as.numeric(mixed_vector) ; into_numeric</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA  1 NA NA</code></pre>
 <pre class="r"><code># What about our logical_vector?
-as.numeric(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+as.numeric(logical_vector)</code></pre>
+<pre><code>## [1] 1 0 1</code></pre>
 <hr />
 </div>
 <div id="what-happened-to-our-data" class="section level3">
@@ -3124,16 +3123,15 @@ in a nutshell</a></p>
 <p>Within a vector, each individual element can be assigned to a
 character-based name. This can act as a way to locate values based on
 what they represent and not by their position within the vector.</p>
-<pre class="r"><code>names(logical_vector) &lt;- c(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>logical_vector</code></pre>
+<pre class="r"><code>names(logical_vector) &lt;- c(&quot;male&quot;, &quot;elderly&quot;, &quot;heart attack&quot;)
+logical_vector</code></pre>
 <pre><code>##         male      elderly heart attack 
 ##         TRUE        FALSE         TRUE</code></pre>
 <pre class="r"><code>#is equivalent to 
 
-logical_vector &lt;- c(&quot;male&quot; = TRUE, &quot;elderly&quot; = FALSE, &quot;heart attack&quot; = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># What does this syntax remind you of?
+logical_vector &lt;- c(&quot;male&quot; = TRUE, &quot;elderly&quot; = FALSE, &quot;heart attack&quot; = TRUE)
+
+# What does this syntax remind you of?
 
 logical_vector</code></pre>
 <pre><code>##         male      elderly heart attack 
@@ -3155,11 +3153,11 @@ function. We’ll learn additional functions later that we can apply
 broadly to retrieve information about various objects.</p>
 <pre class="r"><code># The number of elements in a vector is its length.
 length(character_vector)</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+<pre><code>## [1] 3</code></pre>
 <pre class="r"><code>length(numeric_vector)</code></pre>
-<pre><code>## Error: object &#39;numeric_vector&#39; not found</code></pre>
-<pre class="r"><code>length(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>length(logical_vector)</code></pre>
+<pre><code>## [1] 3</code></pre>
 <hr />
 </div>
 <div id="use-the-indexing-operator-to-extract-values" class="section level3">
@@ -3191,34 +3189,36 @@ system like C++, Java, or Python.</p>
 </div>
 <pre class="r"><code># Display our character vector again
 character_vector</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+<pre><code>## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot;</code></pre>
 <pre class="r"><code># You can grab a specific element by its index
-character_vector[...]</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+character_vector[3]</code></pre>
+<pre><code>## [1] &quot;archaea&quot;</code></pre>
 <pre class="r"><code># Use the &quot;:&quot; to generate a range of indices automatically as a vector
 
 1:10 # All positive values</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<pre class="r"><code>... # Negative values to 0</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>... # A range spanning across negative to positive values</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>-5:0 # Negative values to 0</code></pre>
+<pre><code>## [1] -5 -4 -3 -2 -1  0</code></pre>
+<pre class="r"><code>-5:5 # A range spanning across negative to positive values</code></pre>
+<pre><code>##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</code></pre>
 <pre class="r"><code>#second and third element in the vector inclusive (varies across programming languages)
-character_vector[...]</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+character_vector[2:3]</code></pre>
+<pre><code>## [1] &quot;virus&quot;   &quot;archaea&quot;</code></pre>
 <pre class="r"><code>#you can use negative indexing to select &#39;everything but&#39;
-character_vector[...]</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
-<pre class="r"><code>character_vector[...]</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+character_vector[-2]</code></pre>
+<pre><code>## [1] &quot;bacteria&quot; &quot;archaea&quot;</code></pre>
+<pre class="r"><code>character_vector[-c(2,3)]</code></pre>
+<pre><code>## [1] &quot;bacteria&quot;</code></pre>
 <pre class="r"><code># You can&#39;t mix negative and positive values!
 character_vector[c(-1, 2)]</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+<pre><code>## Error in character_vector[c(-1, 2)]: only 0&#39;s may be mixed with negative subscripts</code></pre>
 <pre class="r"><code># You can grab elements by their assigned &quot;names&quot;
-logical_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>logical_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+logical_vector[&quot;male&quot;]</code></pre>
+<pre><code>## male 
+## TRUE</code></pre>
+<pre class="r"><code>logical_vector[c(&quot;male&quot;, &quot;elderly&quot;)]</code></pre>
+<pre><code>##    male elderly 
+##    TRUE   FALSE</code></pre>
 <hr />
 <div class="alert alert-block alert-danger">
 <p><strong>Section 3.2.3 Comprehension Question:</strong> Look at the
@@ -3534,9 +3534,9 @@ Because of this</p>
 behave like characters)</li>
 </ul>
 <pre class="r"><code>class(character_vector)</code></pre>
-<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>class(numeric_vector)</code></pre>
-<pre><code>## Error: object &#39;numeric_vector&#39; not found</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
 <pre class="r"><code>class(...)</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <p>Some R package developers have created their own object classes. We
