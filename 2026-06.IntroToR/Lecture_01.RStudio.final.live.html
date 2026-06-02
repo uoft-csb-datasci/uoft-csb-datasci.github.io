@@ -3576,8 +3576,8 @@ behave like characters)</li>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>class(numeric_vector)</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>class(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>class(my_matrix)</code></pre>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
 <p>Some R package developers have created their own object classes. We
 won’t deal with this today, but it is good to be aware of from a
 trouble-shooting perspective that your data may need to be formatted to
@@ -3603,18 +3603,18 @@ data type (i.e. character, numeric, Factor, etc.)</li>
 <pre class="r"><code># Let&#39;s make a data frame
 # Recall that we can generate a vector simply using c(data1, data2, ..., dataN)
 
-my_data_frame &lt;- data.frame(charCol = c(&#39;bacteria&#39;, &#39;virus&#39;, ...),
+my_data_frame &lt;- data.frame(charCol = c(&#39;bacteria&#39;, &#39;virus&#39;, &quot;archaea&quot;),
                             numCol = c(1:10),
                             logCol = c(TRUE, FALSE, TRUE))</code></pre>
-<pre><code>## Error in data.frame(charCol = c(&quot;bacteria&quot;, &quot;virus&quot;, ...), numCol = c(1:10), : &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error in data.frame(charCol = c(&quot;bacteria&quot;, &quot;virus&quot;, &quot;archaea&quot;), numCol = c(1:10), : arguments imply differing number of rows: 3, 10</code></pre>
 <pre class="r"><code>## Oops! This will break the second rule of data frame club</code></pre>
 <pre class="r"><code># Let&#39;s make a data frame correctly
 
 my_data_frame &lt;- data.frame(charCol = c(&#39;bacteria&#39;, &#39;virus&#39;, &#39;archaea&#39;), 
-                            numCol = c(...),
-                            logCol = c(TRUE, FALSE, TRUE))</code></pre>
-<pre><code>## Error in data.frame(charCol = c(&quot;bacteria&quot;, &quot;virus&quot;, &quot;archaea&quot;), numCol = c(...), : &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>my_data_frame</code></pre>
+                            numCol = c(1:3),
+                            logCol = c(TRUE, FALSE, TRUE))
+
+my_data_frame</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["charCol"],"name":[1],"type":["chr"],"align":["left"]},{"label":["numCol"],"name":[2],"type":["int"],"align":["right"]},{"label":["logCol"],"name":[3],"type":["lgl"],"align":["right"]}],"data":[{"1":"bacteria","2":"1","3":"TRUE"},{"1":"virus","2":"2","3":"FALSE"},{"1":"archaea","2":"3","3":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
