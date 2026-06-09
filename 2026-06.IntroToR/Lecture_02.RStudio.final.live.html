@@ -1914,8 +1914,14 @@ essentially vaporize.</p>
 <p>The <code>install.packages()</code> command will work just as it
 should in a desktop version of RStudio.</p>
 <pre class="r"><code># Always keep installation commands commented out
-install.packages(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+install.packages(&#39;devtools&#39;)</code></pre>
+<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## Warning: package &#39;devtools&#39; is not available for this version of R
+## 
+## A version of this package for your version of R might be available elsewhere,
+## see the ideas at
+## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
 <hr />
 <div id="will-it-or-wont-it-install-check-for-dependencies" class="section level3">
 <h3>1.2.1 Will it or won’t it install? Check for dependencies!</h3>
@@ -1930,8 +1936,14 @@ can only be installed after another package is installed in your
 library. Similarly, that previous package may depend on another package
 and so on. To solve this potential issue we use the
 <code>dependencies</code> logical parameter in our call.</p>
-<pre class="r"><code>install.packages(&#39;devtools&#39;, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>install.packages(&#39;devtools&#39;, dependencies = TRUE)</code></pre>
+<pre><code>## Installing package into &#39;C:/Users/mokca/AppData/Local/R/win-library/4.0&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## Warning: package &#39;devtools&#39; is not available for this version of R
+## 
+## A version of this package for your version of R might be available elsewhere,
+## see the ideas at
+## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
 <pre class="r"><code># remove.packages(&quot;devtools&quot;) # Uninstall any CRAN package</code></pre>
 <hr />
 </div>
@@ -1967,8 +1979,8 @@ road.</p>
 </div>
 <pre class="r"><code># When we try to load this we will likely receive an error due to an older package being loaded
 # Restart the kernel! It will keep the installed libraries but will unload the offending package.
-library(...) </code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+library(&#39;devtools&#39;) </code></pre>
+<pre><code>## Loading required package: usethis</code></pre>
 <pre class="r"><code># or 
 
 #library(&#39;devtools&#39;)</code></pre>
@@ -2064,8 +2076,7 @@ which version of “conflicting” functions we wish to use!</p>
 <p>All packages are loaded the same regardless of their origin, using
 <code>library()</code>.</p>
 <pre class="r"><code># Load googlesheets4 now from the library
-library(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+library(googlesheets4)</code></pre>
 <hr />
 </div>
 <div id="packages-used-in-this-lecture" class="section level2">
@@ -6606,10 +6617,9 @@ as part of the file. If unspecified, it will take the
 <pre class="r"><code>getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2026.06_Intro_to_R/lecture_02_introduction_to_dplyr&quot;</code></pre>
 <pre class="r"><code># Write our data to file
-...(x = meta_trimmed.tbl,
+write_csv(x = meta_trimmed.tbl,
           file = &quot;data/infection_metadata_trimmed.csv&quot;,
           col_names=TRUE)</code></pre>
-<pre><code>## Error in ...(x = meta_trimmed.tbl, file = &quot;data/infection_metadata_trimmed.csv&quot;, : could not find function &quot;...&quot;</code></pre>
 <hr />
 <div id="use-to-direct-your-output-to-write_csv" class="section level3">
 <h3>5.1.1 Use <code>%&gt;%</code> to direct your output to
@@ -6626,7 +6636,7 @@ pipe.</p>
 <li>You can assign the final output of your piping to a variable.</li>
 </ol>
 <p>Let’s revisit our last summarizing pipeline.</p>
-<pre class="r"><code>... &lt;-
+<pre class="r"><code>write_result &lt;-
     # Pass along trimmed data
     meta_trimmed.tbl %&gt;% 
     
@@ -6644,7 +6654,11 @@ pipe.</p>
 
 # Take a look at the result of the pipeline
 write_result</code></pre>
-<pre><code>## Error: object &#39;write_result&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Spore Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["totalSpores_sum"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["totalSpores_mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["totalSpores_sd"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"AWRm78","2":"21.0","3":"3.5000000","4":"0.0000000"},{"1":"ERTm2","2":"8.0","3":"0.6666667","4":"0.6513389"},{"1":"ERTm5","2":"231.6","3":"2.7571429","4":"2.5221655"},{"1":"ERTm5-96H","2":"21.0","3":"1.7500000","4":"1.4924050"},{"1":"LUAm1","2":"923.0","3":"6.7867647","4":"8.0456182"},{"1":"LUAm1-HK","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm1-pel","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm1-sup","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm3","2":"60.0","3":"10.0000000","4":"0.0000000"},{"1":"MAM1","2":"104.0","3":"7.4285714","4":"3.4577513"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 </div>
@@ -6671,11 +6685,10 @@ write column names at the top of each sheet</li>
 # library(writexl)
 
 # Write a list to a single xlsx file
-...(x = list(&quot;...&quot; = infection_meta.tbl, &quot;metadata_summary&quot; = write_result),
+write_xlsx(x = list(&quot;metadata_trimmed&quot; = infection_meta.tbl, &quot;metadata_summary&quot; = write_result),
            path = &quot;data/metadata_analysis.xlsx&quot;,
            col_names = TRUE
           )</code></pre>
-<pre><code>## Error in ...(x = list(... = infection_meta.tbl, metadata_summary = write_result), : could not find function &quot;...&quot;</code></pre>
 <hr />
 </div>
 </div>
