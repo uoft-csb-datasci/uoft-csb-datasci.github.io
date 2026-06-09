@@ -6342,8 +6342,15 @@ analysed!</p>
 column of <code>meta_trimmed.tbl</code>.</p>
 <pre class="r"><code># Summarise abundance for mean and standard deviation of all rows combined
 summarise(meta_trimmed.tbl, 
-          ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+          totalSpores_sum = sum(`Total Spores (M)`),
+          totalSpores_mean = mean(`Total Spores (M)`),
+          totalSpores_sd = sd(`Total Spores (M)`)
+          )</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["totalSpores_sum"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["totalSpores_mean"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["totalSpores_sd"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1428.6","2":"5.176087","3":"6.338264"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div class="alert alert-block alert-warning">
 <p><strong>Caution: Don’t forget about NA values!</strong> Remember that
@@ -6374,11 +6381,15 @@ recognized by other <code>dplyr</code> methods such as
 meta_trimmed.tbl %&gt;% 
 
     # group by Spore strain
-    ... %&gt;% 
+    group_by(., `Spore Strain`) %&gt;% 
     
     # Look at the first 10 rows
     head(., 10)</code></pre>
-<pre><code>## Error in ...(.): could not find function &quot;...&quot;</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_0M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502"},{"1":"190426_AB1_LUAm1_10M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_20M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_JU397_LUAm1_0M_72hpi","2":"JU397","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Doesn’t look very different from a regular <code>data.frame</code>
 does it? What if we try to <code>summarise()</code> with it?</p>
 <hr />
@@ -6389,11 +6400,15 @@ meta_trimmed.tbl %&gt;%
     group_by(., `Spore Strain`) %&gt;% 
     
     # Summarise the data now
-    ...(., 
+    summarise(., 
               totalSpores_sum = sum(`Total Spores (M)`),
               totalSpores_mean = mean(`Total Spores (M)`),
               totalSpores_sd = sd(`Total Spores (M)`))</code></pre>
-<pre><code>## Error in ...(., totalSpores_sum = sum(`Total Spores (M)`), totalSpores_mean = mean(`Total Spores (M)`), : could not find function &quot;...&quot;</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Spore Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["totalSpores_sum"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["totalSpores_mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["totalSpores_sd"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"AWRm78","2":"21.0","3":"3.5000000","4":"0.0000000"},{"1":"ERTm2","2":"8.0","3":"0.6666667","4":"0.6513389"},{"1":"ERTm5","2":"231.6","3":"2.7571429","4":"2.5221655"},{"1":"ERTm5-96H","2":"21.0","3":"1.7500000","4":"1.4924050"},{"1":"LUAm1","2":"923.0","3":"6.7867647","4":"8.0456182"},{"1":"LUAm1-HK","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm1-pel","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm1-sup","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm3","2":"60.0","3":"10.0000000","4":"0.0000000"},{"1":"MAM1","2":"104.0","3":"7.4285714","4":"3.4577513"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <p>Notice that the <code>summarise()</code> created a new
 <code>tibble</code> and it has the columns <code>totalSpores_sum</code>,
@@ -6433,14 +6448,15 @@ column, <code>spore_strain_lot</code>.</p>
 meta_trimmed.tbl %&gt;% 
 
     # Use the mutate command to paste two set of column information together
-    mutate(spore_strain_lot = ...(`Spore Strain`, `Spore Lot`, sep = &quot;_&quot;)) %&gt;% 
+    mutate(spore_strain_lot = paste(`Spore Strain`, `Spore Lot`, sep = &quot;_&quot;)) %&gt;% 
     
     # Peek at the result.
     head()</code></pre>
-<pre><code>## [1m[33mError[39m in `mutate()`:[22m
-## [1m[22m[36mi[39m In argument: `spore_strain_lot = ...(`Spore Strain`, `Spore Lot`, sep = &quot;_&quot;)`.
-## [1mCaused by error in `...()`:[22m
-## [33m![39m could not find function &quot;...&quot;</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["spore_strain_lot"],"name":[11],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="piping-will-not-automatically-save-your-output" class="section level3">
 <h3>4.8.0.1 Piping will not automatically save your output!</h3>
@@ -6465,14 +6481,14 @@ using the <code>$col_name</code> syntax. If the column does not already
 exist, it will be created. Otherwise its data will be overwritten.</p>
 <pre class="r"><code># adding columns can also be done using &quot;base R&quot; code:
 # This will permanently change meta_trimmed.tbl
-meta_trimmed.tbl$... &lt;- paste(meta_trimmed.tbl$`Spore Strain`, 
+meta_trimmed.tbl$spore_strain_lot &lt;- paste(meta_trimmed.tbl$`Spore Strain`, 
                                            meta_trimmed.tbl$`Spore Lot`, 
                                            sep = &quot;_&quot;)
 
 head(meta_trimmed.tbl)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["..."],"name":[11],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["spore_strain_lot"],"name":[11],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <hr />
@@ -6490,13 +6506,13 @@ of <code>spore_strain_lot</code>.</p>
 colnames(meta_trimmed.tbl)</code></pre>
 <pre><code>##  [1] &quot;experiment&quot;       &quot;Worm_strain&quot;      &quot;Spore Strain&quot;     &quot;Spore Lot&quot;       
 ##  [5] &quot;Total Spores (M)&quot; &quot;Spores(M)/cm2&quot;    &quot;Infection Date&quot;   &quot;Fixing Date&quot;     
-##  [9] &quot;Staining Date&quot;    &quot;Imaging Date&quot;     &quot;...&quot;</code></pre>
-<pre class="r"><code>meta_trimmed.tbl &lt;- select(meta_trimmed.tbl, ...) # remove column spore_strain_lot</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>head(meta_trimmed.tbl)</code></pre>
+##  [9] &quot;Staining Date&quot;    &quot;Imaging Date&quot;     &quot;spore_strain_lot&quot;</code></pre>
+<pre class="r"><code>meta_trimmed.tbl &lt;- select(meta_trimmed.tbl, -spore_strain_lot) # remove column spore_strain_lot
+
+head(meta_trimmed.tbl)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["..."],"name":[11],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <hr />
@@ -6512,11 +6528,15 @@ for each new one specified. The output for <code>transmute()</code> is a
 <pre class="r"><code>meta_trimmed.tbl %&gt;% 
 
     # Transmute some new columns
-    ...(spore_strain_lot = paste(`Spore Strain`, `Spore Lot`, sep = &quot;_&quot;)) %&gt;% 
+    transmute(spore_strain_lot = paste(`Spore Strain`, `Spore Lot`, sep = &quot;_&quot;)) %&gt;% 
     
     # look at the unique combinations
     unique()</code></pre>
-<pre><code>## Error in ...(., spore_strain_lot = paste(`Spore Strain`, `Spore Lot`, : could not find function &quot;...&quot;</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["spore_strain_lot"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"LUAm1_2A"},{"1":"ERTm5_2"},{"1":"ERTm2_1"},{"1":"MAM1_1"},{"1":"LUAm3_1"},{"1":"AWRm78_1"},{"1":"MAM1_2A"},{"1":"LUAm1-HK_2A"},{"1":"LUAm1-sup_2A"},{"1":"LUAm1-pel_2A"},{"1":"ERTm5-96H_2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <p>Notice that you can accomplish a lot of similar functions as
 <code>summarise()</code> using <code>transmute()</code> but there are
@@ -6620,15 +6640,9 @@ pipe.</p>
               totalSpores_sd = sd(`Total Spores (M)`)) %&gt;% 
     
     # write your file to output
-    write_csv(x = ., file=&quot;data/infection_metadata_summary.csv&quot;, col_names=TRUE)</code></pre>
-<pre><code>## [1m[33mError[39m in `as_tibble()`:[22m
-## [1m[22m[33m![39m Column 11 must not have names of the form ... or ..j.
-## Use `.name_repair` to specify repair.
-## [1mCaused by error in `repaired_names()`:[22m
-## [33m![39m Names can&#39;t be of the form `...` or `..j`.
-## [31mx[39m These names are invalid:
-##   * &quot;...&quot; at location 1.</code></pre>
-<pre class="r"><code># Take a look at the result of the pipeline
+    write_csv(x = ., file=&quot;data/infection_metadata_summary.csv&quot;, col_names=TRUE)
+
+# Take a look at the result of the pipeline
 write_result</code></pre>
 <pre><code>## Error: object &#39;write_result&#39; not found</code></pre>
 <hr />
