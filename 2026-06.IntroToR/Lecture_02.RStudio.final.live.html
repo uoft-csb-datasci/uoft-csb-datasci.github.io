@@ -3195,8 +3195,38 @@ str(infection_meta.tbl)</code></pre>
 ##   .. )
 ##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <pre class="r"><code># glimpse gives us less information overall but is also less redundant
-...(infection_meta.tbl)</code></pre>
-<pre><code>## Error in ...(infection_meta.tbl): could not find function &quot;...&quot;</code></pre>
+glimpse(infection_meta.tbl)</code></pre>
+<pre><code>## Rows: 276
+## Columns: 29
+## $ experiment          [3m[90m&lt;chr&gt;[39m[23m &quot;190426_VC20019_LUAm1_0M_72hpi&quot;[90m, [39m&quot;190426_VC20019_L~
+## $ experimenter        [3m[90m&lt;chr&gt;[39m[23m &quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;C~
+## $ description         [3m[90m&lt;chr&gt;[39m[23m &quot;Wild isolate phenoMIP retest&quot;[90m, [39m&quot;Wild isolate phen~
+## $ `Infection Date`    [3m[90m&lt;dbl&gt;[39m[23m 190423[90m, [39m190423[90m, [39m190423[90m, [39m190423[90m, [39m190423[90m, [39m190423[90m, [39m19~
+## $ `Plate Number`      [3m[90m&lt;dbl&gt;[39m[23m 1[90m, [39m2[90m, [39m3[90m, [39m4[90m, [39m5[90m, [39m6[90m, [39m7[90m, [39m8[90m, [39m9[90m, [39m10[90m, [39m11[90m, [39m12[90m, [39m13[90m, [39m14[90m, [39m15[90m,[39m~
+## $ Worm_strain         [3m[90m&lt;chr&gt;[39m[23m &quot;VC20019&quot;[90m, [39m&quot;VC20019&quot;[90m, [39m&quot;VC20019&quot;[90m, [39m&quot;N2&quot;[90m, [39m&quot;N2&quot;[90m, [39m&quot;N2&quot;[90m,[39m~
+## $ `Total Worms`       [3m[90m&lt;dbl&gt;[39m[23m 1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m10~
+## $ `Spore Strain`      [3m[90m&lt;chr&gt;[39m[23m &quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm~
+## $ `Spore Lot`         [3m[90m&lt;chr&gt;[39m[23m &quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2~
+## $ `Lot concentration` [3m[90m&lt;dbl&gt;[39m[23m 176000[90m, [39m176000[90m, [39m176000[90m, [39m176000[90m, [39m176000[90m, [39m176000[90m, [39m17~
+## $ `Total Spores (M)`  [3m[90m&lt;dbl&gt;[39m[23m 0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m,[39m~
+## $ `Total ul spore`    [3m[90m&lt;dbl&gt;[39m[23m 0.00000[90m, [39m56.81818[90m, [39m113.63636[90m, [39m0.00000[90m, [39m56.81818[90m, [39m1~
+## $ `Infection Round`   [3m[90m&lt;dbl&gt;[39m[23m 1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m,[39m~
+## $ `40X OP50 (mL)`     [3m[90m&lt;dbl&gt;[39m[23m 0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.~
+## $ `Plate Size`        [3m[90m&lt;dbl&gt;[39m[23m 6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m,[39m~
+## $ `Spores(M)/cm2`     [3m[90m&lt;dbl&gt;[39m[23m 0.0000000[90m, [39m0.3538570[90m, [39m0.7077141[90m, [39m0.0000000[90m, [39m0.3538~
+## $ `Time plated`       [3m[90m&lt;dbl&gt;[39m[23m 1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m13~
+## $ `Time Incubated`    [3m[90m&lt;dbl&gt;[39m[23m 1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m16~
+## $ Temp                [3m[90m&lt;dbl&gt;[39m[23m 21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21~
+## $ timepoint           [3m[90m&lt;chr&gt;[39m[23m &quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;7~
+## $ infection.type      [3m[90m&lt;chr&gt;[39m[23m &quot;continuous&quot;[90m, [39m&quot;continuous&quot;[90m, [39m&quot;continuous&quot;[90m, [39m&quot;continu~
+## $ `Fixing Date`       [3m[90m&lt;dbl&gt;[39m[23m 190426[90m, [39m190426[90m, [39m190426[90m, [39m190426[90m, [39m190426[90m, [39m190426[90m, [39m19~
+## $ Location            [3m[90m&lt;chr&gt;[39m[23m &quot;Sample exhausted&quot;[90m, [39m&quot;Sample exhausted&quot;[90m, [39m&quot;Sample ex~
+## $ `Staining Date`     [3m[90m&lt;dbl&gt;[39m[23m 190513[90m, [39m190513[90m, [39m190513[90m, [39m190430[90m, [39m190513[90m, [39m190513[90m, [39m19~
+## $ `Stain type`        [3m[90m&lt;chr&gt;[39m[23m &quot;Sp.9 FISH + DY96&quot;[90m, [39m&quot;Sp.9 FISH + DY96&quot;[90m, [39m&quot;Sp.9 FISH~
+## $ `Slide date`        [3m[90m&lt;dbl&gt;[39m[23m 190515[90m, [39m190515[90m, [39m190515[90m, [39m190501[90m, [39m190515[90m, [39m190515[90m, [39m19~
+## $ `Slide number`      [3m[90m&lt;dbl&gt;[39m[23m 1[90m, [39m2[90m, [39m3[90m, [39m4[90m, [39m5[90m, [39m6[90m, [39m7[90m, [39m8[90m, [39m9[90m, [39m10[90m, [39m11[90m, [39m12[90m, [39m13[90m, [39m14[90m, [39m15[90m,[39m~
+## $ `Slide Box`         [3m[90m&lt;dbl&gt;[39m[23m 2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m,[39m~
+## $ `Imaging Date`      [3m[90m&lt;dbl&gt;[39m[23m 190516[90m, [39m190516[90m, [39m190516[90m, [39m190502[90m, [39m190516[90m, [39m190516[90m, [39m19~</code></pre>
 <hr />
 <p>So the information provided by <code>glimpse()</code> is more sparse,
 the formatting is a little tighter and we don’t have to see the extra
@@ -3243,17 +3273,20 @@ otherwise it may lead to errors in functions that we frequently use.</p>
 values.</p>
 <pre class="r"><code># Set up some vectors for a data.frame
 
-modern_domain &lt;- c(&quot;Archaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>five_domains &lt;- c(&quot;Arhcaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, &quot;Virusobiota&quot;, &quot;Prionobiota&quot;)
-six_kingdoms &lt;- c(1, 1, 4, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Put it all together with in a call to data.frame()
-NA_example &lt;- data.frame(five_domains, modern_domain, six_kingdoms)</code></pre>
-<pre><code>## Error in data.frame(five_domains, modern_domain, six_kingdoms): object &#39;modern_domain&#39; not found</code></pre>
-<pre class="r"><code># Look at our data frame
+modern_domain &lt;- c(&quot;Archaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, NA, NA)
+five_domains &lt;- c(&quot;Archaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, &quot;Virusobiota&quot;, &quot;Prionobiota&quot;)
+six_kingdoms &lt;- c(1, 1, 4, NA, NA)
+
+# Put it all together with in a call to data.frame()
+NA_example &lt;- data.frame(five_domains, modern_domain, six_kingdoms)
+
+# Look at our data frame
 NA_example</code></pre>
-<pre><code>## Error: object &#39;NA_example&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["five_domains"],"name":[1],"type":["chr"],"align":["left"]},{"label":["modern_domain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["six_kingdoms"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Archaea","2":"Archaea","3":"1"},{"1":"Bacteria","2":"Bacteria","3":"1"},{"1":"Eukarya","2":"Eukarya","3":"4"},{"1":"Virusobiota","2":"NA","3":"NA"},{"1":"Prionobiota","2":"NA","3":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="some-functions-can-be-told-to-ignore-or-remove-na-values" class="section level3">
 <h3>3.2.1 Some functions can be told to ignore or remove <code>NA</code>
@@ -3269,9 +3302,9 @@ before proceeding to perform its mathematical operation.</p>
 the function may return an <code>NA</code> value.</p>
 <pre class="r"><code># Use the mean() function and see what happens with NA values
 sum(six_kingdoms) # some functions need to be explicitly told what to do with NAs. No errors though!</code></pre>
-<pre><code>## Error: object &#39;six_kingdoms&#39; not found</code></pre>
-<pre class="r"><code>sum(six_kingdoms, ...) #Avoid using just &quot;T&quot; as an abbreviation for &quot;TRUE&quot;</code></pre>
-<pre><code>## Error: object &#39;six_kingdoms&#39; not found</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>sum(six_kingdoms, na.rm = TRUE) #Avoid using just &quot;T&quot; as an abbreviation for &quot;TRUE&quot;</code></pre>
+<pre><code>## [1] 6</code></pre>
 <hr />
 </div>
 <div id="what-happens-when-we-try-to-use-functions-via-apply-on-data-with-nas" class="section level3">
@@ -3293,8 +3326,9 @@ counts</code></pre>
   </script>
 </div>
 <pre class="r"><code># Notice that we can only pass the function name &quot;mean&quot; and not any parameters
-apply(X = counts, MARGIN = 1, FUN = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+apply(X = counts, MARGIN = 1, FUN = mean)</code></pre>
+<pre><code>##    geneA    geneB    geneC    geneD 
+##  9.00000       NA 17.33333       NA</code></pre>
 <div class="alert alert-block alert-info">
 <p><strong>Key Concept:</strong> Recall that we can pass additional
 parameters to <strong>apply()</strong> that are meant as parameters for
@@ -3304,12 +3338,14 @@ parameter.</p>
 </div>
 <pre class="r"><code># Pass parameters in our call
 apply(X = counts, MARGIN = 1, 
-      FUN = mean, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+      FUN = mean, na.rm = TRUE)</code></pre>
+<pre><code>##    geneA    geneB    geneC    geneD 
+##  9.00000  5.50000 17.33333 18.00000</code></pre>
 <pre class="r"><code># Equivalent code - perhaps clearer but more verbose
 apply(X = counts, MARGIN = 1, 
-      FUN = function(x) mean(x, ...))</code></pre>
-<pre><code>## Error in FUN(newX[, i], ...): &#39;...&#39; used in an incorrect context</code></pre>
+      FUN = function(x) mean(x, na.rm = TRUE))</code></pre>
+<pre><code>##    geneA    geneB    geneC    geneD 
+##  9.00000  5.50000 17.33333 18.00000</code></pre>
 <hr />
 </div>
 <div id="use-the-is.na-function-to-check-your-data" class="section level3">
@@ -3324,11 +3360,15 @@ structure of the same dimensions.</p>
 na_vector &lt;- c(5, 6, NA, 7, 7, NA)
 
 # This works on vectors...
-...(na_vector)</code></pre>
-<pre><code>## Error in ...(na_vector): could not find function &quot;...&quot;</code></pre>
+is.na(na_vector)</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
 <pre class="r"><code># and data.frames too!
-...(counts)</code></pre>
-<pre><code>## Error in ...(counts): could not find function &quot;...&quot;</code></pre>
+is.na(counts)</code></pre>
+<pre><code>##       Site1 Site2 Site3
+## geneA FALSE FALSE FALSE
+## geneB FALSE  TRUE FALSE
+## geneC FALSE FALSE FALSE
+## geneD FALSE FALSE  TRUE</code></pre>
 <pre class="r"><code># Let&#39;s look at our infection metadata for na values
 is.na(infection_meta.tbl)</code></pre>
 <pre><code>##        experiment experimenter description Infection Date Plate Number
@@ -5006,8 +5046,8 @@ has <strong><em>at least</em></strong> one <code>TRUE</code> value.</p>
 <p>We can use it to quickly ask if our <code>infection_meta.tbl</code>
 data frame has any <code>NA</code> values.</p>
 <pre class="r"><code># Before we dig too deep, can we check if there are ANY NA values in our data.frame?
-...(is.na(infection_meta.tbl)) # logical (TRUE or FALSE).</code></pre>
-<pre><code>## Error in ...(is.na(infection_meta.tbl)): could not find function &quot;...&quot;</code></pre>
+any(is.na(infection_meta.tbl)) # logical (TRUE or FALSE).</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <hr />
 <p>Now we’ve confirmed that there is at least a single <code>NA</code>
 value in our data. Given that there are 276 rows with 29 columns (8004
@@ -5031,8 +5071,8 @@ applicable to a vector of <em>logicals</em> is to ask
 na_vector </code></pre>
 <pre><code>## [1]  5  6 NA  7  7 NA</code></pre>
 <pre class="r"><code># wrap which() around our is.na() call
-...(is.na(na_vector))</code></pre>
-<pre><code>## Error in ...(is.na(na_vector)): could not find function &quot;...&quot;</code></pre>
+which(is.na(na_vector))</code></pre>
+<pre><code>## [1] 3 6</code></pre>
 <pre class="r"><code># save the indices where NAs are present in na_vector
 na_positions &lt;- which(is.na(na_vector)) </code></pre>
 <hr />
@@ -5048,13 +5088,13 @@ apply this directly to our original <code>na_vector</code> object to
 retrieve the non-<code>NA</code> values using the <code>-</code>
 (exclusion) syntax.</p>
 <pre class="r"><code># cut out the na_values indices and save it to a new variable
-removed_na_vector_1 &lt;- na_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Question: is it necessary to have the blank space in our index operator?
+removed_na_vector_1 &lt;- na_vector[- na_positions]
+
+# Question: is it necessary to have the blank space in our index operator?
 
 # Check out the result
 removed_na_vector_1</code></pre>
-<pre><code>## Error: object &#39;removed_na_vector_1&#39; not found</code></pre>
+<pre><code>## [1] 5 6 7 7</code></pre>
 <hr />
 </div>
 <div id="use-the-exclamation-mark-to-invert-your-logical-vectors" class="section level3">
@@ -5079,12 +5119,12 @@ variable!</p>
 is.na(na_vector)</code></pre>
 <pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
 <pre class="r"><code># Flip the logical result
-...is.na(na_vector)</code></pre>
-<pre><code>## Error in ...is.na(na_vector): could not find function &quot;...is.na&quot;</code></pre>
+!is.na(na_vector)</code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
 <pre class="r"><code># Apply this in our code for conditional indexing
 # indexing using a size-matched logical vector
-na_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+na_vector[!is.na(na_vector)]</code></pre>
+<pre><code>## [1] 5 6 7 7</code></pre>
 <pre class="r"><code># compare to using which() to index by position
 na_vector[-which(is.na(na_vector))]</code></pre>
 <pre><code>## [1] 5 6 7 7</code></pre>
@@ -5108,8 +5148,27 @@ structures but the <code>infection_meta.tbl</code> as we saw in section
 use of <code>which()</code> can come in quite handy. Let’s see how it
 works in direct usage.</p>
 <pre class="r"><code># Which values in infection_meta.tbl are NA? Recall we have 276 rows of data!
-...(is.na(infection_meta.tbl))</code></pre>
-<pre><code>## Error in ...(is.na(infection_meta.tbl)): could not find function &quot;...&quot;</code></pre>
+which(is.na(infection_meta.tbl))</code></pre>
+<pre><code>##   [1] 4480 4481 4482 4483 4484 4485 4486 4487 4488 4489 4490 4491 4492 4493 4494
+##  [16] 4495 4496 4497 4498 4499 4500 4501 4502 4503 4504 4505 4506 4507 4508 4509
+##  [31] 4510 4511 4512 4513 4514 4515 4516 4517 4518 4519 4520 4521 4522 4523 4524
+##  [46] 4525 4526 4527 4528 4529 4530 4531 4532 4533 4534 4535 4536 4537 4538 4539
+##  [61] 4540 4541 4542 4543 4544 4545 4546 4547 4548 4549 4550 4551 4552 4553 4554
+##  [76] 4555 4556 4557 4558 4559 4560 4561 4562 4563 4564 4565 4566 4567 4568 4569
+##  [91] 4570 4571 4572 4573 4574 4575 4576 4577 4578 4579 4580 4581 4582 4583 4584
+## [106] 4585 4586 4587 4588 4589 4590 4591 4592 4593 4594 4595 4596 4597 4598 4599
+## [121] 4600 4601 4602 4603 4604 4605 4606 4607 4608 4609 4610 4611 4612 4613 4614
+## [136] 4615 4616 4617 4618 4619 4620 4621 4622 4623 4624 4625 4626 4627 4628 4629
+## [151] 4630 4631 4632 4633 4634 4635 4636 4637 4638 4639 4640 4641 4642 4643 4644
+## [166] 4645 4646 4647 4648 4649 4650 4651 4652 4653 4654 4655 4656 4657 4658 4659
+## [181] 4660 4661 4662 4663 4664 4665 4666 4667 4668 4669 4670 4671 4672 4673 4674
+## [196] 4675 4676 4677 4678 4679 4680 4681 4682 4683 4684 4685 4686 4687 4688 4689
+## [211] 4690 4691 4692 4756 4757 4758 4759 4760 4761 4762 4763 4764 4765 4766 4767
+## [226] 4768 4769 4770 4771 4772 4773 4774 4775 4776 4777 4778 4779 4780 4781 4782
+## [241] 4783 4784 4785 4786 4787 4788 4789 4790 4791 4792 4793 4794 4795 4796 4797
+## [256] 4798 4799 4800 4801 4802 4803 6109 6110 6111 6118 6119 6120 6136 6137 6138
+## [271] 6139 6140 6141 6142 6143 6144 6145 6146 6147 6148 6149 6150 6151 6152 6153
+## [286] 6154 6155 6156</code></pre>
 <hr />
 <p>What do those values even mean? We are essentially seeing the
 positions of each NA element in <code>infection_meta.tbl</code> where
@@ -5140,8 +5199,9 @@ indexing</em></strong>.</p>
 <pre class="r"><code># ?complete.cases
 
 # Outputs a logical vector specifying which observations/rows have no missing values across the entire sequence.
-head(..., 20)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+head(complete.cases(infection_meta.tbl), 20)</code></pre>
+<pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [16] TRUE TRUE TRUE TRUE TRUE</code></pre>
 <pre class="r"><code># Use it wisely to keep complete rows. Pop quiz [x,y] will we index by x or by y?
 str(infection_meta.tbl[complete.cases(infection_meta.tbl),])</code></pre>
 <pre><code>## tibble [57 x 29] (S3: tbl_df/tbl/data.frame)
@@ -5199,11 +5259,12 @@ small number of columns that don’t really have much importance.</p>
 individually as well.</p>
 <pre class="r"><code># Use the apply function to find columns with NA and then determine which columns return TRUE
 which(apply(infection_meta.tbl, 
-            MARGIN = ...,                  # Use the columns
+            MARGIN = 2,                  # Use the columns
             function(x) any(is.na(x))    # Here&#39;s our function to examine each column for NA values 
             ) # end apply
      ) # end which </code></pre>
-<pre><code>## Error in which(apply(infection_meta.tbl, MARGIN = ..., function(x) any(is.na(x)))): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>##    Time plated Time Incubated       Location 
+##             17             18             23</code></pre>
 <hr />
 <p>We can see from the results of our code, that we really just have NA
 values in 3 metadata columns: <code>Time plated</code>,
@@ -5229,15 +5290,13 @@ replacement with a sample average, or the mode of the data, or a value
 that is below a threshold.</p>
 <pre class="r"><code># Replace the NA values in our table under the &quot;Location&quot; column.
 # Note that this will permanently change our tibble!
-infection_meta.tbl[...]... &lt;- &quot;None&quot;
+infection_meta.tbl[is.na(infection_meta.tbl$Location), ]$Location &lt;- &quot;None&quot;
 
 # Check which columns have NA values now
 which(apply(infection_meta.tbl, MARGIN = 2, 
             function(x) anyNA(x))) # Notice our use of the anyNA() function this time?</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:3:24: unexpected symbol
-## 2: # Note that this will permanently change our tibble!
-## 3: infection_meta.tbl[...]...
-##                           ^</code></pre>
+<pre><code>##    Time plated Time Incubated 
+##             17             18</code></pre>
 <div class="alert alert-block alert-success">
 <p><strong>Bonus Info: More about NA values.</strong> To learn about a
 few more functions that you can use to identify and remove
@@ -5805,7 +5864,7 @@ str(filter(infection_meta.tbl,
 ##  $ timepoint        : chr [1:110] &quot;72&quot; &quot;72&quot; &quot;72&quot; &quot;72&quot; ...
 ##  $ infection.type   : chr [1:110] &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; ...
 ##  $ Fixing Date      : num [1:110] 190426 190426 190426 190426 190426 ...
-##  $ Location         : chr [1:110] &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; NA NA ...
+##  $ Location         : chr [1:110] &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;None&quot; &quot;None&quot; ...
 ##  $ Staining Date    : num [1:110] 190513 190513 190529 190529 190529 ...
 ##  $ Stain type       : chr [1:110] &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;microb FISH + DY96&quot; &quot;microb FISH + DY96&quot; ...
 ##  $ Slide date       : num [1:110] 190515 190515 190530 190530 190530 ...
