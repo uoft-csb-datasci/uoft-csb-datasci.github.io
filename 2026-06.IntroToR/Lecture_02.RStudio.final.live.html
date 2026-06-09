@@ -5460,30 +5460,28 @@ question.</p>
 # ?&quot;%in%&quot;
 
 # What does %in% return?
-str(infection_meta.tbl$Worm_strain ... c(&quot;N2&quot;, &quot;JU1400&quot;))</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:5:36: unexpected symbol
-## 4: # What does %in% return?
-## 5: str(infection_meta.tbl$Worm_strain ...
-##                                       ^</code></pre>
+str(infection_meta.tbl$Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;))</code></pre>
+<pre><code>##  logi [1:276] FALSE FALSE FALSE TRUE TRUE TRUE ...</code></pre>
 <pre class="r"><code># You can filter your data using basic R commands
 # Use the conditional result to index our data.frame
-head(...[infection_meta.tbl$Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;),])</code></pre>
-<pre><code>## Error in head(...[infection_meta.tbl$Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;), : &#39;...&#39; used in an incorrect context</code></pre>
+head(infection_meta.tbl[infection_meta.tbl$Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;),])</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["experimenter"],"name":[2],"type":["chr"],"align":["left"]},{"label":["description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Infection Date"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Plate Number"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Worm_strain"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Total Worms"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Spore Strain"],"name":[8],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Lot concentration"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Total ul spore"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Infection Round"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["40X OP50 (mL)"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Plate Size"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Time plated"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Time Incubated"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Temp"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["timepoint"],"name":[20],"type":["chr"],"align":["left"]},{"label":["infection.type"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Fixing Date"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Location"],"name":[23],"type":["chr"],"align":["left"]},{"label":["Staining Date"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Stain type"],"name":[25],"type":["chr"],"align":["left"]},{"label":["Slide date"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Slide number"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Slide Box"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_N2_LUAm1_0M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"4","6":"N2","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"0","12":"0.00000","13":"1","14":"0.15","15":"6","16":"0.0000000","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190430","25":"DY96","26":"190501","27":"4","28":"2","29":"190502"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"5","6":"N2","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"10","12":"56.81818","13":"1","14":"0.15","15":"6","16":"0.3538570","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"5","28":"2","29":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"6","6":"N2","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"20","12":"113.63636","13":"1","14":"0.15","15":"6","16":"0.7077141","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"6","28":"2","29":"190516"},{"1":"190426_JU1400_LUAm1_0M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"25","6":"JU1400","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"0","12":"0.00000","13":"1","14":"0.15","15":"6","16":"0.0000000","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190430","25":"DY96","26":"190501","27":"25","28":"2","29":"190502"},{"1":"190426_JU1400_LUAm1_10M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"26","6":"JU1400","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"10","12":"56.81818","13":"1","14":"0.15","15":"6","16":"0.3538570","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"26","28":"2","29":"190516"},{"1":"190426_JU1400_LUAm1_20M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"27","6":"JU1400","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"20","12":"113.63636","13":"1","14":"0.15","15":"6","16":"0.7077141","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"27","28":"2","29":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code># how many rows (entries) do we find with our query?
-nrow(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+nrow(infection_meta.tbl[infection_meta.tbl$Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;),])</code></pre>
+<pre><code>## [1] 151</code></pre>
 <pre class="r"><code># A near-equivalent command using the logical OR
 # This, however, is a cautionary example about filtering your data. Watch out for this command!
 
-nrow(infection_meta.tbl[(infection_meta.tbl$Worm_strain == &quot;N2&quot; ... infection_meta.tbl$Worm_strain == &quot;JU1400&quot; ),])
-
-# The above command will also return any entries with NA in your filtered criteria.
+nrow(infection_meta.tbl[(infection_meta.tbl$Worm_strain == &quot;N2&quot; | infection_meta.tbl$Worm_strain == &quot;JU1400&quot; ),])</code></pre>
+<pre><code>## [1] 151</code></pre>
+<pre class="r"><code># The above command will also return any entries with NA in your filtered criteria.
 # Remember where we saw the `Time plated` column in our previous coding cells?
 nrow(infection_meta.tbl[(infection_meta.tbl$`Time plated` == 1300),])</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:4:65: unexpected symbol
-## 3: 
-## 4: nrow(infection_meta.tbl[(infection_meta.tbl$Worm_strain == &quot;N2&quot; ...
-##                                                                    ^</code></pre>
+<pre><code>## [1] 276</code></pre>
 <hr />
 <p>From our above output, we see that our first filtering step did
 return 151 rows of data as expected. However, we know that our
