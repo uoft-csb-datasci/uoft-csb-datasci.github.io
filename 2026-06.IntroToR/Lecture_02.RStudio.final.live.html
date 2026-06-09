@@ -5514,9 +5514,13 @@ that might result from our comparisons. Why is that important?</p>
 <p>How do we go about constructing expressions for this function? Let’s
 give it a try!</p>
 <pre class="r"><code># But the syntax using filter is much more human readable
-...(infection_meta.tbl, 
+filter(infection_meta.tbl, 
        Worm_strain == &quot;N2&quot; &amp; Worm_strain == &quot;JU1400&quot;)</code></pre>
-<pre><code>## Error in ...(infection_meta.tbl, Worm_strain == &quot;N2&quot; &amp; Worm_strain == : could not find function &quot;...&quot;</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["experimenter"],"name":[2],"type":["chr"],"align":["left"]},{"label":["description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Infection Date"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Plate Number"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Worm_strain"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Total Worms"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Spore Strain"],"name":[8],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Lot concentration"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Total ul spore"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Infection Round"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["40X OP50 (mL)"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Plate Size"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Time plated"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Time Incubated"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Temp"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["timepoint"],"name":[20],"type":["chr"],"align":["left"]},{"label":["infection.type"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Fixing Date"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Location"],"name":[23],"type":["chr"],"align":["left"]},{"label":["Staining Date"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Stain type"],"name":[25],"type":["chr"],"align":["left"]},{"label":["Slide date"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Slide number"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Slide Box"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="slicing-and-filtering-your-data-requires-the-proper-use-of-logical-operators" class="section level3">
 <h3>4.2.1 Slicing and filtering your data requires the proper use of
@@ -5530,9 +5534,9 @@ everything that is N2 <strong>OR</strong> JU1400. Here’s a handy summary
 about the remaining logical operators.</p>
 <table>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="35%" />
+<col width="32%" />
+<col width="32%" />
 </colgroup>
 <thead>
 <tr>
@@ -5623,17 +5627,11 @@ FALSE</td>
 <p>Now, let’s try that <code>filter()</code> command again.</p>
 <pre class="r"><code># Filter infection_meta.tbl using the proper logical operator
 nrow(filter(infection_meta.tbl, 
-            Worm_strain == &quot;N2&quot; ... Worm_strain == &quot;JU1400&quot;))</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:3:33: unexpected symbol
-## 2: nrow(filter(infection_meta.tbl, 
-## 3:             Worm_strain == &quot;N2&quot; ...
-##                                    ^</code></pre>
+            Worm_strain == &quot;N2&quot; | Worm_strain == &quot;JU1400&quot;))</code></pre>
+<pre><code>## [1] 151</code></pre>
 <pre class="r"><code>#Will this work?
-nrow(filter(infection_meta.tbl, Worm_strain ... c(&quot;N2&quot;, &quot;JU1400&quot;)))</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:2:45: unexpected symbol
-## 1: #Will this work?
-## 2: nrow(filter(infection_meta.tbl, Worm_strain ...
-##                                                ^</code></pre>
+nrow(filter(infection_meta.tbl, Worm_strain == c(&quot;N2&quot;, &quot;JU1400&quot;)))</code></pre>
+<pre><code>## [1] 88</code></pre>
 <hr />
 </div>
 <div id="a-reminderwarning-about-vectors-and-recycling" class="section level3">
@@ -5701,11 +5699,8 @@ where <code>Worm_strain == &quot;JU1400&quot;</code>.</p>
 in the vector <code>c(&quot;N2&quot;, &quot;JU1400&quot;)</code>?”</p>
 <pre class="r"><code># Use the correct operator to get the job done when filtering with vectors
 nrow(filter(infection_meta.tbl, 
-            Worm_strain ... c(&quot;N2&quot;, &quot;JU1400&quot;)))</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:3:25: unexpected symbol
-## 2: nrow(filter(infection_meta.tbl, 
-## 3:             Worm_strain ...
-##                            ^</code></pre>
+            Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;)))</code></pre>
+<pre><code>## [1] 151</code></pre>
 <hr />
 </div>
 <div id="use-filter-to-identify-matching-candidates-with-criteria-across-multiple-variables" class="section level3">
@@ -5731,36 +5726,118 @@ manual</a>.</p>
 <pre class="r"><code># Query for samples of either Worm strain N2 OR Spore Strain ERTm5 
 
 head(filter(infection_meta.tbl, 
-            Worm_strain == &quot;N2&quot; ... `Spore Strain` == &quot;ERTm5&quot;))</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:4:33: unexpected symbol
-## 3: head(filter(infection_meta.tbl, 
-## 4:             Worm_strain == &quot;N2&quot; ...
-##                                    ^</code></pre>
+            Worm_strain == &quot;N2&quot; | `Spore Strain` == &quot;ERTm5&quot;))</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["experimenter"],"name":[2],"type":["chr"],"align":["left"]},{"label":["description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Infection Date"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Plate Number"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Worm_strain"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Total Worms"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Spore Strain"],"name":[8],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Lot concentration"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Total ul spore"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Infection Round"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["40X OP50 (mL)"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Plate Size"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Time plated"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Time Incubated"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Temp"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["timepoint"],"name":[20],"type":["chr"],"align":["left"]},{"label":["infection.type"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Fixing Date"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Location"],"name":[23],"type":["chr"],"align":["left"]},{"label":["Staining Date"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Stain type"],"name":[25],"type":["chr"],"align":["left"]},{"label":["Slide date"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Slide number"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Slide Box"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_N2_LUAm1_0M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"4","6":"N2","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"0.00","12":"0.000000","13":"1","14":"0.15","15":"6","16":"0.00000000","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190430","25":"DY96","26":"190501","27":"4","28":"2","29":"190502"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"5","6":"N2","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"10.00","12":"56.818182","13":"1","14":"0.15","15":"6","16":"0.35385704","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"5","28":"2","29":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"6","6":"N2","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"20.00","12":"113.636364","13":"1","14":"0.15","15":"6","16":"0.70771408","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"6","28":"2","29":"190516"},{"1":"190426_VC20019_ERTm5_0M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"34","6":"VC20019","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.15","15":"6","16":"0.00000000","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Acetone Fix 190426","24":"190430","25":"DY96","26":"190501","27":"34","28":"2","29":"190502"},{"1":"190426_VC20019_ERTm5_1.75M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"35","6":"VC20019","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"1.75","12":"4.098361","13":"1","14":"0.15","15":"6","16":"0.06192498","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Acetone Fix 190426","24":"190430","25":"DY96","26":"190501","27":"35","28":"2","29":"190502"},{"1":"190426_VC20019_ERTm5_3.5M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"36","6":"VC20019","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.15","15":"6","16":"0.12384997","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Acetone Fix 190426","24":"190430","25":"DY96","26":"190501","27":"36","28":"2","29":"190502"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code># == means &quot;is exactly&quot;. 
 # Query for rows with Plate Size = 6 and Spores(M)/cm2 = 0
 str(filter(infection_meta.tbl,
-           `Plate Size` == 6 ... `Spores(M)/cm2` == 0), 
-    give.attr = FALSE)
-
-# equivalently, the &#39;,&#39; represents an implicit &amp;
+           `Plate Size` == 6 &amp; `Spores(M)/cm2` == 0), 
+    give.attr = FALSE)</code></pre>
+<pre><code>## spc_tbl_ [77 x 29] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ experiment       : chr [1:77] &quot;190426_VC20019_LUAm1_0M_72hpi&quot; &quot;190426_N2_LUAm1_0M_72hpi&quot; &quot;190426_AB1_LUAm1_0M_72hpi&quot; &quot;190426_JU397_LUAm1_0M_72hpi&quot; ...
+##  $ experimenter     : chr [1:77] &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; ...
+##  $ description      : chr [1:77] &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; ...
+##  $ Infection Date   : num [1:77] 190423 190423 190423 190423 190423 ...
+##  $ Plate Number     : num [1:77] 1 4 7 10 13 16 19 22 25 28 ...
+##  $ Worm_strain      : chr [1:77] &quot;VC20019&quot; &quot;N2&quot; &quot;AB1&quot; &quot;JU397&quot; ...
+##  $ Total Worms      : num [1:77] 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ...
+##  $ Spore Strain     : chr [1:77] &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; ...
+##  $ Spore Lot        : chr [1:77] &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; ...
+##  $ Lot concentration: num [1:77] 176000 176000 176000 176000 176000 176000 176000 176000 176000 176000 ...
+##  $ Total Spores (M) : num [1:77] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Total ul spore   : num [1:77] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Infection Round  : num [1:77] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ 40X OP50 (mL)    : num [1:77] 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 ...
+##  $ Plate Size       : num [1:77] 6 6 6 6 6 6 6 6 6 6 ...
+##  $ Spores(M)/cm2    : num [1:77] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Time plated      : num [1:77] 1300 1300 1300 1300 1300 1300 1300 1300 1300 1300 ...
+##  $ Time Incubated   : num [1:77] 1600 1600 1600 1600 1600 1600 1600 1600 1600 1600 ...
+##  $ Temp             : num [1:77] 21 21 21 21 21 21 21 21 21 21 ...
+##  $ timepoint        : chr [1:77] &quot;72&quot; &quot;72&quot; &quot;72&quot; &quot;72&quot; ...
+##  $ infection.type   : chr [1:77] &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; ...
+##  $ Fixing Date      : num [1:77] 190426 190426 190426 190426 190426 ...
+##  $ Location         : chr [1:77] &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; ...
+##  $ Staining Date    : num [1:77] 190513 190430 190430 190430 190430 ...
+##  $ Stain type       : chr [1:77] &quot;Sp.9 FISH + DY96&quot; &quot;DY96&quot; &quot;DY96&quot; &quot;DY96&quot; ...
+##  $ Slide date       : num [1:77] 190515 190501 190501 190501 190501 ...
+##  $ Slide number     : num [1:77] 1 4 7 10 13 16 19 22 25 28 ...
+##  $ Slide Box        : num [1:77] 2 2 2 2 2 2 2 2 2 2 ...
+##  $ Imaging Date     : num [1:77] 190516 190502 190502 190502 190502 ...</code></pre>
+<pre class="r"><code># equivalently, the &#39;,&#39; represents an implicit &amp;
 str(filter(infection_meta.tbl,
-           `Plate Size` == 6 ... 
+           `Plate Size` == 6, 
            `Spores(M)/cm2` == 0),
     give.attr = FALSE)</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:4:30: unexpected symbol
-## 3: str(filter(infection_meta.tbl,
-## 4:            `Plate Size` == 6 ...
-##                                 ^</code></pre>
+<pre><code>## spc_tbl_ [77 x 29] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ experiment       : chr [1:77] &quot;190426_VC20019_LUAm1_0M_72hpi&quot; &quot;190426_N2_LUAm1_0M_72hpi&quot; &quot;190426_AB1_LUAm1_0M_72hpi&quot; &quot;190426_JU397_LUAm1_0M_72hpi&quot; ...
+##  $ experimenter     : chr [1:77] &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; ...
+##  $ description      : chr [1:77] &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; ...
+##  $ Infection Date   : num [1:77] 190423 190423 190423 190423 190423 ...
+##  $ Plate Number     : num [1:77] 1 4 7 10 13 16 19 22 25 28 ...
+##  $ Worm_strain      : chr [1:77] &quot;VC20019&quot; &quot;N2&quot; &quot;AB1&quot; &quot;JU397&quot; ...
+##  $ Total Worms      : num [1:77] 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ...
+##  $ Spore Strain     : chr [1:77] &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; ...
+##  $ Spore Lot        : chr [1:77] &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; ...
+##  $ Lot concentration: num [1:77] 176000 176000 176000 176000 176000 176000 176000 176000 176000 176000 ...
+##  $ Total Spores (M) : num [1:77] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Total ul spore   : num [1:77] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Infection Round  : num [1:77] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ 40X OP50 (mL)    : num [1:77] 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 ...
+##  $ Plate Size       : num [1:77] 6 6 6 6 6 6 6 6 6 6 ...
+##  $ Spores(M)/cm2    : num [1:77] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Time plated      : num [1:77] 1300 1300 1300 1300 1300 1300 1300 1300 1300 1300 ...
+##  $ Time Incubated   : num [1:77] 1600 1600 1600 1600 1600 1600 1600 1600 1600 1600 ...
+##  $ Temp             : num [1:77] 21 21 21 21 21 21 21 21 21 21 ...
+##  $ timepoint        : chr [1:77] &quot;72&quot; &quot;72&quot; &quot;72&quot; &quot;72&quot; ...
+##  $ infection.type   : chr [1:77] &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; ...
+##  $ Fixing Date      : num [1:77] 190426 190426 190426 190426 190426 ...
+##  $ Location         : chr [1:77] &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; ...
+##  $ Staining Date    : num [1:77] 190513 190430 190430 190430 190430 ...
+##  $ Stain type       : chr [1:77] &quot;Sp.9 FISH + DY96&quot; &quot;DY96&quot; &quot;DY96&quot; &quot;DY96&quot; ...
+##  $ Slide date       : num [1:77] 190515 190501 190501 190501 190501 ...
+##  $ Slide number     : num [1:77] 1 4 7 10 13 16 19 22 25 28 ...
+##  $ Slide Box        : num [1:77] 2 2 2 2 2 2 2 2 2 2 ...
+##  $ Imaging Date     : num [1:77] 190516 190502 190502 190502 190502 ...</code></pre>
 <pre class="r"><code># != means &quot;is not&quot;
 # Query for experiments on plate size not equal to 6 and Spore density not equal to 0
 str(filter(infection_meta.tbl,
-           `Plate Size` ... 6,
-           `Spores(M)/cm2` ... 0),
+           `Plate Size` != 6,
+           `Spores(M)/cm2` != 0),
     give.attr = FALSE)</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:4:25: unexpected symbol
-## 3: str(filter(infection_meta.tbl,
-## 4:            `Plate Size` ...
-##                            ^</code></pre>
+<pre><code>## spc_tbl_ [18 x 29] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ experiment       : chr [1:18] &quot;200821_N2_LUAm1_30M_72hpi&quot; &quot;200821_JU1400_LUAm1_30M_72hpi&quot; &quot;200821_N2_ERTm5_10M_72hpi&quot; &quot;200821_JU1400_ERTm5_10M_72hpi&quot; ...
+##  $ experimenter     : chr [1:18] &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; ...
+##  $ description      : chr [1:18] &quot;RNAseq data rep 1&quot; &quot;RNAseq data rep 1&quot; &quot;RNAseq data rep 1&quot; &quot;RNAseq data rep 1&quot; ...
+##  $ Infection Date   : num [1:18] 200818 200818 200818 200818 200818 ...
+##  $ Plate Number     : num [1:18] 13 14 15 16 17 18 27 28 29 30 ...
+##  $ Worm_strain      : chr [1:18] &quot;N2&quot; &quot;JU1400&quot; &quot;N2&quot; &quot;JU1400&quot; ...
+##  $ Total Worms      : num [1:18] 10000 10000 10000 10000 10000 10000 10000 10000 10000 10000 ...
+##  $ Spore Strain     : chr [1:18] &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;ERTm5&quot; &quot;ERTm5&quot; ...
+##  $ Spore Lot        : chr [1:18] &quot;2A&quot; &quot;2A&quot; &quot;2&quot; &quot;2&quot; ...
+##  $ Lot concentration: num [1:18] 176000 176000 427000 427000 370000 370000 176000 176000 176000 176000 ...
+##  $ Total Spores (M) : num [1:18] 30 30 10 10 12 12 10 10 10 10 ...
+##  $ Total ul spore   : num [1:18] 170.5 170.5 23.4 23.4 32.4 ...
+##  $ Infection Round  : num [1:18] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ 40X OP50 (mL)    : num [1:18] 1 1 1 1 1 1 0.25 0.25 0.25 0.25 ...
+##  $ Plate Size       : num [1:18] 10 10 10 10 10 10 10 10 10 10 ...
+##  $ Spores(M)/cm2    : num [1:18] 0.382 0.382 0.127 0.127 0.153 ...
+##  $ Time plated      : num [1:18] NA NA NA NA NA NA NA NA NA NA ...
+##  $ Time Incubated   : num [1:18] 48 48 48 48 48 48 72 72 72 72 ...
+##  $ Temp             : num [1:18] 21 21 21 21 21 21 21 21 21 21 ...
+##  $ timepoint        : chr [1:18] &quot;72&quot; &quot;72&quot; &quot;72&quot; &quot;72&quot; ...
+##  $ infection.type   : chr [1:18] &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; ...
+##  $ Fixing Date      : num [1:18] 200821 200821 200821 200821 200821 ...
+##  $ Location         : chr [1:18] &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; ...
+##  $ Staining Date    : num [1:18] 200831 200831 200831 200831 200831 ...
+##  $ Stain type       : chr [1:18] &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;microB FISH + DY96&quot; &quot;microB FISH + DY96&quot; ...
+##  $ Slide date       : num [1:18] 200903 200903 200903 200903 200903 ...
+##  $ Slide number     : num [1:18] 13 14 15 16 17 18 27 28 29 30 ...
+##  $ Slide Box        : num [1:18] 4 4 4 4 4 4 4 4 4 4 ...
+##  $ Imaging Date     : num [1:18] 200912 200912 200912 200912 200912 ...</code></pre>
 <pre class="r"><code># &gt;= means &quot;greater than or equal to&quot;
 # Query for experiments completed on plate size &lt; 10cm and with more than or equal to 0.2 Spores(M)/cm2
 str(filter(infection_meta.tbl,
@@ -5908,12 +5985,38 @@ str(filter(infection_meta.tbl,
 <pre class="r"><code># Remember: be careful how you filter your data! If none of the rows meet your criteria, it can return an empty tibble!
 # Query experiments for any instances of Spores(M)/cm2 &lt; 0.
 str(filter(infection_meta.tbl,
-           `Spores(M)/cm2` ... 0),
+           `Spores(M)/cm2` &lt; 0),
     give.attr = FALSE)</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:4:28: unexpected symbol
-## 3: str(filter(infection_meta.tbl,
-## 4:            `Spores(M)/cm2` ...
-##                               ^</code></pre>
+<pre><code>## spc_tbl_ [0 x 29] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ experiment       : chr(0) 
+##  $ experimenter     : chr(0) 
+##  $ description      : chr(0) 
+##  $ Infection Date   : num(0) 
+##  $ Plate Number     : num(0) 
+##  $ Worm_strain      : chr(0) 
+##  $ Total Worms      : num(0) 
+##  $ Spore Strain     : chr(0) 
+##  $ Spore Lot        : chr(0) 
+##  $ Lot concentration: num(0) 
+##  $ Total Spores (M) : num(0) 
+##  $ Total ul spore   : num(0) 
+##  $ Infection Round  : num(0) 
+##  $ 40X OP50 (mL)    : num(0) 
+##  $ Plate Size       : num(0) 
+##  $ Spores(M)/cm2    : num(0) 
+##  $ Time plated      : num(0) 
+##  $ Time Incubated   : num(0) 
+##  $ Temp             : num(0) 
+##  $ timepoint        : chr(0) 
+##  $ infection.type   : chr(0) 
+##  $ Fixing Date      : num(0) 
+##  $ Location         : chr(0) 
+##  $ Staining Date    : num(0) 
+##  $ Stain type       : chr(0) 
+##  $ Slide date       : num(0) 
+##  $ Slide number     : num(0) 
+##  $ Slide Box        : num(0) 
+##  $ Imaging Date     : num(0)</code></pre>
 <hr />
 </div>
 <div id="regular-expressions-can-also-be-used-to-filter-through-your-data" class="section level3">
@@ -5971,9 +6074,13 @@ and spore strain information.</p>
 
 head(select(infection_meta.tbl, 
             experiment, Worm_strain, 
-            ..., 
+            `Spore Strain`, `Spore Lot`, `Total Spores (M)`, 
             `Infection Date`, `Fixing Date`, `Imaging Date` ))</code></pre>
-<pre><code>## Error in head(select(infection_meta.tbl, experiment, Worm_strain, ..., : &#39;...&#39; used in an incorrect context</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"190423","7":"190426","8":"190516"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"190423","7":"190426","8":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"190423","7":"190426","8":"190516"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"190423","7":"190426","8":"190502"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"190423","7":"190426","8":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"190423","7":"190426","8":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="use-starts_with-and-ends_with-helper-functions-to-specify-elements-from-a-vector" class="section level3">
 <h3>4.3.1 Use <code>starts_with()</code> and <code>ends_with()</code>
@@ -5988,12 +6095,13 @@ function. Likewise we can select all of our “X Date” columns using the
 
 head(select(infection_meta.tbl, 
             experiment, Worm_strain, 
-            starts_with(...), `Total Spores (M)`, 
-            ends_with(...)))</code></pre>
-<pre><code>## [1m[33mError[39m in `select()`:[22m
-## [1m[22m[36mi[39m In argument: `starts_with(...)`.
-## [1mCaused by error:[22m
-## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
+            starts_with(&quot;Spore&quot;, ignore.case = FALSE), `Total Spores (M)`, 
+            ends_with(&quot;Date&quot;, ignore.case = FALSE)))</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Spores(M)/cm2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0.0000000","6":"0","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0.3538570","6":"10","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0.7077141","6":"20","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0.0000000","6":"0","7":"190423","8":"190426","9":"190430","10":"190502"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0.3538570","6":"10","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0.7077141","6":"20","7":"190423","8":"190426","9":"190513","10":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>As you can see from above, by using these helper verbs, we were able
 to pick up some extra columns that we’d “forgotten” about that would
 have some helpful information. We also reduced the amount of coding we
@@ -6022,15 +6130,16 @@ tibble.</p>
 
 meta_trimmed.tbl &lt;- select(infection_meta.tbl, 
                            experiment, Worm_strain, 
-                           ...(&quot;Spore&quot;, ignore.case = FALSE),
-                           ends_with(&quot;Date&quot;, ignore.case = FALSE))</code></pre>
-<pre><code>## [1m[33mError[39m in `select()`:[22m
-## [1m[22m[36mi[39m In argument: `...(&quot;Spore&quot;, ignore.case = FALSE)`.
-## [1mCaused by error in `...()`:[22m
-## [33m![39m could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># Take a look at the resulting table
+                           contains(&quot;Spore&quot;, ignore.case = FALSE),
+                           ends_with(&quot;Date&quot;, ignore.case = FALSE))
+
+# Take a look at the resulting table
 head(meta_trimmed.tbl)</code></pre>
-<pre><code>## Error in head(meta_trimmed.tbl): object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 </div>
@@ -6047,11 +6156,15 @@ submitted.</p>
 <p>Let’s sort the <code>meta_trimmed.tbl</code> that we’ve generated in
 previous steps.</p>
 <pre class="r"><code># Arrange the trimmed metadata in descending order of Total Spores
-desc_totalSpores &lt;- arrange(meta_trimmed.tbl, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Take a look at the sorted data
+desc_totalSpores &lt;- arrange(meta_trimmed.tbl, desc(`Total Spores (M)`))
+
+# Take a look at the sorted data
 head(desc_totalSpores)</code></pre>
-<pre><code>## Error in head(desc_totalSpores): object &#39;desc_totalSpores&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"200824_N2-rep1_LUAm1_40M_48hpi","2":"N2-rep1","3":"LUAm1","4":"2A","5":"40","6":"0.5095541","7":"200822","8":"200824","9":"200903","10":"200921"},{"1":"200824_JU1400-rep1_LUAm1_40M_48hpi","2":"JU1400-rep1","3":"LUAm1","4":"2A","5":"40","6":"0.5095541","7":"200822","8":"200824","9":"200903","10":"200921"},{"1":"200821_N2_LUAm1_30M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"30","6":"0.3821656","7":"200818","8":"200821","9":"200831","10":"200912"},{"1":"200821_JU1400_LUAm1_30M_72hpi","2":"JU1400","3":"LUAm1","4":"2A","5":"30","6":"0.3821656","7":"200818","8":"200821","9":"200831","10":"200912"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="multiple-steps-can-begin-to-pile-up" class="section level2">
@@ -6068,19 +6181,19 @@ meet our criteria?</p>
 desc_totalSpores_filtered &lt;- filter(desc_totalSpores,
                                     `Total Spores (M)` &gt; 0,
                                     Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;),
-                                    `Spore Strain` %in% c(&quot;LUAm1&quot;, &quot;ERTm5&quot;)) </code></pre>
-<pre><code>## Error in filter(desc_totalSpores, `Total Spores (M)` &gt; 0, Worm_strain %in% : object &#39;desc_totalSpores&#39; not found</code></pre>
-<pre class="r"><code># Sort the data by Infection Date
+                                    `Spore Strain` %in% c(&quot;LUAm1&quot;, &quot;ERTm5&quot;)) 
+
+# Sort the data by Infection Date
 # Extra var 2
-desc_totalSpores_filtered_asc &lt;- arrange(..., `Infection Date`) </code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Retrieve the experiment names
+desc_totalSpores_filtered_asc &lt;- arrange(desc_totalSpores_filtered, `Infection Date`) 
+
+# Retrieve the experiment names
 # Extra var 3
-select_experiments &lt;- select(..., experiment) </code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># How many observations (rows) are there?
+select_experiments &lt;- select(desc_totalSpores_filtered_asc, experiment) 
+
+# How many observations (rows) are there?
 nrow(select_experiments)</code></pre>
-<pre><code>## Error in nrow(select_experiments): object &#39;select_experiments&#39; not found</code></pre>
+<pre><code>## [1] 74</code></pre>
 <hr />
 <div id="pass-along-function-output-to-new-functions-using-the-piping-symbol" class="section level3">
 <h3>4.5.1 Pass along function output to new functions using the piping
@@ -6109,20 +6222,29 @@ work in conjunction with the function <code>filter()</code>, and then
 see the benefits to simplifying the code that we just wrote.</p>
 <pre class="r"><code># Remember the R evaluates () from the inner to outer
 head(filter(meta_trimmed.tbl, `Total Spores (M)` &gt; 0))</code></pre>
-<pre><code>## Error in filter(meta_trimmed.tbl, `Total Spores (M)` &gt; 0): object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_10M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_20M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code># Break the nested functions into their order of execution
-meta_trimmed.tbl ... filter(`Total Spores (M)` &gt; 0) ... head()</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:2:18: unexpected symbol
-## 1: # Break the nested functions into their order of execution
-## 2: meta_trimmed.tbl ...
-##                     ^</code></pre>
+meta_trimmed.tbl %&gt;% filter(`Total Spores (M)` &gt; 0) %&gt;% head()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_10M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_20M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code># You can separate one or more functions in the pipeline
 meta_trimmed.tbl %&gt;%
     # Notice the &quot;.&quot; in the first position of filter - this is where data normally is assigned as a parameter
-    filter(..., `Total Spores (M)` &gt; 0) %&gt;% 
+    filter(., `Total Spores (M)` &gt; 0) %&gt;% 
     # Pass the filtered data to the head() function
     head()</code></pre>
-<pre><code>## Error in head(.): &#39;...&#39; used in an incorrect context</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_10M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516"},{"1":"190426_AB1_LUAm1_20M_72hpi","2":"AB1","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="using-.-with-denotes-the-object-produced-by-the-last-called-function" class="section level3">
@@ -6150,7 +6272,11 @@ meta_trimmed.tbl %&gt;%
   arrange(`Infection Date`) %&gt;% 
   select(experiment) %&gt;% 
   head(20)  </code></pre>
-<pre><code>## Error in filter(., `Total Spores (M)` &gt; 0, Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;), : object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_N2_LUAm1_10M_72hpi"},{"1":"190426_N2_LUAm1_20M_72hpi"},{"1":"190426_JU1400_LUAm1_10M_72hpi"},{"1":"190426_JU1400_LUAm1_20M_72hpi"},{"1":"190426_N2_ERTm5_1.75M_72hpi"},{"1":"190426_N2_ERTm5_3.5M_72hpi"},{"1":"190426_JU1400_ERTm5_1.75M_72hpi"},{"1":"190426_JU1400_ERTm5_3.5M_72hpi"},{"1":"190605_N2_LUAm1_1M_24hpi"},{"1":"190605_JU1400_LUAm1_1M_24hpi"},{"1":"190606_N2_LUAm1_1M_48hpi"},{"1":"190606_JU1400_LUAm1_1M_48hpi"},{"1":"190607_N2_LUAm1_1M_72hpi"},{"1":"190607_JU1400_LUAm1_1M_72hpi"},{"1":"190611_N2_LUAm1_6M_0.5hpi"},{"1":"190611_JU1400_LUAm1_6M_0.5hpi"},{"1":"190611_N2_LUAm1_6M_3hpi"},{"1":"190611_JU1400_LUAm1_6M_3hpi"},{"1":"190808_N2_LUAm1_5M_24hpi"},{"1":"190808_JU1400_LUAm1_5M_24hpi"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-spacing-and-new-lines-to-keep-track-of-your-directing" class="section level3">
@@ -6179,7 +6305,11 @@ meta_trimmed.tbl %&gt;%
   
   # 4. Print the first 20 entries
   head(20)  </code></pre>
-<pre><code>## Error in filter(., `Total Spores (M)` &gt; 0, Worm_strain %in% c(&quot;N2&quot;, &quot;JU1400&quot;), : object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_N2_LUAm1_10M_72hpi"},{"1":"190426_N2_LUAm1_20M_72hpi"},{"1":"190426_JU1400_LUAm1_10M_72hpi"},{"1":"190426_JU1400_LUAm1_20M_72hpi"},{"1":"190426_N2_ERTm5_1.75M_72hpi"},{"1":"190426_N2_ERTm5_3.5M_72hpi"},{"1":"190426_JU1400_ERTm5_1.75M_72hpi"},{"1":"190426_JU1400_ERTm5_3.5M_72hpi"},{"1":"190605_N2_LUAm1_1M_24hpi"},{"1":"190605_JU1400_LUAm1_1M_24hpi"},{"1":"190606_N2_LUAm1_1M_48hpi"},{"1":"190606_JU1400_LUAm1_1M_48hpi"},{"1":"190607_N2_LUAm1_1M_72hpi"},{"1":"190607_JU1400_LUAm1_1M_72hpi"},{"1":"190611_N2_LUAm1_6M_0.5hpi"},{"1":"190611_JU1400_LUAm1_6M_0.5hpi"},{"1":"190611_N2_LUAm1_6M_3hpi"},{"1":"190611_JU1400_LUAm1_6M_3hpi"},{"1":"190808_N2_LUAm1_5M_24hpi"},{"1":"190808_JU1400_LUAm1_5M_24hpi"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <div class="alert alert-block alert-success">
 <p><strong>Bonus Info: R natively supports its own pipe</strong> In more
 recent versions of R, after many years, a similar pipe has been
@@ -6279,7 +6409,11 @@ summarise(group_by(meta_trimmed.tbl, `Spore Strain`),
           totalSpores_sum = sum(`Total Spores (M)`),
           totalSpores_mean = mean(`Total Spores (M)`),
           totalSpores_sd = sd(`Total Spores (M)`))</code></pre>
-<pre><code>## Error in group_by(meta_trimmed.tbl, `Spore Strain`): object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Spore Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["totalSpores_sum"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["totalSpores_mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["totalSpores_sd"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"AWRm78","2":"21.0","3":"3.5000000","4":"0.0000000"},{"1":"ERTm2","2":"8.0","3":"0.6666667","4":"0.6513389"},{"1":"ERTm5","2":"231.6","3":"2.7571429","4":"2.5221655"},{"1":"ERTm5-96H","2":"21.0","3":"1.7500000","4":"1.4924050"},{"1":"LUAm1","2":"923.0","3":"6.7867647","4":"8.0456182"},{"1":"LUAm1-HK","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm1-pel","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm1-sup","2":"20.0","3":"10.0000000","4":"0.0000000"},{"1":"LUAm3","2":"60.0","3":"10.0000000","4":"0.0000000"},{"1":"MAM1","2":"104.0","3":"7.4285714","4":"3.4577513"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Which option looks more “readable” to you? Piping or nesting
 functions?</p>
 <hr />
@@ -6303,7 +6437,10 @@ meta_trimmed.tbl %&gt;%
     
     # Peek at the result.
     head()</code></pre>
-<pre><code>## Error in mutate(., spore_strain_lot = ...(`Spore Strain`, `Spore Lot`, : object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `mutate()`:[22m
+## [1m[22m[36mi[39m In argument: `spore_strain_lot = ...(`Spore Strain`, `Spore Lot`, sep = &quot;_&quot;)`.
+## [1mCaused by error in `...()`:[22m
+## [33m![39m could not find function &quot;...&quot;</code></pre>
 <hr />
 <div id="piping-will-not-automatically-save-your-output" class="section level3">
 <h3>4.8.0.1 Piping will not automatically save your output!</h3>
@@ -6330,10 +6467,14 @@ exist, it will be created. Otherwise its data will be overwritten.</p>
 # This will permanently change meta_trimmed.tbl
 meta_trimmed.tbl$... &lt;- paste(meta_trimmed.tbl$`Spore Strain`, 
                                            meta_trimmed.tbl$`Spore Lot`, 
-                                           sep = &quot;_&quot;)</code></pre>
-<pre><code>## Error in paste(meta_trimmed.tbl$`Spore Strain`, meta_trimmed.tbl$`Spore Lot`, : object &#39;meta_trimmed.tbl&#39; not found</code></pre>
-<pre class="r"><code>head(meta_trimmed.tbl)</code></pre>
-<pre><code>## Error in head(meta_trimmed.tbl): object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+                                           sep = &quot;_&quot;)
+
+head(meta_trimmed.tbl)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["..."],"name":[11],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-select-to-remove-columns" class="section level3">
@@ -6347,11 +6488,17 @@ overwrite meta_trimmed.tbl. Simply add a <code>-</code> (minus) in front
 of <code>spore_strain_lot</code>.</p>
 <pre class="r"><code># Check the column names before and after removing `compound_salinity`
 colnames(meta_trimmed.tbl)</code></pre>
-<pre><code>## Error in is.data.frame(x): object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<pre><code>##  [1] &quot;experiment&quot;       &quot;Worm_strain&quot;      &quot;Spore Strain&quot;     &quot;Spore Lot&quot;       
+##  [5] &quot;Total Spores (M)&quot; &quot;Spores(M)/cm2&quot;    &quot;Infection Date&quot;   &quot;Fixing Date&quot;     
+##  [9] &quot;Staining Date&quot;    &quot;Imaging Date&quot;     &quot;...&quot;</code></pre>
 <pre class="r"><code>meta_trimmed.tbl &lt;- select(meta_trimmed.tbl, ...) # remove column spore_strain_lot</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>head(meta_trimmed.tbl)</code></pre>
-<pre><code>## Error in head(meta_trimmed.tbl): object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Worm_strain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Spore Strain"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Total Spores (M)"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Infection Date"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Fixing Date"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Staining Date"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["..."],"name":[11],"type":["chr"],"align":["left"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"VC20019","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_0M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"0","6":"0.0000000","7":"190423","8":"190426","9":"190430","10":"190502","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_10M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"10","6":"0.3538570","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"},{"1":"190426_N2_LUAm1_20M_72hpi","2":"N2","3":"LUAm1","4":"2A","5":"20","6":"0.7077141","7":"190423","8":"190426","9":"190513","10":"190516","11":"LUAm1_2A"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 </div>
@@ -6474,7 +6621,13 @@ pipe.</p>
     
     # write your file to output
     write_csv(x = ., file=&quot;data/infection_metadata_summary.csv&quot;, col_names=TRUE)</code></pre>
-<pre><code>## Error in group_by(., `Spore Strain`): object &#39;meta_trimmed.tbl&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `as_tibble()`:[22m
+## [1m[22m[33m![39m Column 11 must not have names of the form ... or ..j.
+## Use `.name_repair` to specify repair.
+## [1mCaused by error in `repaired_names()`:[22m
+## [33m![39m Names can&#39;t be of the form `...` or `..j`.
+## [31mx[39m These names are invalid:
+##   * &quot;...&quot; at location 1.</code></pre>
 <pre class="r"><code># Take a look at the result of the pipeline
 write_result</code></pre>
 <pre><code>## Error: object &#39;write_result&#39; not found</code></pre>
