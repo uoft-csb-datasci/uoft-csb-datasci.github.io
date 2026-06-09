@@ -2959,8 +2959,12 @@ head(infection_meta.tbl)</code></pre>
   </script>
 </div>
 <pre class="r"><code># Pull just the first 3 rows
-head(infection_meta.tbl, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+head(infection_meta.tbl, 3)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["experimenter"],"name":[2],"type":["chr"],"align":["left"]},{"label":["description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Infection Date"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Plate Number"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Worm_strain"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Total Worms"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Spore Strain"],"name":[8],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Lot concentration"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Total ul spore"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Infection Round"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["40X OP50 (mL)"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Plate Size"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Time plated"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Time Incubated"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Temp"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["timepoint"],"name":[20],"type":["chr"],"align":["left"]},{"label":["infection.type"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Fixing Date"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Location"],"name":[23],"type":["chr"],"align":["left"]},{"label":["Staining Date"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Stain type"],"name":[25],"type":["chr"],"align":["left"]},{"label":["Slide date"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Slide number"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Slide Box"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"1","6":"VC20019","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"0","12":"0.00000","13":"1","14":"0.15","15":"6","16":"0.0000000","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"1","28":"2","29":"190516"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"2","6":"VC20019","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"10","12":"56.81818","13":"1","14":"0.15","15":"6","16":"0.3538570","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"2","28":"2","29":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"3","6":"VC20019","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"20","12":"113.63636","13":"1","14":"0.15","15":"6","16":"0.7077141","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"3","28":"2","29":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-tail-to-view-the-latter-portion-of-your-data" class="section level3">
@@ -2972,8 +2976,12 @@ from the end of your object that you’d like to see. Note that this still
 displays in the original order of the data frame rather than
 reverse.</p>
 <pre class="r"><code># Let&#39;s pull up the last 10 rows to look at!
-...(infection_meta.tbl, 10)</code></pre>
-<pre><code>## Error in ...(infection_meta.tbl, 10): could not find function &quot;...&quot;</code></pre>
+tail(infection_meta.tbl, 10)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["experimenter"],"name":[2],"type":["chr"],"align":["left"]},{"label":["description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Infection Date"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Plate Number"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Worm_strain"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Total Worms"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Spore Strain"],"name":[8],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Lot concentration"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Total ul spore"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Infection Round"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["40X OP50 (mL)"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Plate Size"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Time plated"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Time Incubated"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Temp"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["timepoint"],"name":[20],"type":["chr"],"align":["left"]},{"label":["infection.type"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Fixing Date"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Location"],"name":[23],"type":["chr"],"align":["left"]},{"label":["Staining Date"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Stain type"],"name":[25],"type":["chr"],"align":["left"]},{"label":["Slide date"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Slide number"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Slide Box"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[{"1":"200916_JU1400_ERTm5-96H_1.75M_96hpi","2":"CM","3":"NIL tests for ERTM5","4":"200912","5":"13","6":"JU1400","7":"500","8":"ERTm5-96H","9":"2","10":"427000","11":"1.75","12":"4.098361","13":"1","14":"0.25","15":"6","16":"0.06192498","17":"NA","18":"96","19":"21","20":"96","21":"continuous","22":"200916","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"13","28":"6","29":"201005"},{"1":"200916_JU1400_ERTm5-96H_3.5M_96hpi","2":"CM","3":"NIL tests for ERTM5","4":"200912","5":"14","6":"JU1400","7":"500","8":"ERTm5-96H","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"96","19":"21","20":"96","21":"continuous","22":"200916","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"14","28":"6","29":"201005"},{"1":"200918_N2_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"1","6":"N2","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"1","28":"6","29":"201006"},{"1":"200918_N2_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"2","6":"N2","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"2","28":"6","29":"201006"},{"1":"200918_JU1400_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"3","6":"JU1400","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"3","28":"6","29":"201006"},{"1":"200918_JU1400_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"4","6":"JU1400","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"4","28":"6","29":"201006"},{"1":"200918_AWR144_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"5","6":"AWR144","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"5","28":"6","29":"201006"},{"1":"200918_AWR144_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"6","6":"AWR144","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"6","28":"6","29":"201006"},{"1":"200918_AWR145_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"7","6":"AWR145","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"7","28":"6","29":"201006"},{"1":"200918_AWR145_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"8","6":"AWR145","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"8","28":"6","29":"201006"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-unique-to-retrieve-a-list-of-the-unique-elements-within-an-object" class="section level3">
@@ -2989,9 +2997,63 @@ more about simplifying our column names later!</p>
 just a portion of it.</p>
 <pre class="r"><code># Recall: Use the $ sign to access named columns within your data.frame!
 
-infection_meta.tbl$...</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `...`.</code></pre>
-<pre><code>## NULL</code></pre>
+infection_meta.tbl$Worm_strain</code></pre>
+<pre><code>##   [1] &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;N2&quot;          &quot;N2&quot;         
+##   [6] &quot;N2&quot;          &quot;AB1&quot;         &quot;AB1&quot;         &quot;AB1&quot;         &quot;JU397&quot;      
+##  [11] &quot;JU397&quot;       &quot;JU397&quot;       &quot;JU642&quot;       &quot;JU642&quot;       &quot;JU642&quot;      
+##  [16] &quot;MY6&quot;         &quot;MY6&quot;         &quot;MY6&quot;         &quot;ED3042&quot;      &quot;ED3042&quot;     
+##  [21] &quot;ED3042&quot;      &quot;JU360&quot;       &quot;JU360&quot;       &quot;JU360&quot;       &quot;JU1400&quot;     
+##  [26] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;         &quot;MY1&quot;        
+##  [31] &quot;Lua1&quot;        &quot;Lua1&quot;        &quot;Lua1&quot;        &quot;VC20019&quot;     &quot;VC20019&quot;    
+##  [36] &quot;VC20019&quot;     &quot;N2&quot;          &quot;N2&quot;          &quot;N2&quot;          &quot;CB4856&quot;     
+##  [41] &quot;CB4856&quot;      &quot;CB4856&quot;      &quot;JU300&quot;       &quot;JU300&quot;       &quot;JU300&quot;      
+##  [46] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY2&quot;         &quot;MY2&quot;        
+##  [51] &quot;MY2&quot;         &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;N2&quot;         
+##  [56] &quot;N2&quot;          &quot;N2&quot;          &quot;JU360&quot;       &quot;JU360&quot;       &quot;JU360&quot;      
+##  [61] &quot;MY2&quot;         &quot;MY2&quot;         &quot;MY2&quot;         &quot;N2&quot;          &quot;Lua1&quot;       
+##  [66] &quot;JU1400&quot;      &quot;N2&quot;          &quot;Lua1&quot;        &quot;JU1400&quot;      &quot;N2&quot;         
+##  [71] &quot;Lua1&quot;        &quot;JU1400&quot;      &quot;N2&quot;          &quot;Lua1&quot;        &quot;JU1400&quot;     
+##  [76] &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+##  [81] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+##  [86] &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+##  [91] &quot;N2&quot;          &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;JU1400&quot;     
+##  [96] &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;    
+## [101] &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;     
+## [106] &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;    
+## [111] &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;     
+## [116] &quot;ED3052A&quot;     &quot;ED3052A&quot;     &quot;ED3052B&quot;     &quot;ED3052B&quot;     &quot;MY1&quot;        
+## [121] &quot;MY1&quot;         &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [126] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;     
+## [131] &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;          &quot;N2&quot;         
+## [136] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;ED3052A&quot;     &quot;ED3052A&quot;     &quot;ED3052B&quot;    
+## [141] &quot;ED3052B&quot;     &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;          &quot;JU1400&quot;     
+## [146] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [151] &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;        
+## [156] &quot;N2&quot;          &quot;JU1400&quot;      &quot;ED3052A&quot;     &quot;ED3052B&quot;     &quot;MY1&quot;        
+## [161] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;     
+## [166] &quot;JU1400&quot;      &quot;ED3052A&quot;     &quot;ED3052A&quot;     &quot;ED3052B&quot;     &quot;ED3052B&quot;    
+## [171] &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [176] &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;         
+## [181] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;         
+## [186] &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;     
+## [191] &quot;VC40171&quot;     &quot;VC40171&quot;     &quot;AWR144&quot;      &quot;AWR144&quot;      &quot;AWR145&quot;     
+## [196] &quot;AWR145&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [201] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [206] &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [211] &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;VC40171&quot;    
+## [216] &quot;VC40171&quot;     &quot;AWR144&quot;      &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;AWR145&quot;     
+## [221] &quot;N2-rep1&quot;     &quot;JU1400-rep1&quot; &quot;N2-rep1&quot;     &quot;JU1400-rep1&quot; &quot;N2-rep1&quot;    
+## [226] &quot;JU1400-rep1&quot; &quot;N2-rep1&quot;     &quot;JU1400-rep1&quot; &quot;N2&quot;          &quot;N2&quot;         
+## [231] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;VC40171&quot;     &quot;VC40171&quot;     &quot;AWR144&quot;     
+## [236] &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;AWR145&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [241] &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;N2&quot;         
+## [246] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;         
+## [251] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [256] &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;AWR144&quot;      &quot;AWR144&quot;     
+## [261] &quot;AWR145&quot;      &quot;AWR145&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;N2&quot;         
+## [266] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;         
+## [271] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;AWR144&quot;      &quot;AWR144&quot;      &quot;AWR145&quot;     
+## [276] &quot;AWR145&quot;</code></pre>
 <hr />
 <p>As you may have noticed, this method printed the
 <strong>entire</strong> <code>Worm_strain</code> column. While it may be
@@ -3004,8 +3066,12 @@ in a number of different objects but usually returns an object of the
 same type that it was given as input.</p>
 <p>Let’s take a look at using it on our question.</p>
 <pre class="r"><code># Retrieve a list of unique genera from our data set
-...(infection_meta.tbl$Worm_strain)</code></pre>
-<pre><code>## Error in ...(infection_meta.tbl$Worm_strain): could not find function &quot;...&quot;</code></pre>
+unique(infection_meta.tbl$Worm_strain)</code></pre>
+<pre><code>##  [1] &quot;VC20019&quot;     &quot;N2&quot;          &quot;AB1&quot;         &quot;JU397&quot;       &quot;JU642&quot;      
+##  [6] &quot;MY6&quot;         &quot;ED3042&quot;      &quot;JU360&quot;       &quot;JU1400&quot;      &quot;MY1&quot;        
+## [11] &quot;Lua1&quot;        &quot;CB4856&quot;      &quot;JU300&quot;       &quot;MY2&quot;         &quot;ED3052A&quot;    
+## [16] &quot;ED3052B&quot;     &quot;VC40171&quot;     &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;N2-rep1&quot;    
+## [21] &quot;JU1400-rep1&quot;</code></pre>
 <hr />
 </div>
 <div id="review-use-length-or-str-to-retrieve-the-size-of-some-objects" class="section level3">
@@ -3023,12 +3089,12 @@ always better and that using <code>length()</code> has its
 advantages.</p>
 <pre class="r"><code># Two ways to see how many unique entries we have
 # ?length
-...(unique(infection_meta.tbl$Worm_strain))</code></pre>
-<pre><code>## Error in ...(unique(infection_meta.tbl$Worm_strain)): could not find function &quot;...&quot;</code></pre>
+length(unique(infection_meta.tbl$Worm_strain))</code></pre>
+<pre><code>## [1] 21</code></pre>
 <pre class="r"><code># or
 
-...(unique(infection_meta.tbl$Worm_strain))</code></pre>
-<pre><code>## Error in ...(unique(infection_meta.tbl$Worm_strain)): could not find function &quot;...&quot;</code></pre>
+str(unique(infection_meta.tbl$Worm_strain))</code></pre>
+<pre><code>##  chr [1:21] &quot;VC20019&quot; &quot;N2&quot; &quot;AB1&quot; &quot;JU397&quot; &quot;JU642&quot; &quot;MY6&quot; &quot;ED3042&quot; &quot;JU360&quot; ...</code></pre>
 <hr />
 <p>Using <code>unique()</code> we are returned a character vector
 containing 21 <em>C. elegans</em> strains. As you can see a function
@@ -3060,7 +3126,7 @@ formatted in a more human-readable way. It tries to provide as much
 information as possible in a small amount of space.</p>
 <p>We can use this command in a code cell so let’s take a glimpse at
 <code>glimpse()</code>.</p>
-<pre class="r"><code>#View(infection_meta.tbl)
+<pre class="r"><code>View(infection_meta.tbl)
 # Only works in RStudio
 
 # Let&#39;s compare str() to glimpse()
