@@ -2644,20 +2644,20 @@ embryos.df %&gt;%
   # to pivot_longer
   pivot_longer(data = ., 
                cols = -worm.number, 
-               ... = c(&quot;fixingDate&quot;, &quot;wormStrain&quot;, &quot;sporeStrain&quot;, &quot;sporeDose&quot;, &quot;expTimepoint&quot;),
+               names_to = c(&quot;fixingDate&quot;, &quot;wormStrain&quot;, &quot;sporeStrain&quot;, &quot;sporeDose&quot;, &quot;expTimepoint&quot;),
                names_sep = &quot;_&quot;,
-               ... = list(fixingDate = as.integer, wormStrain = as.factor, sporeStrain = as.factor),
+               names_transform = list(fixingDate = as.integer, wormStrain = as.factor, sporeStrain = as.factor),
                values_to = &quot;spores_meronts_embryos&quot;,
               ) %&gt;% 
   str()</code></pre>
-<pre><code>## [1m[33mError[39m in `pivot_longer()`:[22m
-## [1m[22m[33m![39m `names_sep` can&#39;t be used with a length 1 `names_to`.</code></pre>
-<pre><code>## [1m[33mError[39m in `pivot_longer()`:[22m
-## [1m[22m[33m![39m Arguments in `...` must be used.
-## [31mx[39m Problematic arguments:
-## [36m*[39m ... = c(&quot;fixingDate&quot;, &quot;wormStrain&quot;, &quot;sporeStrain&quot;, &quot;sporeDose&quot;, &quot;expTimepoint&quot;)
-## [36m*[39m ... = list(fixingDate = as.integer, wormStrain = as.factor, sporeStrain = as.factor)
-## [36mi[39m Did you misspell an argument name?</code></pre>
+<pre><code>## tibble [46,200 x 7] (S3: tbl_df/tbl/data.frame)
+##  $ worm.number           : num [1:46200] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ fixingDate            : int [1:46200] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
+##  $ wormStrain            : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 24 24 10 10 8 8 9 9 20 20 ...
+##  $ sporeStrain           : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
+##  $ sporeDose             : chr [1:46200] &quot;0M&quot; &quot;10M&quot; &quot;0M&quot; &quot;10M&quot; ...
+##  $ expTimepoint          : chr [1:46200] &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; ...
+##  $ spores_meronts_embryos: chr [1:46200] &quot;0_0_18&quot; &quot;0_1_7&quot; &quot;0_0_10&quot; &quot;0_1_0&quot; ...</code></pre>
 <hr />
 <p>See? Two sets of code, but we get nearly the exact same result! The
 only major difference being we aren’t able to retain the original
@@ -2691,27 +2691,28 @@ observations to ~15K.</p>
   split_embryo_long.df %&gt;% 
   
   # Separate the sporeDose column and drop the &quot;M&quot; units
-  separate(col = sporeDose, into = c(&quot;sporeDose&quot;), sep=..., convert=TRUE) %&gt;% 
+  separate(col = sporeDose, into = c(&quot;sporeDose&quot;), sep=&quot;M&quot;, convert=TRUE) %&gt;% 
   
   # Separate the expTimepoint column and drop the &quot;hpi&quot; units
-  separate(col = expTimepoint, into = c(&quot;expTimepoint&quot;), sep=..., convert=TRUE) %&gt;% 
+  separate(col = expTimepoint, into = c(&quot;expTimepoint&quot;), sep=&quot;hpi&quot;, convert=TRUE) %&gt;% 
   
   # Why do you think we choose to filter NAs at this later step?
   filter(!is.na(embryos))</code></pre>
-<pre><code>## Error in filter(., !is.na(embryos)): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Warning: [1m[22mExpected 1 pieces. Additional pieces discarded in 46200 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
+## Expected 1 pieces. Additional pieces discarded in 46200 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].</code></pre>
 <pre class="r"><code># Take a peek at the new result
 str(split_embryo_long.df)</code></pre>
-<pre><code>## tibble [46,200 x 10] (S3: tbl_df/tbl/data.frame)
-##  $ worm.number : num [1:46200] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ experiment  : chr [1:46200] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
-##  $ fixingDate  : int [1:46200] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
+<pre><code>## tibble [15,128 x 10] (S3: tbl_df/tbl/data.frame)
+##  $ worm.number : num [1:15128] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ experiment  : chr [1:15128] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
+##  $ fixingDate  : int [1:15128] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
 ##  $ wormStrain  : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 24 24 10 10 8 8 9 9 20 20 ...
 ##  $ sporeStrain : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
-##  $ sporeDose   : chr [1:46200] &quot;0M&quot; &quot;10M&quot; &quot;0M&quot; &quot;10M&quot; ...
-##  $ expTimepoint: chr [1:46200] &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; ...
-##  $ spores      : logi [1:46200] FALSE FALSE FALSE FALSE FALSE FALSE ...
-##  $ meronts     : logi [1:46200] FALSE TRUE FALSE TRUE FALSE TRUE ...
-##  $ embryos     : int [1:46200] 18 7 10 0 12 0 5 9 11 0 ...</code></pre>
+##  $ sporeDose   : num [1:15128] 0 10 0 10 0 10 0 10 0 10 ...
+##  $ expTimepoint: int [1:15128] 72 72 72 72 72 72 72 72 72 72 ...
+##  $ spores      : logi [1:15128] FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ meronts     : logi [1:15128] FALSE TRUE FALSE TRUE FALSE TRUE ...
+##  $ embryos     : int [1:15128] 18 7 10 0 12 0 5 9 11 0 ...</code></pre>
 <hr />
 <p>Notice that we’ve triggered a warning from the interpreter. This is
 because we asked it to split a column, which should result in at least
@@ -2750,15 +2751,15 @@ in the <strong>str()</strong> function?</p>
 print (&quot;glimpse of our split data&quot;)</code></pre>
 <pre><code>## [1] &quot;glimpse of our split data&quot;</code></pre>
 <pre class="r"><code>glimpse(split_embryo_long.df)</code></pre>
-<pre><code>## Rows: 46,200
+<pre><code>## Rows: 15,128
 ## Columns: 10
 ## $ worm.number  [3m[90m&lt;dbl&gt;[39m[23m 1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m~
 ## $ experiment   [3m[90m&lt;chr&gt;[39m[23m &quot;200707_N2_LUAm1_0M_72hpi&quot;[90m, [39m&quot;200707_N2_LUAm1_10M_72hpi&quot;[90m, [39m~
 ## $ fixingDate   [3m[90m&lt;int&gt;[39m[23m 200707[90m, [39m200707[90m, [39m200707[90m, [39m200707[90m, [39m200707[90m, [39m200707[90m, [39m200707[90m, [39m2~
 ## $ wormStrain   [3m[90m&lt;fct&gt;[39m[23m N2[90m, [39mN2[90m, [39mJU1400[90m, [39mJU1400[90m, [39mED3052A[90m, [39mED3052A[90m, [39mED3052B[90m, [39mED3052~
 ## $ sporeStrain  [3m[90m&lt;fct&gt;[39m[23m LUAm1[90m, [39mLUAm1[90m, [39mLUAm1[90m, [39mLUAm1[90m, [39mLUAm1[90m, [39mLUAm1[90m, [39mLUAm1[90m, [39mLUAm1[90m, [39mL~
-## $ sporeDose    [3m[90m&lt;chr&gt;[39m[23m &quot;0M&quot;[90m, [39m&quot;10M&quot;[90m, [39m&quot;0M&quot;[90m, [39m&quot;10M&quot;[90m, [39m&quot;0M&quot;[90m, [39m&quot;10M&quot;[90m, [39m&quot;0M&quot;[90m, [39m&quot;10M&quot;[90m, [39m&quot;0M&quot;[90m,[39m~
-## $ expTimepoint [3m[90m&lt;chr&gt;[39m[23m &quot;72hpi&quot;[90m, [39m&quot;72hpi&quot;[90m, [39m&quot;72hpi&quot;[90m, [39m&quot;72hpi&quot;[90m, [39m&quot;72hpi&quot;[90m, [39m&quot;72hpi&quot;[90m, [39m&quot;72~
+## $ sporeDose    [3m[90m&lt;dbl&gt;[39m[23m 0.00[90m, [39m10.00[90m, [39m0.00[90m, [39m10.00[90m, [39m0.00[90m, [39m10.00[90m, [39m0.00[90m, [39m10.00[90m, [39m0.00[90m,[39m~
+## $ expTimepoint [3m[90m&lt;int&gt;[39m[23m 72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m72[90m, [39m7~
 ## $ spores       [3m[90m&lt;lgl&gt;[39m[23m FALSE[90m, [39mFALSE[90m, [39mFALSE[90m, [39mFALSE[90m, [39mFALSE[90m, [39mFALSE[90m, [39mFALSE[90m, [39mFALSE[90m, [39mF~
 ## $ meronts      [3m[90m&lt;lgl&gt;[39m[23m FALSE[90m, [39mTRUE[90m, [39mFALSE[90m, [39mTRUE[90m, [39mFALSE[90m, [39mTRUE[90m, [39mFALSE[90m, [39mTRUE[90m, [39mFALSE~
 ## $ embryos      [3m[90m&lt;int&gt;[39m[23m 18[90m, [39m7[90m, [39m10[90m, [39m0[90m, [39m12[90m, [39m0[90m, [39m5[90m, [39m9[90m, [39m11[90m, [39m0[90m, [39m15[90m, [39m2[90m, [39m27[90m, [39m0[90m, [39m15[90m, [39m0[90m, [39m9[90m,[39m~</code></pre>
@@ -2767,17 +2768,17 @@ print (&quot;glimpse of our split data&quot;)</code></pre>
 print (&quot;structure of our split data&quot;)</code></pre>
 <pre><code>## [1] &quot;structure of our split data&quot;</code></pre>
 <pre class="r"><code>str(split_embryo_long.df)</code></pre>
-<pre><code>## tibble [46,200 x 10] (S3: tbl_df/tbl/data.frame)
-##  $ worm.number : num [1:46200] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ experiment  : chr [1:46200] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
-##  $ fixingDate  : int [1:46200] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
+<pre><code>## tibble [15,128 x 10] (S3: tbl_df/tbl/data.frame)
+##  $ worm.number : num [1:15128] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ experiment  : chr [1:15128] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
+##  $ fixingDate  : int [1:15128] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
 ##  $ wormStrain  : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 24 24 10 10 8 8 9 9 20 20 ...
 ##  $ sporeStrain : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
-##  $ sporeDose   : chr [1:46200] &quot;0M&quot; &quot;10M&quot; &quot;0M&quot; &quot;10M&quot; ...
-##  $ expTimepoint: chr [1:46200] &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; ...
-##  $ spores      : logi [1:46200] FALSE FALSE FALSE FALSE FALSE FALSE ...
-##  $ meronts     : logi [1:46200] FALSE TRUE FALSE TRUE FALSE TRUE ...
-##  $ embryos     : int [1:46200] 18 7 10 0 12 0 5 9 11 0 ...</code></pre>
+##  $ sporeDose   : num [1:15128] 0 10 0 10 0 10 0 10 0 10 ...
+##  $ expTimepoint: int [1:15128] 72 72 72 72 72 72 72 72 72 72 ...
+##  $ spores      : logi [1:15128] FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ meronts     : logi [1:15128] FALSE TRUE FALSE TRUE FALSE TRUE ...
+##  $ embryos     : int [1:15128] 18 7 10 0 12 0 5 9 11 0 ...</code></pre>
 <hr />
 </div>
 </div>
@@ -2797,9 +2798,37 @@ changes to your data frame, but if you look at the structure it will now
 be a <code>grouped_df</code>.</p>
 <pre class="r"><code># Group the data by 3 variables and look at the structure
 split_embryo_long.df %&gt;% 
-  group_by(fixingDate, wormStrain, ...) %&gt;% 
+  group_by(fixingDate, wormStrain, sporeStrain) %&gt;% 
   str(list.len = 10)</code></pre>
-<pre><code>## Error in str(., list.len = 10): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## gropd_df [15,128 x 10] (S3: grouped_df/tbl_df/tbl/data.frame)
+##  $ worm.number : num [1:15128] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ experiment  : chr [1:15128] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
+##  $ fixingDate  : int [1:15128] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
+##  $ wormStrain  : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 24 24 10 10 8 8 9 9 20 20 ...
+##  $ sporeStrain : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
+##  $ sporeDose   : num [1:15128] 0 10 0 10 0 10 0 10 0 10 ...
+##  $ expTimepoint: int [1:15128] 72 72 72 72 72 72 72 72 72 72 ...
+##  $ spores      : logi [1:15128] FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ meronts     : logi [1:15128] FALSE TRUE FALSE TRUE FALSE TRUE ...
+##  $ embryos     : int [1:15128] 18 7 10 0 12 0 5 9 11 0 ...
+##  - attr(*, &quot;groups&quot;)= tibble [140 x 4] (S3: tbl_df/tbl/data.frame)
+##   ..$ fixingDate : int [1:140] 190426 190426 190426 190426 190426 190426 190426 190426 190426 190426 ...
+##   ..$ wormStrain : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 1 4 5 10 10 13 14 14 17 18 ...
+##   ..$ sporeStrain: Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 4 6 4 6 4 3 6 6 6 ...
+##   ..$ .rows      : list&lt;int&gt; [1:140] 
+##   .. ..$ : int [1:182] 184 185 186 484 485 486 784 785 786 1084 ...
+##   .. ..$ : int [1:185] 217 218 219 517 518 519 817 818 819 1117 ...
+##   .. ..$ : int [1:168] 196 197 198 496 497 498 796 797 798 1096 ...
+##   .. ..$ : int [1:253] 223 224 225 523 524 525 823 824 825 1123 ...
+##   .. ..$ : int [1:137] 202 203 204 502 503 504 802 803 804 1102 ...
+##   .. ..$ : int [1:193] 220 221 222 520 521 522 820 821 822 1120 ...
+##   .. ..$ : int [1:188] 235 236 237 535 536 537 835 836 837 1135 ...
+##   .. ..$ : int [1:186] 199 200 201 499 500 501 799 800 801 1099 ...
+##   .. ..$ : int [1:183] 187 188 189 487 488 489 787 788 789 1087 ...
+##   .. ..$ : int [1:181] 190 191 192 490 491 492 790 791 792 1090 ...
+##   .. .. [list output truncated]
+##   .. ..@ ptype: int(0) 
+##   ..- attr(*, &quot;.drop&quot;)= logi TRUE</code></pre>
 <hr />
 </div>
 <div id="use-the-ungroup-function-to-revert-your-data" class="section level3">
@@ -2819,9 +2848,19 @@ return your data frame to its original structure by calling the
   # Group the data by 3 variables and look at the structure
   group_by(fixingDate, wormStrain, sporeStrain) %&gt;% 
   # Ungroup the data
-  ... %&gt;% 
+  ungroup() %&gt;% 
   str()</code></pre>
-<pre><code>## Error in ...(.): could not find function &quot;...&quot;</code></pre>
+<pre><code>## tibble [15,128 x 10] (S3: tbl_df/tbl/data.frame)
+##  $ worm.number : num [1:15128] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ experiment  : chr [1:15128] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
+##  $ fixingDate  : int [1:15128] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
+##  $ wormStrain  : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 24 24 10 10 8 8 9 9 20 20 ...
+##  $ sporeStrain : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
+##  $ sporeDose   : num [1:15128] 0 10 0 10 0 10 0 10 0 10 ...
+##  $ expTimepoint: int [1:15128] 72 72 72 72 72 72 72 72 72 72 ...
+##  $ spores      : logi [1:15128] FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ meronts     : logi [1:15128] FALSE TRUE FALSE TRUE FALSE TRUE ...
+##  $ embryos     : int [1:15128] 18 7 10 0 12 0 5 9 11 0 ...</code></pre>
 <hr />
 </div>
 <div id="dont-forget-use-group_by-and-summarise-functions-to-produce-sensible-summary-data" class="section level3">
@@ -2845,7 +2884,7 @@ dose levels.</p>
   # Group the data by 3 variables and look at the structure
   group_by(wormStrain, sporeStrain, sporeDose) %&gt;% 
   # Summarise the data
-  summarise(...,
+  summarise(nworms = n(),
             meanEmb = mean(embryos),
             medianEmb = median(embryos),
             sdEmb = sd(embryos),
@@ -2853,7 +2892,13 @@ dose levels.</p>
            ) %&gt;% 
   # What does our data look like?
   head()</code></pre>
-<pre><code>## Error in head(.): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [1m[22m`summarise()` has grouped output by &#39;wormStrain&#39;, &#39;sporeStrain&#39;. You
+## can override using the `.groups` argument.</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["wormStrain"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sporeStrain"],"name":[2],"type":["fct"],"align":["left"]},{"label":["sporeDose"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["nworms"],"name":[4],"type":["int"],"align":["right"]},{"label":["meanEmb"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["medianEmb"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["sdEmb"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["maxEmb"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"AB1","2":"LUAm1","3":"0.0","4":"62","5":"10.903226","6":"10","7":"3.242695","8":"18"},{"1":"AB1","2":"LUAm1","3":"10.0","4":"60","5":"8.583333","6":"9","7":"3.697419","8":"19"},{"1":"AB1","2":"LUAm1","3":"20.0","4":"60","5":"4.283333","6":"4","7":"3.425189","8":"12"},{"1":"AWR144","2":"ERTm5","3":"0.0","4":"100","5":"18.730000","6":"18","7":"4.039839","8":"29"},{"1":"AWR144","2":"ERTm5","3":"3.5","4":"150","5":"4.666667","6":"4","7":"3.827956","8":"14"},{"1":"AWR144","2":"LUAm1","3":"0.0","4":"150","5":"19.560000","6":"19","7":"4.805590","8":"32"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Notice how the first 3 columns of our summary, are the same we used
 for grouping?</p>
 <p>In dealing with grouped data, we wouldn’t even need to filter our
@@ -2900,7 +2945,7 @@ variation between strains. Which metric will we sort on?</p></li>
 <pre class="r"><code>split_embryo_long.df %&gt;% 
 
   # Filter the data to focus on sporeDose of 0 (ie uninfected conditions)
-  filter(...,
+  filter(sporeDose == 0,
          expTimepoint == 72,    # Recall there are some 72-hour and 96-hour timepoints. We should stick with one.
          embryos &gt;= 0           # There&#39;s a quirk of the data in here so we need an extra filter as male animals have -1 embryos
         ) %&gt;% 
@@ -2918,7 +2963,11 @@ variation between strains. Which metric will we sort on?</p></li>
   
   # Sort the data so we can quickly see the upper and lower ranges
   arrange(desc(meanEmb))</code></pre>
-<pre><code>## Error in group_by(., wormStrain): &#39;...&#39; used in an incorrect context</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["wormStrain"],"name":[1],"type":["fct"],"align":["left"]},{"label":["nWorms"],"name":[2],"type":["int"],"align":["right"]},{"label":["meanEmb"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["medianEmb"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["sdEmb"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["maxEmb"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"MY2","2":"123","3":"21.886179","4":"21.0","5":"5.757679","6":"40"},{"1":"CB4856","2":"60","3":"20.750000","4":"20.0","5":"4.921847","6":"32"},{"1":"AWR145","2":"250","3":"20.656000","4":"21.0","5":"5.192834","6":"48"},{"1":"AWR144","2":"250","3":"19.228000","4":"19.0","5":"4.524811","6":"32"},{"1":"MY6","2":"61","3":"18.360656","4":"18.0","5":"4.854664","6":"31"},{"1":"N2","2":"790","3":"18.051899","4":"18.0","5":"5.510547","6":"38"},{"1":"JU360","2":"173","3":"16.832370","4":"17.0","5":"3.892553","6":"35"},{"1":"VC20019","2":"274","3":"16.419708","4":"16.0","5":"3.913316","6":"28"},{"1":"JU300","2":"61","3":"15.622951","4":"15.0","5":"4.936814","6":"32"},{"1":"JU360-MY1-cross","2":"31","3":"14.838710","4":"15.0","5":"2.353675","6":"19"},{"1":"JU642","2":"60","3":"14.733333","4":"15.0","5":"3.754621","6":"21"},{"1":"JU360-cross","2":"73","3":"13.643836","4":"14.0","5":"2.169036","6":"20"},{"1":"ED3042-cross","2":"42","3":"13.238095","4":"13.0","5":"2.526055","6":"22"},{"1":"ED3042-MY1-cross","2":"33","3":"12.727273","4":"13.0","5":"2.565062","6":"16"},{"1":"ED3042","2":"111","3":"12.702703","4":"12.0","5":"3.463038","6":"25"},{"1":"MY1-cross","2":"54","3":"12.648148","4":"13.0","5":"2.934231","6":"20"},{"1":"JU1400-MY1-cross","2":"60","3":"12.583333","4":"13.0","5":"2.688908","6":"18"},{"1":"MY1","2":"265","3":"12.392453","4":"12.0","5":"4.147464","6":"24"},{"1":"ED3052B","2":"148","3":"12.047297","4":"11.5","5":"4.225505","6":"26"},{"1":"JU1400-cross","2":"68","3":"11.808824","4":"12.0","5":"3.537675","6":"21"},{"1":"JU397","2":"70","3":"11.457143","4":"11.0","5":"3.462786","6":"18"},{"1":"AB1","2":"62","3":"10.903226","4":"10.0","5":"3.242695","6":"18"},{"1":"LUA1","2":"70","3":"10.628571","4":"10.5","5":"2.654891","6":"17"},{"1":"ED3052A","2":"150","3":"10.526667","4":"10.0","5":"2.902664","6":"23"},{"1":"JU1400","2":"754","3":"10.274536","4":"10.0","5":"3.936442","6":"24"},{"1":"VC40171","2":"150","3":"4.586667","4":"3.0","5":"5.172445","6":"24"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>So it looks like our mean number of embryos can vary across the
 <em>C. elegans</em> strains; getting close to 22 on the upper end and 4
 on the lower end. These differences can be due to environmental factors
@@ -2952,7 +3001,7 @@ wormSporeDose_summary.df &lt;-
   split_embryo_long.df %&gt;% 
   
   # Filter the data to focus on sporeDose of 0 (ie uninfected conditions)
-  filter(...,
+  filter(wormStrain == &quot;N2&quot;,
          expTimepoint == 72,    # Recall there are some 72-hour and 96-hour timepoints. We should stick with one.
          embryos &gt;= 0           # Theres a quirk of the data in here so we need an extra filter
         ) %&gt;% 
@@ -2966,14 +3015,19 @@ wormSporeDose_summary.df &lt;-
            ) %&gt;% 
   
   # Group the data again but aggregate the fixing dates for each condition
-  group_by(...) %&gt;% 
+  group_by(sporeStrain, sporeDose) %&gt;% 
   
   # Calculate the mean of the means so that each replicate has the same weight
-  summarise(groupMeanEmbryos = mean(...))</code></pre>
-<pre><code>## Error in summarise(., groupMeanEmbryos = mean(...)): &#39;...&#39; used in an incorrect context</code></pre>
+  summarise(groupMeanEmbryos = mean(meanEmb))</code></pre>
+<pre><code>## [1m[22m`summarise()` has grouped output by &#39;fixingDate&#39;, &#39;sporeStrain&#39;. You can override using the `.groups` argument.
+## `summarise()` has grouped output by &#39;sporeStrain&#39;. You can override using the `.groups` argument.</code></pre>
 <pre class="r"><code># Sort the data to group by groupMean to see which combo has the lowest value
 arrange(wormSporeDose_summary.df, groupMeanEmbryos)</code></pre>
-<pre><code>## Error in arrange(wormSporeDose_summary.df, groupMeanEmbryos): object &#39;wormSporeDose_summary.df&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["sporeStrain"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sporeDose"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["groupMeanEmbryos"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"ERTm2","2":"1.250","3":"1.250000"},{"1":"ERTm2","2":"1.500","3":"2.111111"},{"1":"ERTm5","2":"3.500","3":"4.870471"},{"1":"LUAm1","2":"20.000","3":"7.700000"},{"1":"LUAm1","2":"15.000","3":"8.755102"},{"1":"ERTm5","2":"1.750","3":"9.855759"},{"1":"ERTm2","2":"0.500","3":"9.921875"},{"1":"LUAm1","2":"10.000","3":"11.286667"},{"1":"AWRm78","2":"3.500","3":"11.393333"},{"1":"LUAm3","2":"10.000","3":"12.340000"},{"1":"ERTm5","2":"1.250","3":"12.600000"},{"1":"ERTm5","2":"0.875","3":"13.220000"},{"1":"LUAm1-pel","2":"10.000","3":"14.140000"},{"1":"MAM1","2":"8.000","3":"14.310000"},{"1":"ERTm1","2":"1.250","3":"14.400000"},{"1":"MAM1","2":"4.000","3":"14.786667"},{"1":"ERTm1","2":"1.500","3":"15.037451"},{"1":"ERTm5","2":"0.350","3":"16.200000"},{"1":"ERTm5","2":"0.200","3":"16.340000"},{"1":"LUAm1","2":"0.000","3":"17.946349"},{"1":"ERTm5","2":"0.000","3":"17.963889"},{"1":"ERTm1","2":"0.750","3":"18.513333"},{"1":"ERTm2","2":"0.000","3":"19.358209"},{"1":"LUAm1-HK","2":"10.000","3":"19.400000"},{"1":"LUAm1-sup","2":"10.000","3":"20.200000"},{"1":"ERTm1","2":"0.000","3":"20.274630"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>If we look through the data carefully, we can see that ERTm2 appears
 to have the most severe effect on our animals, reducing the mean embryo
 counts between replicates to as low as 1.25 with a dose of only 1.25M
@@ -3326,17 +3380,17 @@ variables, either by name or idea, are <em>shared</em> between the two
 datasets and how can we use them to help redistribute our data?</p>
 <pre class="r"><code># Review the measurement data
 str(split_embryo_long.df, give.attr = FALSE)</code></pre>
-<pre><code>## tibble [46,200 x 10] (S3: tbl_df/tbl/data.frame)
-##  $ worm.number : num [1:46200] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ experiment  : chr [1:46200] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
-##  $ fixingDate  : int [1:46200] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
+<pre><code>## tibble [15,128 x 10] (S3: tbl_df/tbl/data.frame)
+##  $ worm.number : num [1:15128] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ experiment  : chr [1:15128] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
+##  $ fixingDate  : int [1:15128] 200707 200707 200707 200707 200707 200707 200707 200707 200707 200707 ...
 ##  $ wormStrain  : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 24 24 10 10 8 8 9 9 20 20 ...
 ##  $ sporeStrain : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
-##  $ sporeDose   : chr [1:46200] &quot;0M&quot; &quot;10M&quot; &quot;0M&quot; &quot;10M&quot; ...
-##  $ expTimepoint: chr [1:46200] &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; ...
-##  $ spores      : logi [1:46200] FALSE FALSE FALSE FALSE FALSE FALSE ...
-##  $ meronts     : logi [1:46200] FALSE TRUE FALSE TRUE FALSE TRUE ...
-##  $ embryos     : int [1:46200] 18 7 10 0 12 0 5 9 11 0 ...</code></pre>
+##  $ sporeDose   : num [1:15128] 0 10 0 10 0 10 0 10 0 10 ...
+##  $ expTimepoint: int [1:15128] 72 72 72 72 72 72 72 72 72 72 ...
+##  $ spores      : logi [1:15128] FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ meronts     : logi [1:15128] FALSE TRUE FALSE TRUE FALSE TRUE ...
+##  $ embryos     : int [1:15128] 18 7 10 0 12 0 5 9 11 0 ...</code></pre>
 <pre class="r"><code># Review the metadata
 str(trimmed_infection_meta.df, give.attr = FALSE)</code></pre>
 <pre><code>## tibble [276 x 6] (S3: tbl_df/tbl/data.frame)
@@ -3914,7 +3968,10 @@ str(spore_metadata.df)</code></pre>
 ##   .. )
 ##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <pre class="r"><code>str(wormSporeDose_summary.df, give.attr = FALSE)</code></pre>
-<pre><code>## Error in str(wormSporeDose_summary.df, give.attr = FALSE): object &#39;wormSporeDose_summary.df&#39; not found</code></pre>
+<pre><code>## gropd_df [26 x 3] (S3: grouped_df/tbl_df/tbl/data.frame)
+##  $ sporeStrain     : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 1 2 2 2 2 3 3 3 3 4 ...
+##  $ sporeDose       : num [1:26] 3.5 0 0.75 1.25 1.5 0 0.5 1.25 1.5 0 ...
+##  $ groupMeanEmbryos: num [1:26] 11.4 20.3 18.5 14.4 15 ...</code></pre>
 <p>Proceed with our join step and sorting</p>
 <pre class="r"><code># Save the results of our filtering and joining
 wormSporeDose_updated.df &lt;-
