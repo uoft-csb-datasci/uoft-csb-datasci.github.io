@@ -3062,27 +3062,32 @@ embryo_summary.df &lt;-
   # Filter the data to focus on sporeDose of 0 (ie uninfected conditions)
   filter(expTimepoint == 72,    # Recall there are some 72-hour and 96-hour timepoints. We should stick with one.
          embryos &gt;= 0,          # Theres a quirk of the data in here so we need an extra filter
-         ...
+         sporeDose &gt; 0
         ) %&gt;% 
   
   # Group the data so that each rep/fixing Date is grouped together 
-  group_by(...) %&gt;% 
+  group_by(wormStrain, fixingDate, sporeStrain, sporeDose) %&gt;% 
   
   # Get the mean embryos for each replicate
   summarise(meanEmb = mean(embryos)) %&gt;% 
   
   # Group the data again but aggregate by wormStrain/sporeStrain
-  group_by(...) %&gt;% 
+  group_by(wormStrain, sporeStrain, sporeDose) %&gt;% 
   
   # Calculate the mean of the means across dates and spore doses
   summarise(groupMeanEmbryos = mean(meanEmb)) %&gt;% 
   
   # Sort the data to find the smallest groupMean
   arrange(groupMeanEmbryos)</code></pre>
-<pre><code>## Error in summarise(., groupMeanEmbryos = mean(meanEmb)): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [1m[22m`summarise()` has grouped output by &#39;wormStrain&#39;, &#39;fixingDate&#39;, &#39;sporeStrain&#39;. You can override using the `.groups` argument.
+## `summarise()` has grouped output by &#39;wormStrain&#39;, &#39;sporeStrain&#39;. You can override using the `.groups` argument.</code></pre>
 <pre class="r"><code># Just look at the top 10 scores
 head(embryo_summary.df, 10)</code></pre>
-<pre><code>## Error in head(embryo_summary.df, 10): object &#39;embryo_summary.df&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["wormStrain"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sporeStrain"],"name":[2],"type":["fct"],"align":["left"]},{"label":["sporeDose"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["groupMeanEmbryos"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"JU1400","2":"LUAm1","3":"20.00","4":"0.00000000"},{"1":"MY1","2":"LUAm1","3":"20.00","4":"0.00000000"},{"1":"JU1400","2":"LUAm3","3":"10.00","4":"0.01333333"},{"1":"JU360","2":"LUAm1","3":"20.00","4":"0.01587302"},{"1":"VC40171","2":"LUAm1","3":"10.00","4":"0.02666667"},{"1":"JU1400","2":"LUAm1","3":"15.00","4":"0.08000000"},{"1":"JU1400-MY1-cross","2":"LUAm1","3":"10.00","4":"0.10000000"},{"1":"MY1","2":"LUAm1","3":"10.00","4":"0.25642276"},{"1":"MY1","2":"LUAm1","3":"15.00","4":"0.28000000"},{"1":"JU1400","2":"ERTm2","3":"1.25","4":"0.35000000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <p>Looking at the top 10 results from our quick analysis, it looks like
 we see a lot of JU1400 and MY1 occurrences but most of the top
@@ -3895,7 +3900,11 @@ str(spore_metadata.df, give.attr = FALSE)</code></pre>
 ##  $ original.nematode.species: chr [1:7] &quot;C. elegans&quot; &quot;C. briggsae&quot; &quot;C. briggsae&quot; &quot;C. elegans&quot; ...
 ##  $ original.location        : chr [1:7] &quot;France&quot; &quot;India&quot; &quot;Hawaii, USA&quot; &quot;France&quot; ...</code></pre>
 <pre class="r"><code>str(embryo_summary.df, give.attr = FALSE)</code></pre>
-<pre><code>## Error in str(embryo_summary.df, give.attr = FALSE): object &#39;embryo_summary.df&#39; not found</code></pre>
+<pre><code>## gropd_df [96 x 4] (S3: grouped_df/tbl_df/tbl/data.frame)
+##  $ wormStrain      : Factor w/ 26 levels &quot;AB1&quot;,&quot;AWR144&quot;,..: 10 20 10 14 26 10 12 20 20 10 ...
+##  $ sporeStrain     : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 6 6 10 6 6 6 6 6 6 3 ...
+##  $ sporeDose       : num [1:96] 20 20 10 20 10 15 10 10 15 1.25 ...
+##  $ groupMeanEmbryos: num [1:96] 0 0 0.0133 0.0159 0.0267 ...</code></pre>
 <pre class="r"><code># comprehension answer code 4.0.0 part 2
 embryo_summary.df %&gt;% 
 
