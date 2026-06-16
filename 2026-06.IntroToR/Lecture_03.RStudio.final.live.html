@@ -4059,7 +4059,7 @@ spore_metadata.df &lt;-
   read_tsv(&quot;data/spore_info.txt&quot;, col_names = TRUE) %&gt;% 
   
   # Convert the spore strain information to a factor. Can you do this on import?
-  mutate(spore.strain = ...(spore.strain))</code></pre>
+  mutate(spore.strain = as.factor(spore.strain))</code></pre>
 <pre><code>## [1mRows: [22m[34m7[39m [1mColumns: [22m[34m5[39m
 ## [36m--[39m [1mColumn specification[22m [36m----------------------------------------------------------------------------------------------------------------------------------------------------------------------------[39m
 ## [1mDelimiter:[22m &quot;\t&quot;
@@ -4067,27 +4067,14 @@ spore_metadata.df &lt;-
 ## 
 ## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
 ## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<pre><code>## [1m[33mError[39m in `mutate()`:[22m
-## [1m[22m[36mi[39m In argument: `spore.strain = ...(spore.strain)`.
-## [1mCaused by error in `...()`:[22m
-## [33m![39m could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code># Check on the structure of spore_metadata.df
 str(spore_metadata.df)</code></pre>
-<pre><code>## spc_tbl_ [7 x 5] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
-##  $ spore.strain             : chr [1:7] &quot;ERTm1&quot; &quot;ERTm2&quot; &quot;ERTm5&quot; &quot;LUAm1&quot; ...
+<pre><code>## tibble [7 x 5] (S3: tbl_df/tbl/data.frame)
+##  $ spore.strain             : Factor w/ 7 levels &quot;AWRm78&quot;,&quot;Cider&quot;,..: 3 4 5 6 1 2 7
 ##  $ spore.species            : chr [1:7] &quot;N. parisii&quot; &quot;N. ausubeli&quot; &quot;N. ironsii&quot; &quot;N. ferruginous&quot; ...
 ##  $ infection.location       : chr [1:7] &quot;intestine&quot; &quot;intestine&quot; &quot;intestine&quot; &quot;epidermis&quot; ...
 ##  $ original.nematode.species: chr [1:7] &quot;C. elegans&quot; &quot;C. briggsae&quot; &quot;C. briggsae&quot; &quot;C. elegans&quot; ...
-##  $ original.location        : chr [1:7] &quot;France&quot; &quot;India&quot; &quot;Hawaii, USA&quot; &quot;France&quot; ...
-##  - attr(*, &quot;spec&quot;)=
-##   .. cols(
-##   ..   spore.strain = [31mcol_character()[39m,
-##   ..   spore.species = [31mcol_character()[39m,
-##   ..   infection.location = [31mcol_character()[39m,
-##   ..   original.nematode.species = [31mcol_character()[39m,
-##   ..   original.location = [31mcol_character()[39m
-##   .. )
-##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
+##  $ original.location        : chr [1:7] &quot;France&quot; &quot;India&quot; &quot;Hawaii, USA&quot; &quot;France&quot; ...</code></pre>
 <pre class="r"><code>str(wormSporeDose_summary.df, give.attr = FALSE)</code></pre>
 <pre><code>## gropd_df [26 x 3] (S3: grouped_df/tbl_df/tbl/data.frame)
 ##  $ sporeStrain     : Factor w/ 11 levels &quot;AWRm78&quot;,&quot;ERTm1&quot;,..: 1 2 2 2 2 3 3 3 3 4 ...
@@ -4101,16 +4088,20 @@ wormSporeDose_updated.df &lt;-
   wormSporeDose_summary.df %&gt;% 
   
   # Filter the spore dose values
-  filter(...) %&gt;% 
+  filter(sporeDose &gt; 0) %&gt;% 
   
   # Join this with the spore metadata
-  inner_join(., y = ..., by = c(&quot;sporeStrain&quot; = &quot;spore.strain&quot;)) %&gt;% 
+  inner_join(., y = spore_metadata.df, by = c(&quot;sporeStrain&quot; = &quot;spore.strain&quot;)) %&gt;% 
   
   # Sort the data by spore species and then by spore dose
-  arrange(spore.species, sporeStrain, sporeDose)</code></pre>
-<pre><code>## Error in arrange(., spore.species, sporeStrain, sporeDose): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>wormSporeDose_updated.df</code></pre>
-<pre><code>## Error: object &#39;wormSporeDose_updated.df&#39; not found</code></pre>
+  arrange(spore.species, sporeStrain, sporeDose)
+
+wormSporeDose_updated.df</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["sporeStrain"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sporeDose"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["groupMeanEmbryos"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["spore.species"],"name":[4],"type":["chr"],"align":["left"]},{"label":["infection.location"],"name":[5],"type":["chr"],"align":["left"]},{"label":["original.nematode.species"],"name":[6],"type":["chr"],"align":["left"]},{"label":["original.location"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"ERTm2","2":"0.500","3":"9.921875","4":"N. ausubeli","5":"intestine","6":"C. briggsae","7":"India"},{"1":"ERTm2","2":"1.250","3":"1.250000","4":"N. ausubeli","5":"intestine","6":"C. briggsae","7":"India"},{"1":"ERTm2","2":"1.500","3":"2.111111","4":"N. ausubeli","5":"intestine","6":"C. briggsae","7":"India"},{"1":"LUAm1","2":"10.000","3":"11.286667","4":"N. ferruginous","5":"epidermis","6":"C. elegans","7":"France"},{"1":"LUAm1","2":"15.000","3":"8.755102","4":"N. ferruginous","5":"epidermis","6":"C. elegans","7":"France"},{"1":"LUAm1","2":"20.000","3":"7.700000","4":"N. ferruginous","5":"epidermis","6":"C. elegans","7":"France"},{"1":"LUAm3","2":"10.000","3":"12.340000","4":"N. ferruginous","5":"epidermis","6":"C. elegans","7":"France"},{"1":"AWRm78","2":"3.500","3":"11.393333","4":"N. ironsii","5":"intestine","6":"C. elegans","7":"Ontario, Canada"},{"1":"ERTm5","2":"0.200","3":"16.340000","4":"N. ironsii","5":"intestine","6":"C. briggsae","7":"Hawaii, USA"},{"1":"ERTm5","2":"0.350","3":"16.200000","4":"N. ironsii","5":"intestine","6":"C. briggsae","7":"Hawaii, USA"},{"1":"ERTm5","2":"0.875","3":"13.220000","4":"N. ironsii","5":"intestine","6":"C. briggsae","7":"Hawaii, USA"},{"1":"ERTm5","2":"1.250","3":"12.600000","4":"N. ironsii","5":"intestine","6":"C. briggsae","7":"Hawaii, USA"},{"1":"ERTm5","2":"1.750","3":"9.855759","4":"N. ironsii","5":"intestine","6":"C. briggsae","7":"Hawaii, USA"},{"1":"ERTm5","2":"3.500","3":"4.870471","4":"N. ironsii","5":"intestine","6":"C. briggsae","7":"Hawaii, USA"},{"1":"ERTm1","2":"0.750","3":"18.513333","4":"N. parisii","5":"intestine","6":"C. elegans","7":"France"},{"1":"ERTm1","2":"1.250","3":"14.400000","4":"N. parisii","5":"intestine","6":"C. elegans","7":"France"},{"1":"ERTm1","2":"1.500","3":"15.037451","4":"N. parisii","5":"intestine","6":"C. elegans","7":"France"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="how-many-rows-in-wormsporedose_summary.df-had-a-spore-dose-of-zero" class="section level3">
 <h3>5.1.1 How many rows in <code>wormSporeDose_summary.df</code> had a
@@ -4121,8 +4112,12 @@ of data are actually removed in the process from
 <pre class="r"><code>wormSporeDose_summary.df %&gt;% 
 
 # Use filter to pull out the rows we want to view
-filter(...)          </code></pre>
-<pre><code>## Error in wormSporeDose_summary.df %&gt;% filter(...): &#39;...&#39; used in an incorrect context</code></pre>
+filter(sporeDose == 0)          </code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["sporeStrain"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sporeDose"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["groupMeanEmbryos"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"ERTm1","2":"0","3":"20.27463"},{"1":"ERTm2","2":"0","3":"19.35821"},{"1":"ERTm5","2":"0","3":"17.96389"},{"1":"LUAm1","2":"0","3":"17.94635"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>So it appears that 4 groups were lost to our <code>filter()</code>
 call and an additional 5 were removed during the
 <code>inner_join()</code> process!</p>
@@ -4204,17 +4199,64 @@ does it break? Transform the dataset to the format below.</p>
 <strong>IDENTIFY</strong> the formatting deficiencies and then
 <strong>PLAN</strong> ahead what you want to achieve.</p>
 <pre class="r"><code># read gapminder_wide.csv
-gapminder_wide &lt;- read_csv(&quot;...&quot;)</code></pre>
-<pre><code>## Warning in file(con, &quot;rb&quot;): cannot open file
-## &#39;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2026.06_Intro_to_R/lecture_03_tidy_data&#39;:
-## Permission denied</code></pre>
-<pre><code>## Error in file(con, &quot;rb&quot;): cannot open the connection</code></pre>
+gapminder_wide &lt;- read_csv(&quot;data/gapminder_wide.csv&quot;)</code></pre>
+<pre><code>## [1mRows: [22m[34m142[39m [1mColumns: [22m[34m38[39m
+## [36m--[39m [1mColumn specification[22m [36m----------------------------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+## [1mDelimiter:[22m &quot;,&quot;
+## [31mchr[39m  (2): continent, country
+## [32mdbl[39m (36): gdpPercap_1952, gdpPercap_1957, gdpPercap_1962, gdpPercap_1967, gd...
+## 
+## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
+## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code># Take a peek at the data
 head(gapminder_wide)</code></pre>
-<pre><code>## Error in head(gapminder_wide): object &#39;gapminder_wide&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["continent"],"name":[1],"type":["chr"],"align":["left"]},{"label":["country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["gdpPercap_1952"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1957"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1962"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1967"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1972"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1977"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1982"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1987"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1992"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_1997"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_2002"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["gdpPercap_2007"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1952"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1957"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1962"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1967"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1972"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1977"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1982"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1987"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1992"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["lifeExp_1997"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["lifeExp_2002"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["lifeExp_2007"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["pop_1952"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["pop_1957"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["pop_1962"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["pop_1967"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["pop_1972"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["pop_1977"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["pop_1982"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["pop_1987"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["pop_1992"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["pop_1997"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["pop_2002"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["pop_2007"],"name":[38],"type":["dbl"],"align":["right"]}],"data":[{"1":"Africa","2":"Algeria","3":"2449.0082","4":"3013.9760","5":"2550.8169","6":"3246.9918","7":"4182.6638","8":"4910.4168","9":"5745.1602","10":"5681.3585","11":"5023.2166","12":"4797.2951","13":"5288.0404","14":"6223.3675","15":"43.077","16":"45.685","17":"48.303","18":"51.407","19":"54.518","20":"58.014","21":"61.368","22":"65.799","23":"67.744","24":"69.152","25":"70.994","26":"72.301","27":"9279525","28":"10270856","29":"11000948","30":"12760499","31":"14760787","32":"17152804","33":"20033753","34":"23254956","35":"26298373","36":"29072015","37":"31287142","38":"33333216"},{"1":"Africa","2":"Angola","3":"3520.6103","4":"3827.9405","5":"4269.2767","6":"5522.7764","7":"5473.2880","8":"3008.6474","9":"2756.9537","10":"2430.2083","11":"2627.8457","12":"2277.1409","13":"2773.2873","14":"4797.2313","15":"30.015","16":"31.999","17":"34.000","18":"35.985","19":"37.928","20":"39.483","21":"39.942","22":"39.906","23":"40.647","24":"40.963","25":"41.003","26":"42.731","27":"4232095","28":"4561361","29":"4826015","30":"5247469","31":"5894858","32":"6162675","33":"7016384","34":"7874230","35":"8735988","36":"9875024","37":"10866106","38":"12420476"},{"1":"Africa","2":"Benin","3":"1062.7522","4":"959.6011","5":"949.4991","6":"1035.8314","7":"1085.7969","8":"1029.1613","9":"1277.8976","10":"1225.8560","11":"1191.2077","12":"1232.9753","13":"1372.8779","14":"1441.2849","15":"38.223","16":"40.358","17":"42.618","18":"44.885","19":"47.014","20":"49.190","21":"50.904","22":"52.337","23":"53.919","24":"54.777","25":"54.406","26":"56.728","27":"1738315","28":"1925173","29":"2151895","30":"2427334","31":"2761407","32":"3168267","33":"3641603","34":"4243788","35":"4981671","36":"6066080","37":"7026113","38":"8078314"},{"1":"Africa","2":"Botswana","3":"851.2411","4":"918.2325","5":"983.6540","6":"1214.7093","7":"2263.6111","8":"3214.8578","9":"4551.1421","10":"6205.8839","11":"7954.1116","12":"8647.1423","13":"11003.6051","14":"12569.8518","15":"47.622","16":"49.618","17":"51.520","18":"53.298","19":"56.024","20":"59.319","21":"61.484","22":"63.622","23":"62.745","24":"52.556","25":"46.634","26":"50.728","27":"442308","28":"474639","29":"512764","30":"553541","31":"619351","32":"781472","33":"970347","34":"1151184","35":"1342614","36":"1536536","37":"1630347","38":"1639131"},{"1":"Africa","2":"Burkina Faso","3":"543.2552","4":"617.1835","5":"722.5120","6":"794.8266","7":"854.7360","8":"743.3870","9":"807.1986","10":"912.0631","11":"931.7528","12":"946.2950","13":"1037.6452","14":"1217.0330","15":"31.975","16":"34.906","17":"37.814","18":"40.697","19":"43.591","20":"46.137","21":"48.122","22":"49.557","23":"50.260","24":"50.324","25":"50.650","26":"52.295","27":"4469979","28":"4713416","29":"4919632","30":"5127935","31":"5433886","32":"5889574","33":"6634596","34":"7586551","35":"8878303","36":"10352843","37":"12251209","38":"14326203"},{"1":"Africa","2":"Burundi","3":"339.2965","4":"379.5646","5":"355.2032","6":"412.9775","7":"464.0995","8":"556.1033","9":"559.6032","10":"621.8188","11":"631.6999","12":"463.1151","13":"446.4035","14":"430.0707","15":"39.031","16":"40.533","17":"42.045","18":"43.548","19":"44.057","20":"45.910","21":"47.471","22":"48.211","23":"44.736","24":"45.326","25":"47.360","26":"49.580","27":"2445618","28":"2667518","29":"2961915","30":"3330989","31":"3529983","32":"3834415","33":"4580410","34":"5126023","35":"5809236","36":"6121610","37":"7021078","38":"8390505"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code># Look at the structure of our data
 glimpse(gapminder_wide)</code></pre>
-<pre><code>## Error in glimpse(gapminder_wide): object &#39;gapminder_wide&#39; not found</code></pre>
+<pre><code>## Rows: 142
+## Columns: 38
+## $ continent      [3m[90m&lt;chr&gt;[39m[23m &quot;Africa&quot;[90m, [39m&quot;Africa&quot;[90m, [39m&quot;Africa&quot;[90m, [39m&quot;Africa&quot;[90m, [39m&quot;Africa&quot;[90m, [39m&quot;Afri~
+## $ country        [3m[90m&lt;chr&gt;[39m[23m &quot;Algeria&quot;[90m, [39m&quot;Angola&quot;[90m, [39m&quot;Benin&quot;[90m, [39m&quot;Botswana&quot;[90m, [39m&quot;Burkina Faso~
+## $ gdpPercap_1952 [3m[90m&lt;dbl&gt;[39m[23m 2449.0082[90m, [39m3520.6103[90m, [39m1062.7522[90m, [39m851.2411[90m, [39m543.2552[90m, [39m33~
+## $ gdpPercap_1957 [3m[90m&lt;dbl&gt;[39m[23m 3013.9760[90m, [39m3827.9405[90m, [39m959.6011[90m, [39m918.2325[90m, [39m617.1835[90m, [39m379~
+## $ gdpPercap_1962 [3m[90m&lt;dbl&gt;[39m[23m 2550.8169[90m, [39m4269.2767[90m, [39m949.4991[90m, [39m983.6540[90m, [39m722.5120[90m, [39m355~
+## $ gdpPercap_1967 [3m[90m&lt;dbl&gt;[39m[23m 3246.9918[90m, [39m5522.7764[90m, [39m1035.8314[90m, [39m1214.7093[90m, [39m794.8266[90m, [39m4~
+## $ gdpPercap_1972 [3m[90m&lt;dbl&gt;[39m[23m 4182.6638[90m, [39m5473.2880[90m, [39m1085.7969[90m, [39m2263.6111[90m, [39m854.7360[90m, [39m4~
+## $ gdpPercap_1977 [3m[90m&lt;dbl&gt;[39m[23m 4910.4168[90m, [39m3008.6474[90m, [39m1029.1613[90m, [39m3214.8578[90m, [39m743.3870[90m, [39m5~
+## $ gdpPercap_1982 [3m[90m&lt;dbl&gt;[39m[23m 5745.1602[90m, [39m2756.9537[90m, [39m1277.8976[90m, [39m4551.1421[90m, [39m807.1986[90m, [39m5~
+## $ gdpPercap_1987 [3m[90m&lt;dbl&gt;[39m[23m 5681.3585[90m, [39m2430.2083[90m, [39m1225.8560[90m, [39m6205.8839[90m, [39m912.0631[90m, [39m6~
+## $ gdpPercap_1992 [3m[90m&lt;dbl&gt;[39m[23m 5023.2166[90m, [39m2627.8457[90m, [39m1191.2077[90m, [39m7954.1116[90m, [39m931.7528[90m, [39m6~
+## $ gdpPercap_1997 [3m[90m&lt;dbl&gt;[39m[23m 4797.2951[90m, [39m2277.1409[90m, [39m1232.9753[90m, [39m8647.1423[90m, [39m946.2950[90m, [39m4~
+## $ gdpPercap_2002 [3m[90m&lt;dbl&gt;[39m[23m 5288.0404[90m, [39m2773.2873[90m, [39m1372.8779[90m, [39m11003.6051[90m, [39m1037.6452[90m,[39m~
+## $ gdpPercap_2007 [3m[90m&lt;dbl&gt;[39m[23m 6223.3675[90m, [39m4797.2313[90m, [39m1441.2849[90m, [39m12569.8518[90m, [39m1217.0330[90m,[39m~
+## $ lifeExp_1952   [3m[90m&lt;dbl&gt;[39m[23m 43.077[90m, [39m30.015[90m, [39m38.223[90m, [39m47.622[90m, [39m31.975[90m, [39m39.031[90m, [39m38.523[90m,[39m~
+## $ lifeExp_1957   [3m[90m&lt;dbl&gt;[39m[23m 45.685[90m, [39m31.999[90m, [39m40.358[90m, [39m49.618[90m, [39m34.906[90m, [39m40.533[90m, [39m40.428[90m,[39m~
+## $ lifeExp_1962   [3m[90m&lt;dbl&gt;[39m[23m 48.303[90m, [39m34.000[90m, [39m42.618[90m, [39m51.520[90m, [39m37.814[90m, [39m42.045[90m, [39m42.643[90m,[39m~
+## $ lifeExp_1967   [3m[90m&lt;dbl&gt;[39m[23m 51.407[90m, [39m35.985[90m, [39m44.885[90m, [39m53.298[90m, [39m40.697[90m, [39m43.548[90m, [39m44.799[90m,[39m~
+## $ lifeExp_1972   [3m[90m&lt;dbl&gt;[39m[23m 54.518[90m, [39m37.928[90m, [39m47.014[90m, [39m56.024[90m, [39m43.591[90m, [39m44.057[90m, [39m47.049[90m,[39m~
+## $ lifeExp_1977   [3m[90m&lt;dbl&gt;[39m[23m 58.014[90m, [39m39.483[90m, [39m49.190[90m, [39m59.319[90m, [39m46.137[90m, [39m45.910[90m, [39m49.355[90m,[39m~
+## $ lifeExp_1982   [3m[90m&lt;dbl&gt;[39m[23m 61.368[90m, [39m39.942[90m, [39m50.904[90m, [39m61.484[90m, [39m48.122[90m, [39m47.471[90m, [39m52.961[90m,[39m~
+## $ lifeExp_1987   [3m[90m&lt;dbl&gt;[39m[23m 65.799[90m, [39m39.906[90m, [39m52.337[90m, [39m63.622[90m, [39m49.557[90m, [39m48.211[90m, [39m54.985[90m,[39m~
+## $ lifeExp_1992   [3m[90m&lt;dbl&gt;[39m[23m 67.744[90m, [39m40.647[90m, [39m53.919[90m, [39m62.745[90m, [39m50.260[90m, [39m44.736[90m, [39m54.314[90m,[39m~
+## $ lifeExp_1997   [3m[90m&lt;dbl&gt;[39m[23m 69.152[90m, [39m40.963[90m, [39m54.777[90m, [39m52.556[90m, [39m50.324[90m, [39m45.326[90m, [39m52.199[90m,[39m~
+## $ lifeExp_2002   [3m[90m&lt;dbl&gt;[39m[23m 70.994[90m, [39m41.003[90m, [39m54.406[90m, [39m46.634[90m, [39m50.650[90m, [39m47.360[90m, [39m49.856[90m,[39m~
+## $ lifeExp_2007   [3m[90m&lt;dbl&gt;[39m[23m 72.301[90m, [39m42.731[90m, [39m56.728[90m, [39m50.728[90m, [39m52.295[90m, [39m49.580[90m, [39m50.430[90m,[39m~
+## $ pop_1952       [3m[90m&lt;dbl&gt;[39m[23m 9279525[90m, [39m4232095[90m, [39m1738315[90m, [39m442308[90m, [39m4469979[90m, [39m2445618[90m, [39m50~
+## $ pop_1957       [3m[90m&lt;dbl&gt;[39m[23m 10270856[90m, [39m4561361[90m, [39m1925173[90m, [39m474639[90m, [39m4713416[90m, [39m2667518[90m, [39m5~
+## $ pop_1962       [3m[90m&lt;dbl&gt;[39m[23m 11000948[90m, [39m4826015[90m, [39m2151895[90m, [39m512764[90m, [39m4919632[90m, [39m2961915[90m, [39m5~
+## $ pop_1967       [3m[90m&lt;dbl&gt;[39m[23m 12760499[90m, [39m5247469[90m, [39m2427334[90m, [39m553541[90m, [39m5127935[90m, [39m3330989[90m, [39m6~
+## $ pop_1972       [3m[90m&lt;dbl&gt;[39m[23m 14760787[90m, [39m5894858[90m, [39m2761407[90m, [39m619351[90m, [39m5433886[90m, [39m3529983[90m, [39m7~
+## $ pop_1977       [3m[90m&lt;dbl&gt;[39m[23m 17152804[90m, [39m6162675[90m, [39m3168267[90m, [39m781472[90m, [39m5889574[90m, [39m3834415[90m, [39m7~
+## $ pop_1982       [3m[90m&lt;dbl&gt;[39m[23m 20033753[90m, [39m7016384[90m, [39m3641603[90m, [39m970347[90m, [39m6634596[90m, [39m4580410[90m, [39m9~
+## $ pop_1987       [3m[90m&lt;dbl&gt;[39m[23m 23254956[90m, [39m7874230[90m, [39m4243788[90m, [39m1151184[90m, [39m7586551[90m, [39m5126023[90m, [39m~
+## $ pop_1992       [3m[90m&lt;dbl&gt;[39m[23m 26298373[90m, [39m8735988[90m, [39m4981671[90m, [39m1342614[90m, [39m8878303[90m, [39m5809236[90m, [39m~
+## $ pop_1997       [3m[90m&lt;dbl&gt;[39m[23m 29072015[90m, [39m9875024[90m, [39m6066080[90m, [39m1536536[90m, [39m10352843[90m, [39m6121610[90m,[39m~
+## $ pop_2002       [3m[90m&lt;dbl&gt;[39m[23m 31287142[90m, [39m10866106[90m, [39m7026113[90m, [39m1630347[90m, [39m12251209[90m, [39m7021078~
+## $ pop_2007       [3m[90m&lt;dbl&gt;[39m[23m 33333216[90m, [39m12420476[90m, [39m8078314[90m, [39m1639131[90m, [39m14326203[90m, [39m8390505~</code></pre>
 <hr />
 <div id="issues-with-gapminder_wide" class="section level3">
 <h3>5.2.1 Issues with gapminder_wide</h3>
@@ -4243,13 +4285,17 @@ gapminder_wide %&gt;%
 
   # Pivot the wide data into long format
   # Note that this time we&#39;ve removed some columns as a parameter
-  pivot_longer(., cols = ..., 
-               names_to = &quot;...&quot;, 
-               values_to = &quot;...&quot;) %&gt;% 
+  pivot_longer(., cols = -c(&quot;country&quot;, &quot;continent&quot;), 
+               names_to = &quot;obs_type&quot;, 
+               values_to = &quot;obs_value&quot;) %&gt;% 
   
   # Take a peek at the long-format result
   head()</code></pre>
-<pre><code>## Error in head(.): &#39;...&#39; used in an incorrect context</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["continent"],"name":[1],"type":["chr"],"align":["left"]},{"label":["country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["obs_type"],"name":[3],"type":["chr"],"align":["left"]},{"label":["obs_value"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Africa","2":"Algeria","3":"gdpPercap_1952","4":"2449.008"},{"1":"Africa","2":"Algeria","3":"gdpPercap_1957","4":"3013.976"},{"1":"Africa","2":"Algeria","3":"gdpPercap_1962","4":"2550.817"},{"1":"Africa","2":"Algeria","3":"gdpPercap_1967","4":"3246.992"},{"1":"Africa","2":"Algeria","3":"gdpPercap_1972","4":"4182.664"},{"1":"Africa","2":"Algeria","3":"gdpPercap_1977","4":"4910.417"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="break-up-a-dual-information-variable" class="section level3">
@@ -4273,11 +4319,15 @@ gapminder_wide %&gt;%
                values_to = &quot;obs_value&quot;) %&gt;% 
   
   ### 5.2.2 Separate the data into a category and a year
-  separate(..., c(&quot;obs_type&quot;, &quot;year&quot;), sep = &quot;_&quot;, convert = TRUE) %&gt;% 
+  separate(obs_type, c(&quot;obs_type&quot;, &quot;year&quot;), sep = &quot;_&quot;, convert = TRUE) %&gt;% 
   
   # Take a peek at the long-format result
   head()</code></pre>
-<pre><code>## Error in head(.): &#39;...&#39; used in an incorrect context</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["continent"],"name":[1],"type":["chr"],"align":["left"]},{"label":["country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["obs_type"],"name":[3],"type":["chr"],"align":["left"]},{"label":["year"],"name":[4],"type":["int"],"align":["right"]},{"label":["obs_value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Africa","2":"Algeria","3":"gdpPercap","4":"1952","5":"2449.008"},{"1":"Africa","2":"Algeria","3":"gdpPercap","4":"1957","5":"3013.976"},{"1":"Africa","2":"Algeria","3":"gdpPercap","4":"1962","5":"2550.817"},{"1":"Africa","2":"Algeria","3":"gdpPercap","4":"1967","5":"3246.992"},{"1":"Africa","2":"Algeria","3":"gdpPercap","4":"1972","5":"4182.664"},{"1":"Africa","2":"Algeria","3":"gdpPercap","4":"1977","5":"4910.417"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-pivot_wider-to-widen-your-table-based-on-a-mixed-category-observation" class="section level3">
