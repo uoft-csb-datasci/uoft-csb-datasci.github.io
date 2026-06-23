@@ -4837,10 +4837,8 @@ this will save whatever graphic was last on your screen device.</p>
 would like to have, and the path to your file.</p>
 <pre class="r"><code># Save the last plot displayed by ggplot
 # Assuming you finished the comprehension questions:
-ggsave(&quot;...&quot;, path = &quot;data&quot;)</code></pre>
-<pre><code>## [1m[33mError[39m in `ggsave()`:[22m
-## [1m[22m[33m![39m Can&#39;t save to data/....
-## [36mi[39m Either supply `filename` with a file extension or supply `device`.</code></pre>
+ggsave(&quot;crazy_blue_graph.png&quot;, path = &quot;data&quot;)</code></pre>
+<pre><code>## [1m[22mSaving 7 x 5 in image</code></pre>
 <hr />
 <p>However, in some cases you want to tailor your output. You can
 specify the width, height and units of your image, or you can apply a
@@ -4856,9 +4854,7 @@ saved_plot &lt;- my_plot + theme_personal
 ggsave(&quot;data/mockInfection_boxplot.pdf&quot;, # The path for our output
        plot = saved_plot, # The object we want to save
        device = &quot;pdf&quot;, # explicitly name the type of file we want to make, despite the name
-       scale = 2, width = 250, height = 110, units = &quot;...&quot;) # Set some parameters for the final size</code></pre>
-<pre><code>## [1m[33mError[39m in `plot_dim()`:[22m
-## [1m[22m[33m![39m `units` must be one of &quot;in&quot;, &quot;cm&quot;, &quot;mm&quot;, or &quot;px&quot;, not &quot;...&quot;.</code></pre>
+       scale = 2, width = 250, height = 110, units = &quot;mm&quot;) # Set some parameters for the final size</code></pre>
 <p>No image is sent to the screen device when a file is saved in this
 manner.</p>
 <hr />
