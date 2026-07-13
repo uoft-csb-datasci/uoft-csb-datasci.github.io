@@ -2335,6 +2335,56 @@ save.facet.plot(...)[[2]]</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 </div>
+<div id="implement-a-trycatch-series-to-try-and-capture-your-error" class="section level3">
+<h3>3.6.4 Implement a <code>tryCatch()</code> series to try and capture
+your error</h3>
+<p>Instead of allowing the execution to halt when we reach an error
+maybe we can produce some messages and return a null value? In this
+implementation we will return a <code>NULL</code> value for the user to
+deal with.</p>
+<pre class="r"><code># Make a function to filter data, make the plot, then save the plot
+save.facet.plot &lt;- function(data.df, infDate) {
+    
+  # Initiate a tryCatch and assign its output to a variable
+  out &lt;- ...({
+    # filter the data
+    infection.data &lt;- filter(data.df, infectionDate == infDate)
+    # What happens if we pick a non-existent infection date or if the parameter is not set?
+  },
+  error = function(c) { # The actual error information is passed in as the variable &quot;c&quot;
+    # Assume the error occurs when no infDate is provided
+    message(&quot;Error: potentially missing parameter information&quot;)
+    
+    return(NULL)
+    # return NULL so we can recognize an error has occurred
+    # You&#39;re kind of a function inside a function.
+    # when you return, you&#39;ll leave to the next section.
+      
+  }) # End tryCatch
+  
+  if (...) {
+      
+    # make the plotted data
+    infection.plot &lt;- make.facet.plot(infection.data, infDate)
+
+    # generate a save file name
+    save.file = paste(infDate, &quot;graph.facet.saveFunction.tryCatch.png&quot;, sep = &quot;_&quot;)
+
+    # save the plot
+    ggsave(plot = infection.plot, filename = save.file, path = &quot;data/&quot; ,
+         scale=2, device = &quot;png&quot;, units = c(&quot;cm&quot;))
+
+    #return the file name and data subset
+    return(list(infection.data, infection.plot, save.file))          
+  }
+
+  else return(out) # if it&#39;s an error we&#39;ll get the NULL
+}</code></pre>
+<pre class="r"><code># save a facet plot but look at the output of the plot
+save.facet.plot(embryos.df)[[2]]</code></pre>
+<pre><code>## Error in filter(data.df, infectionDate == infDate): object &#39;data.df&#39; not found</code></pre>
+<hr />
+</div>
 </div>
 </div>
 
