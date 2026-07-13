@@ -2776,6 +2776,33 @@ useful command in the future.</p>
 you’ll want to restore them. It’s as easy as using the command
 <code>load()</code>. Let’s demonstrate, but first we need to clean up
 our current memory with <code>rm()</code></p>
+<pre class="r"><code># Clear memory
+# rm(list = ls())
+# check that it&#39;s clear
+print(ls())</code></pre>
+<pre><code>##  [1] &quot;a&quot;               &quot;anything&quot;        &quot;currMod&quot;         &quot;destinationDir&quot; 
+##  [5] &quot;dexType&quot;         &quot;fname&quot;           &quot;fout&quot;            &quot;get.log10&quot;      
+##  [9] &quot;gitCred&quot;         &quot;githubDir&quot;       &quot;i&quot;               &quot;lastMod&quot;        
+## [13] &quot;lectureDir&quot;      &quot;lectureName&quot;     &quot;mainDir&quot;         &quot;make.facet.plot&quot;
+## [17] &quot;make.power&quot;      &quot;n&quot;               &quot;numVector&quot;       &quot;originDir&quot;      
+## [21] &quot;pokemon&quot;         &quot;programmer&quot;      &quot;renderOut&quot;       &quot;repo&quot;           
+## [25] &quot;repoLocal&quot;       &quot;repoURL&quot;         &quot;result&quot;          &quot;save.facet.plot&quot;
+## [29] &quot;set.facet.plot&quot;  &quot;temp&quot;            &quot;termDir&quot;         &quot;termGit&quot;        
+## [33] &quot;timeout&quot;         &quot;variable&quot;        &quot;x&quot;               &quot;y&quot;</code></pre>
+<pre class="r"><code># reload it all
+...(&quot;./data/Lecture07.all.RData&quot;)</code></pre>
+<pre><code>## Error in ...(&quot;./data/Lecture07.all.RData&quot;): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>print(ls())</code></pre>
+<pre><code>##  [1] &quot;a&quot;               &quot;anything&quot;        &quot;currMod&quot;         &quot;destinationDir&quot; 
+##  [5] &quot;dexType&quot;         &quot;fname&quot;           &quot;fout&quot;            &quot;get.log10&quot;      
+##  [9] &quot;gitCred&quot;         &quot;githubDir&quot;       &quot;i&quot;               &quot;lastMod&quot;        
+## [13] &quot;lectureDir&quot;      &quot;lectureName&quot;     &quot;mainDir&quot;         &quot;make.facet.plot&quot;
+## [17] &quot;make.power&quot;      &quot;n&quot;               &quot;numVector&quot;       &quot;originDir&quot;      
+## [21] &quot;pokemon&quot;         &quot;programmer&quot;      &quot;renderOut&quot;       &quot;repo&quot;           
+## [25] &quot;repoLocal&quot;       &quot;repoURL&quot;         &quot;result&quot;          &quot;save.facet.plot&quot;
+## [29] &quot;set.facet.plot&quot;  &quot;temp&quot;            &quot;termDir&quot;         &quot;termGit&quot;        
+## [33] &quot;timeout&quot;         &quot;variable&quot;        &quot;x&quot;               &quot;y&quot;</code></pre>
+<hr />
 </div>
 </div>
 
