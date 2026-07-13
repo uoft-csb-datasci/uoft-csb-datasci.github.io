@@ -802,23 +802,21 @@ rep(x = 1:5, times = 8)</code></pre>
 <p>Let’s duplicate the function of <code>rep()</code> with a
 <code>for()</code> loop!</p>
 <pre class="r"><code># for loop version variables need to be set
-rm(result, i)  # Remove the variables result and i, if they exist.</code></pre>
-<pre><code>## Warning in rm(result, i): object &#39;result&#39; not found</code></pre>
-<pre><code>## Warning in rm(result, i): object &#39;i&#39; not found</code></pre>
-<pre class="r"><code>x &lt;- ... </code></pre>
+rm(result, i)  # Remove the variables result and i, if they exist.
+x &lt;- ... </code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>n &lt;- ...</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>result &lt;- x # What happens if we remove this line?</code></pre>
-<pre><code>## Error: object &#39;x&#39; not found</code></pre>
-<pre class="r"><code># Build our for loop
+<pre class="r"><code>result &lt;- x # What happens if we remove this line?
+
+# Build our for loop
 for (i in 1:(...)){
   result &lt;- c(result, x)
   print(result)
   }</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>result</code></pre>
-<pre><code>## Error: object &#39;result&#39; not found</code></pre>
+<pre><code>## [1] 10</code></pre>
 <pre class="r"><code>i</code></pre>
 <pre><code>## Error: object &#39;i&#39; not found</code></pre>
 <hr />
@@ -896,7 +894,6 @@ declaring variables in the wrong place, or trying to access ones that no
 longer exist in your scope. Let’s revisit our example from above.</p>
 <pre class="r"><code># Clear some memory and check the value of variables that may already exist
 rm(result, j)</code></pre>
-<pre><code>## Warning in rm(result, j): object &#39;result&#39; not found</code></pre>
 <pre><code>## Warning in rm(result, j): object &#39;j&#39; not found</code></pre>
 <pre class="r"><code>cat(&quot;The prior value of i is :&quot;, i, &quot;\n&quot;)</code></pre>
 <pre><code>## Error in cat(&quot;The prior value of i is :&quot;, i, &quot;\n&quot;): object &#39;i&#39; not found</code></pre>
@@ -1635,6 +1632,92 @@ purpose of one over the other?</p>
 <div id="section-1.0.0-comprehension-answer" class="section level2">
 <h2>Section 1.0.0 comprehension answer:</h2>
 <hr />
+</div>
+</div>
+<div id="increasing-our-complexity-by-combining-for-loops-with-ggplot" class="section level1">
+<h1>2.0.0 Increasing our complexity by combining <code>for()</code>
+loops with <code>ggplot()</code></h1>
+<p>Let’s say, we are ready to start making some plots for our
+manuscript, and we want to make <strong><em>individual
+plots</em></strong> for each <code>infectionDate</code> (replicate). The
+code below makes a boxplot for each worm strain from the 190423
+replicate of our data.</p>
+<pre class="r"><code>ggplot(embryos.df[embryos.df$infectionDate == &quot;190423&quot;,]) +
+  #2 Aesthetics
+  aes(x = ..., y = ..., fill = wormStrain) +
+  # 4. Geoms
+  geom_boxplot()</code></pre>
+<pre><code>## Error in ggplot(embryos.df[embryos.df$infectionDate == &quot;190423&quot;, ]): object &#39;embryos.df&#39; not found</code></pre>
+<hr />
+<p>But what if I were to have, say, multiple infection dates? In this
+case, a for loop will be the way to go. Take a look at the following
+code:</p>
+<pre class="r"><code># Loop through the possible infection dates
+for (...) {
+
+  infectionRep &lt;-
+  
+    ggplot(embryos.df[embryos.df$infectionDate == i,]) +
+      #2 Aesthetics
+      aes(x = wormStrain, y = embryos, fill = wormStrain) +
+      theme_grey() +
+      ggtitle(&quot;Embryo counts&quot;) + # plot title
+      # 4. Geoms
+      geom_boxplot()
+  
+  print(infectionRep) # This is the only way to view the plot in a for loop
+      
+  # Save each plot as it&#39;s generated
+  ggsave(plot = infectionRep, filename = paste(i, &quot;boxplot.png&quot;, sep = &quot;_&quot;), path = &quot;data/&quot; , 
+         scale=1, device = &quot;png&quot;, units = c(&quot;in&quot;))
+}</code></pre>
+<pre><code>## Error in parse(text = input): &lt;text&gt;:2:9: unexpected &#39;)&#39;
+## 1: # Loop through the possible infection dates
+## 2: for (...)
+##            ^</code></pre>
+<hr />
+<div id="take-advantage-of-for-loop-variables-to-customize-output-in-each-loop" class="section level2">
+<h2>2.1.0 Take advantage of for loop variables to customize output in
+each loop</h2>
+<p>From above you can see that we can take advantage of our variables
+that increment within the <code>for()</code> loop. We can use it to help
+subset data, generate titles, and file names. You can use it in
+combination with other control statements to update the image as well!
+Just remember to avoid generating errors within your <code>for()</code>
+loop when access or altering data. Ensure you aren’t trying to reference
+or alter data or subsets that do not exist due to missing information in
+your original datasets.</p>
+<p>What if I want to facet our data for each infection date across
+<code>sporeStrain</code> and <code>doseLevel</code>?</p>
+<pre class="r"><code># Loop through the possible infection dates
+for (i in unique(embryos.df$infectionDate)) {
+
+  infectionRep &lt;-
+
+    ggplot(embryos.df[embryos.df$infectionDate == i,]) +
+      # 2. Aesthetics
+      aes(x = wormStrain, y = embryos, fill = wormStrain) +
+      theme_grey() +
+      # We&#39;ll need to rotate the x-axis text if we keep the figure size about 12&quot; wide
+      theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+    
+      ### 2.1.0 Alter the title of the plot based on the infection date!
+      ggtitle(paste0(&quot;Embryo counts on infection date: &quot;, i)) + # plot title
+      # 4. Geoms
+      geom_boxplot() +
+      # 6. Facets
+      facet_grid(...)  ### 2.1.0 Facet our data by strain and dose
+
+      # Only print the 190423 dataset
+  if (i == &quot;190423&quot;) {
+    print(infectionRep) # The only way to see the plot is to print it within a for loop
+  }
+          
+  # Save each plot as it&#39;s generated
+  ggsave(plot = infectionRep, filename = paste(i, &quot;boxplot.facet.png&quot;, sep = &quot;_&quot;), path = &quot;data/&quot; , 
+         scale=1, device = &quot;png&quot;, width = 12, height = 7, units = c(&quot;in&quot;))
+}</code></pre>
+<pre><code>## Error in unique(embryos.df$infectionDate): object &#39;embryos.df&#39; not found</code></pre>
 </div>
 </div>
 
