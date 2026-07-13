@@ -2065,6 +2065,153 @@ save.facet.plot(embryos.df)</code></pre>
 infectionDate value in the dataset we provide? What kind of assumptions
 will you have to assume about the data?</p>
 </div>
+<div id="user-defined-functions-can-also-define-functions" class="section level2">
+<h2>3.4.0 User-defined functions can also define functions</h2>
+<p>While a rarer occurrence, your user-defined functions can be used to
+instantiate and return a function itself. In these cases, the scoping of
+your variables can become a little trickier but variables within your
+code can be set using parameters from the initial function.</p>
+<p>Let’s start with a simple example before we return to our plot-saving
+function.</p>
+<pre class="r"><code># Define our function(s)
+make.power &lt;- function(...) { # This sets the variable values (via lexical scoping) of the exponent
+    
+    pow &lt;- function(...) { # When we call on the resulting function it will require a base value
+        
+        base^power # Make the actual calculation
+    }    
+}</code></pre>
+<pre class="r"><code># Define a new function that does cubic calculations
+cube = make.power(...)</code></pre>
+<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code># Now we have a function cube() that takes a parameter called base to calculate base^power
+
+# Call on our cubic function using a base of 4
+cube(...)</code></pre>
+<pre><code>## Error in cube(...): could not find function &quot;cube&quot;</code></pre>
+<hr />
+<p>Now let’s revisit our plot-saving function. We’ll make a new
+plot-setting function that we can use to permanently set the data frame
+that is used when making plots. We can initialize this newly set
+function and save it as the function <code>set.facet.plot()</code>.</p>
+<pre class="r"><code># Description: This function, given a set of data from the embryo.df format will produce
+#              a faceted series of box plots for a specific infections date organized by sporeStrain and doseLevel
+
+# Input: 
+# data.df: a data frame at least with the following column names
+# $infectionDate, $wormStrain, $sporeStrain, $doseLevel
+# infDate: a character string used to subset the data
+
+# Output: make.facet.plot will generate a facet plot from data.df based on the infDate variable
+# The plot will be saved to a file ending in &quot;boxplot.facet.function.png&quot;
+# It will return 
+# [1] subset data
+# [2] ggplot object 
+# [3] save plot filename
+
+### 3.4.0 Define a new function where we set the data.df parameter as input.
+set.facet.plot &lt;- function(...) {
+
+  # Set the default value of infDate to 190423
+  save.facet.plot &lt;- function(infDate = &quot;190423&quot;) {
+
+    # We&#39;ve updated the plot to use a filter() function!
+    infection.data &lt;- data.df %&gt;% filter(infectionDate == infDate)
+
+    infectionPlot &lt;-
+
+      ggplot(infection.data) +
+  
+        # 2. Aesthetics
+        aes(x = wormStrain, y = embryos, fill = wormStrain) +
+        theme_grey() +
+        # We&#39;ll need to rotate the x-axis text if we keep the figure size about 12&quot; wide
+        theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+        ggtitle(paste0(&quot;Embryo counts on infection date: &quot;, infDate)) + # plot title
+  
+        # 4. Geoms
+        geom_boxplot() +
+  
+        # 6. Facets
+        facet_grid(sporeStrain ~ doseLevel)
+
+    # Save the name of the plot file
+    save.file = paste(infDate, &quot;graph.facet.function.png&quot;, sep = &quot;_&quot;)
+
+    # Save each plot as it&#39;s generated
+    ggsave(plot = infectionPlot, 
+           filename = paste(infDate, &quot;boxplot.facet.saveFunction.png&quot;, sep = &quot;_&quot;), 
+           path = &quot;data/&quot; , 
+           scale=1, device = &quot;png&quot;, width = 12, height = 7, units = c(&quot;in&quot;))
+
+    #return the file name and data subset
+    return(list(infection.data, infectionPlot, save.file))    
+
+  }
+}</code></pre>
+<pre class="r"><code># Step 2. Make a function where the data set is embryos.df
+make.embryo.plot &lt;- set.facet.plot(...)</code></pre>
+<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code># Make a plot and filter it by infection Date
+infection.results &lt;- make.embryo.plot(&quot;...&quot;)</code></pre>
+<pre><code>## Error in make.embryo.plot(&quot;...&quot;): could not find function &quot;make.embryo.plot&quot;</code></pre>
+<pre class="r"><code>infection.results[[2]]</code></pre>
+<pre><code>## Error: object &#39;infection.results&#39; not found</code></pre>
+<hr />
+</div>
+<div id="the-stop-function-exits-a-function-with-a-message" class="section level2">
+<h2>3.5.0 The <code>stop()</code> function exits a function with a
+message</h2>
+<p>Sometimes you might produce a function that could fail at a number of
+points for various reasons. While the R-kernel may simply produce a
+warning and proceed, you may wish to stop the function wherever it is
+rather than proceeding. Using the <code>stop()</code> function can help
+produce “controlled” error stopping points in your program. You can also
+include an optional message that will help to clarify why you have
+stopped the function.</p>
+<p>First, however, let’s produce a simple example of using the
+<code>stop()</code> function.</p>
+<pre class="r"><code># Let&#39;s see what happens when we work with the log function
+log10(1)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>log10(0)</code></pre>
+<pre><code>## [1] -Inf</code></pre>
+<pre class="r"><code>log10(...)</code></pre>
+<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<hr />
+<p>Suppose we aren’t interested in producing <code>-Inf</code> or
+<code>NaN</code> values? We can build a wrapper around the
+<code>log10</code> function with some conditional branching inside
+it.</p>
+<pre class="r"><code>get.log10 &lt;- function(x) {
+    
+  if(x &lt;= 0) ...(&quot;Execution stopped: &quot;, x, &quot; is not acceptable input&quot;)
+  log10(x)
+}
+
+get.log10(1) # test our function</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>get.log10(-1) # Check it will stop when it&#39;s supposed to</code></pre>
+<pre><code>## Error in ...(&quot;Execution stopped: &quot;, x, &quot; is not acceptable input&quot;): could not find function &quot;...&quot;</code></pre>
+<pre class="r"><code>get.log10(10) # Will this code run?</code></pre>
+<pre><code>## [1] 1</code></pre>
+<hr />
+</div>
+<div id="use-trycatch-to-identify-errors-without-stopping" class="section level2">
+<h2>3.6.0 Use <code>tryCatch()</code> to identify errors without
+stopping</h2>
+<p>In our above example of <code>stop()</code> the result of using it
+halts the execution of our code. Instead, sometimes we may wish to note
+an error has occurred but we also want to proceed with the remainder of
+the code. In that case you can use the <code>tryCatch()</code> function
+which takes on a somewhat complex structure.</p>
+<p>The <code>tryCatch()</code> function can be used to run an expression
+(or lines of code) and if an <code>error</code> or <code>warning</code>
+is produced, it can catch the result without halting your program’s
+execution. Additional message information can be produced in each case
+so that the user can be warned of potential issues. Using
+<code>tryCatch()</code> takes the form of:</p>
+</div>
 </div>
 
 
