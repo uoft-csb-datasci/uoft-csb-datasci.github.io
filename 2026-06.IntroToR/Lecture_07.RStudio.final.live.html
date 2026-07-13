@@ -2211,6 +2211,130 @@ is produced, it can catch the result without halting your program’s
 execution. Additional message information can be produced in each case
 so that the user can be warned of potential issues. Using
 <code>tryCatch()</code> takes the form of:</p>
+<pre><code>func_name = function(input) {
+    out &lt;- tryCatch({ ## This is where we try code that might fail
+                     expression(s) },
+                     
+                     warning = function(condition) {
+                     ## statements to execute upon warning
+                     message(&quot;Optional consolidated warning message&quot;) 
+                     return() # optional return value
+                     },
+                     
+                     error = function(condition) {
+                     ## statements to execute upon error
+                     message(&quot;Optional consolidated error message&quot;) 
+                     return() # optional return value 
+                     },
+                     
+                     finally = { 
+                     ## Code to complete regardless of an error
+                     }
+                   ) ## End of tryCatch
+                     
+    return(out)
+}    
+                     </code></pre>
+<div id="remember-that-your-functions-should-do-one-thing-well" class="section level3">
+<h3>3.6.1 Remember that your functions should do one thing well</h3>
+<p>Let’s focus again on our plotting functions we produced. Previously
+our versions of <code>save.facet.plot()</code> included steps where the
+input was being filtered - sometimes by sub-functions that should just
+be producing a plot object. To remedy this we’ll go back to our rule of
+“Do One Thing” and we’ll generate <code>make.facet.plot()</code> so that
+it’s sole purpose is to produce a plot when given a filtered dataset
+<code>infection.data</code> and a specific infection date
+<code>infDate</code>.</p>
+<pre class="r"><code># Simplify our main function which takes in pre-filtered data and plots it
+# Define a new function where we set the data.df parameter as input.
+# @Input
+# infection.data: a filtered set of infection data that represents a single replicate date
+# infDate: the actual replicate date that will be used in the title information
+
+# Set the default value of infDate to 190423
+make.facet.plot &lt;- function(infection.data, infDate) {
+
+  infectionPlot &lt;-
+
+  ggplot(infection.data) +
+
+    # 2. Aesthetics
+    aes(x = wormStrain, y = embryos, fill = wormStrain) +
+    theme_grey() +
+    # We&#39;ll need to rotate the x-axis text if we keep the figure size about 12&quot; wide
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+    ggtitle(paste0(&quot;Embryo counts on infection date: &quot;, infDate)) + # plot title
+
+    # 4. Geoms
+    geom_boxplot() +
+
+    # 6. Facets
+    facet_grid(sporeStrain ~ doseLevel)
+
+  return(infectionPlot)
+
+}</code></pre>
+<hr />
+</div>
+<div id="call-on-subfunctions-within-your-function-to-simplify-debugging" class="section level3">
+<h3>3.6.2 Call on subfunctions within your function to simplify
+debugging</h3>
+<p>One of the things you can do as your functions and needs become more
+complex is to nest functions within other functions. We’ve already
+applied this when we call <code>ggplot()</code> functions within
+<code>save.facet.plot()</code>.</p>
+<p>Next we want to generate a second function that will be able to
+filter a set like <code>embryos.df</code>, call on
+<code>make.facet.plot()</code>, and save the results as needed. In doing
+so we simplify the debugging process and it will help when we begin to
+incorporate a <code>tryCatch()</code> structure into our code.</p>
+<pre class="r"><code># Make a function to filter data, make the plot, then save the plot
+# @Input
+# data.df: A dataset containing individual observations of embryo counts with at least: 
+#          $wormStrain, $embryos, $infectionDate
+# infDate: The infection date to filter data.df
+#
+# @Output
+# List of 3 objects: 1) Filtered infection data
+#                    2) A ggplot object of the infection data
+#                    3) file name of saved plot
+
+save.facet.plot &lt;- function(...) {
+
+    # filter the data
+    infection.data &lt;- filter(data.df, infectionDate == infDate)
+        
+    # make the plotted data
+    infection.plot &lt;- make.facet.plot(infection.data, infDate)
+
+    # generate a save file name
+    save.file = paste(infDate, &quot;graph.facet.saveFunction2.png&quot;, sep = &quot;_&quot;)
+
+    # save the plot
+    ggsave(plot = infection.plot, filename = save.file, path = &quot;data/&quot; ,
+         scale=1, device = &quot;png&quot;, units = c(&quot;in&quot;))
+
+    #return the file name and data subset
+    return(list(infection.data, infection.plot, save.file))   
+}
+
+# save a facet plot but look at the output of the plot
+save.facet.plot(embryos.df, &quot;200704&quot;)[[2]]</code></pre>
+<pre><code>## Error in filter(data.df, infectionDate == infDate): object &#39;data.df&#39; not found</code></pre>
+<hr />
+</div>
+<div id="test-the-boundary-cases-of-your-function" class="section level3">
+<h3>3.6.3 Test the boundary cases of your function</h3>
+<p>Here’s where we need to get creative. What would happen inside
+<code>save.facet.plot()</code> if we happened to forget to supply a
+<code>infDate</code> parameter to our call? Previously we included a
+default value like “190423” but we have no do so here. Using a call like
+<code>save.face.plot(embryos.df)</code> will produce an error.</p>
+<pre class="r"><code># save a facet plot but but don&#39;t provide an infection date
+save.facet.plot(...)[[2]]</code></pre>
+<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<hr />
+</div>
 </div>
 </div>
 
