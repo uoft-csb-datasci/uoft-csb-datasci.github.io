@@ -2896,16 +2896,16 @@ a;b</code></pre>
 result &lt;- ...</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>result</code></pre>
-<pre><code>## [1] 10406.94</code></pre>
+<pre><code>## Error: object &#39;result&#39; not found</code></pre>
 <pre class="r"><code># make a calculation
 result ^ pi</code></pre>
-<pre><code>## [1] 4.176305e+12</code></pre>
+<pre><code>## Error: object &#39;result&#39; not found</code></pre>
 <pre class="r"><code># Use and overwrite the current value of &quot;result&quot;
 result &lt;- ... </code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># this PERMANENTLY overwrote your old &#39;result&#39; object. If this is an important value be sure to keep it safe!
 result</code></pre>
-<pre><code>## [1] 10406.94</code></pre>
+<pre><code>## Error: object &#39;result&#39; not found</code></pre>
 <div class="alert alert-block alert-warning">
 <p><strong>Caution!</strong> Variable names are case-sensitive. When
 assigning variables, remember to use original, descriptive names to
@@ -3037,9 +3037,9 @@ X &lt;- ...</code></pre>
 <pre class="r"><code>b &lt;- 10
 
 str(X)</code></pre>
-<pre><code>##  num 5</code></pre>
+<pre><code>## Error in str(X): object &#39;X&#39; not found</code></pre>
 <pre class="r"><code>X</code></pre>
-<pre><code>## [1] 5</code></pre>
+<pre><code>## Error: object &#39;X&#39; not found</code></pre>
 <hr />
 </div>
 <div id="vectors-are-like-a-queue-of-a-single-data-type" class="section level3">
@@ -3058,12 +3058,12 @@ use less than doubles!</p>
 character_vector &lt;- c(...)</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>character_vector</code></pre>
-<pre><code>## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot;</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code># numeric vectors
 numeric_vector &lt;- c(...) # The colon specifies an inclusive range of values</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>numeric_vector</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre><code>## Error: object &#39;numeric_vector&#39; not found</code></pre>
 <pre class="r"><code># logical vectors
 logical_vector &lt;- c(...) # TRUE and FALSE are also know as &quot;boolean&quot; values</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
@@ -3077,15 +3077,15 @@ integer_vector &lt;- c(...) </code></pre>
 # A double (&quot;numeric&quot;) vector uses 8 bytes per element. An integer vector uses only 4 bytes per element
 
 integer_vector</code></pre>
-<pre><code>## [1] 1 8</code></pre>
+<pre><code>## Error: object &#39;integer_vector&#39; not found</code></pre>
 <pre class="r"><code># What happens if we try to include more than one type of data?
 mixed_vector &lt;- c(...)</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>mixed_vector</code></pre>
-<pre><code>## [1] &quot;bacteria&quot; &quot;1&quot;        &quot;TRUE&quot;     NA</code></pre>
+<pre><code>## Error: object &#39;mixed_vector&#39; not found</code></pre>
 <pre class="r"><code># Let&#39;s look at the structure of our vector
 str(mixed_vector)</code></pre>
-<pre><code>##  chr [1:4] &quot;bacteria&quot; &quot;1&quot; &quot;TRUE&quot; NA</code></pre>
+<pre><code>## Error in str(mixed_vector): object &#39;mixed_vector&#39; not found</code></pre>
 <hr />
 </div>
 <div id="coercion-changes-data-from-one-type-to-another-if-possible" class="section level3">
@@ -3159,9 +3159,9 @@ function. We’ll learn additional functions later that we can apply
 broadly to retrieve information about various objects.</p>
 <pre class="r"><code># The number of elements in a vector is its length.
 length(character_vector)</code></pre>
-<pre><code>## [1] 3</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code>length(numeric_vector)</code></pre>
-<pre><code>## [1] 10</code></pre>
+<pre><code>## Error: object &#39;numeric_vector&#39; not found</code></pre>
 <pre class="r"><code>length(...)</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
@@ -3195,10 +3195,10 @@ system like C++, Java, or Python.</p>
 </div>
 <pre class="r"><code># Display our character vector again
 character_vector</code></pre>
-<pre><code>## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot;</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code># You can grab a specific element by its index
 character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code># Use the &quot;:&quot; to generate a range of indices automatically as a vector
 
 1:10 # All positive values</code></pre>
@@ -3209,15 +3209,15 @@ character_vector[...]</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>#second and third element in the vector inclusive (varies across programming languages)
 character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code>#you can use negative indexing to select &#39;everything but&#39;
 character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code>character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code># You can&#39;t mix negative and positive values!
 character_vector[c(-1, 2)]</code></pre>
-<pre><code>## Error in character_vector[c(-1, 2)]: only 0&#39;s may be mixed with negative subscripts</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code># You can grab elements by their assigned &quot;names&quot;
 logical_vector[...]</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
@@ -3538,9 +3538,9 @@ Because of this</p>
 behave like characters)</li>
 </ul>
 <pre class="r"><code>class(character_vector)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre><code>## Error: object &#39;character_vector&#39; not found</code></pre>
 <pre class="r"><code>class(numeric_vector)</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre><code>## Error: object &#39;numeric_vector&#39; not found</code></pre>
 <pre class="r"><code>class(...)</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <p>Some R package developers have created their own object classes. We
@@ -3624,11 +3624,7 @@ my_matrix</code></pre>
 new_data_frame &lt;- ...(my_matrix)</code></pre>
 <pre><code>## Error in ...(my_matrix): could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code>new_data_frame</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["newcol1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["col2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["newcol3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["col4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["newcol5"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre><code>## Error: object &#39;new_data_frame&#39; not found</code></pre>
 <hr />
 </div>
 <div id="you-can-access-and-rename-data-frame-columns-like-a-header-with-colnames" class="section level3">
@@ -3644,21 +3640,13 @@ rename specific columns as you see fit.</p>
 #equivalent to
 ... &lt;- c(paste0(rep(&quot;col&quot;,5), 1:5))
 new_data_frame</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["newcol1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["col2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["newcol3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["col4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["newcol5"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre><code>## Error: object &#39;new_data_frame&#39; not found</code></pre>
 <pre class="r"><code># Rename our columns using specific positions
 colnames(new_data_frame)[...] = c(&quot;newcol1&quot;, &quot;newcol3&quot;, &quot;newcol5&quot;)</code></pre>
-<pre><code>## Error in colnames(new_data_frame)[...] = c(&quot;newcol1&quot;, &quot;newcol3&quot;, &quot;newcol5&quot;): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error in colnames(new_data_frame)[...] = c(&quot;newcol1&quot;, &quot;newcol3&quot;, &quot;newcol5&quot;): object &#39;new_data_frame&#39; not found</code></pre>
 <pre class="r"><code># Let&#39;s check our handiwork
 new_data_frame</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["newcol1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["col2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["newcol3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["col4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["newcol5"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"},{"1":"0","2":"0","3":"1","4":"1","5":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre><code>## Error: object &#39;new_data_frame&#39; not found</code></pre>
 <div class="alert alert-block alert-success">
 <p><strong>The paste() and paste0() functions</strong> allow you to
 concatenate (that means join!) multiple sets of characters or
@@ -3685,18 +3673,12 @@ logicals?</p>
 new_matrix &lt;- ...(my_data_frame)</code></pre>
 <pre><code>## Error in ...(my_data_frame): could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code>str(new_matrix)</code></pre>
-<pre><code>##  chr [1:3, 1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;TRUE&quot; &quot;FALSE&quot; ...
-##  - attr(*, &quot;dimnames&quot;)=List of 2
-##   ..$ : NULL
-##   ..$ : chr [1:3] &quot;charCol&quot; &quot;numCol&quot; &quot;logCol&quot;</code></pre>
+<pre><code>## Error in str(new_matrix): object &#39;new_matrix&#39; not found</code></pre>
 <pre class="r"><code>new_matrix</code></pre>
-<pre><code>##      charCol    numCol logCol 
-## [1,] &quot;bacteria&quot; &quot;1&quot;    &quot;TRUE&quot; 
-## [2,] &quot;virus&quot;    &quot;2&quot;    &quot;FALSE&quot;
-## [3,] &quot;archaea&quot;  &quot;3&quot;    &quot;TRUE&quot;</code></pre>
+<pre><code>## Error: object &#39;new_matrix&#39; not found</code></pre>
 <pre class="r"><code># Let&#39;s look at the &quot;numCol&quot; column closer
 str(new_matrix[...])</code></pre>
-<pre><code>## Error in str(new_matrix[...]): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## Error in str(new_matrix[...]): object &#39;new_matrix&#39; not found</code></pre>
 <p>Notice that the numeric vector is now character!</p>
 <hr />
 </div>
@@ -3731,14 +3713,7 @@ mixed_list &lt;- ...(character = c(&#39;bacteria&#39;, &#39;virus&#39;, &#39;arc
                    log = c(TRUE, FALSE, TRUE))</code></pre>
 <pre><code>## Error in ...(character = c(&quot;bacteria&quot;, &quot;virus&quot;, &quot;archaea&quot;), num = c(1:10), : could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code>print(mixed_list)</code></pre>
-<pre><code>## $character
-## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot; 
-## 
-## $num
-##  [1]  1  2  3  4  5  6  7  8  9 10
-## 
-## $log
-## [1]  TRUE FALSE  TRUE</code></pre>
+<pre><code>## Error in print(mixed_list): object &#39;mixed_list&#39; not found</code></pre>
 <hr />
 </div>
 <div id="lists-can-get-complicated." class="section level3">
@@ -3751,10 +3726,7 @@ data types of our vectors for us when we first instantiate them into
 <p>You can (and should) call <code>str()</code> on any R object. You can
 also try it on one of our vectors.</p>
 <pre class="r"><code>str(mixed_list)</code></pre>
-<pre><code>## List of 3
-##  $ character: chr [1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;
-##  $ num      : int [1:10] 1 2 3 4 5 6 7 8 9 10
-##  $ log      : logi [1:3] TRUE FALSE TRUE</code></pre>
+<pre><code>## Error in str(mixed_list): object &#39;mixed_list&#39; not found</code></pre>
 <pre class="r"><code>str(...)</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
@@ -3788,18 +3760,17 @@ print(&quot;Retrieve a single element&quot;)</code></pre>
 print(&quot;What kind of object is it?&quot;)</code></pre>
 <pre><code>## [1] &quot;What kind of object is it?&quot;</code></pre>
 <pre class="r"><code>str(mixed_list[[1]])</code></pre>
-<pre><code>##  chr [1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;</code></pre>
+<pre><code>## Error in str(mixed_list[[1]]): object &#39;mixed_list&#39; not found</code></pre>
 <pre class="r"><code># Compare to using single []
 print(&quot;Contrast to using the [] notation&quot;)</code></pre>
 <pre><code>## [1] &quot;Contrast to using the [] notation&quot;</code></pre>
 <pre class="r"><code>str(mixed_list[1])</code></pre>
-<pre><code>## List of 1
-##  $ character: chr [1:3] &quot;bacteria&quot; &quot;virus&quot; &quot;archaea&quot;</code></pre>
+<pre><code>## Error in str(mixed_list[1]): object &#39;mixed_list&#39; not found</code></pre>
 <pre class="r"><code># Access using a named element
 print(&quot;What is returned using an element&#39;s name?&quot;)</code></pre>
 <pre><code>## [1] &quot;What is returned using an element&#39;s name?&quot;</code></pre>
 <pre class="r"><code>str(mixed_list$...)</code></pre>
-<pre><code>##  NULL</code></pre>
+<pre><code>## Error in str(mixed_list$...): object &#39;mixed_list&#39; not found</code></pre>
 <hr />
 </div>
 <div id="use-additional-levels-of-notation-to-access-sub-elements-of-a-list" class="section level3">
@@ -3873,12 +3844,10 @@ take even if those values are not in your data set. Think of
 <pre class="r"><code>crazy_factor = ...(c(&quot;up&quot;, &quot;down&quot;, &quot;down&quot;, &quot;sideways&quot;, &quot;up&quot;))</code></pre>
 <pre><code>## Error in ...(c(&quot;up&quot;, &quot;down&quot;, &quot;down&quot;, &quot;sideways&quot;, &quot;up&quot;)): could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code>crazy_factor</code></pre>
-<pre><code>## [1] up       down     down     sideways up      
-## Levels: down sideways up</code></pre>
+<pre><code>## Error: object &#39;crazy_factor&#39; not found</code></pre>
 <pre class="r"><code># or
 print(crazy_factor) </code></pre>
-<pre><code>## [1] up       down     down     sideways up      
-## Levels: down sideways up</code></pre>
+<pre><code>## Error in print(crazy_factor): object &#39;crazy_factor&#39; not found</code></pre>
 <pre class="r"><code># print() is needed inside iterative functions (e.g. looping) to actually print the output that is being generated</code></pre>
 <hr />
 <div id="use-levels-to-access-factor-information" class="section level3">
@@ -3893,7 +3862,7 @@ functions which will return the number of levels.</p>
 <pre><code>## Error in ...(crazy_factor): could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code># Is it a vector?
 is.vector(levels(crazy_factor))</code></pre>
-<pre><code>## [1] TRUE</code></pre>
+<pre><code>## Error in levels(crazy_factor): object &#39;crazy_factor&#39; not found</code></pre>
 <pre class="r"><code># How many levels does crazy_factor have?
 ...(crazy_factor)</code></pre>
 <pre><code>## Error in ...(crazy_factor): could not find function &quot;...&quot;</code></pre>
