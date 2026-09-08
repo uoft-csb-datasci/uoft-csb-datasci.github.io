@@ -3123,9 +3123,9 @@ logical_vector</code></pre>
 ##         TRUE        FALSE         TRUE</code></pre>
 <pre class="r"><code>#is equivalent to 
 
-logical_vector &lt;- c(&quot;male&quot; = TRUE, &quot;elderly&quot; = FALSE, &quot;heart attack&quot; = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># What does this syntax remind you of?
+logical_vector &lt;- c(&quot;male&quot; = TRUE, &quot;elderly&quot; = FALSE, &quot;heart attack&quot; = TRUE)
+
+# What does this syntax remind you of?
 
 logical_vector</code></pre>
 <pre><code>##         male      elderly heart attack 
@@ -3150,8 +3150,8 @@ length(character_vector)</code></pre>
 <pre><code>## [1] 3</code></pre>
 <pre class="r"><code>length(numeric_vector)</code></pre>
 <pre><code>## [1] 10</code></pre>
-<pre class="r"><code>length(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>length(logical_vector)</code></pre>
+<pre><code>## [1] 3</code></pre>
 <hr />
 </div>
 <div id="use-the-indexing-operator-to-extract-values" class="section level3">
@@ -3185,32 +3185,34 @@ system like C++, Java, or Python.</p>
 character_vector</code></pre>
 <pre><code>## [1] &quot;bacteria&quot; &quot;virus&quot;    &quot;archaea&quot;</code></pre>
 <pre class="r"><code># You can grab a specific element by its index
-character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+character_vector[3]</code></pre>
+<pre><code>## [1] &quot;archaea&quot;</code></pre>
 <pre class="r"><code># Use the &quot;:&quot; to generate a range of indices automatically as a vector
 
 1:10 # All positive values</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<pre class="r"><code>... # Negative values to 0</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>... # A range spanning across negative to positive values</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>-5:0 # Negative values to 0</code></pre>
+<pre><code>## [1] -5 -4 -3 -2 -1  0</code></pre>
+<pre class="r"><code>-5:5 # A range spanning across negative to positive values</code></pre>
+<pre><code>##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</code></pre>
 <pre class="r"><code>#second and third element in the vector inclusive (varies across programming languages)
-character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+character_vector[2:3]</code></pre>
+<pre><code>## [1] &quot;virus&quot;   &quot;archaea&quot;</code></pre>
 <pre class="r"><code>#you can use negative indexing to select &#39;everything but&#39;
-character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>character_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+character_vector[-2]</code></pre>
+<pre><code>## [1] &quot;bacteria&quot; &quot;archaea&quot;</code></pre>
+<pre class="r"><code>character_vector[c(-2,-3)]</code></pre>
+<pre><code>## [1] &quot;bacteria&quot;</code></pre>
 <pre class="r"><code># You can&#39;t mix negative and positive values!
 character_vector[c(-1, 2)]</code></pre>
 <pre><code>## Error in character_vector[c(-1, 2)]: only 0&#39;s may be mixed with negative subscripts</code></pre>
 <pre class="r"><code># You can grab elements by their assigned &quot;names&quot;
-logical_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>logical_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+logical_vector[&quot;male&quot;]</code></pre>
+<pre><code>## male 
+## TRUE</code></pre>
+<pre class="r"><code>logical_vector[c(&quot;male&quot;, &quot;elderly&quot;)]</code></pre>
+<pre><code>##    male elderly 
+##    TRUE   FALSE</code></pre>
 <hr />
 <div class="alert alert-block alert-danger">
 <p><strong>Section 3.2.3 Comprehension Question:</strong> Look at the
