@@ -2856,10 +2856,39 @@ installed (surprisingly called ‘googlesheets4’) in section
 out of R. For more information on googlesheets, checkout more at the <a href="https://googlesheets4.tidyverse.org/">tidyverse/googlesheets4
 page</a></p>
 <pre class="r"><code># Let&#39;s assign our first sheet to it&#39;s own variable
-metadata_sheet.df &lt;- ...(excel_sheets_list[[1]])</code></pre>
-<pre><code>## Error in ...(excel_sheets_list[[1]]): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code>str(metadata_sheet.df)</code></pre>
-<pre><code>## Error in str(metadata_sheet.df): object &#39;metadata_sheet.df&#39; not found</code></pre>
+metadata_sheet.df &lt;- as.data.frame(excel_sheets_list[[1]])
+
+str(metadata_sheet.df)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    276 obs. of  29 variables:
+##  $ experiment       : chr  &quot;190426_VC20019_LUAm1_0M_72hpi&quot; &quot;190426_VC20019_LUAm1_10M_72hpi&quot; &quot;190426_VC20019_LUAm1_20M_72hpi&quot; &quot;190426_N2_LUAm1_0M_72hpi&quot; ...
+##  $ experimenter     : chr  &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; ...
+##  $ description      : chr  &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; ...
+##  $ Infection Date   : num  190423 190423 190423 190423 190423 ...
+##  $ Plate Number     : num  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Worm_strain      : chr  &quot;VC20019&quot; &quot;VC20019&quot; &quot;VC20019&quot; &quot;N2&quot; ...
+##  $ Total Worms      : num  1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ...
+##  $ Spore Strain     : chr  &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; ...
+##  $ Spore Lot        : chr  &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; ...
+##  $ Lot concentration: num  176000 176000 176000 176000 176000 176000 176000 176000 176000 176000 ...
+##  $ Total Spores (M) : num  0 10 20 0 10 20 0 10 20 0 ...
+##  $ Total ul spore   : num  0 56.8 113.6 0 56.8 ...
+##  $ Infection Round  : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ 40X OP50 (mL)    : num  0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 ...
+##  $ Plate Size       : num  6 6 6 6 6 6 6 6 6 6 ...
+##  $ Spores/cm2       : num  0 0.354 0.708 0 0.354 ...
+##  $ Time plated      : chr  &quot;1300&quot; &quot;1300&quot; &quot;1300&quot; &quot;1300&quot; ...
+##  $ Time Incubated   : chr  &quot;1600&quot; &quot;1600&quot; &quot;1600&quot; &quot;1600&quot; ...
+##  $ Temp             : num  21 21 21 21 21 21 21 21 21 21 ...
+##  $ timepoint        : chr  &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; &quot;72hpi&quot; ...
+##  $ infection.type   : chr  &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; ...
+##  $ Fixing Date      : num  190426 190426 190426 190426 190426 ...
+##  $ Location         : chr  &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; ...
+##  $ Staining Date    : num  190513 190513 190513 190430 190513 ...
+##  $ Stain type       : chr  &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;DY96&quot; ...
+##  $ Slide date       : num  190515 190515 190515 190501 190515 ...
+##  $ Slide number     : num  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Slide Box        : num  2 2 2 2 2 2 2 2 2 2 ...
+##  $ Imaging Date     : num  190516 190516 190516 190502 190516 ...</code></pre>
 <div class="alert alert-block alert-warning">
 <p><strong>Caution: What’s the difference between data.frame() and
 as.data.frame()?</strong> Without getting bogged down in the details
@@ -2941,8 +2970,12 @@ head(infection_meta.tbl)</code></pre>
   </script>
 </div>
 <pre class="r"><code># Pull just the first 3 rows
-head(infection_meta.tbl, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+head(infection_meta.tbl, 3)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["experimenter"],"name":[2],"type":["chr"],"align":["left"]},{"label":["description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Infection Date"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Plate Number"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Worm_strain"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Total Worms"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Spore Strain"],"name":[8],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Lot concentration"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Total ul spore"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Infection Round"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["40X OP50 (mL)"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Plate Size"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Time plated"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Time Incubated"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Temp"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["timepoint"],"name":[20],"type":["chr"],"align":["left"]},{"label":["infection.type"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Fixing Date"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Location"],"name":[23],"type":["chr"],"align":["left"]},{"label":["Staining Date"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Stain type"],"name":[25],"type":["chr"],"align":["left"]},{"label":["Slide date"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Slide number"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Slide Box"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[{"1":"190426_VC20019_LUAm1_0M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"1","6":"VC20019","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"0","12":"0.00000","13":"1","14":"0.15","15":"6","16":"0.0000000","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"1","28":"2","29":"190516"},{"1":"190426_VC20019_LUAm1_10M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"2","6":"VC20019","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"10","12":"56.81818","13":"1","14":"0.15","15":"6","16":"0.3538570","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"2","28":"2","29":"190516"},{"1":"190426_VC20019_LUAm1_20M_72hpi","2":"CM","3":"Wild isolate phenoMIP retest","4":"190423","5":"3","6":"VC20019","7":"1000","8":"LUAm1","9":"2A","10":"176000","11":"20","12":"113.63636","13":"1","14":"0.15","15":"6","16":"0.7077141","17":"1300","18":"1600","19":"21","20":"72","21":"continuous","22":"190426","23":"Sample exhausted","24":"190513","25":"Sp.9 FISH + DY96","26":"190515","27":"3","28":"2","29":"190516"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-tail-to-view-the-latter-portion-of-your-data" class="section level3">
@@ -2954,8 +2987,12 @@ from the end of your object that you’d like to see. Note that this still
 displays in the original order of the data frame rather than
 reverse.</p>
 <pre class="r"><code># Let&#39;s pull up the last 10 rows to look at!
-...(infection_meta.tbl, 10)</code></pre>
-<pre><code>## Error in ...(infection_meta.tbl, 10): could not find function &quot;...&quot;</code></pre>
+tail(infection_meta.tbl, 10)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["experimenter"],"name":[2],"type":["chr"],"align":["left"]},{"label":["description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Infection Date"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Plate Number"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Worm_strain"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Total Worms"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Spore Strain"],"name":[8],"type":["chr"],"align":["left"]},{"label":["Spore Lot"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Lot concentration"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Total Spores (M)"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Total ul spore"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Infection Round"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["40X OP50 (mL)"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Plate Size"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Spores(M)/cm2"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Time plated"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Time Incubated"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Temp"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["timepoint"],"name":[20],"type":["chr"],"align":["left"]},{"label":["infection.type"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Fixing Date"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Location"],"name":[23],"type":["chr"],"align":["left"]},{"label":["Staining Date"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Stain type"],"name":[25],"type":["chr"],"align":["left"]},{"label":["Slide date"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Slide number"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Slide Box"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Imaging Date"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[{"1":"200916_JU1400_ERTm5-96H_1.75M_96hpi","2":"CM","3":"NIL tests for ERTM5","4":"200912","5":"13","6":"JU1400","7":"500","8":"ERTm5-96H","9":"2","10":"427000","11":"1.75","12":"4.098361","13":"1","14":"0.25","15":"6","16":"0.06192498","17":"NA","18":"96","19":"21","20":"96","21":"continuous","22":"200916","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"13","28":"6","29":"201005"},{"1":"200916_JU1400_ERTm5-96H_3.5M_96hpi","2":"CM","3":"NIL tests for ERTM5","4":"200912","5":"14","6":"JU1400","7":"500","8":"ERTm5-96H","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"96","19":"21","20":"96","21":"continuous","22":"200916","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"14","28":"6","29":"201005"},{"1":"200918_N2_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"1","6":"N2","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"1","28":"6","29":"201006"},{"1":"200918_N2_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"2","6":"N2","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"2","28":"6","29":"201006"},{"1":"200918_JU1400_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"3","6":"JU1400","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"3","28":"6","29":"201006"},{"1":"200918_JU1400_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"4","6":"JU1400","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"4","28":"6","29":"201006"},{"1":"200918_AWR144_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"5","6":"AWR144","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"5","28":"6","29":"201006"},{"1":"200918_AWR144_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"6","6":"AWR144","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"6","28":"6","29":"201006"},{"1":"200918_AWR145_ERTm5_0M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"7","6":"AWR145","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"0.00","12":"0.000000","13":"1","14":"0.25","15":"6","16":"0.00000000","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"7","28":"6","29":"201006"},{"1":"200918_AWR145_ERTm5_3.5M_72hpi","2":"CM","3":"NIL tests for ERTM5","4":"200915","5":"8","6":"AWR145","7":"1000","8":"ERTm5","9":"2","10":"427000","11":"3.50","12":"8.196721","13":"1","14":"0.25","15":"6","16":"0.12384997","17":"NA","18":"72","19":"21","20":"72","21":"continuous","22":"200918","23":"Sample exhausted","24":"200921","25":"microB FISH + DY96","26":"200921","27":"8","28":"6","29":"201006"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 </div>
 <div id="use-unique-to-retrieve-a-list-of-the-unique-elements-within-an-object" class="section level3">
@@ -2971,9 +3008,63 @@ more about simplifying our column names later!</p>
 just a portion of it.</p>
 <pre class="r"><code># Recall: Use the $ sign to access named columns within your data.frame!
 
-infection_meta.tbl$...</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: `...`.</code></pre>
-<pre><code>## NULL</code></pre>
+infection_meta.tbl$Worm_strain</code></pre>
+<pre><code>##   [1] &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;N2&quot;          &quot;N2&quot;         
+##   [6] &quot;N2&quot;          &quot;AB1&quot;         &quot;AB1&quot;         &quot;AB1&quot;         &quot;JU397&quot;      
+##  [11] &quot;JU397&quot;       &quot;JU397&quot;       &quot;JU642&quot;       &quot;JU642&quot;       &quot;JU642&quot;      
+##  [16] &quot;MY6&quot;         &quot;MY6&quot;         &quot;MY6&quot;         &quot;ED3042&quot;      &quot;ED3042&quot;     
+##  [21] &quot;ED3042&quot;      &quot;JU360&quot;       &quot;JU360&quot;       &quot;JU360&quot;       &quot;JU1400&quot;     
+##  [26] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;         &quot;MY1&quot;        
+##  [31] &quot;Lua1&quot;        &quot;Lua1&quot;        &quot;Lua1&quot;        &quot;VC20019&quot;     &quot;VC20019&quot;    
+##  [36] &quot;VC20019&quot;     &quot;N2&quot;          &quot;N2&quot;          &quot;N2&quot;          &quot;CB4856&quot;     
+##  [41] &quot;CB4856&quot;      &quot;CB4856&quot;      &quot;JU300&quot;       &quot;JU300&quot;       &quot;JU300&quot;      
+##  [46] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY2&quot;         &quot;MY2&quot;        
+##  [51] &quot;MY2&quot;         &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;N2&quot;         
+##  [56] &quot;N2&quot;          &quot;N2&quot;          &quot;JU360&quot;       &quot;JU360&quot;       &quot;JU360&quot;      
+##  [61] &quot;MY2&quot;         &quot;MY2&quot;         &quot;MY2&quot;         &quot;N2&quot;          &quot;Lua1&quot;       
+##  [66] &quot;JU1400&quot;      &quot;N2&quot;          &quot;Lua1&quot;        &quot;JU1400&quot;      &quot;N2&quot;         
+##  [71] &quot;Lua1&quot;        &quot;JU1400&quot;      &quot;N2&quot;          &quot;Lua1&quot;        &quot;JU1400&quot;     
+##  [76] &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+##  [81] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+##  [86] &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+##  [91] &quot;N2&quot;          &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;VC20019&quot;     &quot;JU1400&quot;     
+##  [96] &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;    
+## [101] &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;     
+## [106] &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;     &quot;JU1400&quot;      &quot;VC20019&quot;    
+## [111] &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;     
+## [116] &quot;ED3052A&quot;     &quot;ED3052A&quot;     &quot;ED3052B&quot;     &quot;ED3052B&quot;     &quot;MY1&quot;        
+## [121] &quot;MY1&quot;         &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [126] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;     
+## [131] &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;          &quot;N2&quot;         
+## [136] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;ED3052A&quot;     &quot;ED3052A&quot;     &quot;ED3052B&quot;    
+## [141] &quot;ED3052B&quot;     &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;          &quot;JU1400&quot;     
+## [146] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [151] &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;        
+## [156] &quot;N2&quot;          &quot;JU1400&quot;      &quot;ED3052A&quot;     &quot;ED3052B&quot;     &quot;MY1&quot;        
+## [161] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;     
+## [166] &quot;JU1400&quot;      &quot;ED3052A&quot;     &quot;ED3052A&quot;     &quot;ED3052B&quot;     &quot;ED3052B&quot;    
+## [171] &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [176] &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;         
+## [181] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;MY1&quot;         &quot;MY1&quot;         &quot;N2&quot;         
+## [186] &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;     
+## [191] &quot;VC40171&quot;     &quot;VC40171&quot;     &quot;AWR144&quot;      &quot;AWR144&quot;      &quot;AWR145&quot;     
+## [196] &quot;AWR145&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [201] &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [206] &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [211] &quot;N2&quot;          &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;VC40171&quot;    
+## [216] &quot;VC40171&quot;     &quot;AWR144&quot;      &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;AWR145&quot;     
+## [221] &quot;N2-rep1&quot;     &quot;JU1400-rep1&quot; &quot;N2-rep1&quot;     &quot;JU1400-rep1&quot; &quot;N2-rep1&quot;    
+## [226] &quot;JU1400-rep1&quot; &quot;N2-rep1&quot;     &quot;JU1400-rep1&quot; &quot;N2&quot;          &quot;N2&quot;         
+## [231] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;VC40171&quot;     &quot;VC40171&quot;     &quot;AWR144&quot;     
+## [236] &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;AWR145&quot;      &quot;N2&quot;          &quot;JU1400&quot;     
+## [241] &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;N2&quot;         
+## [246] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;         
+## [251] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;N2&quot;          &quot;JU1400&quot;      &quot;N2&quot;         
+## [256] &quot;N2&quot;          &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;AWR144&quot;      &quot;AWR144&quot;     
+## [261] &quot;AWR145&quot;      &quot;AWR145&quot;      &quot;N2&quot;          &quot;N2&quot;          &quot;N2&quot;         
+## [266] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;N2&quot;          &quot;N2&quot;         
+## [271] &quot;JU1400&quot;      &quot;JU1400&quot;      &quot;AWR144&quot;      &quot;AWR144&quot;      &quot;AWR145&quot;     
+## [276] &quot;AWR145&quot;</code></pre>
 <hr />
 <p>As you may have noticed, this method printed the
 <strong>entire</strong> <code>Worm_strain</code> column. While it may be
@@ -2986,8 +3077,12 @@ in a number of different objects but usually returns an object of the
 same type that it was given as input.</p>
 <p>Let’s take a look at using it on our question.</p>
 <pre class="r"><code># Retrieve a list of unique genera from our data set
-...(infection_meta.tbl$Worm_strain)</code></pre>
-<pre><code>## Error in ...(infection_meta.tbl$Worm_strain): could not find function &quot;...&quot;</code></pre>
+unique(infection_meta.tbl$Worm_strain)</code></pre>
+<pre><code>##  [1] &quot;VC20019&quot;     &quot;N2&quot;          &quot;AB1&quot;         &quot;JU397&quot;       &quot;JU642&quot;      
+##  [6] &quot;MY6&quot;         &quot;ED3042&quot;      &quot;JU360&quot;       &quot;JU1400&quot;      &quot;MY1&quot;        
+## [11] &quot;Lua1&quot;        &quot;CB4856&quot;      &quot;JU300&quot;       &quot;MY2&quot;         &quot;ED3052A&quot;    
+## [16] &quot;ED3052B&quot;     &quot;VC40171&quot;     &quot;AWR144&quot;      &quot;AWR145&quot;      &quot;N2-rep1&quot;    
+## [21] &quot;JU1400-rep1&quot;</code></pre>
 <hr />
 </div>
 <div id="review-use-length-or-str-to-retrieve-the-size-of-some-objects" class="section level3">
@@ -3005,12 +3100,12 @@ always better and that using <code>length()</code> has its
 advantages.</p>
 <pre class="r"><code># Two ways to see how many unique entries we have
 # ?length
-...(unique(infection_meta.tbl$Worm_strain))</code></pre>
-<pre><code>## Error in ...(unique(infection_meta.tbl$Worm_strain)): could not find function &quot;...&quot;</code></pre>
+length(unique(infection_meta.tbl$Worm_strain))</code></pre>
+<pre><code>## [1] 21</code></pre>
 <pre class="r"><code># or
 
-...(unique(infection_meta.tbl$Worm_strain))</code></pre>
-<pre><code>## Error in ...(unique(infection_meta.tbl$Worm_strain)): could not find function &quot;...&quot;</code></pre>
+str(unique(infection_meta.tbl$Worm_strain))</code></pre>
+<pre><code>##  chr [1:21] &quot;VC20019&quot; &quot;N2&quot; &quot;AB1&quot; &quot;JU397&quot; &quot;JU642&quot; &quot;MY6&quot; &quot;ED3042&quot; &quot;JU360&quot; ...</code></pre>
 <hr />
 <p>Using <code>unique()</code> we are returned a character vector
 containing 21 <em>C. elegans</em> strains. As you can see a function
@@ -3111,8 +3206,38 @@ str(infection_meta.tbl)</code></pre>
 ##   .. )
 ##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <pre class="r"><code># glimpse gives us less information overall but is also less redundant
-...(infection_meta.tbl)</code></pre>
-<pre><code>## Error in ...(infection_meta.tbl): could not find function &quot;...&quot;</code></pre>
+glimpse(infection_meta.tbl)</code></pre>
+<pre><code>## Rows: 276
+## Columns: 29
+## $ experiment          [3m[90m&lt;chr&gt;[39m[23m &quot;190426_VC20019_LUAm1_0M_72hpi&quot;[90m, [39m&quot;190426_VC20019_L~
+## $ experimenter        [3m[90m&lt;chr&gt;[39m[23m &quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;CM&quot;[90m, [39m&quot;C~
+## $ description         [3m[90m&lt;chr&gt;[39m[23m &quot;Wild isolate phenoMIP retest&quot;[90m, [39m&quot;Wild isolate phen~
+## $ `Infection Date`    [3m[90m&lt;dbl&gt;[39m[23m 190423[90m, [39m190423[90m, [39m190423[90m, [39m190423[90m, [39m190423[90m, [39m190423[90m, [39m19~
+## $ `Plate Number`      [3m[90m&lt;dbl&gt;[39m[23m 1[90m, [39m2[90m, [39m3[90m, [39m4[90m, [39m5[90m, [39m6[90m, [39m7[90m, [39m8[90m, [39m9[90m, [39m10[90m, [39m11[90m, [39m12[90m, [39m13[90m, [39m14[90m, [39m15[90m,[39m~
+## $ Worm_strain         [3m[90m&lt;chr&gt;[39m[23m &quot;VC20019&quot;[90m, [39m&quot;VC20019&quot;[90m, [39m&quot;VC20019&quot;[90m, [39m&quot;N2&quot;[90m, [39m&quot;N2&quot;[90m, [39m&quot;N2&quot;[90m,[39m~
+## $ `Total Worms`       [3m[90m&lt;dbl&gt;[39m[23m 1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m1000[90m, [39m10~
+## $ `Spore Strain`      [3m[90m&lt;chr&gt;[39m[23m &quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm1&quot;[90m, [39m&quot;LUAm~
+## $ `Spore Lot`         [3m[90m&lt;chr&gt;[39m[23m &quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2A&quot;[90m, [39m&quot;2~
+## $ `Lot concentration` [3m[90m&lt;dbl&gt;[39m[23m 176000[90m, [39m176000[90m, [39m176000[90m, [39m176000[90m, [39m176000[90m, [39m176000[90m, [39m17~
+## $ `Total Spores (M)`  [3m[90m&lt;dbl&gt;[39m[23m 0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m, [39m20[90m, [39m0[90m, [39m10[90m,[39m~
+## $ `Total ul spore`    [3m[90m&lt;dbl&gt;[39m[23m 0.00000[90m, [39m56.81818[90m, [39m113.63636[90m, [39m0.00000[90m, [39m56.81818[90m, [39m1~
+## $ `Infection Round`   [3m[90m&lt;dbl&gt;[39m[23m 1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m, [39m1[90m,[39m~
+## $ `40X OP50 (mL)`     [3m[90m&lt;dbl&gt;[39m[23m 0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.15[90m, [39m0.~
+## $ `Plate Size`        [3m[90m&lt;dbl&gt;[39m[23m 6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m, [39m6[90m,[39m~
+## $ `Spores(M)/cm2`     [3m[90m&lt;dbl&gt;[39m[23m 0.0000000[90m, [39m0.3538570[90m, [39m0.7077141[90m, [39m0.0000000[90m, [39m0.3538~
+## $ `Time plated`       [3m[90m&lt;dbl&gt;[39m[23m 1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m1300[90m, [39m13~
+## $ `Time Incubated`    [3m[90m&lt;dbl&gt;[39m[23m 1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m1600[90m, [39m16~
+## $ Temp                [3m[90m&lt;dbl&gt;[39m[23m 21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21[90m, [39m21~
+## $ timepoint           [3m[90m&lt;chr&gt;[39m[23m &quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;72&quot;[90m, [39m&quot;7~
+## $ infection.type      [3m[90m&lt;chr&gt;[39m[23m &quot;continuous&quot;[90m, [39m&quot;continuous&quot;[90m, [39m&quot;continuous&quot;[90m, [39m&quot;continu~
+## $ `Fixing Date`       [3m[90m&lt;dbl&gt;[39m[23m 190426[90m, [39m190426[90m, [39m190426[90m, [39m190426[90m, [39m190426[90m, [39m190426[90m, [39m19~
+## $ Location            [3m[90m&lt;chr&gt;[39m[23m &quot;Sample exhausted&quot;[90m, [39m&quot;Sample exhausted&quot;[90m, [39m&quot;Sample ex~
+## $ `Staining Date`     [3m[90m&lt;dbl&gt;[39m[23m 190513[90m, [39m190513[90m, [39m190513[90m, [39m190430[90m, [39m190513[90m, [39m190513[90m, [39m19~
+## $ `Stain type`        [3m[90m&lt;chr&gt;[39m[23m &quot;Sp.9 FISH + DY96&quot;[90m, [39m&quot;Sp.9 FISH + DY96&quot;[90m, [39m&quot;Sp.9 FISH~
+## $ `Slide date`        [3m[90m&lt;dbl&gt;[39m[23m 190515[90m, [39m190515[90m, [39m190515[90m, [39m190501[90m, [39m190515[90m, [39m190515[90m, [39m19~
+## $ `Slide number`      [3m[90m&lt;dbl&gt;[39m[23m 1[90m, [39m2[90m, [39m3[90m, [39m4[90m, [39m5[90m, [39m6[90m, [39m7[90m, [39m8[90m, [39m9[90m, [39m10[90m, [39m11[90m, [39m12[90m, [39m13[90m, [39m14[90m, [39m15[90m,[39m~
+## $ `Slide Box`         [3m[90m&lt;dbl&gt;[39m[23m 2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m, [39m2[90m,[39m~
+## $ `Imaging Date`      [3m[90m&lt;dbl&gt;[39m[23m 190516[90m, [39m190516[90m, [39m190516[90m, [39m190502[90m, [39m190516[90m, [39m190516[90m, [39m19~</code></pre>
 <hr />
 <p>So the information provided by <code>glimpse()</code> is more sparse,
 the formatting is a little tighter and we don’t have to see the extra
@@ -3159,17 +3284,20 @@ otherwise it may lead to errors in functions that we frequently use.</p>
 values.</p>
 <pre class="r"><code># Set up some vectors for a data.frame
 
-modern_domain &lt;- c(&quot;Archaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>five_domains &lt;- c(&quot;Archaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, &quot;Virusobiota&quot;, &quot;Prionobiota&quot;)
-six_kingdoms &lt;- c(1, 1, 4, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Put it all together with in a call to data.frame()
-NA_example &lt;- data.frame(five_domains, modern_domain, six_kingdoms)</code></pre>
-<pre><code>## Error in data.frame(five_domains, modern_domain, six_kingdoms): object &#39;modern_domain&#39; not found</code></pre>
-<pre class="r"><code># Look at our data frame
+modern_domain &lt;- c(&quot;Archaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, NA, NA)
+five_domains &lt;- c(&quot;Archaea&quot;, &quot;Bacteria&quot;, &quot;Eukarya&quot;, &quot;Virusobiota&quot;, &quot;Prionobiota&quot;)
+six_kingdoms &lt;- c(1, 1, 4, NA, NA)
+
+# Put it all together with in a call to data.frame()
+NA_example &lt;- data.frame(five_domains, modern_domain, six_kingdoms)
+
+# Look at our data frame
 NA_example</code></pre>
-<pre><code>## Error: object &#39;NA_example&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["five_domains"],"name":[1],"type":["chr"],"align":["left"]},{"label":["modern_domain"],"name":[2],"type":["chr"],"align":["left"]},{"label":["six_kingdoms"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Archaea","2":"Archaea","3":"1"},{"1":"Bacteria","2":"Bacteria","3":"1"},{"1":"Eukarya","2":"Eukarya","3":"4"},{"1":"Virusobiota","2":"NA","3":"NA"},{"1":"Prionobiota","2":"NA","3":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="some-functions-can-be-told-to-ignore-or-remove-na-values" class="section level3">
 <h3>3.2.1 Some functions can be told to ignore or remove <code>NA</code>
@@ -3185,9 +3313,9 @@ before proceeding to perform its mathematical operation.</p>
 the function may return an <code>NA</code> value.</p>
 <pre class="r"><code># Use the mean() function and see what happens with NA values
 sum(six_kingdoms) # some functions need to be explicitly told what to do with NAs. No errors though!</code></pre>
-<pre><code>## Error: object &#39;six_kingdoms&#39; not found</code></pre>
-<pre class="r"><code>sum(six_kingdoms, ...) #Avoid using just &quot;T&quot; as an abbreviation for &quot;TRUE&quot;</code></pre>
-<pre><code>## Error: object &#39;six_kingdoms&#39; not found</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>sum(six_kingdoms, na.rm = TRUE) #Avoid using just &quot;T&quot; as an abbreviation for &quot;TRUE&quot;</code></pre>
+<pre><code>## [1] 6</code></pre>
 <hr />
 </div>
 <div id="what-happens-when-we-try-to-use-functions-via-apply-on-data-with-nas" class="section level3">
@@ -3209,8 +3337,9 @@ counts</code></pre>
   </script>
 </div>
 <pre class="r"><code># Notice that we can only pass the function name &quot;mean&quot; and not any parameters
-apply(X = counts, MARGIN = 1, FUN = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+apply(X = counts, MARGIN = 1, FUN = mean)</code></pre>
+<pre><code>##    geneA    geneB    geneC    geneD 
+##  9.00000       NA 17.33333       NA</code></pre>
 <div class="alert alert-block alert-info">
 <p><strong>Key Concept:</strong> Recall that we can pass additional
 parameters to <strong>apply()</strong> that are meant as parameters for
@@ -3220,12 +3349,14 @@ parameter.</p>
 </div>
 <pre class="r"><code># Pass parameters in our call
 apply(X = counts, MARGIN = 1, 
-      FUN = mean, ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+      FUN = mean, na.rm = TRUE)</code></pre>
+<pre><code>##    geneA    geneB    geneC    geneD 
+##  9.00000  5.50000 17.33333 18.00000</code></pre>
 <pre class="r"><code># Equivalent code - perhaps clearer but more verbose
 apply(X = counts, MARGIN = 1, 
-      FUN = function(x) mean(x, ...))</code></pre>
-<pre><code>## Error in FUN(newX[, i], ...): &#39;...&#39; used in an incorrect context</code></pre>
+      FUN = function(x) mean(x, na.rm = TRUE))</code></pre>
+<pre><code>##    geneA    geneB    geneC    geneD 
+##  9.00000  5.50000 17.33333 18.00000</code></pre>
 <hr />
 </div>
 <div id="use-the-is.na-function-to-check-your-data" class="section level3">
@@ -3240,11 +3371,15 @@ structure of the same dimensions.</p>
 na_vector &lt;- c(5, 6, NA, 7, 7, NA)
 
 # This works on vectors...
-...(na_vector)</code></pre>
-<pre><code>## Error in ...(na_vector): could not find function &quot;...&quot;</code></pre>
+is.na(na_vector)</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
 <pre class="r"><code># and data.frames too!
-...(counts)</code></pre>
-<pre><code>## Error in ...(counts): could not find function &quot;...&quot;</code></pre>
+is.na(counts)</code></pre>
+<pre><code>##       Site1 Site2 Site3
+## geneA FALSE FALSE FALSE
+## geneB FALSE  TRUE FALSE
+## geneC FALSE FALSE FALSE
+## geneD FALSE FALSE  TRUE</code></pre>
 <pre class="r"><code># Let&#39;s look at our infection metadata for na values
 is.na(infection_meta.tbl)</code></pre>
 <pre><code>##        experiment experimenter description Infection Date Plate Number
@@ -4922,8 +5057,8 @@ has <strong><em>at least</em></strong> one <code>TRUE</code> value.</p>
 <p>We can use it to quickly ask if our <code>infection_meta.tbl</code>
 data frame has any <code>NA</code> values.</p>
 <pre class="r"><code># Before we dig too deep, can we check if there are ANY NA values in our data.frame?
-...(is.na(infection_meta.tbl)) # logical (TRUE or FALSE).</code></pre>
-<pre><code>## Error in ...(is.na(infection_meta.tbl)): could not find function &quot;...&quot;</code></pre>
+any(is.na(infection_meta.tbl)) # logical (TRUE or FALSE).</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <hr />
 <p>Now we’ve confirmed that there is at least a single <code>NA</code>
 value in our data. Given that there are 276 rows with 29 columns (8004
@@ -4947,8 +5082,8 @@ applicable to a vector of <em>logicals</em> is to ask
 na_vector </code></pre>
 <pre><code>## [1]  5  6 NA  7  7 NA</code></pre>
 <pre class="r"><code># wrap which() around our is.na() call
-...(is.na(na_vector))</code></pre>
-<pre><code>## Error in ...(is.na(na_vector)): could not find function &quot;...&quot;</code></pre>
+which(is.na(na_vector))</code></pre>
+<pre><code>## [1] 3 6</code></pre>
 <pre class="r"><code># save the indices where NAs are present in na_vector
 na_positions &lt;- which(is.na(na_vector)) </code></pre>
 <hr />
@@ -4964,13 +5099,13 @@ apply this directly to our original <code>na_vector</code> object to
 retrieve the non-<code>NA</code> values using the <code>-</code>
 (exclusion) syntax.</p>
 <pre class="r"><code># cut out the na_values indices and save it to a new variable
-removed_na_vector_1 &lt;- na_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Question: is it necessary to have the blank space in our index operator?
+removed_na_vector_1 &lt;- na_vector[- na_positions]
+
+# Question: is it necessary to have the blank space in our index operator?
 
 # Check out the result
 removed_na_vector_1</code></pre>
-<pre><code>## Error: object &#39;removed_na_vector_1&#39; not found</code></pre>
+<pre><code>## [1] 5 6 7 7</code></pre>
 <hr />
 </div>
 <div id="use-the-exclamation-mark-to-invert-your-logical-vectors" class="section level3">
@@ -4995,12 +5130,12 @@ variable!</p>
 is.na(na_vector)</code></pre>
 <pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
 <pre class="r"><code># Flip the logical result
-...is.na(na_vector)</code></pre>
-<pre><code>## Error in ...is.na(na_vector): could not find function &quot;...is.na&quot;</code></pre>
+!is.na(na_vector)</code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
 <pre class="r"><code># Apply this in our code for conditional indexing
 # indexing using a size-matched logical vector
-na_vector[...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+na_vector[!is.na(na_vector)]</code></pre>
+<pre><code>## [1] 5 6 7 7</code></pre>
 <pre class="r"><code># compare to using which() to index by position
 na_vector[-which(is.na(na_vector))]</code></pre>
 <pre><code>## [1] 5 6 7 7</code></pre>
