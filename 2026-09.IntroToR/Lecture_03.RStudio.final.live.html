@@ -1997,18 +1997,9 @@ and remind ourselves about the original structure.</p>
 <pre class="r"><code># Always check where you are first!
 getwd()</code></pre>
 <pre><code>## [1] &quot;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2026.09_Intro_to_R/lecture_03_tidy_data&quot;</code></pre>
-<pre class="r"><code>list.files(&quot;...&quot;)</code></pre>
-<pre><code>##  [1] &quot;cagef_slides&quot;                                      
-##  [2] &quot;data&quot;                                              
-##  [3] &quot;Lecture_03.JupyterHub.final.withOutput.answers.Rmd&quot;
-##  [4] &quot;Lecture_03.JupyterHub.final.withOutput.pdf&quot;        
-##  [5] &quot;Lecture_03.RStudio.draft.Rmd&quot;                      
-##  [6] &quot;Lecture_03.RStudio.final.html&quot;                     
-##  [7] &quot;Lecture_03.RStudio.final.live.nb.html&quot;             
-##  [8] &quot;Lecture_03.RStudio.final.live.Rmd&quot;                 
-##  [9] &quot;Lecture_03.RStudio.skeleton.nb.html&quot;               
-## [10] &quot;Lecture_03.RStudio.skeleton.old.Rmd&quot;               
-## [11] &quot;Lecture_03.RStudio.skeleton.Rmd&quot;</code></pre>
+<pre class="r"><code>list.files(&quot;data/&quot;)</code></pre>
+<pre><code>## [1] &quot;embryo_data_wide.csv&quot; &quot;gapminder_wide.csv&quot;   &quot;infection_meta.csv&quot;  
+## [4] &quot;spore_dose_info.csv&quot;  &quot;spore_info.txt&quot;</code></pre>
 <pre class="r"><code># Read in our file. 
 # Remember we&#39;re using the tidyverse to import our data!
 embryos.df &lt;- read_csv(&quot;data/embryo_data_wide.csv&quot;)</code></pre>
