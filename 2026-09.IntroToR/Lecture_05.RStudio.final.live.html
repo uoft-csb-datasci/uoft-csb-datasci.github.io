@@ -2875,12 +2875,8 @@ with the workings of that data structure.</p>
 <pre class="r"><code># Convert the object to a tibble and overwrite it to the original header_seq_fasta
 header_seq_fasta &lt;-
   header_seq_fasta %&gt;% 
-  as_tibble()     </code></pre>
-<pre><code>## Warning: [1m[22mThe `x` argument of `as_tibble.matrix()` must have unique column names if `.name_repair` is omitted as of tibble 2.0.0.
-## [36mi[39m Using compatibility `.name_repair`.
-## [90mThis warning is displayed once per session.[39m
-## [90mCall `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.[39m</code></pre>
-<pre class="r"><code>  # Notice that this casting doesn&#39;t use the same &quot;as.object()&quot; format but rather as_object()
+  as_tibble()     
+  # Notice that this casting doesn&#39;t use the same &quot;as.object()&quot; format but rather as_object()
 
 # double check that the conversion worked
 head(header_seq_fasta)</code></pre>
@@ -3067,86 +3063,29 @@ something like the following:</p>
   pull(1) %&gt;%              # Retrieve just a single column (vs select) as a vector
   
   # Use the power of regex and greedy matching to create 4 capture groups
-  str_match_all(r&quot;(...)&quot;)
+  str_match_all(r&quot;(^(\w+\.\d+)\s(.+)\s(\w+)\s(\w+))&quot;)
   
 
 # Take a look at the last few rows of our result
 tail(fasta_header, 3)</code></pre>
 <pre><code>## [[1]]
-##       [,1] 
-##  [1,] &quot;XP_&quot;
-##  [2,] &quot;007&quot;
-##  [3,] &quot;980&quot;
-##  [4,] &quot;836&quot;
-##  [5,] &quot;.1 &quot;
-##  [6,] &quot;PRE&quot;
-##  [7,] &quot;DIC&quot;
-##  [8,] &quot;TED&quot;
-##  [9,] &quot;: f&quot;
-## [10,] &quot;ork&quot;
-## [11,] &quot;hea&quot;
-## [12,] &quot;d b&quot;
-## [13,] &quot;ox &quot;
-## [14,] &quot;pro&quot;
-## [15,] &quot;tei&quot;
-## [16,] &quot;n P&quot;
-## [17,] &quot;2 i&quot;
-## [18,] &quot;sof&quot;
-## [19,] &quot;orm&quot;
-## [20,] &quot; X2&quot;
-## [21,] &quot; Ch&quot;
-## [22,] &quot;lor&quot;
-## [23,] &quot;oce&quot;
-## [24,] &quot;bus&quot;
-## [25,] &quot; sa&quot;
-## [26,] &quot;bae&quot;
+##      [,1]                                                                              
+## [1,] &quot;XP_007980836.1 PREDICTED: forkhead box protein P2 isoform X2 Chlorocebus sabaeus&quot;
+##      [,2]             [,3]                                           
+## [1,] &quot;XP_007980836.1&quot; &quot;PREDICTED: forkhead box protein P2 isoform X2&quot;
+##      [,4]          [,5]     
+## [1,] &quot;Chlorocebus&quot; &quot;sabaeus&quot;
 ## 
 ## [[2]]
-##       [,1] 
-##  [1,] &quot;XP_&quot;
-##  [2,] &quot;007&quot;
-##  [3,] &quot;980&quot;
-##  [4,] &quot;835&quot;
-##  [5,] &quot;.1 &quot;
-##  [6,] &quot;PRE&quot;
-##  [7,] &quot;DIC&quot;
-##  [8,] &quot;TED&quot;
-##  [9,] &quot;: f&quot;
-## [10,] &quot;ork&quot;
-## [11,] &quot;hea&quot;
-## [12,] &quot;d b&quot;
-## [13,] &quot;ox &quot;
-## [14,] &quot;pro&quot;
-## [15,] &quot;tei&quot;
-## [16,] &quot;n P&quot;
-## [17,] &quot;2 i&quot;
-## [18,] &quot;sof&quot;
-## [19,] &quot;orm&quot;
-## [20,] &quot; X1&quot;
-## [21,] &quot; Ch&quot;
-## [22,] &quot;lor&quot;
-## [23,] &quot;oce&quot;
-## [24,] &quot;bus&quot;
-## [25,] &quot; sa&quot;
-## [26,] &quot;bae&quot;
+##      [,1]                                                                              
+## [1,] &quot;XP_007980835.1 PREDICTED: forkhead box protein P2 isoform X1 Chlorocebus sabaeus&quot;
+##      [,2]             [,3]                                           
+## [1,] &quot;XP_007980835.1&quot; &quot;PREDICTED: forkhead box protein P2 isoform X1&quot;
+##      [,4]          [,5]     
+## [1,] &quot;Chlorocebus&quot; &quot;sabaeus&quot;
 ## 
 ## [[3]]
-##       [,1] 
-##  [1,] &quot;Ext&quot;
-##  [2,] &quot;ern&quot;
-##  [3,] &quot;al &quot;
-##  [4,] &quot;lin&quot;
-##  [5,] &quot;k. &quot;
-##  [6,] &quot;Ple&quot;
-##  [7,] &quot;ase&quot;
-##  [8,] &quot; re&quot;
-##  [9,] &quot;vie&quot;
-## [10,] &quot;w o&quot;
-## [11,] &quot;ur &quot;
-## [12,] &quot;pri&quot;
-## [13,] &quot;vac&quot;
-## [14,] &quot;y p&quot;
-## [15,] &quot;oli&quot;</code></pre>
+##      [,1] [,2] [,3] [,4] [,5]</code></pre>
 <hr />
 </div>
 <div id="reformat-our-header-information-into-a-data-frame" class="section level3">
@@ -3158,26 +3097,10 @@ information from each entry of the list itself? Currently
 matrix. Let’s convince ourselves in the following code cell.</p>
 <pre class="r"><code># Look at the first entry of fasta_header
 fasta_header[[1]]</code></pre>
-<pre><code>##       [,1] 
-##  [1,] &quot;NP_&quot;
-##  [2,] &quot;683&quot;
-##  [3,] &quot;696&quot;
-##  [4,] &quot;.2 &quot;
-##  [5,] &quot;for&quot;
-##  [6,] &quot;khe&quot;
-##  [7,] &quot;ad &quot;
-##  [8,] &quot;box&quot;
-##  [9,] &quot; pr&quot;
-## [10,] &quot;ote&quot;
-## [11,] &quot;in &quot;
-## [12,] &quot;P2 &quot;
-## [13,] &quot;iso&quot;
-## [14,] &quot;for&quot;
-## [15,] &quot;m I&quot;
-## [16,] &quot;I H&quot;
-## [17,] &quot;omo&quot;
-## [18,] &quot; sa&quot;
-## [19,] &quot;pie&quot;</code></pre>
+<pre><code>##      [,1]                                                         
+## [1,] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot;
+##      [,2]          [,3]                                 [,4]   [,5]     
+## [1,] &quot;NP_683696.2&quot; &quot;forkhead box protein P2 isoform II&quot; &quot;Homo&quot; &quot;sapiens&quot;</code></pre>
 <pre class="r"><code># Two ways to drop the first column
 print(&quot;Select our columns specifically...&quot;)</code></pre>
 <pre><code>## [1] &quot;Select our columns specifically...&quot;</code></pre>
@@ -3234,11 +3157,11 @@ etc. In our case, we will explicitly call on
 <pre class="r"><code>str(fasta_header, 
     list.len = 5) # Limit the number of elements in the list output</code></pre>
 <pre><code>## List of 68
-##  $ : chr [1:19, 1] &quot;NP_&quot; &quot;683&quot; &quot;696&quot; &quot;.2 &quot; ...
-##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;683&quot; &quot;697&quot; &quot;.2 &quot; ...
-##  $ : chr [1:19, 1] &quot;NP_&quot; &quot;683&quot; &quot;698&quot; &quot;.2 &quot; ...
-##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;001&quot; &quot;166&quot; &quot;238&quot; ...
-##  $ : chr [1:20, 1] &quot;NP_&quot; &quot;001&quot; &quot;166&quot; &quot;237&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_683696.2 forkhead box protein P2 isoform II Homo sapiens&quot; &quot;NP_683696.2&quot; &quot;forkhead box protein P2 isoform II&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_683697.2 forkhead box protein P2 isoform III Homo sapiens&quot; &quot;NP_683697.2&quot; &quot;forkhead box protein P2 isoform III&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_683698.2 forkhead box protein P2 isoform IV Homo sapiens&quot; &quot;NP_683698.2&quot; &quot;forkhead box protein P2 isoform IV&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_001166238.1 forkhead box protein P2 isoform VI Homo sapiens&quot; &quot;NP_001166238.1&quot; &quot;forkhead box protein P2 isoform VI&quot; &quot;Homo&quot; ...
+##  $ : chr [1, 1:5] &quot;NP_001166237.1 forkhead box protein P2 isoform V Homo sapiens&quot; &quot;NP_001166237.1&quot; &quot;forkhead box protein P2 isoform V&quot; &quot;Homo&quot; ...
 ##   [list output truncated]</code></pre>
 <hr />
 <p>Let’s compare what happens when we allow the R interpreter to choose
@@ -3271,9 +3194,14 @@ rm(i) ## remove any previous instances of i</code></pre>
 }</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
+## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
 <pre class="r"><code>str(header.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    0 obs. of  0 variables</code></pre>
+<pre><code>## &#39;data.frame&#39;:    1 obs. of  4 variables:
+##  $ X.NP_683696.2.                       : chr &quot;NP_683696.2&quot;
+##  $ X.forkhead.box.protein.P2.isoform.II.: chr &quot;forkhead box protein P2 isoform II&quot;
+##  $ X.Homo.                              : chr &quot;Homo&quot;
+##  $ X.sapiens.                           : chr &quot;sapiens&quot;</code></pre>
 <hr />
 </div>
 <div id="do.call-to-save-youself-some-trouble" class="section level3">
@@ -3366,14 +3294,16 @@ header.df &lt;-
   select(-1) # remember you need to get rid of the first column which contains the whole header</code></pre>
 <pre><code>## Error in select(., -1): &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
+## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
 <hr />
 <p>Don’t forget to rename your columns!</p>
 <pre class="r"><code># rename the columns &quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, and &quot;Species&quot;
 ...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, &quot;Species&quot;)</code></pre>
 <pre><code>## Error in ...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, : could not find function &quot;...&lt;-&quot;</code></pre>
 <pre class="r"><code>head(header.df,2)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
+## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
 <hr />
 <p>Looks like we are halfway through our problem. We’ve split the header
 into new columns and we now need to cleanup the sequence entries which
@@ -3495,7 +3425,8 @@ cbind(...) %&gt;% head()</code></pre>
 header.df$... &lt;- seq_united</code></pre>
 <pre><code>## Error: object &#39;seq_united&#39; not found</code></pre>
 <pre class="r"><code>head(header.df)</code></pre>
-<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
+## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
 <hr />
 <p>We’re done! Just like we wanted it:</p>
 <table>
