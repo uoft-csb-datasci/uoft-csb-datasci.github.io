@@ -3104,12 +3104,14 @@ fasta_header[[1]]</code></pre>
 <pre class="r"><code># Two ways to drop the first column
 print(&quot;Select our columns specifically...&quot;)</code></pre>
 <pre><code>## [1] &quot;Select our columns specifically...&quot;</code></pre>
-<pre class="r"><code>fasta_header[[1]][...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>fasta_header[[1]][,2:5]</code></pre>
+<pre><code>## [1] &quot;NP_683696.2&quot;                        &quot;forkhead box protein P2 isoform II&quot;
+## [3] &quot;Homo&quot;                               &quot;sapiens&quot;</code></pre>
 <pre class="r"><code>print(&quot;Leave a column behind&quot;)</code></pre>
 <pre><code>## [1] &quot;Leave a column behind&quot;</code></pre>
-<pre class="r"><code>fasta_header[[1]][...]</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre class="r"><code>fasta_header[[1]][,-1]</code></pre>
+<pre><code>## [1] &quot;NP_683696.2&quot;                        &quot;forkhead box protein P2 isoform II&quot;
+## [3] &quot;Homo&quot;                               &quot;sapiens&quot;</code></pre>
 <hr />
 <p>How do we approach converting this to something like a data frame?
 There are a number of ways to do this and we’ll show you a couple.</p>
@@ -3119,15 +3121,20 @@ There are a number of ways to do this and we’ll show you a couple.</p>
 columns</li>
 </ol>
 <pre class="r"><code># Convert the results of str_match_all into a data frame
-...(fasta_header[[1]][,2:5])</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, 2:5]): could not find function &quot;...&quot;</code></pre>
+data.frame(fasta_header[[1]][,2:5])</code></pre>
+<pre><code>##             fasta_header..1.....2.5.
+## 1                        NP_683696.2
+## 2 forkhead box protein P2 isoform II
+## 3                               Homo
+## 4                            sapiens</code></pre>
 <p>Not quite what we expected from our conversion. The vector was
 coerced into a series of <strong><em>rows</em></strong> rather than
 <strong><em>columns</em></strong>. In order to get what we want, we’ll
 have to transpose for proper coercion.</p>
 <pre class="r"><code># You need to transpose the trimmed data for proper coercion
-data.frame(...(fasta_header[[1]][, 2:5]))</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, 2:5]): could not find function &quot;...&quot;</code></pre>
+data.frame(t(fasta_header[[1]][, 2:5]))</code></pre>
+<pre><code>##            X1                                 X2   X3      X4
+## 1 NP_683696.2 forkhead box protein P2 isoform II Homo sapiens</code></pre>
 <hr />
 </div>
 <div id="a-note-about-working-with-data-frames-and-rbind" class="section level3">
@@ -3167,12 +3174,22 @@ etc. In our case, we will explicitly call on
 <p>Let’s compare what happens when we allow the R interpreter to choose
 which version of <code>rbind()</code> it will use versus specifying.</p>
 <pre class="r"><code># What happens if we call rbind?
-...(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, -1], fasta_header[[2]][, -1]): could not find function &quot;...&quot;</code></pre>
+rbind(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
+<pre><code>##      [,1]          [,2]                                  [,3]   [,4]     
+## [1,] &quot;NP_683696.2&quot; &quot;forkhead box protein P2 isoform II&quot;  &quot;Homo&quot; &quot;sapiens&quot;
+## [2,] &quot;NP_683697.2&quot; &quot;forkhead box protein P2 isoform III&quot; &quot;Homo&quot; &quot;sapiens&quot;</code></pre>
 <p>Looks like by default, R will return a matrix to us</p>
 <pre class="r"><code># What about rbind.data.frame?
-...(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
-<pre><code>## Error in ...(fasta_header[[1]][, -1], fasta_header[[2]][, -1]): could not find function &quot;...&quot;</code></pre>
+rbind.data.frame(fasta_header[[1]][,-1], fasta_header[[2]][,-1])</code></pre>
+<pre><code>##   c..NP_683696.2....NP_683697.2..
+## 1                     NP_683696.2
+## 2                     NP_683697.2
+##   c..forkhead.box.protein.P2.isoform.II....forkhead.box.protein.P2.isoform.III.
+## 1                                            forkhead box protein P2 isoform II
+## 2                                           forkhead box protein P2 isoform III
+##   c..Homo....Homo.. c..sapiens....sapiens..
+## 1              Homo                 sapiens
+## 2              Homo                 sapiens</code></pre>
 <hr />
 </div>
 <div id="use-a-loop-to-build-your-data-frame-one-row-at-a-time" class="section level3">
@@ -3187,21 +3204,26 @@ header.df &lt;- rbind.data.frame(fasta_header[[1]][,-1])
 
 rm(i) ## remove any previous instances of i</code></pre>
 <pre><code>## Warning in rm(i): object &#39;i&#39; not found</code></pre>
-<pre class="r"><code>for (i in ...){
+<pre class="r"><code>for (i in 2:(length(fasta_header)-1)){
   # Drop the last potential list in fasta_header since it was blank!
 
-  header.df &lt;- rbind.data.frame(header.df, fasta_header[[...]][, -1])
-}</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>head(header.df)</code></pre>
+  header.df &lt;- rbind.data.frame(header.df, fasta_header[[i]][, -1])
+}
+
+head(header.df)</code></pre>
 <pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
-## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
+## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens
+## 2    NP_683697.2   forkhead box protein P2 isoform III    Homo    sapiens
+## 3    NP_683698.2    forkhead box protein P2 isoform IV    Homo    sapiens
+## 4 NP_001166238.1    forkhead box protein P2 isoform VI    Homo    sapiens
+## 5 NP_001166237.1     forkhead box protein P2 isoform V    Homo    sapiens
+## 6    NP_055306.1     forkhead box protein P2 isoform I    Homo    sapiens</code></pre>
 <pre class="r"><code>str(header.df)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    1 obs. of  4 variables:
-##  $ X.NP_683696.2.                       : chr &quot;NP_683696.2&quot;
-##  $ X.forkhead.box.protein.P2.isoform.II.: chr &quot;forkhead box protein P2 isoform II&quot;
-##  $ X.Homo.                              : chr &quot;Homo&quot;
-##  $ X.sapiens.                           : chr &quot;sapiens&quot;</code></pre>
+<pre><code>## &#39;data.frame&#39;:    67 obs. of  4 variables:
+##  $ X.NP_683696.2.                       : chr  &quot;NP_683696.2&quot; &quot;NP_683697.2&quot; &quot;NP_683698.2&quot; &quot;NP_001166238.1&quot; ...
+##  $ X.forkhead.box.protein.P2.isoform.II.: chr  &quot;forkhead box protein P2 isoform II&quot; &quot;forkhead box protein P2 isoform III&quot; &quot;forkhead box protein P2 isoform IV&quot; &quot;forkhead box protein P2 isoform VI&quot; ...
+##  $ X.Homo.                              : chr  &quot;Homo&quot; &quot;Homo&quot; &quot;Homo&quot; &quot;Homo&quot; ...
+##  $ X.sapiens.                           : chr  &quot;sapiens&quot; &quot;sapiens&quot; &quot;sapiens&quot; &quot;sapiens&quot; ...</code></pre>
 <hr />
 </div>
 <div id="do.call-to-save-youself-some-trouble" class="section level3">
@@ -3234,25 +3256,24 @@ vecNum1 = c(1:10)
 vecNum2 = c(11:21)
 
 # Put these vectors into a list
-listNum = list(...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code># Take the sum of each vector
-...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+listNum = list(vecNum1, vecNum2)
+
+# Take the sum of each vector
+sum(vecNum1) + sum(vecNum2)</code></pre>
+<pre><code>## [1] 231</code></pre>
 <hr />
 <p>Now suppose we had a <code>list</code> of vectors that we wanted to
 add up? We could constantly sum them all. We could use a
 <code>for</code> loop like we saw above or maybe we can just add the
 vectors and take the sum?</p>
 <pre class="r"><code># Can we just take the sum of the two vectors added together?
-sum(vecNum1 ... vecNum2)
-
-# Or do we provide each vector as an argument?
-sum(vecNum1 ... vecNum2)</code></pre>
-<pre><code>## Error in parse(text = input): &lt;text&gt;:2:13: unexpected symbol
-## 1: # Can we just take the sum of the two vectors added together?
-## 2: sum(vecNum1 ...
-##                ^</code></pre>
+sum(vecNum1 + vecNum2)</code></pre>
+<pre><code>## Warning in vecNum1 + vecNum2: longer object length is not a multiple of shorter
+## object length</code></pre>
+<pre><code>## [1] 232</code></pre>
+<pre class="r"><code># Or do we provide each vector as an argument?
+sum(vecNum1 , vecNum2)</code></pre>
+<pre><code>## [1] 231</code></pre>
 <hr />
 <p>Looks like if we try to add the vectors and then sum we are getting
 an incorrect answer? Long story short - <strong><em>vector
@@ -3272,11 +3293,11 @@ perform a <code>sum()</code> function across our <code>listNum</code>
 object.</p>
 <pre class="r"><code># Can we simply sum the elements of the list?
 sum(listNum)</code></pre>
-<pre><code>## Error: object &#39;listNum&#39; not found</code></pre>
+<pre><code>## Error in sum(listNum): invalid &#39;type&#39; (list) of argument</code></pre>
 <pre class="r"><code># If we use do.call, it breaks the elements out of the list before passing them all at once to sum()
 # Note that we are providing the function name, &quot;sum&quot;, not calling on the function using &quot;sum()&quot;
-...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+do.call(sum, listNum)</code></pre>
+<pre><code>## [1] 231</code></pre>
 <hr />
 <p>Now that we’ve really dug into understanding the
 <code>do.call()</code> function, let’s get back to our dilemma. We have
@@ -3290,20 +3311,26 @@ individual dataframes and not a single one. It’s time for
 <code>do.call()</code> to shine!</p>
 <pre class="r"><code># Now use do.call
 header.df &lt;- 
-  do.call(...) %&gt;% 
-  select(-1) # remember you need to get rid of the first column which contains the whole header</code></pre>
-<pre><code>## Error in select(., -1): &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>head(header.df)</code></pre>
-<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
-## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
+  do.call(rbind.data.frame, fasta_header) %&gt;% 
+  select(-1) # remember you need to get rid of the first column which contains the whole header
+
+head(header.df)</code></pre>
+<pre><code>##               V2                                  V3   V4      V5
+## 1    NP_683696.2  forkhead box protein P2 isoform II Homo sapiens
+## 2    NP_683697.2 forkhead box protein P2 isoform III Homo sapiens
+## 3    NP_683698.2  forkhead box protein P2 isoform IV Homo sapiens
+## 4 NP_001166238.1  forkhead box protein P2 isoform VI Homo sapiens
+## 5 NP_001166237.1   forkhead box protein P2 isoform V Homo sapiens
+## 6    NP_055306.1   forkhead box protein P2 isoform I Homo sapiens</code></pre>
 <hr />
 <p>Don’t forget to rename your columns!</p>
 <pre class="r"><code># rename the columns &quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, and &quot;Species&quot;
-...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, &quot;Species&quot;)</code></pre>
-<pre><code>## Error in ...(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, : could not find function &quot;...&lt;-&quot;</code></pre>
-<pre class="r"><code>head(header.df,2)</code></pre>
-<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
-## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
+colnames(header.df) &lt;- c(&quot;Accession_number&quot;, &quot;Protein_info&quot;, &quot;Genus&quot;, &quot;Species&quot;)
+
+head(header.df,2)</code></pre>
+<pre><code>##   Accession_number                        Protein_info Genus Species
+## 1      NP_683696.2  forkhead box protein P2 isoform II  Homo sapiens
+## 2      NP_683697.2 forkhead box protein P2 isoform III  Homo sapiens</code></pre>
 <hr />
 <p>Looks like we are halfway through our problem. We’ve split the header
 into new columns and we now need to cleanup the sequence entries which
@@ -3340,10 +3367,43 @@ header_seq_subset %&gt;%
   # Break off the 2nd column
   pull(2) %&gt;% 
   # Split the strings
-  str_split(...) %&gt;% 
+  str_split(r&quot;(\r\n)&quot;) %&gt;% 
   # Take a look at the results of the split
   head(3)</code></pre>
-<pre><code>## Error in head(., 3): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT&quot;
+##  [2] &quot;SGLKSPKSSDKQRPLQELLPETKLCICGHSSGDGHPHNTFAVPVSVAMMTPQVITPQQMQQILQQQVLSP&quot;
+##  [3] &quot;QQLQALLQQQQAVMLQQQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ&quot;
+##  [4] &quot;QQQQQQHPGKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQS&quot;
+##  [5] &quot;LPQAGLSPAEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLS&quot;
+##  [6] &quot;ARRDSSSHEETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQL&quot;
+##  [7] &quot;SKERERLQAMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVIT&quot;
+##  [8] &quot;PASVPNVGAIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFT&quot;
+##  [9] &quot;RTFAYFRRNAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYG&quot;
+## [10] &quot;AALNASLQAALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKE&quot;
+## [11] &quot;EPVIAEDEDCPMSLVTTANHSPELEDDREIEEEPLSEDLE&quot;                              
+## 
+## [[2]]
+## [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT&quot;
+## [2] &quot;SGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQQQLQEFYK&quot;
+## [3] &quot;KQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHPGKQAKEQQQQQQQQQQL&quot;
+## [4] &quot;AAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSPAEIQQLWKEVTGVHSME&quot;
+## [5] &quot;DNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSHEETGASHTLYGHGVCKW&quot;
+## [6] &quot;PGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQAMMTHLHMRPSEPKPSP&quot;
+## [7] &quot;KPVSAYCFINSK&quot;                                                          
+## 
+## [[3]]
+##  [1] &quot;MMQESATETISNSSMNQNGMSTLSSQLDAGSRDGRSSGDTSSEVSTVELLHLQQQQALQAARQLLLQQQT&quot;
+##  [2] &quot;SGLKSPKSSDKQRPLQVPVSVAMMTPQVITPQQMQQILQQQVLSPQQLQALLQQQQAVMLQQDFLDSGLE&quot;
+##  [3] &quot;NFRAALEKNQQLQEFYKKQQEQLHLQLLQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQHP&quot;
+##  [4] &quot;GKQAKEQQQQQQQQQQLAAQQLVFQQQLLQMQQLQQQQHLLSLQRQGLISIPPGQAALPVQSLPQAGLSP&quot;
+##  [5] &quot;AEIQQLWKEVTGVHSMEDNGIKHGGLDLTTNNSSSTTSSNTSKASPPITHHSIVNGQSSVLSARRDSSSH&quot;
+##  [6] &quot;EETGASHTLYGHGVCKWPGCESICEDFGQFLKHLNNEHALDDRSTAQCRVQMQVVQQLEIQLSKERERLQ&quot;
+##  [7] &quot;AMMTHLHMRPSEPKPSPKPLNLVSSVTMSKNMLETSPQSLPQTPTTPTAPVTPITQGPSVITPASVPNVG&quot;
+##  [8] &quot;AIRRRHSDKYNIPMSSEIAPNYEFYKNADVRPPFTYATLIRQAIMESSDRQLTLNEIYSWFTRTFAYFRR&quot;
+##  [9] &quot;NAATWKNAVRHNLSLHKCFVRVENVKGAVWTVDEVEYQKRRSQKITGSPTLVKNIPTSLGYGAALNASLQ&quot;
+## [10] &quot;AALAESSLPLLSNPGLINNASSGLLQAVHEDLNGSLDHIDSNGNSSPGCSPQPHIHSIHVKEEPVIAEDE&quot;
+## [11] &quot;DCPMSLVTTANHSPELEDDREIEEEPLSEDLE&quot;</code></pre>
 <hr />
 </div>
 <div id="is-it-lapply-or-do.call" class="section level3">
@@ -3425,8 +3485,13 @@ cbind(...) %&gt;% head()</code></pre>
 header.df$... &lt;- seq_united</code></pre>
 <pre><code>## Error: object &#39;seq_united&#39; not found</code></pre>
 <pre class="r"><code>head(header.df)</code></pre>
-<pre><code>##   X.NP_683696.2. X.forkhead.box.protein.P2.isoform.II. X.Homo. X.sapiens.
-## 1    NP_683696.2    forkhead box protein P2 isoform II    Homo    sapiens</code></pre>
+<pre><code>##   Accession_number                        Protein_info Genus Species
+## 1      NP_683696.2  forkhead box protein P2 isoform II  Homo sapiens
+## 2      NP_683697.2 forkhead box protein P2 isoform III  Homo sapiens
+## 3      NP_683698.2  forkhead box protein P2 isoform IV  Homo sapiens
+## 4   NP_001166238.1  forkhead box protein P2 isoform VI  Homo sapiens
+## 5   NP_001166237.1   forkhead box protein P2 isoform V  Homo sapiens
+## 6      NP_055306.1   forkhead box protein P2 isoform I  Homo sapiens</code></pre>
 <hr />
 <p>We’re done! Just like we wanted it:</p>
 <table>
