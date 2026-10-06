@@ -1626,8 +1626,8 @@ find <code>u\\s</code> to convince ourselves that we’re getting the
 right part of the substring. We’ll use the <code>str_remove()</code>
 function to help us out.</p>
 <pre class="r"><code># Remove the u\\s from our string
-str_remove(bad_string, pattern = &quot;...&quot;)</code></pre>
-<pre><code>## [1] &quot;\\stay\\here\\now&quot;</code></pre>
+str_remove(bad_string, pattern = &quot;u\\\\s&quot;)</code></pre>
+<pre><code>## [1] &quot;yotay\\here\\now&quot;</code></pre>
 <p>As of <strong>R version 4.0.0</strong> and above, the ability to
 produce <strong>raw string literals</strong> has been added. What does
 that mean? It means that instead of having to use additional
@@ -1644,17 +1644,20 @@ simplification when working with RegEx in R.</p>
 <p>Let’s see how we would code the above example and our original
 <code>dino</code> sequence example</p>
 <pre class="r"><code># Use a raw string literal to remove u\\s from our bad_string
-str_remove(bad_string, pattern = ...)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+str_remove(bad_string, pattern = r&quot;(u\\s)&quot;)</code></pre>
+<pre><code>## [1] &quot;yotay\\here\\now&quot;</code></pre>
 <pre class="r"><code># Our original code for removing spaces in our header
 str_remove_all(string = dino, pattern = &quot;\\s&quot;) %&gt;% cat()</code></pre>
 <pre><code>## &gt;DinoDNAfromCrichtonJURASSICPARKp.103nt1-1200GCGTTGCTGGCGTTTTTCCATAGGCTCCGCCCCCCTGACGAGCATCACAAAAATCGACGCGGTGGCGAAACCCGACAGGACTATAAAGATACCAGGCGTTTCCCCCTGGAAGCTCCCTCGTGTTCCGACCCTGCCGCTTACCGGATACCTGTCCGCCTTTCTCCCTTCGGGAAGCGTGGCTGCTCACGCTGTACCTATCTCAGTTCGGTGTAGGTCGTTCGCTCCAAGCTGGGCTGTGTGCCGTTCAGCCCGACCGCTGCGCCTTATCCGGTAACTATCGTCTTGAGTCCAACCCGGTAAAGTAGGACAGGTGCCGGCAGCGCTCTGGGTCATTTTCGGCGAGGACCGCTTTCGCTGGAGATCGGCCTGTCGCTTGCGGTATTCGGAATCTTGCACGCCCTCGCTCAAGCCTTCGTCACTCCAAACGTTTCGGCGAGAAGCAGGCCATTATCGCCGGCATGGCGGCCGACGCGCTGGGCTGGCGTTCGCGACGCGAGGCTGGATGGCCTTCCCCATTATGATTCTTCTCGCTTCCGGCGGCCCGCGTTGCAGGCCATGCTGTCCAGGCAGGTAGATGACGACCATCAGGGACAGCTTCAACGGCTCTTACCAGCCTAACTTCGATCACTGGACCGCTGATCGTCACGGCGATTTATGCCGCACATGGACGCGTTGCTGGCGTTTTTCCATAGGCTCCGCCCCCCTGACGAGCATCACAAACAAGTCAGAGGTGGCGAAACCCGACAGGACTATAAAGATACCAGGCGTTTCCCCCTGGAAGCGCTCTCCTGTTCCGACCCTGCCGCTTACCGGATACCTGTCCGCCTTTCTCCCTTCGGGCTTTCTCAATGCTCACGCTGTAGGTATCTCAGTTCGGTGTAGGTCGTTCGCTCCAAGCTGACGAACCCCCCGTTCAGCCCGACCGCTGCGCCTTATCCGGTAACTATCGTCTTGAGTCCAACACGACTTAACGGGTTGGCATGGATTGTAGGCGCCGCCCTATACCTTGTCTGCCTCCCCGCGGTGCATGGAGCCGGGCCACCTCGACCTGAATGGAAGCCGGCGGCACCTCGCTAACGGCCAAGAATTGGAGCCAATCAATTCTTGCGGAGAACTGTGAATGCGCAAACCAACCCTTGGCCATCGCGTCCGCCATCTCCAGCAGCCGCACGCGGCGCATCTCGGGCAGCGTTGGGTCCT</code></pre>
 <pre class="r"><code># Convert it to a raw string literal. Will this work?
-str_remove_all(string = dino, pattern = ...) %&gt;% cat()</code></pre>
-<pre><code>## Error in cat(.): &#39;...&#39; used in an incorrect context</code></pre>
+str_remove_all(string = dino, pattern = r&quot;(\\s)&quot; %&gt;% cat()</code></pre>
+<pre><code>## Error in parse(text = input): &lt;text&gt;:3:0: unexpected end of input
+## 1: # Convert it to a raw string literal. Will this work?
+## 2: str_remove_all(string = dino, pattern = r&quot;(\\s)&quot; %&gt;% cat()
+##   ^</code></pre>
 <pre class="r"><code># Use the proper raw string literal
-str_remove_all(string = dino, pattern = ...) %&gt;% cat()</code></pre>
-<pre><code>## Error in cat(.): &#39;...&#39; used in an incorrect context</code></pre>
+str_remove_all(string = dino, pattern = r&quot;(\s)&quot;) %&gt;% cat()</code></pre>
+<pre><code>## &gt;DinoDNAfromCrichtonJURASSICPARKp.103nt1-1200GCGTTGCTGGCGTTTTTCCATAGGCTCCGCCCCCCTGACGAGCATCACAAAAATCGACGCGGTGGCGAAACCCGACAGGACTATAAAGATACCAGGCGTTTCCCCCTGGAAGCTCCCTCGTGTTCCGACCCTGCCGCTTACCGGATACCTGTCCGCCTTTCTCCCTTCGGGAAGCGTGGCTGCTCACGCTGTACCTATCTCAGTTCGGTGTAGGTCGTTCGCTCCAAGCTGGGCTGTGTGCCGTTCAGCCCGACCGCTGCGCCTTATCCGGTAACTATCGTCTTGAGTCCAACCCGGTAAAGTAGGACAGGTGCCGGCAGCGCTCTGGGTCATTTTCGGCGAGGACCGCTTTCGCTGGAGATCGGCCTGTCGCTTGCGGTATTCGGAATCTTGCACGCCCTCGCTCAAGCCTTCGTCACTCCAAACGTTTCGGCGAGAAGCAGGCCATTATCGCCGGCATGGCGGCCGACGCGCTGGGCTGGCGTTCGCGACGCGAGGCTGGATGGCCTTCCCCATTATGATTCTTCTCGCTTCCGGCGGCCCGCGTTGCAGGCCATGCTGTCCAGGCAGGTAGATGACGACCATCAGGGACAGCTTCAACGGCTCTTACCAGCCTAACTTCGATCACTGGACCGCTGATCGTCACGGCGATTTATGCCGCACATGGACGCGTTGCTGGCGTTTTTCCATAGGCTCCGCCCCCCTGACGAGCATCACAAACAAGTCAGAGGTGGCGAAACCCGACAGGACTATAAAGATACCAGGCGTTTCCCCCTGGAAGCGCTCTCCTGTTCCGACCCTGCCGCTTACCGGATACCTGTCCGCCTTTCTCCCTTCGGGCTTTCTCAATGCTCACGCTGTAGGTATCTCAGTTCGGTGTAGGTCGTTCGCTCCAAGCTGACGAACCCCCCGTTCAGCCCGACCGCTGCGCCTTATCCGGTAACTATCGTCTTGAGTCCAACACGACTTAACGGGTTGGCATGGATTGTAGGCGCCGCCCTATACCTTGTCTGCCTCCCCGCGGTGCATGGAGCCGGGCCACCTCGACCTGAATGGAAGCCGGCGGCACCTCGCTAACGGCCAAGAATTGGAGCCAATCAATTCTTGCGGAGAACTGTGAATGCGCAAACCAACCCTTGGCCATCGCGTCCGCCATCTCCAGCAGCCGCACGCGGCGCATCTCGGGCAGCGTTGGGTCCT</code></pre>
 <hr />
 </div>
 <div id="extracting-to-save-for-later-with-str_extract" class="section level2">
@@ -1667,11 +1670,11 @@ pattern instead of removing it. We will save this in an object called
 <code>\\s</code> from our expression because it’s more of a separator
 between header and sequence.</p>
 <pre class="r"><code># Save the header information to a variable
-header &lt;- ...(string = dino, pattern = r&quot;(&gt;.*[0-9])&quot;)</code></pre>
-<pre><code>## Error in ...(string = dino, pattern = &quot;&gt;.*[0-9]&quot;): could not find function &quot;...&quot;</code></pre>
-<pre class="r"><code># Check that it worked as expected
+header &lt;- str_extract(string = dino, pattern = r&quot;(&gt;.*[0-9])&quot;)
+
+# Check that it worked as expected
 header</code></pre>
-<pre><code>## Error: object &#39;header&#39; not found</code></pre>
+<pre><code>## [1] &quot;&gt;DinoDNA from Crichton JURASSIC PARK  p. 103 nt 1-1200&quot;</code></pre>
 <hr />
 </div>
 <div id="searching-with-str_extract_all" class="section level2">
