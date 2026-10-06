@@ -1785,6 +1785,8 @@ our string to get the %GC content.</p>
 <pre class="r"><code># Take advantage of helper functions like str_length()
 str_count(dna, pattern = &quot;G|C&quot;)/str_length(dna) * 100 # percentage of GC content</code></pre>
 <pre><code>## [1] 59.06481</code></pre>
+<pre class="r"><code>str_count(dna, pattern = &quot;G|C&quot;)/str_count(dna, pattern = &quot;.&quot;) *100</code></pre>
+<pre><code>## [1] 60</code></pre>
 <hr />
 </div>
 <div id="replacement-using-str_replace_all" class="section level2">
@@ -1911,11 +1913,23 @@ substring occurs. Values are returned in a 2-column matrix.</p>
 of 2-column matrices is returned, using a different matrix for each
 input string.</p>
 <pre class="r"><code># try out string locate on two copies of mrna
-...(c(mrna, mrna), &quot;AUG&quot;)</code></pre>
-<pre><code>## Error in ...(c(mrna, mrna), &quot;AUG&quot;): could not find function &quot;...&quot;</code></pre>
+str_locate(c(mrna, mrna), &quot;AUG&quot;)</code></pre>
+<pre><code>##      start end
+## [1,]    91  93
+## [2,]    91  93</code></pre>
 <pre class="r"><code># vs string locate all on mrna
-...(mrna, &quot;AUG&quot;)</code></pre>
-<pre><code>## Error in ...(mrna, &quot;AUG&quot;): could not find function &quot;...&quot;</code></pre>
+str_locate_all(mrna, &quot;AUG&quot;)</code></pre>
+<pre><code>## [[1]]
+##       start  end
+##  [1,]    91   93
+##  [2,]   141  143
+##  [3,]   148  150
+##  [4,]   195  197
+##  [5,]   618  620
+##  [6,]   771  773
+##  [7,]   821  823
+##  [8,]   828  830
+##  [9,]  1019 1021</code></pre>
 <hr />
 </div>
 </div>
