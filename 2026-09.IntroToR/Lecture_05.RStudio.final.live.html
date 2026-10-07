@@ -3575,13 +3575,46 @@ column names that were much harder to deal with in our code.</p>
 those variable names. We’ll save the file in a variable called
 <code>infection.df</code>.</p>
 <pre class="r"><code># Import the infection_meta.csv file
-infection.df &lt;- read_csv(&quot;...&quot;) </code></pre>
-<pre><code>## Warning in file(con, &quot;rb&quot;): cannot open file
-## &#39;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2026.09_Intro_to_R/lecture_05_regex&#39;:
-## Permission denied</code></pre>
-<pre><code>## Error in file(con, &quot;rb&quot;): cannot open the connection</code></pre>
+infection.df &lt;- read_csv(&quot;data/infection_meta.csv&quot;) </code></pre>
+<pre><code>## [1mRows: [22m[34m276[39m [1mColumns: [22m[34m29[39m
+## [36m--[39m [1mColumn specification[22m [36m----------------------------------------------------------------------------------------------------------------------------------------------------------------------------[39m
+## [1mDelimiter:[22m &quot;,&quot;
+## [31mchr[39m (10): experiment, experimenter, description, Worm_strain, Spore Strain, ...
+## [32mdbl[39m (19): Infection Date, Plate Number, Total Worms, Lot concentration, Tota...
+## 
+## [36mi[39m Use `spec()` to retrieve the full column specification for this data.
+## [36mi[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>str(infection.df, give.attr = FALSE)</code></pre>
-<pre><code>## Error in str(infection.df, give.attr = FALSE): object &#39;infection.df&#39; not found</code></pre>
+<pre><code>## spc_tbl_ [276 x 29] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ experiment       : chr [1:276] &quot;190426_VC20019_LUAm1_0M_72hpi&quot; &quot;190426_VC20019_LUAm1_10M_72hpi&quot; &quot;190426_VC20019_LUAm1_20M_72hpi&quot; &quot;190426_N2_LUAm1_0M_72hpi&quot; ...
+##  $ experimenter     : chr [1:276] &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; &quot;CM&quot; ...
+##  $ description      : chr [1:276] &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; &quot;Wild isolate phenoMIP retest&quot; ...
+##  $ Infection Date   : num [1:276] 190423 190423 190423 190423 190423 ...
+##  $ Plate Number     : num [1:276] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Worm_strain      : chr [1:276] &quot;VC20019&quot; &quot;VC20019&quot; &quot;VC20019&quot; &quot;N2&quot; ...
+##  $ Total Worms      : num [1:276] 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ...
+##  $ Spore Strain     : chr [1:276] &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; &quot;LUAm1&quot; ...
+##  $ Spore Lot        : chr [1:276] &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; &quot;2A&quot; ...
+##  $ Lot concentration: num [1:276] 176000 176000 176000 176000 176000 176000 176000 176000 176000 176000 ...
+##  $ Total Spores (M) : num [1:276] 0 10 20 0 10 20 0 10 20 0 ...
+##  $ Total ul spore   : num [1:276] 0 56.8 113.6 0 56.8 ...
+##  $ Infection Round  : num [1:276] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ 40X OP50 (mL)    : num [1:276] 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 ...
+##  $ Plate Size       : num [1:276] 6 6 6 6 6 6 6 6 6 6 ...
+##  $ Spores(M)/cm2    : num [1:276] 0 0.354 0.708 0 0.354 ...
+##  $ Time plated      : num [1:276] 1300 1300 1300 1300 1300 1300 1300 1300 1300 1300 ...
+##  $ Time Incubated   : num [1:276] 1600 1600 1600 1600 1600 1600 1600 1600 1600 1600 ...
+##  $ Temp             : num [1:276] 21 21 21 21 21 21 21 21 21 21 ...
+##  $ timepoint        : chr [1:276] &quot;72&quot; &quot;72&quot; &quot;72&quot; &quot;72&quot; ...
+##  $ infection.type   : chr [1:276] &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; &quot;continuous&quot; ...
+##  $ Fixing Date      : num [1:276] 190426 190426 190426 190426 190426 ...
+##  $ Location         : chr [1:276] &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; &quot;Sample exhausted&quot; ...
+##  $ Staining Date    : num [1:276] 190513 190513 190513 190430 190513 ...
+##  $ Stain type       : chr [1:276] &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;Sp.9 FISH + DY96&quot; &quot;DY96&quot; ...
+##  $ Slide date       : num [1:276] 190515 190515 190515 190501 190515 ...
+##  $ Slide number     : num [1:276] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Slide Box        : num [1:276] 2 2 2 2 2 2 2 2 2 2 ...
+##  $ Imaging Date     : num [1:276] 190516 190516 190516 190502 190516 ...</code></pre>
 <hr />
 <div id="using-rename-and-rename_with-to-fix-column-names" class="section level2">
 <h2>5.1.0 Using <code>rename()</code> and <code>rename_with()</code> to
@@ -3620,12 +3653,21 @@ variables:</p>
 separate words in each variable name.</p>
 <pre class="r"><code>infection.df %&gt;% 
   ### 5.1.0 Let&#39;s make sure all words in our names are separated with a space
-  rename_with(., .fn = ~ str_replace_all(string = ..., 
-                                         pattern = ..., 
-                                         replacement = ...)) %&gt;% 
+  rename_with(., .fn = ~ str_replace_all(string = .x, 
+                                         pattern = r&quot;(\.|_)&quot;, 
+                                         replacement = &quot; &quot;)) %&gt;% 
   # Look at the column names
   colnames()</code></pre>
-<pre><code>## Error in rename_with(., .fn = ~str_replace_all(string = ..., pattern = ..., : object &#39;infection.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;experiment&quot;        &quot;experimenter&quot;      &quot;description&quot;      
+##  [4] &quot;Infection Date&quot;    &quot;Plate Number&quot;      &quot;Worm strain&quot;      
+##  [7] &quot;Total Worms&quot;       &quot;Spore Strain&quot;      &quot;Spore Lot&quot;        
+## [10] &quot;Lot concentration&quot; &quot;Total Spores (M)&quot;  &quot;Total ul spore&quot;   
+## [13] &quot;Infection Round&quot;   &quot;40X OP50 (mL)&quot;     &quot;Plate Size&quot;       
+## [16] &quot;Spores(M)/cm2&quot;     &quot;Time plated&quot;       &quot;Time Incubated&quot;   
+## [19] &quot;Temp&quot;              &quot;timepoint&quot;         &quot;infection type&quot;   
+## [22] &quot;Fixing Date&quot;       &quot;Location&quot;          &quot;Staining Date&quot;    
+## [25] &quot;Stain type&quot;        &quot;Slide date&quot;        &quot;Slide number&quot;     
+## [28] &quot;Slide Box&quot;         &quot;Imaging Date&quot;</code></pre>
 <hr />
 </div>
 <div id="the-str_to_-functions-quickly-update-the-string-case" class="section level2">
@@ -3682,12 +3724,19 @@ the space between our words with a <code>str_remove_all()</code>.</p>
   # Let&#39;s make sure all words in our names are separated with a space
   rename_with(., .fn = ~ str_replace_all(string = .x, pattern = r&quot;(\.|_)&quot;, replacement = &quot; &quot;)) %&gt;% 
   ### 5.2.0 Make sure all of the words begin with a capital letter
-  rename_with(., .fn = ...) %&gt;% 
+  rename_with(., .fn = ~ str_to_title(.x)) %&gt;% 
   ### 5.2.0 now bring all of the words together
-  rename_with(., .fn = ~ ...(.x, pattern = r&quot;(\s)&quot;)) %&gt;% 
+  rename_with(., .fn = ~ str_remove_all(.x, pattern = r&quot;(\s)&quot;)) %&gt;% 
   # Look at the column names
   colnames()</code></pre>
-<pre><code>## Error in rename_with(., .fn = ~...(.x, pattern = &quot;\\s&quot;)): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>##  [1] &quot;Experiment&quot;       &quot;Experimenter&quot;     &quot;Description&quot;      &quot;InfectionDate&quot;   
+##  [5] &quot;PlateNumber&quot;      &quot;WormStrain&quot;       &quot;TotalWorms&quot;       &quot;SporeStrain&quot;     
+##  [9] &quot;SporeLot&quot;         &quot;LotConcentration&quot; &quot;TotalSpores(M)&quot;   &quot;TotalUlSpore&quot;    
+## [13] &quot;InfectionRound&quot;   &quot;40xOp50(Ml)&quot;      &quot;PlateSize&quot;        &quot;Spores(M)/Cm2&quot;   
+## [17] &quot;TimePlated&quot;       &quot;TimeIncubated&quot;    &quot;Temp&quot;             &quot;Timepoint&quot;       
+## [21] &quot;InfectionType&quot;    &quot;FixingDate&quot;       &quot;Location&quot;         &quot;StainingDate&quot;    
+## [25] &quot;StainType&quot;        &quot;SlideDate&quot;        &quot;SlideNumber&quot;      &quot;SlideBox&quot;        
+## [29] &quot;ImagingDate&quot;</code></pre>
 <hr />
 </div>
 <div id="use-a-function-within-the-str_replace-function" class="section level2">
@@ -3714,13 +3763,20 @@ with the empty character.</p>
   ### 5.3.0 Make all titles begin with lower case
   rename_with(., .fn = ~ str_replace(string = .x, 
                                      pattern = r&quot;(^.)&quot;, 
-                                     replacement = ...)) %&gt;% 
+                                     replacement = str_to_lower)) %&gt;% 
   
   ### 5.3.0 now get rid of the parentheses
-  rename_with(., .fn = ~ ...(.x, pattern = r&quot;(\(|\)|/)&quot;, replacement = &quot;&quot;)) %&gt;% 
+  rename_with(., .fn = ~ str_replace_all(.x, pattern = r&quot;(\(|\)|/)&quot;, replacement = &quot;&quot;)) %&gt;% 
   # Look at the column names
   colnames()</code></pre>
-<pre><code>## Error in rename_with(., .fn = ~str_replace_all(string = .x, pattern = &quot;\\.|_&quot;, : object &#39;infection.df&#39; not found</code></pre>
+<pre><code>##  [1] &quot;experiment&quot;       &quot;experimenter&quot;     &quot;description&quot;      &quot;infectionDate&quot;   
+##  [5] &quot;plateNumber&quot;      &quot;wormStrain&quot;       &quot;totalWorms&quot;       &quot;sporeStrain&quot;     
+##  [9] &quot;sporeLot&quot;         &quot;lotConcentration&quot; &quot;totalSporesM&quot;     &quot;totalUlSpore&quot;    
+## [13] &quot;infectionRound&quot;   &quot;40xOp50Ml&quot;        &quot;plateSize&quot;        &quot;sporesMCm2&quot;      
+## [17] &quot;timePlated&quot;       &quot;timeIncubated&quot;    &quot;temp&quot;             &quot;timepoint&quot;       
+## [21] &quot;infectionType&quot;    &quot;fixingDate&quot;       &quot;location&quot;         &quot;stainingDate&quot;    
+## [25] &quot;stainType&quot;        &quot;slideDate&quot;        &quot;slideNumber&quot;      &quot;slideBox&quot;        
+## [29] &quot;imagingDate&quot;</code></pre>
 <hr />
 <p>We did it! And in a few “simple” steps, we’ve made our variable names
 much more manageable!</p>
