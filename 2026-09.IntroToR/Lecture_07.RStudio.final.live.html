@@ -2140,22 +2140,28 @@ rep(x = 1:5, times = 8)</code></pre>
 <code>for()</code> loop!</p>
 <pre class="r"><code># for loop version variables need to be set
 rm(result, i)  # Remove the variables result and i, if they exist.
-x &lt;- ... </code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>n &lt;- ...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>result &lt;- x # What happens if we remove this line?
+x &lt;- 1:5 
+n &lt;- 8
+result &lt;- x # What happens if we remove this line?
 
 # Build our for loop
-for (i in 1:(...)){
+for (i in 1:(n-1)){
   result &lt;- c(result, x)
   print(result)
   }</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>##  [1] 1 2 3 4 5 1 2 3 4 5
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3
+## [39] 4 5</code></pre>
 <pre class="r"><code>result</code></pre>
-<pre><code>## [1] 10</code></pre>
+<pre><code>##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3
+## [39] 4 5</code></pre>
 <pre class="r"><code>i</code></pre>
-<pre><code>## Error: object &#39;i&#39; not found</code></pre>
+<pre><code>## [1] 7</code></pre>
 <hr />
 </div>
 <div id="self-referencing-variables-must-be-declared-outside-your-loops" class="section level3">
@@ -2233,7 +2239,7 @@ longer exist in your scope. Let’s revisit our example from above.</p>
 rm(result, j)</code></pre>
 <pre><code>## Warning in rm(result, j): object &#39;j&#39; not found</code></pre>
 <pre class="r"><code>cat(&quot;The prior value of i is :&quot;, i, &quot;\n&quot;)</code></pre>
-<pre><code>## Error in cat(&quot;The prior value of i is :&quot;, i, &quot;\n&quot;): object &#39;i&#39; not found</code></pre>
+<pre><code>## The prior value of i is : 7</code></pre>
 <pre class="r"><code># for loop version variables need to be set
 x &lt;- 1:5 
 n &lt;- 8
@@ -2251,7 +2257,7 @@ result &lt;- 100
 <pre class="r"><code>cat(&quot;The value of result is: &quot;, result, &quot;\n&quot;)</code></pre>
 <pre><code>## The value of result is:  100</code></pre>
 <pre class="r"><code>cat(&quot;The value of i is :&quot;, i, &quot;\n&quot;)</code></pre>
-<pre><code>## Error in cat(&quot;The value of i is :&quot;, i, &quot;\n&quot;): object &#39;i&#39; not found</code></pre>
+<pre><code>## The value of i is : 7</code></pre>
 <pre class="r"><code>cat(&quot;The value of j is :&quot;, j)</code></pre>
 <pre><code>## Error in cat(&quot;The value of j is :&quot;, j): object &#39;j&#39; not found</code></pre>
 <hr />
