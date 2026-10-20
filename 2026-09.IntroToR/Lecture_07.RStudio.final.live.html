@@ -1948,14 +1948,15 @@ getwd()</code></pre>
 ## [34] &quot;Lecture07.R&quot;                                     
 ## [35] &quot;Lecture07.RData&quot;</code></pre>
 <pre class="r"><code># read our file in with read_csv()
-embryos.df &lt;- read_csv(&quot;...&quot;, col_types = &quot;cdffffdfllddfddffff&quot;)</code></pre>
-<pre><code>## Warning in file(con, &quot;rb&quot;): cannot open file
-## &#39;C:/Users/mokca/Dropbox/!CAGEF/Course_Materials/Introduction_to_R/2026.09_Intro_to_R/lecture_07_flow_control&#39;:
-## Permission denied</code></pre>
-<pre><code>## Error in file(con, &quot;rb&quot;): cannot open the connection</code></pre>
-<pre class="r"><code># explore our loaded data frame
+embryos.df &lt;- read_csv(&quot;data/embryo_data_long_merged.csv&quot;, col_types = &quot;cdffffdfllddfddffff&quot;)
+
+# explore our loaded data frame
 head(embryos.df)</code></pre>
-<pre><code>## Error in head(embryos.df): object &#39;embryos.df&#39; not found</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["experiment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["wormNumber"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["infectionDate"],"name":[3],"type":["fct"],"align":["left"]},{"label":["wormStrain"],"name":[4],"type":["fct"],"align":["left"]},{"label":["sporeStrain"],"name":[5],"type":["fct"],"align":["left"]},{"label":["sporeDose"],"name":[6],"type":["fct"],"align":["left"]},{"label":["sporesM_cm2"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["doseLevel"],"name":[8],"type":["fct"],"align":["left"]},{"label":["spores"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["meronts"],"name":[10],"type":["lgl"],"align":["right"]},{"label":["embryos"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["expTimepoint"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["infectionType"],"name":[13],"type":["fct"],"align":["left"]},{"label":["totalWorms"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["plateSize"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["fixingDate"],"name":[16],"type":["fct"],"align":["left"]},{"label":["stainingDate"],"name":[17],"type":["fct"],"align":["left"]},{"label":["slideDate"],"name":[18],"type":["fct"],"align":["left"]},{"label":["imagingDate"],"name":[19],"type":["fct"],"align":["left"]}],"data":[{"1":"200707_N2_LUAm1_0M_72hpi","2":"1","3":"200704","4":"N2","5":"LUAm1","6":"0","7":"0.000000","8":"Mock","9":"FALSE","10":"FALSE","11":"18","12":"72","13":"continuous","14":"1000","15":"6","16":"200707","17":"200803","18":"200804","19":"200806"},{"1":"200707_N2_LUAm1_10M_72hpi","2":"1","3":"200704","4":"N2","5":"LUAm1","6":"10","7":"0.353857","8":"Medium","9":"FALSE","10":"TRUE","11":"7","12":"72","13":"continuous","14":"1000","15":"6","16":"200707","17":"200803","18":"200804","19":"200806"},{"1":"200707_JU1400_LUAm1_0M_72hpi","2":"1","3":"200704","4":"JU1400","5":"LUAm1","6":"0","7":"0.000000","8":"Mock","9":"FALSE","10":"FALSE","11":"10","12":"72","13":"continuous","14":"1000","15":"6","16":"200707","17":"200803","18":"200804","19":"200806"},{"1":"200707_JU1400_LUAm1_10M_72hpi","2":"1","3":"200704","4":"JU1400","5":"LUAm1","6":"10","7":"0.353857","8":"Medium","9":"FALSE","10":"TRUE","11":"0","12":"72","13":"continuous","14":"1000","15":"6","16":"200707","17":"200803","18":"200804","19":"200806"},{"1":"200707_ED3052A_LUAm1_0M_72hpi","2":"1","3":"200704","4":"ED3052A","5":"LUAm1","6":"0","7":"0.000000","8":"Mock","9":"FALSE","10":"FALSE","11":"12","12":"72","13":"continuous","14":"1000","15":"6","16":"200707","17":"200803","18":"200804","19":"200806"},{"1":"200707_ED3052A_LUAm1_10M_72hpi","2":"1","3":"200704","4":"ED3052A","5":"LUAm1","6":"10","7":"0.353857","8":"Medium","9":"FALSE","10":"TRUE","11":"0","12":"72","13":"continuous","14":"1000","15":"6","16":"200707","17":"200803","18":"200804","19":"200806"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <hr />
 <div id="use-for-loops-to-repeat-commands-for-a-maximum-number-of-iterations" class="section level2">
 <h2>1.1.0 Use <code>for()</code> loops to repeat commands for a maximum
@@ -1974,10 +1975,17 @@ times and overwrite it everytime:</p>
 <pre class="r"><code># Increment a by 2, the bad way...
 a &lt;- 2
 a &lt;- a+2
-...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>a</code></pre>
-<pre><code>## [1] 4</code></pre>
+a &lt;- a+2
+a &lt;- a+2
+a &lt;- a+2
+a &lt;- a+2
+a &lt;- a+2
+a &lt;- a+2
+a &lt;- a+2
+a &lt;- a+2
+a &lt;- a+2
+a</code></pre>
+<pre><code>## [1] 22</code></pre>
 <p>Sure, 10 times is doable by hand, just copy-paste. But what if you
 need to perform that same task, say 1,000 times? What if the code was
 more complex than <code>a &lt;- a + 2</code>? That is when
@@ -1986,17 +1994,14 @@ more complex than <code>a &lt;- a + 2</code>? That is when
 anything = 26
 
 # Set up your for loop with a variable named &#39;tally&#39;
-...</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
-<pre class="r"><code>tally</code></pre>
-<pre><code>## function (x, wt = NULL, sort = FALSE, name = NULL) 
-## {
-##     UseMethod(&quot;tally&quot;)
-## }
-## &lt;bytecode: 0x000000001e646828&gt;
-## &lt;environment: namespace:dplyr&gt;</code></pre>
+for(tally in 1:1000) {
+  anything &lt;- anything + 2
+}
+
+tally</code></pre>
+<pre><code>## [1] 1000</code></pre>
 <pre class="r"><code>anything</code></pre>
-<pre><code>## [1] 26</code></pre>
+<pre><code>## [1] 2026</code></pre>
 <hr />
 <div id="the-for-loop-can-be-described-in-three-stages" class="section level3">
 <h3>1.1.1 The <code>for</code> loop can be described in three
@@ -2028,9 +2033,27 @@ seq(from = 1, to = 10, by = 0.5)</code></pre>
 <pre><code>##  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
 ## [16]  8.5  9.0  9.5 10.0</code></pre>
 <pre class="r"><code># let&#39;s use seq() in a for loop to count, no braces but indentation
-for(... in seq(...)) 
+for(variable in seq(1, 10, 0.5)) 
     print(variable)</code></pre>
-<pre><code>## Error in seq(...): &#39;...&#39; used in an incorrect context</code></pre>
+<pre><code>## [1] 1
+## [1] 1.5
+## [1] 2
+## [1] 2.5
+## [1] 3
+## [1] 3.5
+## [1] 4
+## [1] 4.5
+## [1] 5
+## [1] 5.5
+## [1] 6
+## [1] 6.5
+## [1] 7
+## [1] 7.5
+## [1] 8
+## [1] 8.5
+## [1] 9
+## [1] 9.5
+## [1] 10</code></pre>
 <pre class="r"><code>    print(&quot;middle but not really&quot;)</code></pre>
 <pre><code>## [1] &quot;middle but not really&quot;</code></pre>
 <pre class="r"><code>print(&quot;This is the end&quot;)</code></pre>
@@ -2059,8 +2082,46 @@ for(variable in seq(1, 10, 0.5)) print(variable); print(&quot;middle but not rea
 <pre><code>## [1] &quot;middle but not really&quot;</code></pre>
 <pre><code>## [1] &quot;This is the end&quot;</code></pre>
 <pre class="r"><code># for loop on a single line, with brackets
-for(variable in seq(1, 10, 0.5)) ...; print(&quot;This is the end&quot;)</code></pre>
-<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
+for(variable in seq(1, 10, 0.5)) {print(variable); print(&quot;middle but not really&quot;)}; print(&quot;This is the end&quot;)</code></pre>
+<pre><code>## [1] 1
+## [1] &quot;middle but not really&quot;
+## [1] 1.5
+## [1] &quot;middle but not really&quot;
+## [1] 2
+## [1] &quot;middle but not really&quot;
+## [1] 2.5
+## [1] &quot;middle but not really&quot;
+## [1] 3
+## [1] &quot;middle but not really&quot;
+## [1] 3.5
+## [1] &quot;middle but not really&quot;
+## [1] 4
+## [1] &quot;middle but not really&quot;
+## [1] 4.5
+## [1] &quot;middle but not really&quot;
+## [1] 5
+## [1] &quot;middle but not really&quot;
+## [1] 5.5
+## [1] &quot;middle but not really&quot;
+## [1] 6
+## [1] &quot;middle but not really&quot;
+## [1] 6.5
+## [1] &quot;middle but not really&quot;
+## [1] 7
+## [1] &quot;middle but not really&quot;
+## [1] 7.5
+## [1] &quot;middle but not really&quot;
+## [1] 8
+## [1] &quot;middle but not really&quot;
+## [1] 8.5
+## [1] &quot;middle but not really&quot;
+## [1] 9
+## [1] &quot;middle but not really&quot;
+## [1] 9.5
+## [1] &quot;middle but not really&quot;
+## [1] 10
+## [1] &quot;middle but not really&quot;</code></pre>
+<pre><code>## [1] &quot;This is the end&quot;</code></pre>
 <hr />
 </div>
 <div id="common-functions-are-just-pre-programmed-for-loops" class="section level3">
@@ -2227,7 +2288,26 @@ we’ll add each infection date one at a time using a loop until we get to
 the final version of our visualization.</p>
 <pre class="r"><code># Pull down the structure and colnames of our embryos.df
 str(embryos.df, give.attr = FALSE)</code></pre>
-<pre><code>## Error in str(embryos.df, give.attr = FALSE): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## spc_tbl_ [9,802 x 19] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ experiment   : chr [1:9802] &quot;200707_N2_LUAm1_0M_72hpi&quot; &quot;200707_N2_LUAm1_10M_72hpi&quot; &quot;200707_JU1400_LUAm1_0M_72hpi&quot; &quot;200707_JU1400_LUAm1_10M_72hpi&quot; ...
+##  $ wormNumber   : num [1:9802] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ infectionDate: Factor w/ 9 levels &quot;200704&quot;,&quot;200711&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ wormStrain   : Factor w/ 18 levels &quot;N2&quot;,&quot;JU1400&quot;,..: 1 1 2 2 3 3 4 4 5 5 ...
+##  $ sporeStrain  : Factor w/ 6 levels &quot;LUAm1&quot;,&quot;MAM1&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ sporeDose    : Factor w/ 11 levels &quot;0&quot;,&quot;10&quot;,&quot;4&quot;,&quot;3.5&quot;,..: 1 2 1 2 1 2 1 2 1 2 ...
+##  $ sporesM_cm2  : num [1:9802] 0 0.354 0 0.354 0 ...
+##  $ doseLevel    : Factor w/ 6 levels &quot;Mock&quot;,&quot;Medium&quot;,..: 1 2 1 2 1 2 1 2 1 2 ...
+##  $ spores       : logi [1:9802] FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ meronts      : logi [1:9802] FALSE TRUE FALSE TRUE FALSE TRUE ...
+##  $ embryos      : num [1:9802] 18 7 10 0 12 0 5 9 11 0 ...
+##  $ expTimepoint : num [1:9802] 72 72 72 72 72 72 72 72 72 72 ...
+##  $ infectionType: Factor w/ 1 level &quot;continuous&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ totalWorms   : num [1:9802] 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ...
+##  $ plateSize    : num [1:9802] 6 6 6 6 6 6 6 6 6 6 ...
+##  $ fixingDate   : Factor w/ 9 levels &quot;200707&quot;,&quot;200714&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ stainingDate : Factor w/ 10 levels &quot;200803&quot;,&quot;200810&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ slideDate    : Factor w/ 9 levels &quot;200804&quot;,&quot;200811&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ imagingDate  : Factor w/ 13 levels &quot;200806&quot;,&quot;200813&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <pre class="r"><code>...(embryos.df)</code></pre>
 <pre><code>## Error in ...(embryos.df): could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code># Grab a list of infection dates from the dataset
@@ -2288,7 +2368,10 @@ subdata &lt;-
          ... == &quot;LUAm1&quot;,
          ... == &quot;Medium&quot;
         )</code></pre>
-<pre><code>## Error in filter(., ... %in% c(&quot;N2&quot;, &quot;JU1400&quot;), ... == &quot;LUAm1&quot;, ... == : object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `filter()`:[22m
+## [1m[22m[36mi[39m In argument: `... %in% c(&quot;N2&quot;, &quot;JU1400&quot;)`.
+## [1mCaused by error:[22m
+## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># create an empty data frame to store the output of the for loop
 result &lt;- ...(infectionDate = unique(subdata$infectionDate),
                      difference = NA,
@@ -2946,7 +3029,7 @@ replicate of our data.</p>
   aes(x = ..., y = ..., fill = wormStrain) +
   # 4. Geoms
   geom_boxplot()</code></pre>
-<pre><code>## Error in ggplot(embryos.df[embryos.df$infectionDate == &quot;190423&quot;, ]): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 <p>But what if I were to have, say, multiple infection dates? In this
 case, a for loop will be the way to go. Take a look at the following
@@ -3016,7 +3099,7 @@ for (i in unique(embryos.df$infectionDate)) {
   ggsave(plot = infectionRep, filename = paste(i, &quot;boxplot.facet.png&quot;, sep = &quot;_&quot;), path = &quot;data/&quot; , 
          scale=1, device = &quot;png&quot;, width = 12, height = 7, units = c(&quot;in&quot;))
 }</code></pre>
-<pre><code>## Error in unique(embryos.df$infectionDate): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## Error in facet_grid(...): &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 </div>
 </div>
@@ -3166,14 +3249,15 @@ it into an <code>if</code> statement.</p>
 </div>
 <p>Let’s try to use it right now.</p>
 <pre class="r"><code>unique(embryos.df$infectionDate)</code></pre>
-<pre><code>## Error in unique(embryos.df$infectionDate): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## [1] 200704 200711 200718 200818 200822 200901 200912 200915 190423
+## Levels: 200704 200711 200718 200818 200822 200901 200912 200915 190423</code></pre>
 <pre class="r"><code># Use a for loop to iterate through the first 3 levels of infectionDate
 for (i in unique(embryos.df$infectionDate)[1:3]){
 
     # Call on our function now
     make.facet.plot(...)
 }</code></pre>
-<pre><code>## Error in unique(embryos.df$infectionDate): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## Error in make.facet.plot(...): &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 </div>
 </div>
@@ -3250,7 +3334,10 @@ save.facet.plot &lt;- function(data.df, infDate) {
 <pre class="r"><code># Call on save.facet.plot function now
 
 inf200704.plot &lt;- save.facet.plot(embryos.df, &quot;200704&quot;)</code></pre>
-<pre><code>## Error in filter(., infectionDate == ...): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `filter()`:[22m
+## [1m[22m[36mi[39m In argument: `infectionDate == ...`.
+## [1mCaused by error:[22m
+## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
 <pre class="r"><code># Look at the data
 head(inf200704.plot...)</code></pre>
 <pre><code>## Error in head(inf200704.plot...): object &#39;inf200704.plot...&#39; not found</code></pre>
@@ -3294,7 +3381,10 @@ these will be applied within your function.</p>
 happens if we simply forget to include a parameter.</p>
 <pre class="r"><code># Rerun our function without an infection date
 save.facet.plot(embryos.df)</code></pre>
-<pre><code>## Error in filter(., infectionDate == ...): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `filter()`:[22m
+## [1m[22m[36mi[39m In argument: `infectionDate == ...`.
+## [1mCaused by error:[22m
+## [33m![39m &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 <p>As you can see, our user-defined function throws an error when we
 neglect to provide an argument for the <code>infDate</code> parameter.
@@ -3357,7 +3447,8 @@ save.facet.plot &lt;- function(data.df, infDate = &quot;...&quot;) {
 }</code></pre>
 <pre class="r"><code># Rerun our function without an infection date
 save.facet.plot(embryos.df)</code></pre>
-<pre><code>## Error in filter(., infectionDate == infDate): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## [1m[33mError[39m in `combine_vars()`:[22m
+## [1m[22m[33m![39m Faceting variables must have at least one value.</code></pre>
 <hr />
 <p>What kind of structures would we use to make our
 <code>save.facet.plot()</code> function simply use the first available
@@ -3884,11 +3975,7 @@ save.facet.plot = function(data.df, infDate) {
 }</code></pre>
 <pre class="r"><code># save.facet.plot(embryos.df)[[2]]
 save.facet.plot(embryos.df, &quot;221019&quot;)[[2]]</code></pre>
-<pre><code>## Error: No infection date provided</code></pre>
-<pre><code>## substituting with a first-level value</code></pre>
-<pre><code>## Warning in levels(data.df$infectionDate): restarting interrupted promise
-## evaluation</code></pre>
-<pre><code>## Error in levels(data.df$infectionDate): object &#39;embryos.df&#39; not found</code></pre>
+<pre><code>## Error in save.facet.plot(embryos.df, &quot;221019&quot;): &#39;...&#39; used in an incorrect context</code></pre>
 <hr />
 <div class="alert alert-block alert-danger">
 <p><strong>Comprehension Question 3.0.0:</strong> As you saw in the last
@@ -4057,17 +4144,18 @@ can accomplish this with the <code>save()</code> command by providing a
 list of one or more objects to save.</p>
 <pre class="r"><code>print(ls())</code></pre>
 <pre><code>##  [1] &quot;a&quot;                   &quot;anything&quot;            &quot;currMod&quot;            
-##  [4] &quot;destinationDir&quot;      &quot;dexType&quot;             &quot;fname&quot;              
-##  [7] &quot;fout&quot;                &quot;get.log10&quot;           &quot;gitCred&quot;            
-## [10] &quot;githubDir&quot;           &quot;i&quot;                   &quot;lastMod&quot;            
-## [13] &quot;lectureDir&quot;          &quot;lectureName&quot;         &quot;mainDir&quot;            
-## [16] &quot;make.facet.plot&quot;     &quot;make.power&quot;          &quot;n&quot;                  
-## [19] &quot;numVector&quot;           &quot;originDir&quot;           &quot;pokemon&quot;            
-## [22] &quot;programmer&quot;          &quot;renderOut&quot;           &quot;repo&quot;               
-## [25] &quot;repoLocal&quot;           &quot;repoURL&quot;             &quot;result&quot;             
-## [28] &quot;save.facet.plot&quot;     &quot;set.facet.plot.data&quot; &quot;temp&quot;               
-## [31] &quot;termDir&quot;             &quot;termGit&quot;             &quot;timeout&quot;            
-## [34] &quot;variable&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
+##  [4] &quot;destinationDir&quot;      &quot;dexType&quot;             &quot;embryos.df&quot;         
+##  [7] &quot;fname&quot;               &quot;fout&quot;                &quot;get.log10&quot;          
+## [10] &quot;gitCred&quot;             &quot;githubDir&quot;           &quot;i&quot;                  
+## [13] &quot;lastMod&quot;             &quot;lectureDir&quot;          &quot;lectureName&quot;        
+## [16] &quot;mainDir&quot;             &quot;make.facet.plot&quot;     &quot;make.power&quot;         
+## [19] &quot;n&quot;                   &quot;numVector&quot;           &quot;originDir&quot;          
+## [22] &quot;pokemon&quot;             &quot;programmer&quot;          &quot;renderOut&quot;          
+## [25] &quot;repo&quot;                &quot;repoLocal&quot;           &quot;repoURL&quot;            
+## [28] &quot;result&quot;              &quot;save.facet.plot&quot;     &quot;set.facet.plot.data&quot;
+## [31] &quot;tally&quot;               &quot;temp&quot;                &quot;termDir&quot;            
+## [34] &quot;termGit&quot;             &quot;timeout&quot;             &quot;variable&quot;           
+## [37] &quot;x&quot;                   &quot;y&quot;</code></pre>
 <pre class="r"><code>save(inf200704.plot, subdata, ..., 
      file=&quot;./data/Lecture07.RData&quot;)   # Note the filetype we use to save data is &quot;RData&quot;</code></pre>
 <pre><code>## Error: &#39;...&#39; used in an incorrect context</code></pre>
@@ -4095,33 +4183,35 @@ our current memory with <code>rm()</code></p>
 # check that it&#39;s clear
 print(ls())</code></pre>
 <pre><code>##  [1] &quot;a&quot;                   &quot;anything&quot;            &quot;currMod&quot;            
-##  [4] &quot;destinationDir&quot;      &quot;dexType&quot;             &quot;fname&quot;              
-##  [7] &quot;fout&quot;                &quot;get.log10&quot;           &quot;gitCred&quot;            
-## [10] &quot;githubDir&quot;           &quot;i&quot;                   &quot;lastMod&quot;            
-## [13] &quot;lectureDir&quot;          &quot;lectureName&quot;         &quot;mainDir&quot;            
-## [16] &quot;make.facet.plot&quot;     &quot;make.power&quot;          &quot;n&quot;                  
-## [19] &quot;numVector&quot;           &quot;originDir&quot;           &quot;pokemon&quot;            
-## [22] &quot;programmer&quot;          &quot;renderOut&quot;           &quot;repo&quot;               
-## [25] &quot;repoLocal&quot;           &quot;repoURL&quot;             &quot;result&quot;             
-## [28] &quot;save.facet.plot&quot;     &quot;set.facet.plot.data&quot; &quot;temp&quot;               
-## [31] &quot;termDir&quot;             &quot;termGit&quot;             &quot;timeout&quot;            
-## [34] &quot;variable&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
+##  [4] &quot;destinationDir&quot;      &quot;dexType&quot;             &quot;embryos.df&quot;         
+##  [7] &quot;fname&quot;               &quot;fout&quot;                &quot;get.log10&quot;          
+## [10] &quot;gitCred&quot;             &quot;githubDir&quot;           &quot;i&quot;                  
+## [13] &quot;lastMod&quot;             &quot;lectureDir&quot;          &quot;lectureName&quot;        
+## [16] &quot;mainDir&quot;             &quot;make.facet.plot&quot;     &quot;make.power&quot;         
+## [19] &quot;n&quot;                   &quot;numVector&quot;           &quot;originDir&quot;          
+## [22] &quot;pokemon&quot;             &quot;programmer&quot;          &quot;renderOut&quot;          
+## [25] &quot;repo&quot;                &quot;repoLocal&quot;           &quot;repoURL&quot;            
+## [28] &quot;result&quot;              &quot;save.facet.plot&quot;     &quot;set.facet.plot.data&quot;
+## [31] &quot;tally&quot;               &quot;temp&quot;                &quot;termDir&quot;            
+## [34] &quot;termGit&quot;             &quot;timeout&quot;             &quot;variable&quot;           
+## [37] &quot;x&quot;                   &quot;y&quot;</code></pre>
 <pre class="r"><code># reload it all
 ...(&quot;./data/Lecture07.all.RData&quot;)</code></pre>
 <pre><code>## Error in ...(&quot;./data/Lecture07.all.RData&quot;): could not find function &quot;...&quot;</code></pre>
 <pre class="r"><code>print(ls())</code></pre>
 <pre><code>##  [1] &quot;a&quot;                   &quot;anything&quot;            &quot;currMod&quot;            
-##  [4] &quot;destinationDir&quot;      &quot;dexType&quot;             &quot;fname&quot;              
-##  [7] &quot;fout&quot;                &quot;get.log10&quot;           &quot;gitCred&quot;            
-## [10] &quot;githubDir&quot;           &quot;i&quot;                   &quot;lastMod&quot;            
-## [13] &quot;lectureDir&quot;          &quot;lectureName&quot;         &quot;mainDir&quot;            
-## [16] &quot;make.facet.plot&quot;     &quot;make.power&quot;          &quot;n&quot;                  
-## [19] &quot;numVector&quot;           &quot;originDir&quot;           &quot;pokemon&quot;            
-## [22] &quot;programmer&quot;          &quot;renderOut&quot;           &quot;repo&quot;               
-## [25] &quot;repoLocal&quot;           &quot;repoURL&quot;             &quot;result&quot;             
-## [28] &quot;save.facet.plot&quot;     &quot;set.facet.plot.data&quot; &quot;temp&quot;               
-## [31] &quot;termDir&quot;             &quot;termGit&quot;             &quot;timeout&quot;            
-## [34] &quot;variable&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
+##  [4] &quot;destinationDir&quot;      &quot;dexType&quot;             &quot;embryos.df&quot;         
+##  [7] &quot;fname&quot;               &quot;fout&quot;                &quot;get.log10&quot;          
+## [10] &quot;gitCred&quot;             &quot;githubDir&quot;           &quot;i&quot;                  
+## [13] &quot;lastMod&quot;             &quot;lectureDir&quot;          &quot;lectureName&quot;        
+## [16] &quot;mainDir&quot;             &quot;make.facet.plot&quot;     &quot;make.power&quot;         
+## [19] &quot;n&quot;                   &quot;numVector&quot;           &quot;originDir&quot;          
+## [22] &quot;pokemon&quot;             &quot;programmer&quot;          &quot;renderOut&quot;          
+## [25] &quot;repo&quot;                &quot;repoLocal&quot;           &quot;repoURL&quot;            
+## [28] &quot;result&quot;              &quot;save.facet.plot&quot;     &quot;set.facet.plot.data&quot;
+## [31] &quot;tally&quot;               &quot;temp&quot;                &quot;termDir&quot;            
+## [34] &quot;termGit&quot;             &quot;timeout&quot;             &quot;variable&quot;           
+## [37] &quot;x&quot;                   &quot;y&quot;</code></pre>
 <hr />
 </div>
 <div id="one-last-code-cell-to-run" class="section level2">
